@@ -20,7 +20,3 @@ final class TestCaseTest extends ShipTestCase
         $this->assertInstanceOf(Application::class, $application);
     }
 }
-
-class FakeTestCase extends TestCase
-{
-}

@@ -25,5 +25,6 @@ abstract class RouteServiceProvider extends AbstractRouteServiceProvider
      */
     protected function configureRateLimiting(): void
     {
+        // This is where you can define your rate limiters.
     }
 }
