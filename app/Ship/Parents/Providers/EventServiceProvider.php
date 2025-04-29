@@ -23,5 +23,6 @@ abstract class EventServiceProvider extends AbstractEventServiceProvider
     #[\Override]
     public function boot(): void
     {
+        // Register your events here
     }
 }

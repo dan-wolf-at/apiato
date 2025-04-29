@@ -138,6 +138,11 @@
         <severity>0</severity>
         <exclude-pattern>*</exclude-pattern>
     </rule>
+
+    <rule ref="Squiz.Classes.ValidClassName">
+        <exclude-pattern>app/Containers/*/*/Data/Seeders/*Seeder_\d+.php</exclude-pattern>
+    </rule>
+
     <!--
         Group: Exclusion
         Documentation: https://www.php-fig.org/psr/psr-1/
