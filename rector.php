@@ -75,13 +75,13 @@ return RectorConfig::configure()
         SetList::EARLY_RETURN,
         SetList::STRICT_BOOLEANS,
 
-        LevelSetList::UP_TO_PHP_83,
+        LevelSetList::UP_TO_PHP_82,
         LaravelLevelSetList::UP_TO_LARAVEL_100,
         LaravelSetList::LARAVEL_100,
         LaravelSetList::LARAVEL_CODE_QUALITY,
         LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
     ])
-    ->withPhpVersion(PhpVersion::PHP_83)
+    ->withPhpVersion(PhpVersion::PHP_82)
     ->withPaths([
         __DIR__ . '/app',
         __DIR__ . '/database',
