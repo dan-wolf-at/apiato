@@ -35,6 +35,7 @@ return RectorConfig::configure()
         // ensure file system caching is used instead of in-memory
         cacheClass: FileCacheStorage::class
     )
+    ->withRootFiles()
     // https://getrector.com/documentation/troubleshooting-parallel
     ->withParallel(360, 2, 40)
     ->withImportNames(importDocBlockNames: false, importShortClasses: false)
@@ -87,6 +88,8 @@ return RectorConfig::configure()
         __DIR__ . '/database',
     ])
     ->withSkip([
+        __DIR__ . '/app/Containers/Vendor/*',
+
         SimplifyBoolIdenticalTrueRector::class, // it's breaks the Routers
         IsCountableRector::class, // this rule does not fit, a lot of where it goes wrong
         RestoreDefaultNullToNullableTypePropertyRector::class, // don't work with DTO nullable parameter
@@ -107,10 +110,5 @@ return RectorConfig::configure()
         //        WAITING FIX
         MakeInheritedMethodVisibilitySameAsParentRector::class,
         RemoveParentCallWithoutParentRector::class,
-
-        //        THINKING LARAVEL
-//        ModelCastsPropertyToCastsMethodRector::class,
-//        MigrateToSimplifiedAttributeRector::class,
     ])
-    ->withFileExtensions(['php'])
-    ;
+    ->withFileExtensions(['php']);
