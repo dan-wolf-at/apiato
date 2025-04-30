@@ -9,6 +9,8 @@ use Apiato\Core\Abstracts\Providers\MainServiceProvider as AbstractMainServicePr
 /**
  * Class MainServiceProvider.
  * A.K.A. app/Providers/AppServiceProvider.php.
+ *
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
  */
 abstract class MainServiceProvider extends AbstractMainServiceProvider
 {

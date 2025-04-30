@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  * @template TModel of Model
  *
  * @extends AbstractFactory<TModel>
+ *
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
  */
 abstract class Factory extends AbstractFactory
 {

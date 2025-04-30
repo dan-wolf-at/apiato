@@ -6,6 +6,9 @@ namespace App\Ship\Parents\Notifications;
 
 use Apiato\Core\Abstracts\Notifications\Notification as AbstractNotification;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 class Notification extends AbstractNotification
 {
 }

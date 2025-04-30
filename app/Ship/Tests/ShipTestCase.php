@@ -6,6 +6,9 @@ namespace App\Ship\Tests;
 
 use App\Ship\Parents\Tests\TestCase as ParentTestCase;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 class ShipTestCase extends ParentTestCase
 {
 }

@@ -6,6 +6,9 @@ namespace App\Ship\Parents\Seeders;
 
 use Apiato\Core\Abstracts\Seeders\Seeder as AbstractSeeder;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 abstract class Seeder extends AbstractSeeder
 {
 }

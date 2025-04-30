@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @template TModel of Model
  *
  * @extends AbstractEloquentCollection<TKey, TModel>
+ *
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
  */
 abstract class EloquentCollection extends AbstractEloquentCollection
 {
