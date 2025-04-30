@@ -21,9 +21,6 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  */
 final class MockObjectStaticToInstanceCallRector extends AbstractRector implements MinPhpVersionInterface
 {
-    /**
-     * @var array<string>
-     */
     private const MOCK_METHODS = ['any', 'once', 'never', 'atLeast', 'atLeastOnce', 'atMost', 'exactly'];
 
     public function __construct(
