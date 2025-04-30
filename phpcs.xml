@@ -72,8 +72,8 @@
     -->
     <rule ref="Generic.Metrics.CyclomaticComplexity">
         <properties>
-            <property name="complexity" value="10"/>
-            <property name="absoluteComplexity" value="20"/>
+            <property name="complexity" value="7"/>
+            <property name="absoluteComplexity" value="14"/>
         </properties>
     </rule>
     <rule ref="Generic.Metrics.CyclomaticComplexity.TooHigh">
@@ -782,6 +782,4 @@
     </rule>
     <!-- https://github.com/slevomat/coding-standard/blob/master/doc/operators.md#slevomatcodingstandardfunctionsrequiretrailingcommainclosureuse- -->
     <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInClosureUse"/>
-
-<!--    <rule ref="SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation.ImplicitArrayCreationUsed"/>-->
 </ruleset>

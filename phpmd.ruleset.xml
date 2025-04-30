@@ -12,6 +12,7 @@
     <exclude-pattern>vendor/*</exclude-pattern>
     <exclude-pattern>app/Containers/Vendor/*</exclude-pattern>
     <exclude-pattern>app/Containers/AppSection/*/Tests/*</exclude-pattern>
+    <exclude-pattern>app/Ship/Tests/Unit/*</exclude-pattern>
     <exclude-pattern>app/Containers/AppSection/*/Data/Seeders/*</exclude-pattern>
     <exclude-pattern>database/migrations/*</exclude-pattern>
     <exclude-pattern>database/seeders/*</exclude-pattern>
@@ -69,8 +70,13 @@
     </rule>
 
     <rule ref="rulesets/codesize.xml/ExcessiveParameterList">
-        <priority>2</priority>
-        <properties><property name="minimum" value="6"/></properties>
+        <priority>1</priority>
+        <properties><property name="minimum" value="5"/></properties>
+    </rule>
+
+    <rule ref="rulesets/codesize.xml/TooManyFields">
+        <priority>1</priority>
+        <properties><property name="minimum" value="5"/></properties>
     </rule>
 
     <rule ref="rulesets/naming.xml">
