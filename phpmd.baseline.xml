@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<phpmd-baseline>
+  <violation rule="PHPMD\Rule\Controversial\CamelCaseVariableName" file="app/Containers/AppSection/Authentication/Notifications/VerifyEmail.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCaseVariableName" file="app/Containers/AppSection/Authorization/Actions/RemoveUserRolesAction.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCasePropertyName" file="app/Containers/AppSection/Authorization/Models/Permission.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCasePropertyName" file="app/Containers/AppSection/Authorization/Models/Role.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionAdminTransformer.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Containers/AppSection/Authorization/UI/API/Transformers/RoleAdminTransformer.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCaseVariableName" file="app/Containers/AppSection/User/UI/CLI/Commands/CreateAdminCommand.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="app/Ship/Exceptions/Handlers/ExceptionsHandler.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Commands/HelloWorldCommandTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Configs/ApiatoConfigTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Configs/DebugBarConfigTest.php"/>
+  <violation rule="PHPMD\Rule\Design\LongMethod" file="app/Ship/Tests/Unit/Configs/DebugBarConfigTest.php" method="testConfigHasCorrectValues"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Configs/FractalConfigTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Configs/HashIdsConfigTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Configs/IdeHelperConfigTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Configs/NotificationConfigTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Configs/RepositoryConfigTest.php"/>
+  <violation rule="PHPMD\Rule\Design\LongMethod" file="app/Ship/Tests/Unit/Configs/RepositoryConfigTest.php" method="testConfigHasCorrectValues"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/CreatedTodayCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/IsNullCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/OrderByCreationDateAscendingCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/OrderByCreationDateDescendingCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/OrderByFieldCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/OrderByNameCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/OrderByUpdateDateAscendingCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/OrderByUpdateDateDescendingCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/ThisBetweenDatesCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/ThisEqualThatCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/ThisLikeThatCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Criterias/ThisUserCriteriaTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/AccessDeniedExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/CreateResourceFailedExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/DeleteResourceFailedExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/InternalErrorExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/NotFoundExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/NotImplementedExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/UnSupportedFractalSerializerExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/UpdateResourceFailedExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Exceptions/ValidationFailedExceptionTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/GenerateDocumentationTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Migrations/ShipMigrationTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Parents/Models/UserModelTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Parents/Policies/FakeUser.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Parents/Policies/PolicyTest.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Ship/Tests/Unit/Parents/Tests/TestCaseTest.php"/>
+</phpmd-baseline>

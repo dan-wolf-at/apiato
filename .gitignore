@@ -13,6 +13,9 @@ _ide_helper_models.php
 .php-cs-fixer.cache
 .phpcs-cache
 /psalm_cache/
+coverage.xml
+.phpmd.result-cache.php
+package-lock.json
 /app/Containers/Vendor
 .DS_Store
 

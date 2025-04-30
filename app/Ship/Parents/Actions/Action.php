@@ -6,6 +6,9 @@ namespace App\Ship\Parents\Actions;
 
 use Apiato\Core\Abstracts\Actions\Action as AbstractAction;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 abstract class Action extends AbstractAction
 {
 }

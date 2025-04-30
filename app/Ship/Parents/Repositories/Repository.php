@@ -17,6 +17,8 @@ use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
  * @template TModel of Model
+ *
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
  */
 abstract class Repository extends AbstractRepository
 {

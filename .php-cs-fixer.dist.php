@@ -16,15 +16,6 @@ if ($isVSCodeRun === false) {
         ->name('*.php')
         ->notName(['*.blade.php', '_*'])
         ->exclude([
-                'bootstrap',
-                'config',
-                'docker',
-                'make',
-                'public',
-                'resources',
-                'routes',
-                'storage',
-                'vendor',
                 'Containers/Vendor'
             ]
         )

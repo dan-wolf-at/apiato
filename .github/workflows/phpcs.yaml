@@ -1,4 +1,4 @@
-name: "Linter - PHP-CS-Fixer"
+name: "Linter - PHP_CodeSniffer"
 
 on:
   push:
@@ -14,8 +14,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  php-cs-fixer:
-    name: PHP-CS-Fixer
+  phpcs:
+    name: PHP_CodeSniffer
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -35,18 +35,18 @@ jobs:
       - name: Copy environment file for Composer
         run: cp .env.ci .env
 
-      - name: Cache PHP-CS-Fixer results
+      - name: Cache PHPCS results
         uses: actions/cache@v4
         with:
-          path: .php-cs-fixer.cache
-          key: ${{ runner.os }}-php-cs-fixer-${{ github.sha }}
+          path: .phpcs-cache
+          key: ${{ runner.os }}-phpcs-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-php-cs-fixer-
+            ${{ runner.os }}-phpcs-
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v3
         with:
           composer-options: --prefer-dist
 
-      - name: Run PHP-CS-Fixer
-        run: vendor/bin/php-cs-fixer fix --dry-run --diff --allow-risky=yes --using-cache=yes --ansi -vv
+      - name: Run PHP_CodeSniffer
+        run: vendor/bin/phpcs -p --error-severity=1 --warning-severity=6 --colors --cache=.phpcs-cache

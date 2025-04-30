@@ -6,6 +6,9 @@ namespace App\Ship\Parents\Criterias;
 
 use Apiato\Core\Abstracts\Criterias\Criteria as AbstractCriteria;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 abstract class Criteria extends AbstractCriteria
 {
 }

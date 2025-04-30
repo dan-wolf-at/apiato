@@ -6,6 +6,9 @@ namespace App\Ship\Parents\Controllers;
 
 use Apiato\Core\Abstracts\Controllers\ApiController as AbstractApiController;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 abstract class ApiController extends AbstractApiController
 {
 }
