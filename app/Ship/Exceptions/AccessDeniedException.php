@@ -9,7 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AccessDeniedException extends Exception
 {
+    /**
+     * @var int
+     */
     protected $code = Response::HTTP_FORBIDDEN;
 
+    /**
+     * @var string
+     */
     protected $message = 'This action is unauthorized.';
 }

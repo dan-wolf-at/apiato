@@ -7,12 +7,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
 
 		-
-			message: '#^Parameter \#1 \$jwt of method Lcobucci\\JWT\\Parser\:\:parse\(\) expects non\-empty\-string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authentication\\UI\\API\\Requests\\RegisterUserRequest\:\:\$verification_url\.$#'
 			identifier: property.notFound
 			count: 1
@@ -50,12 +44,6 @@ parameters:
 
 		-
 			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Guard\:\:attempt\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Http\\RedirectResponse\|Illuminate\\Routing\\Redirector\:\:intended\(\)\.$#'
 			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
@@ -121,42 +109,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
 
 		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Exceptions\\InvalidEmailVerificationDataException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Containers/AppSection/Authentication/Exceptions/InvalidEmailVerificationDataException.php
-
-		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Exceptions\\InvalidEmailVerificationDataException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Containers/AppSection/Authentication/Exceptions/InvalidEmailVerificationDataException.php
-
-		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Exceptions\\InvalidResetPasswordTokenException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Containers/AppSection/Authentication/Exceptions/InvalidResetPasswordTokenException.php
-
-		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Exceptions\\InvalidResetPasswordTokenException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Containers/AppSection/Authentication/Exceptions/InvalidResetPasswordTokenException.php
-
-		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Exceptions\\LoginFailedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Containers/AppSection/Authentication/Exceptions/LoginFailedException.php
-
-		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Exceptions\\LoginFailedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Containers/AppSection/Authentication/Exceptions/LoginFailedException.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 2
@@ -167,30 +119,6 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Mails/ForgotPassword.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Http\\RedirectResponse\|Illuminate\\Routing\\Redirector\:\:action\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Middlewares/RedirectIfAuthenticated.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\Authentication\\Notifications\\EmailVerified\:\:via\(\) has parameter \$notifiable with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/Containers/AppSection/Authentication/Notifications/EmailVerified.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\Authentication\\Notifications\\PasswordReset\:\:via\(\) has parameter \$notifiable with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/Containers/AppSection/Authentication/Notifications/PasswordReset.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\Authentication\\Notifications\\VerifyEmail\:\:via\(\) has parameter \$notifiable with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/Containers/AppSection/Authentication/Notifications/VerifyEmail.php
 
 		-
 			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
@@ -205,52 +133,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Notifications/Welcome.php
 
 		-
-			message: '#^Method App\\Containers\\AppSection\\Authentication\\Notifications\\Welcome\:\:via\(\) has parameter \$notifiable with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/Containers/AppSection/Authentication/Notifications/Welcome.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
 			identifier: if.condNotBoolean
 			count: 1
 			path: app/Containers/AppSection/Authentication/Providers/AuthServiceProvider.php
-
-		-
-			message: '#^Cannot access offset ''access_token'' on array\|bool\|float\|int\|object\|string\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tasks/CallOAuthServerTask.php
-
-		-
-			message: '#^Cannot access offset ''expires_in'' on array\|bool\|float\|int\|object\|string\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tasks/CallOAuthServerTask.php
-
-		-
-			message: '#^Cannot access offset ''message'' on array\|bool\|float\|int\|object\|string\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tasks/CallOAuthServerTask.php
-
-		-
-			message: '#^Cannot access offset ''refresh_token'' on array\|bool\|float\|int\|object\|string\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tasks/CallOAuthServerTask.php
-
-		-
-			message: '#^Cannot access offset ''token_type'' on array\|bool\|float\|int\|object\|string\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tasks/CallOAuthServerTask.php
-
-		-
-			message: '#^Parameter \#1 \$json of static method GuzzleHttp\\Utils\:\:jsonDecode\(\) expects string, string\|false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tasks/CallOAuthServerTask.php
 
 		-
 			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
@@ -279,12 +165,6 @@ parameters:
 		-
 			message: '#^Dynamic call to static method Symfony\\Component\\HttpFoundation\\Response\:\:getContent\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RefreshProxyForWebClientTest.php
-
-		-
-			message: '#^Parameter \#1 \$json of function json_decode expects string, string\|false given\.$#'
-			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RefreshProxyForWebClientTest.php
 
@@ -547,18 +427,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\|Illuminate\\Contracts\\Auth\\Guard\:\:user\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:getKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -586,12 +454,6 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
-
-		-
-			message: '#^Parameter \#1 \$exception of method PHPUnit\\Framework\\TestCase\:\:expectException\(\) expects class\-string\<Throwable\>, string given\.$#'
-			identifier: argument.type
-			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
 
 		-
@@ -793,12 +655,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
 
 		-
-			message: '#^Access to an undefined property object\:\:\$token\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -823,12 +679,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\|Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -837,6 +687,12 @@ parameters:
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, Illuminate\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
 
@@ -1153,34 +1009,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/TokenTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Routing\\ResponseFactory\|Illuminate\\Http\\Response\:\:json\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: app/Containers/AppSection/Authentication/UI/API/Controllers/WelcomeController.php
-
-		-
 			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
 			identifier: ternary.condNotBoolean
 			count: 1
 			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\Authentication\\UI\\WEB\\Controllers\\HomePageController\:\:__invoke\(\) should return Illuminate\\Contracts\\View\\View but returns Illuminate\\Contracts\\View\\Factory\|Illuminate\\Contracts\\View\\View\.$#'
-			identifier: return.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/UI/WEB/Controllers/HomePageController.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\Authentication\\UI\\WEB\\Controllers\\LoginPageController\:\:__invoke\(\) should return Illuminate\\Contracts\\View\\View but returns Illuminate\\Contracts\\View\\Factory\|Illuminate\\Contracts\\View\\View\.$#'
-			identifier: return.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/UI/WEB/Controllers/LoginPageController.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Http\\RedirectResponse\|Illuminate\\Routing\\Redirector\:\:action\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/UI/WEB/Controllers/LogoutController.php
 
 		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\AssignRolesToUserRequest\:\:\$role_ids\.$#'
@@ -1369,9 +1201,9 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Actions/SyncUserRolesAction.php
 
 		-
-			message: '#^Method App\\Containers\\AppSection\\Authorization\\Data\\Criterias\\WhereGuardCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Containers\\AppSection\\Authorization\\Data\\Criterias\\WhereGuardCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
 			path: app/Containers/AppSection/Authorization/Data/Criterias/WhereGuardCriteria.php
 
 		-
@@ -1415,24 +1247,6 @@ parameters:
 			identifier: booleanOr.rightNotBoolean
 			count: 2
 			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
-
-		-
-			message: '#^Parameter \#1 \$guard of method App\\Containers\\AppSection\\Authorization\\Data\\Repositories\\PermissionRepository\<App\\Containers\\AppSection\\Authorization\\Models\\Permission\>\:\:whereGuard\(\) expects string\|null, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authorization/Data/Seeders/AuthorizationGivePermissionsToRolesSeeder_3.php
-
-		-
-			message: '#^Parameter \$guardName of method App\\Containers\\AppSection\\Authorization\\Tasks\\CreatePermissionTask\:\:run\(\) expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 5
-			path: app/Containers/AppSection/Authorization/Data/Seeders/AuthorizationPermissionsSeeder_1.php
-
-		-
-			message: '#^Parameter \#4 \$guardName of method App\\Containers\\AppSection\\Authorization\\Tasks\\CreateRoleTask\:\:run\(\) expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authorization/Data/Seeders/AuthorizationRolesSeeder_2.php
 
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
@@ -2119,12 +1933,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Repositories/RoleRepositoryTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector\:\:once\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationDefaultUsersSeederTest.php
-
-		-
 			message: '#^PHPDoc tag @var with type Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector is not subtype of type Mockery\\Expectation\.$#'
 			identifier: varTag.type
 			count: 1
@@ -2149,22 +1957,10 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationGivePermissionsToRolesSeederTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector\:\:withArgs\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationPermissionsSeederTest.php
-
-		-
 			message: '#^PHPDoc tag @var with type Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector is not subtype of type Mockery\\Expectation\.$#'
 			identifier: varTag.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationPermissionsSeederTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector\:\:withArgs\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationRolesSeederTest.php
 
 		-
 			message: '#^PHPDoc tag @var with type Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector is not subtype of type Mockery\\Expectation\.$#'
@@ -2929,12 +2725,6 @@ parameters:
 			path: app/Containers/AppSection/User/Actions/CreateAdminAction.php
 
 		-
-			message: '#^Parameter \#2 \$guardName of method App\\Containers\\AppSection\\Authorization\\Tasks\\FindRoleTask\:\:run\(\) expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Actions/CreateAdminAction.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\UI\\API\\Requests\\DeleteUserRequest\:\:\$user_id\.$#'
 			identifier: property.notFound
 			count: 1
@@ -2971,28 +2761,10 @@ parameters:
 			path: app/Containers/AppSection/User/Data/Factories/UserFactory.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\|static\(App\\Containers\\AppSection\\User\\Models\\User\)\:\:first\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orWhereRaw\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Models/User.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\|static\(App\\Containers\\AppSection\\User\\Models\\User\)\:\:orWhereRaw\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Models/User.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\User\\Models\\User\:\:findForPassport\(\) should return App\\Containers\\AppSection\\User\\Models\\User\|null but returns object\|null\.$#'
-			identifier: return.type
-			count: 1
-			path: app/Containers/AppSection/User/Models/User.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\User\\Notifications\\PasswordUpdatedNotification\:\:via\(\) has parameter \$notifiable with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/Containers/AppSection/User/Notifications/PasswordUpdatedNotification.php
 
 		-
 			message: '#^Dead catch \- Illuminate\\Database\\Eloquent\\ModelNotFoundException is never thrown in the try block\.$#'
@@ -3145,12 +2917,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
 
 		-
-			message: '#^Cannot call method expectsQuestion\(\) on Illuminate\\Testing\\PendingCommand\|int\.$#'
-			identifier: method.nonObject
-			count: 3
-			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -3211,12 +2977,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\|Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -3225,6 +2985,12 @@ parameters:
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, Illuminate\\Database\\Eloquent\\Model given\.$#'
+			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
 
@@ -3925,166 +3691,562 @@ parameters:
 			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
 
 		-
-			message: '#^Undefined variable\: \$this$#'
-			identifier: variable.undefined
-			count: 1
-			path: app/Ship/Commands/closures.php
-
-		-
 			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
 			identifier: ternary.shortNotAllowed
 			count: 1
 			path: app/Ship/Configs/debugbar.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\CreatedTodayCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\BelongsToRelationCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/BelongsToRelationCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\CountCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/CountCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\CreatedTodayCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
 			path: app/Ship/Criterias/CreatedTodayCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\GroupByCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:groupBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/GroupByCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\IsNullCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\GroupByCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/GroupByCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\GroupByCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/GroupByCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereNull\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/IsNullCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\NotNullCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\IsNullCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/IsNullCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\IsNullCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/IsNullCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:limit\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/LimitCriteria.php
+
+		-
+			message: '#^Method App\\Ship\\Criterias\\LimitCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/LimitCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\LimitCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/LimitCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:selectRaw\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/MinCriteria.php
+
+		-
+			message: '#^Method App\\Ship\\Criterias\\MinCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/MinCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\MinCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/MinCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereNotNull\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/NotNullCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByCreationDateAscendingCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\NotNullCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/NotNullCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\NotNullCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/NotNullCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByCreationDateDescendingCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\OrderByCreationDateAscendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByCreationDateAscendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByFieldCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\OrderByCreationDateDescendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByCreationDateDescendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/OrderByFieldCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByNameCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\OrderByFieldCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/OrderByFieldCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByFieldCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByFieldCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/OrderByNameCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByUpdateDateAscendingCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\OrderByNameCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/OrderByNameCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByNameCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByNameCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderByRaw\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Method App\\Ship\\Criterias\\OrderBySeveralFieldsCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderBySeveralFieldsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Parameter \#2 \$bindings of method Illuminate\\Database\\Query\\Builder\:\:orderByRaw\(\) expects array, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByUpdateDateDescendingCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\OrderByUpdateDateAscendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByUpdateDateAscendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\ThisBetweenDatesCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\OrderByUpdateDateDescendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByUpdateDateDescendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:select\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
+
+		-
+			message: '#^Method App\\Ship\\Criterias\\SelectDistinctTableCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\SelectDistinctTableCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:select\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/SelectTableCriteria.php
+
+		-
+			message: '#^Method App\\Ship\\Criterias\\SelectTableCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/SelectTableCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\SelectTableCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/SelectTableCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereBetween\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/ThisBetweenDatesCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\ThisEqualThatCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\ThisBetweenDatesCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
 			count: 1
+			path: app/Ship/Criterias/ThisBetweenDatesCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisBetweenDatesCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisBetweenDatesCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisEqualThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
 			path: app/Ship/Criterias/ThisEqualThatCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\ThisLikeThatCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisGreaterThanColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisGreaterThanColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisGreaterThanOrEqualColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisGreaterThanOrEqualColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisLessThanColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisLessThanColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisLessThanOrEqualColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisLessThanOrEqualColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisLikeThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
 			path: app/Ship/Criterias/ThisLikeThatCriteria.php
 
 		-
-			message: '#^Parameter \#1 \$separator of function explode expects non\-empty\-string, string given\.$#'
-			identifier: argument.type
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereIn\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
-			path: app/Ship/Criterias/ThisLikeThatCriteria.php
+			path: app/Ship/Criterias/ThisMatchListThat.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\ThisUserCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
-			identifier: missingType.parameter
+			message: '#^Method App\\Ship\\Criterias\\ThisMatchListThat\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
 			count: 1
+			path: app/Ship/Criterias/ThisMatchListThat.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisMatchListThat\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisMatchListThat.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisNotEqualThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisNotEqualThatCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereIn\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/ThisNotMatchListThat.php
+
+		-
+			message: '#^Method App\\Ship\\Criterias\\ThisNotMatchListThat\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/ThisNotMatchListThat.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisNotMatchListThat\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisNotMatchListThat.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\:\:onlyTrashed\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Ship/Criterias/ThisOnlyTrashedCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisOnlyTrashedCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisOnlyTrashedCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisUserCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
 			path: app/Ship/Criterias/ThisUserCriteria.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\AccessDeniedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereIn\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
-			path: app/Ship/Exceptions/AccessDeniedException.php
+			path: app/Ship/Criterias/ThisUsersCriteria.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\AccessDeniedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^Method App\\Ship\\Criterias\\ThisUsersCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
 			count: 1
-			path: app/Ship/Exceptions/AccessDeniedException.php
+			path: app/Ship/Criterias/ThisUsersCriteria.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\CreateResourceFailedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc tag @param for parameter \$userIds with type array\<int\>\|int is not subtype of native type array\.$#'
+			identifier: parameter.phpDocType
 			count: 1
-			path: app/Ship/Exceptions/CreateResourceFailedException.php
+			path: app/Ship/Criterias/ThisUsersCriteria.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\CreateResourceFailedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type for property App\\Ship\\Criterias\\ThisUsersCriteria\:\:\$userIds with type array\<int\>\|int is not subtype of native type array\.$#'
+			identifier: property.phpDocType
 			count: 1
-			path: app/Ship/Exceptions/CreateResourceFailedException.php
+			path: app/Ship/Criterias/ThisUsersCriteria.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\DeleteResourceFailedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Ship/Exceptions/DeleteResourceFailedException.php
-
-		-
-			message: '#^Property App\\Ship\\Exceptions\\DeleteResourceFailedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Ship/Exceptions/DeleteResourceFailedException.php
-
-		-
-			message: '#^Property App\\Ship\\Exceptions\\EmailIsMissedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Ship/Exceptions/EmailIsMissedException.php
-
-		-
-			message: '#^Property App\\Ship\\Exceptions\\EmailIsMissedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
-			count: 1
-			path: app/Ship/Exceptions/EmailIsMissedException.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Routing\\ResponseFactory\|Illuminate\\Http\\Response\:\:json\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Ship/Exceptions/Handlers/ExceptionsHandler.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Http\\RedirectResponse\|Illuminate\\Routing\\Redirector\:\:guest\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisUsersCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
 			count: 2
-			path: app/Ship/Exceptions/Handlers/ExceptionsHandler.php
+			path: app/Ship/Criterias/ThisUsersCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisWhereOrWhereThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisWhereOrWhereThatCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereDoesntHaveCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereDoesntHaveCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereNull\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/WhereHasNullCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereHasNullCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereHasNullCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereJsonContains\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/WhereJsonContainsCriteria.php
+
+		-
+			message: '#^Method App\\Ship\\Criterias\\WhereJsonContainsCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Criterias/WhereJsonContainsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereJsonContainsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereJsonContainsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereNestedCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereNestedCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithAvgRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithAvgRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithCountRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithCountRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithExistsRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithExistsRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithQueryCastsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithQueryCastsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithoutRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithoutRelationsCriteria.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\AccessDeniedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/AccessDeniedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\AccessDeniedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/AccessDeniedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\CreateResourceFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/CreateResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\CreateResourceFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/CreateResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\DeleteResourceFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/DeleteResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\DeleteResourceFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/DeleteResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\EmailIsMissedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/EmailIsMissedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\EmailIsMissedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/EmailIsMissedException.php
 
 		-
 			message: '#^Casting to int something that''s already int\.$#'
@@ -4093,88 +4255,76 @@ parameters:
 			path: app/Ship/Exceptions/Handlers/ExceptionsHandler.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\InternalErrorException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\InternalErrorException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/InternalErrorException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\InternalErrorException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\InternalErrorException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/InternalErrorException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\NotFoundException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\NotFoundException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/NotFoundException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\NotFoundException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\NotFoundException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/NotFoundException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\NotImplementedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\NotImplementedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/NotImplementedException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\NotImplementedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\NotImplementedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/NotImplementedException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\UnsupportedFractalSerializerException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\UnsupportedFractalSerializerException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/UnsupportedFractalSerializerException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\UnsupportedFractalSerializerException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\UnsupportedFractalSerializerException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/UnsupportedFractalSerializerException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\UpdateResourceFailedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\UpdateResourceFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/UpdateResourceFailedException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\UpdateResourceFailedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\UpdateResourceFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/UpdateResourceFailedException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\ValidationFailedException\:\:\$code has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\ValidationFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/ValidationFailedException.php
 
 		-
-			message: '#^Property App\\Ship\\Exceptions\\ValidationFailedException\:\:\$message has no type specified\.$#'
-			identifier: missingType.property
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\ValidationFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
 			count: 1
 			path: app/Ship/Exceptions/ValidationFailedException.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\|Illuminate\\Contracts\\Auth\\Guard\:\:guard\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Ship/Helpers/helpers.php
-
-		-
-			message: '#^Function activeGuard\(\) should return string\|null but returns int\|string\.$#'
-			identifier: return.type
-			count: 1
-			path: app/Ship/Helpers/helpers.php
 
 		-
 			message: '#^Method App\\Ship\\Linters\\Rector\\MockObjectStaticToInstanceCallRector\:\:provideMinPhpVersion\(\) never returns 100000 so it can be removed from the return type\.$#'
@@ -4279,8 +4429,26 @@ parameters:
 			path: app/Ship/Linters/Rector/MockObjectStaticToInstanceCallRector.php
 
 		-
+			message: '#^Method App\\Ship\\Parents\\Actions\\Action\:\:transactionInterceptor\(\) should return static\(App\\Ship\\Parents\\Actions\\Action\) but returns class@anonymous/app/Ship/Parents/Traits/TransactionInterceptorTrait\.php\:27\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Ship/Parents/Actions/Action.php
+
+		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
 			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Actions/Action.php
+
+		-
+			message: '#^PHPDoc tag @var with type App\\Ship\\Parents\\Actions\\Action is not subtype of native type \$this\(App\\Ship\\Parents\\Actions\\Action\)\.$#'
+			identifier: varTag.nativeType
+			count: 1
+			path: app/Ship/Parents/Actions/Action.php
+
+		-
+			message: '#^Variable method call on object\.$#'
+			identifier: method.dynamicName
 			count: 1
 			path: app/Ship/Parents/Actions/Action.php
 
@@ -4331,6 +4499,12 @@ parameters:
 			identifier: phpDoc.parseError
 			count: 1
 			path: app/Ship/Parents/Notifications/Notification.php
+
+		-
+			message: '#^PHPDoc type array\<class\-string, array\<int, class\-string\>\> of property App\\Ship\\Parents\\Providers\\EventServiceProvider\:\:\$listen is not the same as PHPDoc type array\<string, array\<int, string\>\> of overridden property Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider\:\:\$listen\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Parents/Providers/EventServiceProvider.php
 
 		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 111 on line 5$#'
@@ -4421,12 +4595,6 @@ parameters:
 			identifier: phpDoc.parseError
 			count: 1
 			path: app/Ship/Tests/ShipTestCase.php
-
-		-
-			message: '#^Cannot call method expectsOutput\(\) on Illuminate\\Testing\\PendingCommand\|int\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/Ship/Tests/Unit/Commands/HelloWorldCommandTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -4557,12 +4725,6 @@ parameters:
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/ThisBetweenDatesCriteriaTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:first\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Ship/Tests/Unit/Criterias/ThisBetweenDatesCriteriaTest.php
 

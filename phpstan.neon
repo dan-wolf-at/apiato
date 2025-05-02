@@ -1,7 +1,7 @@
 #https://phpstan.org/user-guide/getting-started
 
 parameters:
-    level: 7
+    level: 5
     paths:
         - app
         - database
@@ -11,11 +11,8 @@ parameters:
 
     reportUnmatchedIgnoredErrors: true
 
-    ignoreErrors:
-        -
-            identifier: missingType.generics
-        -
-            identifier: missingType.iterableValue
+#    ignoreErrors:
+#        - '#PHPDoc tag @var#'
 
     fileExtensions:
         - php

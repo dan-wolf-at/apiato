@@ -8,6 +8,7 @@ use Apiato\Core\Traits\ModelTrait;
 use App\Containers\AppSection\Authorization\Data\Factories\RoleFactory;
 use App\Containers\AppSection\Authorization\Models\Role;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
+use App\Ship\Enums\AuthGuard;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Role::class)]
@@ -21,7 +22,7 @@ final class RoleTest extends UnitTestCase
     public function testUsesCorrectGuard(): void
     {
         $model = RoleFactory::new()->createOne();
-        $guard = 'api';
+        $guard = AuthGuard::API->value;
 
         $this->assertSame($guard, $this->getInaccessiblePropertyValue($model, 'guard_name'));
     }

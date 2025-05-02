@@ -9,7 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CreateResourceFailedException extends Exception
 {
-    protected $code = Response::HTTP_EXPECTATION_FAILED;
+    /**
+     * @var int
+     */
+    protected $code    = Response::HTTP_EXPECTATION_FAILED;
 
+    /**
+     * @var string
+     */
     protected $message = 'Failed to create Resource.';
 }

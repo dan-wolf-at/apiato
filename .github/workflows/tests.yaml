@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.2 ]
+        php: [ 8.3 ]
     name: PHP ${{ matrix.php }}
     timeout-minutes: 10
     services:
@@ -45,7 +45,7 @@ jobs:
         with:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, redis
-          coverage: xdebug
+          coverage: pcov
 
       - name: Setup Composer token
         run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
@@ -74,7 +74,7 @@ jobs:
         run: php artisan key:generate
 
       - name: Execute tests
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage.xml --testdox --cache-directory=.phpunit.result.cache --colors=always
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml --testdox --cache-directory=.phpunit.result.cache --colors=always
 
 #      - name: Upload coverage reports to Codecov
 #        uses: codecov/codecov-action@v5

@@ -3,10 +3,29 @@
 declare(strict_types=1);
 
 use App\Containers\AppSection\User\Models\User;
+use App\Ship\Providers\ShipProvider;
 use App\Ship\Seeders\SeedDeploymentData;
 use App\Ship\Seeders\SeedTestingData;
 
 return [
+
+    'ship' => [
+        /*
+        |--------------------------------------------------------------------------
+        | Default ShipProvider Namespace
+        |--------------------------------------------------------------------------
+        */
+        'namespace-ship-provider' => ShipProvider::class,
+
+        /*
+         * -------------------------------------------------------------------------
+         * Default Guest Route
+         * -------------------------------------------------------------------------
+         * Possible values: web, api
+         */
+        'guest-ui-route' => env('GUEST_ROUTE', 'web'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Enable / Disable Hashed ID
@@ -85,8 +104,8 @@ return [
         */
         'throttle' => [
             'enabled'  => env('GLOBAL_API_RATE_LIMIT_ENABLED', true),
-            'attempts' => env('GLOBAL_API_RATE_LIMIT_ATTEMPTS_PER_MIN', '30'),
-            'expires'  => env('GLOBAL_API_RATE_LIMIT_EXPIRES_IN_MIN', '1'),
+            'attempts' => env('GLOBAL_API_RATE_LIMIT_ATTEMPTS_PER_MIN', 30),
+            'expires'  => env('GLOBAL_API_RATE_LIMIT_EXPIRES_IN_MIN', 1),
         ],
     ],
 

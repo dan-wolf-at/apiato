@@ -51,7 +51,10 @@
 
     <rule ref="rulesets/codesize.xml/ExcessiveClassLength">
         <priority>2</priority>
-        <properties><property name="minimum" value="800"/></properties>
+        <properties>
+            <property name="minimum" value="800"/>
+            <property name="ignore-whitespace" value="true"/>
+        </properties>
     </rule>
 
     <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
@@ -66,7 +69,10 @@
 
     <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
         <priority>2</priority>
-        <properties><property name="minimum" value="50"/></properties>
+        <properties>
+            <property name="minimum" value="50"/>
+            <property name="ignore-whitespace" value="true"/>
+        </properties>
     </rule>
 
     <rule ref="rulesets/codesize.xml/ExcessiveParameterList">

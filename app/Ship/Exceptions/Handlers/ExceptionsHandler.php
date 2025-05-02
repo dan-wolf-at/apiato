@@ -11,13 +11,14 @@ use App\Containers\AppSection\Authentication\UI\WEB\Controllers\LoginPageControl
 use App\Containers\AppSection\Authorization\UI\WEB\Controllers\UnauthorizedPageController;
 use App\Ship\Exceptions\AccessDeniedException;
 use App\Ship\Exceptions\NotFoundException;
+use App\Ship\Providers\RouteServiceProvider;
 use Illuminate\Auth\AuthenticationException as LaravelAuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\App;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Throwable;
 
 /**
  * Class ExceptionsHandler.
@@ -25,6 +26,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  */
 class ExceptionsHandler extends CoreExceptionsHandler
 {
+    /**
+     * @var string
+     */
+    private const WEB_UI_NAME = 'web';
+
     /**
      * The list of the inputs that are never flashed to the session on validation exceptions.
      *
@@ -42,7 +48,7 @@ class ExceptionsHandler extends CoreExceptionsHandler
     #[\Override]
     public function register(): void
     {
-        $this->reportable(static function (\Throwable $e): void {
+        $this->reportable(static function (Throwable $e): void {
         });
 
         $this->renderable(function (CoreException $e, $request) {
@@ -66,7 +72,11 @@ class ExceptionsHandler extends CoreExceptionsHandler
                 return $this->buildJsonResponse(new AccessDeniedException());
             }
 
-            return redirect()->guest(action(UnauthorizedPageController::class));
+            $route = config('apiato.ship.guest-ui-route') === self::WEB_UI_NAME
+                ? action(UnauthorizedPageController::class)
+                : route(RouteServiceProvider::UNAUTHORIZED);
+
+            return redirect()->guest($route);
         });
     }
 
@@ -77,25 +87,27 @@ class ExceptionsHandler extends CoreExceptionsHandler
             return $this->buildJsonResponse(new CoreAuthenticationException());
         }
 
-        return redirect()->guest(action(LoginPageController::class));
+        $route = config('apiato.ship.guest-ui-route') === self::WEB_UI_NAME
+            ? action(LoginPageController::class)
+            : route(RouteServiceProvider::LOGIN);
+
+        return redirect()->guest($route);
     }
 
     private function buildJsonResponse(CoreException $e): JsonResponse
     {
-        if (!App::isProduction()) {
-            $response = [
-                'message'   => $e->getMessage(),
-                'errors'    => $e->getErrors(),
+        $response = [
+            'message' => $e->getMessage(),
+            'errors'  => $e->getErrors(),
+        ];
+
+        if (app()->isProduction() === false) {
+            $response = array_merge($response, [
                 'exception' => $e::class,
                 'file'      => $e->getFile(),
                 'line'      => $e->getLine(),
                 'trace'     => $e->getTrace(),
-            ];
-        } else {
-            $response = [
-                'message' => $e->getMessage(),
-                'errors'  => $e->getErrors(),
-            ];
+            ]);
         }
 
         return response()->json($response, (int) $e->getCode());

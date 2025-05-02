@@ -8,6 +8,7 @@ use Apiato\Core\Traits\ModelTrait;
 use App\Containers\AppSection\Authorization\Data\Factories\PermissionFactory;
 use App\Containers\AppSection\Authorization\Models\Permission;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
+use App\Ship\Enums\AuthGuard;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Permission::class)]
@@ -21,7 +22,7 @@ final class PermissionTest extends UnitTestCase
     public function testUsesCorrectGuard(): void
     {
         $model = PermissionFactory::new()->createOne();
-        $guard = 'api';
+        $guard = AuthGuard::API->value;
 
         $this->assertSame($guard, $this->getInaccessiblePropertyValue($model, 'guard_name'));
     }

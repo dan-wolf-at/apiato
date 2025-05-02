@@ -14,6 +14,8 @@ abstract class EventServiceProvider extends AbstractEventServiceProvider
 {
     /**
      * The event listener mappings for the application.
+     *
+     * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [];
 

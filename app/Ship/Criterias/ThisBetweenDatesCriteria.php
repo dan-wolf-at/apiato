@@ -6,6 +6,8 @@ namespace App\Ship\Criterias;
 
 use App\Ship\Parents\Criterias\Criteria as ParentCriteria;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterface;
 
 class ThisBetweenDatesCriteria extends ParentCriteria
 {
@@ -16,7 +18,10 @@ class ThisBetweenDatesCriteria extends ParentCriteria
     ) {
     }
 
-    public function apply($model, $repository)
+    /**
+     * @param Builder $model
+     */
+    public function apply($model, PrettusRepositoryInterface $repository): Builder
     {
         return $model->whereBetween($this->field, [$this->start->toDateString(), $this->end->toDateString()]);
     }

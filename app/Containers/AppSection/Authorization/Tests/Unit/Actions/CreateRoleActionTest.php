@@ -7,6 +7,7 @@ namespace App\Containers\AppSection\Authorization\Tests\Unit\Actions;
 use App\Containers\AppSection\Authorization\Actions\CreateRoleAction;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
 use App\Containers\AppSection\Authorization\UI\API\Requests\CreateRoleRequest;
+use App\Ship\Enums\AuthGuard;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(CreateRoleAction::class)]
@@ -26,6 +27,6 @@ final class CreateRoleActionTest extends UnitTestCase
         $this->assertSame($createRoleRequest->name, $role->name);
         $this->assertSame($createRoleRequest->description, $role->description);
         $this->assertSame($createRoleRequest->display_name, $role->display_name);
-        $this->assertSame('api', $role->guard_name);
+        $this->assertSame(AuthGuard::API->value, $role->guard_name);
     }
 }

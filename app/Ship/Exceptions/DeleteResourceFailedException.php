@@ -9,7 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DeleteResourceFailedException extends Exception
 {
+    /**
+     * @var int
+     */
     protected $code = Response::HTTP_EXPECTATION_FAILED;
 
+    /**
+     * @var string
+     */
     protected $message = 'Failed to delete Resource.';
 }
