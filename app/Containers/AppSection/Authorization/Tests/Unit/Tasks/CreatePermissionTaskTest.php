@@ -7,6 +7,7 @@ namespace App\Containers\AppSection\Authorization\Tests\Unit\Tasks;
 use App\Containers\AppSection\Authorization\Data\Repositories\PermissionRepository;
 use App\Containers\AppSection\Authorization\Tasks\CreatePermissionTask;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
+use App\Ship\Enums\AuthGuard;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -24,7 +25,7 @@ final class CreatePermissionTaskTest extends UnitTestCase
         $this->assertSame(strtolower($name), $permission->name);
         $this->assertSame($description, $permission->description);
         $this->assertSame($display_name, $permission->display_name);
-        $this->assertSame('api', $permission->guard_name);
+        $this->assertSame(AuthGuard::API->value, $permission->guard_name);
     }
 
     public function testCatchesAllExceptionsAndThrowsCustomException(): void

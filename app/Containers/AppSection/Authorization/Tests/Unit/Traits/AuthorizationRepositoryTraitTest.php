@@ -7,6 +7,7 @@ namespace App\Containers\AppSection\Authorization\Tests\Unit\Traits;
 use App\Containers\AppSection\Authorization\Data\Criterias\WhereGuardCriteria;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
 use App\Containers\AppSection\Authorization\Traits\AuthorizationRepositoryTrait;
+use App\Ship\Enums\AuthGuard;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(AuthorizationRepositoryTrait::class)]
@@ -15,7 +16,7 @@ final class AuthorizationRepositoryTraitTest extends UnitTestCase
     public function testItPushesCriteriaWhenGuardIsNotNull(): void
     {
         $traitTestRepository = new TraitTestRepository(app());
-        $guard = 'web';
+        $guard = AuthGuard::WEB->value;
 
         $traitTestRepository->whereGuard($guard);
 

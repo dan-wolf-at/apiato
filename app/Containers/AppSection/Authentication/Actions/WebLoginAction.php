@@ -8,6 +8,7 @@ use Apiato\Core\Exceptions\IncorrectIdException;
 use App\Containers\AppSection\Authentication\Classes\LoginFieldParser;
 use App\Containers\AppSection\Authentication\UI\WEB\Requests\LoginRequest;
 use App\Containers\AppSection\Authentication\Values\IncomingLoginField;
+use App\Ship\Enums\AuthGuard;
 use App\Ship\Parents\Actions\Action as ParentAction;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
@@ -36,7 +37,7 @@ class WebLoginAction extends ParentAction
 
         $credentials['password'] = $sanitizedData['password'];
 
-        $loggedIn = Auth::guard('web')->attempt($credentials, $sanitizedData['remember']);
+        $loggedIn = Auth::guard(AuthGuard::WEB->value)->attempt($credentials, $sanitizedData['remember']);
 
         // TODO: This doesnt feels right. Maybe we should move this to controller?
         // You know, the controller should be the one who decides where to redirect the user.

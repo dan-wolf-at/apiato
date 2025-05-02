@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Containers\AppSection\Authorization\Data\Factories;
 
 use App\Containers\AppSection\Authorization\Models\Role;
+use App\Ship\Enums\AuthGuard;
 use App\Ship\Parents\Factories\Factory as ParentFactory;
 
 /**
@@ -21,7 +22,7 @@ class RoleFactory extends ParentFactory
     {
         return [
             'name'       => fake()->unique()->firstName(),
-            'guard_name' => 'api',
+            'guard_name' => AuthGuard::API->value,
         ];
     }
 

@@ -8,6 +8,7 @@ use App\Containers\AppSection\Authentication\Actions\WebLoginAction;
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
 use App\Containers\AppSection\Authentication\UI\WEB\Requests\LoginRequest;
 use App\Containers\AppSection\User\Data\Factories\UserFactory;
+use App\Ship\Enums\AuthGuard;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -199,7 +200,7 @@ final class WebLoginActionTest extends UnitTestCase
 
         $action->run($loginRequest);
 
-        $this->assertAuthenticatedAs($model, 'web');
+        $this->assertAuthenticatedAs($model, AuthGuard::WEB->value);
     }
 
     #[DataProvider('allowedLoginDataProvider')]
@@ -216,7 +217,7 @@ final class WebLoginActionTest extends UnitTestCase
 
         $action->run($loginRequest);
 
-        $this->assertAuthenticatedAs($model, 'web');
+        $this->assertAuthenticatedAs($model, AuthGuard::WEB->value);
     }
 
     #[DataProvider('unallowedLoginDataProvider')]
@@ -247,7 +248,7 @@ final class WebLoginActionTest extends UnitTestCase
         ];
         UserFactory::new()->createOne($credentials);
         $mock = Auth::spy();
-        $mock->allows()->guard('web')->andReturnSelf();
+        $mock->allows()->guard(AuthGuard::WEB->value)->andReturnSelf();
         $mock->allows()->attempt($credentials)->andReturn(false);
         $loginRequest = LoginRequest::injectData($credentials);
         $action = app(WebLoginAction::class);
@@ -285,7 +286,7 @@ final class WebLoginActionTest extends UnitTestCase
         $response = $action->run($loginRequest);
 
         $this->assertTrue($response->isRedirect());
-        $this->assertAuthenticatedAs($model, 'web');
+        $this->assertAuthenticatedAs($model, AuthGuard::WEB->value);
     }
 
     private function prepareForConfig(array $allowedFields): array

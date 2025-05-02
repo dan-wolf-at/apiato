@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Containers\AppSection\Authentication\Tests\Functional\API;
 
 use App\Containers\AppSection\Authentication\Tests\Functional\ApiTestCase;
+use App\Ship\Enums\AuthGuard;
 use Illuminate\Testing\Fluent\AssertableJson;
 use PHPUnit\Framework\Attributes\CoversNothing;
 
@@ -67,6 +68,6 @@ final class RefreshProxyForWebClientTest extends ApiTestCase
         ];
 
         $this->getTestingUser($this->data);
-        $this->actingAs($this->testingUser, 'web');
+        $this->actingAs($this->testingUser, AuthGuard::WEB->value);
     }
 }

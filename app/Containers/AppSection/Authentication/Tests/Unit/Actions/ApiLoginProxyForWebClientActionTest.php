@@ -10,6 +10,7 @@ use App\Containers\AppSection\Authentication\Tasks\CallOAuthServerTask;
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
 use App\Containers\AppSection\Authentication\UI\API\Requests\LoginProxyPasswordGrantRequest;
 use App\Containers\AppSection\Authentication\Values\Token;
+use App\Ship\Enums\AuthGuard;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ApiLoginProxyForWebClientAction::class)]
@@ -22,7 +23,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
             'password' => 'youShallNotPass',
         ];
         $this->getTestingUser($credentials);
-        $this->actingAs($this->testingUser, 'web');
+        $this->actingAs($this->testingUser, AuthGuard::WEB->value);
         $loginProxyPasswordGrantRequest = LoginProxyPasswordGrantRequest::injectData($credentials);
         $action = app(ApiLoginProxyForWebClientAction::class);
 
@@ -40,7 +41,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
             'password' => 'youShallNotPass',
         ];
         $this->getTestingUser($credentials);
-        $this->actingAs($this->testingUser, 'web');
+        $this->actingAs($this->testingUser, AuthGuard::WEB->value);
         $loginProxyPasswordGrantRequest = LoginProxyPasswordGrantRequest::injectData($credentials);
         $oAuthTaskMock = $this->mock(CallOAuthServerTask::class);
         $oAuthTaskMock->expects('run')->once()->andReturn(Token::fake());
@@ -62,7 +63,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
             'password' => 'youShallNotPass',
         ];
         $this->getTestingUser($userDetails);
-        $this->actingAs($this->testingUser, 'web');
+        $this->actingAs($this->testingUser, AuthGuard::WEB->value);
         $credentials = [
             'email'    => 'ganldalf@the.white', // wrong email
             'name'     => 'saruman', // wrong name
@@ -83,7 +84,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
             'password' => 'youShallNotPass',
         ];
         $this->getTestingUser($userDetails);
-        $this->actingAs($this->testingUser, 'web');
+        $this->actingAs($this->testingUser, AuthGuard::WEB->value);
         $credentials = [
             'email'    => 'ganldalf@the.grey', // correct email
             'name'     => 'saruman', // wrong name
@@ -110,7 +111,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
             'password' => 'youShallNotPass',
         ];
         $this->getTestingUser($userDetails);
-        $this->actingAs($this->testingUser, 'web');
+        $this->actingAs($this->testingUser, AuthGuard::WEB->value);
         $credentials = [
             'email'    => 'ganldalf@the.white', // wrong email
             'name'     => 'gandalf', // correct name

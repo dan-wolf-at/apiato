@@ -25,15 +25,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.3'
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
           coverage: none
 
       - name: Setup Composer token
         run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Copy environment file for Composer
-        run: cp .env.ci .env
 
       - name: Prepare Rector cache directory
         run: mkdir -p ./tmp/rector
@@ -52,4 +49,4 @@ jobs:
           composer-options: --prefer-dist
 
       - name: Run Rector Dry Run
-        run: vendor/bin/rector process --dry-run --ansi
+        run: vendor/bin/rector process --dry-run --no-progress-bar --output-format=github --ansi

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+//use Illuminate\Support\Facades\Broadcast;
+
 /*
 |--------------------------------------------------------------------------
 | Broadcast Channels
@@ -12,6 +14,7 @@ declare(strict_types=1);
 | used to check if an authenticated user can listen to the channel.
 |
 */
-// Illuminate\Support\Facades\Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+
+//Broadcast::channel('App.Containers.User.Models.User.{id}', function ($user, $id) {
 //    return (int) $user->id === (int) $id;
-// });
+//});

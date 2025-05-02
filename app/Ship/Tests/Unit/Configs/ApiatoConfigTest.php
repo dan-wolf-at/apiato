@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Ship\Tests\Unit\Configs;
 
 use App\Containers\AppSection\User\Models\User;
+use App\Ship\Providers\ShipProvider;
 use App\Ship\Seeders\SeedDeploymentData;
 use App\Ship\Seeders\SeedTestingData;
 use App\Ship\Tests\ShipTestCase;
@@ -50,6 +51,10 @@ final class ApiatoConfigTest extends ShipTestCase
             'tests' => [
                 'user-class'       => User::class,
                 'user-admin-state' => 'admin',
+            ],
+            'ship' => [
+                'namespace-ship-provider' => ShipProvider::class,
+                'guest-ui-route'          => 'web',
             ],
         ];
 

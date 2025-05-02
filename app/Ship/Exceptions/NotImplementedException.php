@@ -9,7 +9,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class NotImplementedException extends Exception
 {
+    /**
+     * @var int
+     */
     protected $code = Response::HTTP_NOT_IMPLEMENTED;
 
+    /**
+     * @var string
+     */
     protected $message = 'This method is not yet implemented.';
 }

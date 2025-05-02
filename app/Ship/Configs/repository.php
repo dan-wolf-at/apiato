@@ -30,12 +30,11 @@ return [
     | Fractal Presenter Config
     |--------------------------------------------------------------------------
     |
-
-    Available serializers:
-    ArraySerializer
-    DataArraySerializer
-    JsonApiSerializer
-
+    | Available serializers:
+    |    * ArraySerializer
+    |    * DataArraySerializer
+    |    * JsonApiSerializer
+    |
     */
     'fractal' => [
         'params' => [
@@ -177,6 +176,8 @@ return [
             '=',
             'like',
             'in',
+            'between',
+            'null',
         ],
         /*
         |--------------------------------------------------------------------------
@@ -219,12 +220,14 @@ return [
         'params' => [
             'search'       => 'search',
             'searchFields' => 'searchFields',
-            'filter'       => 'l5_filter', // we will override the filter in apiato (using fractal)
+            'filter'       => 'l5_filter', // we will override this filter in apiato (using fractal)
             'orderBy'      => 'orderBy',
             'sortedBy'     => 'sortedBy',
             'with'         => 'l5_with', // use `include` instead (provided by fractal)
             'searchJoin'   => 'searchJoin',
             'withCount'    => 'withCount',
+            'has'          => 'has',
+            'whereHas'     => 'whereHas',
         ],
     ],
     /*
