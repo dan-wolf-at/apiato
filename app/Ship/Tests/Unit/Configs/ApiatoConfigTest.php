@@ -29,8 +29,8 @@ final class ApiatoConfigTest extends ShipTestCase
                 'enabled-implicit-grant' => env('API_ENABLE_IMPLICIT_GRANT', true),
                 'throttle'               => [
                     'enabled'  => env('GLOBAL_API_RATE_LIMIT_ENABLED', true),
-                    'attempts' => env('GLOBAL_API_RATE_LIMIT_ATTEMPTS_PER_MIN', '30'),
-                    'expires'  => env('GLOBAL_API_RATE_LIMIT_EXPIRES_IN_MIN', '1'),
+                    'attempts' => env('GLOBAL_API_RATE_LIMIT_ATTEMPTS_PER_MIN', 30),
+                    'expires'  => env('GLOBAL_API_RATE_LIMIT_EXPIRES_IN_MIN', 1),
                 ],
             ],
             'requests' => [
