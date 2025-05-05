@@ -26,10 +26,7 @@ use Throwable;
  */
 class ExceptionsHandler extends CoreExceptionsHandler
 {
-    /**
-     * @var string
-     */
-    private const WEB_UI_NAME = 'web';
+    private const string WEB_UI_NAME = 'web';
 
     /**
      * The list of the inputs that are never flashed to the session on validation exceptions.

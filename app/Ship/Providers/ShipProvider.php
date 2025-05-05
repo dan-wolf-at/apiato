@@ -25,6 +25,7 @@ class ShipProvider extends ParentMainServiceProvider
     /**
      * Bootstrap any application services.
      */
+    #[\Override]
     public function boot(): void
     {
         parent::boot();

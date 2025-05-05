@@ -15,13 +15,12 @@ use Illuminate\Foundation\Testing\WithFaker;
  */
 abstract class TestCase extends AbstractTestCase
 {
-    use WithFaker;
-
     public static function authGuardDataProvider(): array
     {
         return array_map(static fn (AuthGuard $guard): array => [$guard->value], AuthGuard::cases());
     }
 
+    #[\Override]
     public function createApplication(): Application
     {
         $app = require __DIR__ . '/../../../../bootstrap/app.php';

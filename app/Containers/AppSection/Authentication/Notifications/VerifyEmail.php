@@ -6,6 +6,7 @@ namespace App\Containers\AppSection\Authentication\Notifications;
 
 use App\Containers\AppSection\User\Models\User;
 use App\Ship\Parents\Notifications\Notification as ParentNotification;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -42,7 +43,7 @@ final class VerifyEmail extends ParentNotification implements ShouldQueue
 
         return $this->verificationUrl . '?url=' . URL::temporarySignedRoute(
             'verification.verify',
-            now()->addMinutes(config('appSection-authentication.email_verification_link_expiration_time_in_minute')),
+            Carbon::now()->addMinutes((int)config('appSection-authentication.email_verification_link_expiration_time_in_minute')),
             ['user_id' => $user_id, 'hash' => $hash],
         );
     }

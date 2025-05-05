@@ -7,6 +7,7 @@ namespace App\Containers\AppSection\Authentication\Tests\Functional\API;
 use App\Containers\AppSection\Authentication\Notifications\EmailVerified;
 use App\Containers\AppSection\Authentication\Tests\Functional\ApiTestCase;
 use App\Containers\AppSection\User\Data\Factories\UserFactory;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\URL;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -30,7 +31,7 @@ final class VerifyEmailTest extends ApiTestCase
         config()->set('appSection-authentication.require_email_verification', true);
         $url = URL::temporarySignedRoute(
             'verification.verify',
-            now()->addMinutes(30),
+            Carbon::now()->addMinutes(30),
             [
                 'user_id' => $model->getHashedKey(),
                 'hash'    => $hashedEmail,
@@ -62,7 +63,7 @@ final class VerifyEmailTest extends ApiTestCase
         config()->set('appSection-authentication.require_email_verification', true);
         $url = URL::temporarySignedRoute(
             'verification.verify',
-            now()->addMinutes(30),
+            Carbon::now()->addMinutes(30),
             [
                 'user_id' => $model->getHashedKey(),
                 'hash'    => $hashedEmail,
