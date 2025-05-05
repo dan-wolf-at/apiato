@@ -9,6 +9,7 @@ use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
 use App\Containers\AppSection\Authentication\UI\API\Controllers\ForgotPasswordController;
 use App\Containers\AppSection\Authentication\UI\API\Requests\ForgotPasswordRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Symfony\Component\HttpFoundation\Response;
 
 #[CoversClass(ForgotPasswordController::class)]
 final class ForgotPasswordControllerTest extends UnitTestCase
@@ -22,6 +23,6 @@ final class ForgotPasswordControllerTest extends UnitTestCase
 
         $response = $controller($forgotPasswordRequest, $actionMock);
 
-        $this->assertSame(204, $response->getStatusCode());
+        $this->assertSame(Response::HTTP_NO_CONTENT, $response->getStatusCode(), $response->getContent());
     }
 }
