@@ -9,6 +9,7 @@ use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
 use App\Containers\AppSection\Authorization\UI\API\Controllers\DeleteRoleController;
 use App\Containers\AppSection\Authorization\UI\API\Requests\DeleteRoleRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Symfony\Component\HttpFoundation\Response;
 
 #[CoversClass(DeleteRoleController::class)]
 final class DeleteRoleControllerTest extends UnitTestCase
@@ -22,6 +23,6 @@ final class DeleteRoleControllerTest extends UnitTestCase
 
         $response = $controller($deleteRoleRequest, $actionMock);
 
-        $this->assertSame(204, $response->getStatusCode());
+        $this->assertSame(Response::HTTP_NO_CONTENT, $response->getStatusCode(), $response->getContent());
     }
 }
