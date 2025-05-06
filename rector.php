@@ -13,6 +13,7 @@ use Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector;
 use Rector\CodingStyle\Rector\Use_\SeparateMultiUseImportsRector;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector;
+use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use Rector\Php71\Rector\FuncCall\RemoveExtraParametersRector;
@@ -98,6 +99,7 @@ return RectorConfig::configure()
         LocallyCalledStaticMethodToNonStaticRector::class,
         PreferPHPUnitThisCallRector::class, // it's breaks with phpstan
         RenamePropertyToMatchTypeRector::class, // it's breaks the Entity
+        RenameVariableToMatchMethodCallReturnTypeRector::class, // it's redundant
 
         //        THINKING
         AddMethodCallBasedStrictParamTypeRector::class, // it's breaks the using multiple Traits
