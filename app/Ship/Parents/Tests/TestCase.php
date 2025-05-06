@@ -8,7 +8,6 @@ use Apiato\Core\Abstracts\Tests\PhpUnit\TestCase as AbstractTestCase;
 use App\Ship\Enums\AuthGuard;
 use Illuminate\Contracts\Console\Kernel as ApiatoConsoleKernel;
 use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Testing\WithFaker;
 
 /**
  * @SuppressWarnings(PHPMD.NumberOfChildren)

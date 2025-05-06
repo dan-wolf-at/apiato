@@ -34,7 +34,7 @@
         "source": "https://github.com/apiato/apiato"
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "ext-curl": "*",
         "ext-gettext": "*",
         "ext-mbstring": "*",
@@ -42,9 +42,9 @@
         "ext-pdo": "*",
         "ext-sodium": "*",
         "ext-tokenizer": "*",
-        "apiato/core": "^8.15.0",
+        "dan-wolf-at/apiato-core": "^v8.6.0",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^10.0",
+        "laravel/framework": "^11",
         "laravel/tinker": "^2.8",
         "webmozart/assert": "^1.11",
         "wikimedia/composer-merge-plugin": "^2.1"
@@ -54,12 +54,13 @@
         "ext-json": "*",
         "brianium/paratest": "^7.4",
         "driftingly/rector-laravel": "^2.0",
-        "fakerphp/faker": "^1.19.1",
+        "fakerphp/faker": "^1.24",
         "friendsofphp/php-cs-fixer": "^3.8.0",
         "icanhazstring/composer-unused": "^0.8",
         "jetbrains/phpstorm-attributes": "^1.0",
+        "larastan/larastan": "^3.0",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^7.0",
+        "nunomaduro/collision": "^8.5",
         "phpmd/phpmd": "@stable",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.0",
@@ -74,7 +75,7 @@
         "roave/security-advisories": "dev-latest",
         "slevomat/coding-standard": "^8.15",
         "spatie/laravel-ignition": "^2.0",
-        "squizlabs/php_codesniffer": "^3.11"
+        "squizlabs/php_codesniffer": "^3.12"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,

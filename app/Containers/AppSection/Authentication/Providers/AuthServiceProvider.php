@@ -39,7 +39,10 @@ class AuthServiceProvider extends ParentAuthServiceProvider implements Deferrabl
         Passport::$registersJsonApiRoutes = true;
         Passport::enablePasswordGrant();
 
-        Passport::tokensExpireIn(Carbon::now()->addMinutes((int)config('apiato.api.expires-in')));
-        Passport::refreshTokensExpireIn(Carbon::now()->addMinutes((int)config('apiato.api.refresh-expires-in')));
+        $tokensExpireIn = Carbon::now()->addMinutes((int)config('apiato.api.expires-in'));
+        $refreshTokensExpireIn = Carbon::now()->addMinutes((int)config('apiato.api.refresh-expires-in'));
+
+        Passport::tokensExpireIn($tokensExpireIn);
+        Passport::refreshTokensExpireIn($refreshTokensExpireIn);
     }
 }

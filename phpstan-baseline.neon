@@ -1,64 +1,55 @@
 parameters:
 	ignoreErrors:
 		-
+			message: '#^Call to an undefined method Laravel\\Passport\\TokenRepository\:\:revokeAccessToken\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
+
+		-
 			message: '#^Call to an undefined method Lcobucci\\JWT\\Token\:\:claims\(\)\.$#'
 			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authentication\\UI\\API\\Requests\\RegisterUserRequest\:\:\$verification_url\.$#'
-			identifier: property.notFound
+			message: '#^Call to method revokeRefreshTokensByAccessTokenId\(\) on an unknown class Laravel\\Passport\\RefreshTokenRepository\.$#'
+			identifier: class.notFound
 			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/RegisterUserAction.php
+			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authentication\\UI\\API\\Requests\\ResetPasswordRequest\:\:\$password\.$#'
-			identifier: property.notFound
+			message: '#^Parameter \$refreshTokenRepository of method App\\Containers\\AppSection\\Authentication\\Actions\\ApiLogoutAction\:\:__construct\(\) has invalid type Laravel\\Passport\\RefreshTokenRepository\.$#'
+			identifier: class.notFound
 			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/ResetPasswordAction.php
+			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authentication\\UI\\API\\Requests\\SendVerificationEmailRequest\:\:\$verification_url\.$#'
-			identifier: property.notFound
+			message: '''
+				#^Parameter \$tokenRepository of method App\\Containers\\AppSection\\Authentication\\Actions\\ApiLogoutAction\:\:__construct\(\) has typehint with deprecated class Laravel\\Passport\\TokenRepository\:
+				Will be removed in a future Laravel version\.$#
+			'''
+			identifier: parameter.deprecatedClass
 			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/SendVerificationEmailAction.php
+			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authentication\\UI\\API\\Requests\\VerifyEmailRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
+			message: '#^Property App\\Containers\\AppSection\\Authentication\\Actions\\ApiLogoutAction\:\:\$refreshTokenRepository has unknown class Laravel\\Passport\\RefreshTokenRepository as its type\.$#'
+			identifier: class.notFound
 			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/VerifyEmailAction.php
+			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Ship\\Parents\\Requests\\Request\:\:\$hash\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/VerifyEmailAction.php
-
-		-
-			message: '#^Anonymous function should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Guard\:\:attempt\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
-
-		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orWhereRaw\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orWhereRaw\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Guard\:\:logout\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Dynamic call to static method Illuminate\\Session\\Store\:\:regenerate\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/WebLogoutAction.php
+			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
 
 		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
@@ -109,6 +100,18 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
 
 		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 8
+			path: app/Containers/AppSection/Authentication/Configs/appSection-authentication.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 4
+			path: app/Containers/AppSection/Authentication/Configs/passport.php
+
+		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 2
@@ -133,8 +136,8 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Notifications/Welcome.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
+			message: '#^ServiceProviders that implement the "DeferrableProvider" interface should implement the "provides" method that returns an array of strings or class\-strings$#'
+			identifier: larastan.deferrableServiceProvider.missingProvides
 			count: 1
 			path: app/Containers/AppSection/Authentication/Providers/AuthServiceProvider.php
 
@@ -145,34 +148,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tasks/SendVerificationEmailTask.php
 
 		-
-			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/ContainerTestCase.php
-
-		-
-			message: '#^Call to an undefined static method Laravel\\Passport\\Client\:\:create\(\)\.$#'
-			identifier: staticMethod.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/ContainerTestCase.php
-
-		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/LogoutTest.php
-
-		-
-			message: '#^Dynamic call to static method Symfony\\Component\\HttpFoundation\\Response\:\:getContent\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Http\\Response\:\:getContent\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RefreshProxyForWebClientTest.php
-
-		-
-			message: '#^Call to an undefined static method App\\Containers\\AppSection\\User\\Models\\User\:\:find\(\)\.$#'
-			identifier: staticMethod.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RegisterUserTest.php
 
 		-
 			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
@@ -187,33 +166,15 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/ResetPasswordTest.php
 
 		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
+			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Tasks\\CreatePasswordResetTokenTask\:\:run\(\) expects App\\Ship\\Parents\\Models\\UserModel, Apiato\\Core\\Abstracts\\Models\\UserModel\|null given\.$#'
+			identifier: argument.type
 			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/SendVerificationEmailTest.php
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/ResetPasswordTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
+			message: '#^Casting to string something that''s already string\.$#'
+			identifier: cast.useless
 			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getEmailForVerification\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:hasVerifiedEmail\(\)\.$#'
-			identifier: method.notFound
-			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
 
 		-
@@ -227,18 +188,6 @@ parameters:
 			identifier: offsetAccess.notFound
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:once\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ApiLoginProxyForWebClientActionTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:twice\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ApiLoginProxyForWebClientActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -295,6 +244,12 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
 
 		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
+
+		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -343,44 +298,8 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ResetPasswordActionTest.php
 
 		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Tests\\Unit\\Actions\\ResetPasswordActionTest\:\:\$user \(App\\Containers\\AppSection\\User\\Models\\User\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ResetPasswordActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authentication\\UI\\API\\Requests\\SendVerificationEmailRequest\:\:\$verification_url\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/SendVerificationEmailActionTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/SendVerificationEmailActionTest.php
-
-		-
-			message: '#^Parameter \#2 \$user of static method Apiato\\Core\\Abstracts\\Requests\\Request\:\:injectData\(\) expects Apiato\\Core\\Abstracts\\Models\\UserModel\|null, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/SendVerificationEmailActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/VerifyEmailActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/VerifyEmailActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:hasVerifiedEmail\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/VerifyEmailActionTest.php
 
@@ -403,6 +322,12 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
 
 		-
+			message: '#^Dynamic call to static method Illuminate\\Config\\Repository\:\:unset\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
+
+		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -421,10 +346,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:assertAuthenticatedAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
+			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:user\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
@@ -439,10 +364,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
+			message: '#^Dynamic call to static method Illuminate\\Config\\Repository\:\:unset\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
@@ -455,6 +380,12 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\)\.$#'
@@ -493,20 +424,14 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Mails/ForgotPasswordTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Mails/ForgotPasswordTest.php
-
-		-
-			message: '#^Parameter \#1 \$recipient of class App\\Containers\\AppSection\\Authentication\\Mails\\ForgotPassword constructor expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Mails/ForgotPasswordTest.php
 
@@ -529,52 +454,16 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Middlewares/RedirectIfAuthenticatedTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Middlewares/RedirectIfAuthenticatedTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:notify\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/EmailVerifiedTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/EmailVerifiedTest.php
 
 		-
-			message: '#^Parameter \#1 \$notifiable of method App\\Containers\\AppSection\\Authentication\\Notifications\\EmailVerified\:\:toMail\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/EmailVerifiedTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:notify\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/PasswordResetTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/PasswordResetTest.php
-
-		-
-			message: '#^Parameter \#1 \$notifiable of method App\\Containers\\AppSection\\Authentication\\Notifications\\PasswordReset\:\:toMail\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/PasswordResetTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:notify\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/VerifyEmailTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -583,20 +472,8 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/VerifyEmailTest.php
 
 		-
-			message: '#^Parameter \#1 \$notifiable of method App\\Containers\\AppSection\\Authentication\\Notifications\\VerifyEmail\:\:toMail\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/VerifyEmailTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/WelcomeTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:notify\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/WelcomeTest.php
 
@@ -607,10 +484,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/WelcomeTest.php
 
 		-
-			message: '#^Parameter \#1 \$notifiable of method App\\Containers\\AppSection\\Authentication\\Notifications\\Welcome\:\:toMail\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/WelcomeTest.php
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
@@ -627,13 +504,13 @@ parameters:
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 4
+			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 2
+			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
 
 		-
@@ -649,8 +526,14 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/MiddlewareServiceProviderTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with string will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
 
@@ -667,14 +550,8 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
+			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
 
@@ -691,12 +568,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
@@ -709,58 +580,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/MakeRefreshCookieTaskTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/ForgotPasswordControllerTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/ForgotPasswordControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/LoginProxyForWebClientControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/LogoutControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/RefreshProxyForWebClientControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:transactionalRun\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/RegisterUserControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/ResetPasswordControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/SendVerificationEmailControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/VerifyEmailControllerTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -913,22 +736,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Controllers/HomePageControllerTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Controllers/LoginControllerTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Controllers/LoginPageControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Controllers/LogoutControllerTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
@@ -1009,92 +820,50 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/TokenTest.php
 
 		-
+			message: '''
+				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\AuthorizedAccessTokenController\:
+				Will be removed in a future Laravel version\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 2
+			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
+
+		-
+			message: '''
+				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\ClientController\:
+				Will be removed in a future Laravel version\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 4
+			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
+
+		-
+			message: '''
+				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\PersonalAccessTokenController\:
+				Will be removed in a future Laravel version\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 3
+			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
+
+		-
+			message: '''
+				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\ScopeController\:
+				Will be removed in a future Laravel version\.$#
+			'''
+			identifier: classConstant.deprecatedClass
+			count: 1
+			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
+
+		-
 			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
 			identifier: ternary.condNotBoolean
 			count: 1
 			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\AssignRolesToUserRequest\:\:\$role_ids\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/AssignRolesToUserAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\AssignRolesToUserRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/AssignRolesToUserAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\CreateRoleRequest\:\:\$description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/CreateRoleAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\CreateRoleRequest\:\:\$display_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/CreateRoleAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\CreateRoleRequest\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/CreateRoleAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\DeleteRoleRequest\:\:\$role_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/DeleteRoleAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\FindPermissionByIdRequest\:\:\$permission_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/FindPermissionByIdAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\FindRoleByIdRequest\:\:\$role_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/FindRoleByIdAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\GivePermissionsToRoleRequest\:\:\$permission_ids\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/GivePermissionsToRoleAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\GivePermissionsToRoleRequest\:\:\$role_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/GivePermissionsToRoleAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\GivePermissionsToUserRequest\:\:\$permission_ids\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/GivePermissionsToUserAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\GivePermissionsToUserRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/GivePermissionsToUserAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$permissions\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/ListRolePermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\ListRolePermissionsRequest\:\:\$role_id\.$#'
-			identifier: property.notFound
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListRolePermissionsAction\:\:run\(\) should return Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Permission\> but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Actions/ListRolePermissionsAction.php
 
@@ -1105,14 +874,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Actions/ListRolePermissionsAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\ListUserPermissionsRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/ListUserPermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$permissions\.$#'
-			identifier: property.notFound
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListUserPermissionsAction\:\:run\(\) should return Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Permission\> but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Actions/ListUserPermissionsAction.php
 
@@ -1123,14 +886,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Actions/ListUserPermissionsAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\ListUserRolesRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/ListUserRolesAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$roles\.$#'
-			identifier: property.notFound
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListUserRolesAction\:\:run\(\) should return Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Role\> but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Actions/ListUserRolesAction.php
 
@@ -1141,82 +898,16 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Actions/ListUserRolesAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\RemoveUserRolesRequest\:\:\$role_ids\.$#'
-			identifier: property.notFound
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
 			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/RemoveUserRolesAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\RemoveUserRolesRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/RemoveUserRolesAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\RevokeRolePermissionsRequest\:\:\$permission_ids\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/RevokeRolePermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\RevokeRolePermissionsRequest\:\:\$role_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/RevokeRolePermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\RevokeUserPermissionsRequest\:\:\$permission_ids\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/RevokeUserPermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\RevokeUserPermissionsRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/RevokeUserPermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\SyncRolePermissionsRequest\:\:\$permission_ids\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/SyncRolePermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\SyncRolePermissionsRequest\:\:\$role_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/SyncRolePermissionsAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\SyncUserRolesRequest\:\:\$role_ids\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/SyncUserRolesAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\SyncUserRolesRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/SyncUserRolesAction.php
+			path: app/Containers/AppSection/Authorization/Configs/appSection-authorization.php
 
 		-
 			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Containers\\AppSection\\Authorization\\Data\\Criterias\\WhereGuardCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
 			identifier: method.childParameterType
 			count: 2
 			path: app/Containers/AppSection/Authorization/Data/Criterias/WhereGuardCriteria.php
-
-		-
-			message: '#^PHPDoc type class\-string\<TModel of App\\Containers\\AppSection\\Authorization\\Models\\Permission\> of property App\\Containers\\AppSection\\Authorization\\Data\\Factories\\PermissionFactory\:\:\$model is not the same as PHPDoc type class\-string\<Illuminate\\Database\\Eloquent\\Model\> of overridden property Illuminate\\Database\\Eloquent\\Factories\\Factory\<TModel of App\\Containers\\AppSection\\Authorization\\Models\\Permission\>\:\:\$model\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/Containers/AppSection/Authorization/Data/Factories/PermissionFactory.php
-
-		-
-			message: '#^PHPDoc type class\-string\<TModel of App\\Containers\\AppSection\\Authorization\\Models\\Role\> of property App\\Containers\\AppSection\\Authorization\\Data\\Factories\\RoleFactory\:\:\$model is not the same as PHPDoc type class\-string\<Illuminate\\Database\\Eloquent\\Model\> of overridden property Illuminate\\Database\\Eloquent\\Factories\\Factory\<TModel of App\\Containers\\AppSection\\Authorization\\Models\\Role\>\:\:\$model\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/Containers/AppSection/Authorization/Data/Factories/RoleFactory.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
@@ -1249,16 +940,28 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/AssignRolesToUserTest.php
+			message: '#^Static access to instance property Spatie\\Permission\\PermissionRegistrar\:\:\$pivotPermission\.$#'
+			identifier: property.staticAccess
+			count: 7
+			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 5
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/AssignRolesToUserTest.php
+			message: '#^Static access to instance property Spatie\\Permission\\PermissionRegistrar\:\:\$pivotRole\.$#'
+			identifier: property.staticAccess
+			count: 7
+			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
+
+		-
+			message: '#^Return type \(App\\Containers\\AppSection\\Authorization\\Data\\Collections\\PermissionCollection\) of method App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Containers/AppSection/Authorization/Models/Permission.php
+
+		-
+			message: '#^Return type \(App\\Containers\\AppSection\\Authorization\\Data\\Collections\\RoleCollection\) of method App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Containers/AppSection/Authorization/Models/Role.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -1267,40 +970,10 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/CreateRoleTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/DeleteRoleTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindPermissionByIdTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindPermissionByIdTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindPermissionByIdTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindRoleByIdTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindRoleByIdTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -1309,52 +982,16 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindRoleByIdTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
+			message: '#^Parameter \#1 \$id of method Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:encode\(\) expects int, string given\.$#'
+			identifier: argument.type
+			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/GivePermissionsToRoleTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 9
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/GivePermissionsToRoleTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/GivePermissionsToUserTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 9
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/GivePermissionsToUserTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotEmpty\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListPermissionsTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListRolePermissionsTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListRolePermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListRolePermissionsTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -1369,20 +1006,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListRolesTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserPermissionsTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserPermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserPermissionsTest.php
 
@@ -1390,139 +1015,7 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserPermissionsTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserRolesTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserRolesTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:assignRole\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserRolesTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserRolesTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RemoveUserRolesTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:assignRole\(\)\.$#'
-			identifier: method.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RemoveUserRolesTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 7
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RemoveUserRolesTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RevokeRolePermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 8
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RevokeRolePermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RevokeRolePermissionsTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RevokeUserPermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 8
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RevokeUserPermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/RevokeUserPermissionsTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/SyncRolePermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 6
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/SyncRolePermissionsTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/SyncRolePermissionsTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/SyncUserRolesTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:assignRole\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/SyncUserRolesTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/SyncUserRolesTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/AssignRolesToUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/AssignRolesToUserActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 5
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/AssignRolesToUserActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -1537,19 +1030,13 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/AssignRolesToUserActionTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\CreateRoleRequest\:\:\$description\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\CreateRoleRequest\:\:\$display_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\CreateRoleRequest\:\:\$name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
@@ -1559,12 +1046,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 4
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/DeleteRoleActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
@@ -1573,60 +1054,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/DeleteRoleActionTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\FindPermissionByIdRequest\:\:\$permission_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/FindPermissionByIdActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/FindPermissionByIdActionTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:once\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/FindPermissionByIdActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\UI\\API\\Requests\\FindRoleByIdRequest\:\:\$role_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/FindRoleByIdActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/FindRoleByIdActionTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:once\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/FindRoleByIdActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToRoleActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToRoleActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToRoleActionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
@@ -1637,24 +1064,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 2
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToRoleActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToUserActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToUserActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -1675,12 +1084,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListPermissionsActionTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListRolePermissionsActionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -1693,22 +1096,10 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListRolesActionTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListUserPermissionsActionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListUserPermissionsActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:assignRole\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListUserRolesActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
@@ -1719,13 +1110,7 @@ parameters:
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:assignRole\(\)\.$#'
-			identifier: method.notFound
-			count: 2
+			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
 
 		-
@@ -1743,13 +1128,7 @@ parameters:
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 2
+			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
 
 		-
@@ -1767,13 +1146,7 @@ parameters:
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 2
+			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
 
 		-
@@ -1791,19 +1164,7 @@ parameters:
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$permissions\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:givePermissionTo\(\)\.$#'
-			identifier: method.notFound
-			count: 2
+			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
 
 		-
@@ -1821,19 +1182,7 @@ parameters:
 		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$roles\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:assignRole\(\)\.$#'
-			identifier: method.notFound
-			count: 2
+			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
 
 		-
@@ -1867,8 +1216,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Criterias/WhereGuardCriteriaTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$guard_name\.$#'
-			identifier: property.notFound
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Permission'' and App\\Containers\\AppSection\\Authorization\\Models\\Permission will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/PermissionFactoryTest.php
 
@@ -1885,20 +1234,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/PermissionFactoryTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$guard_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
-
-		-
-			message: '#^Call to an undefined method Spatie\\Permission\\Contracts\\Role\:\:delete\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Role'' and App\\Containers\\AppSection\\Authorization\\Models\\Role will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
 
@@ -1915,7 +1252,7 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
 
 		-
-			message: '#^Parameter \#1 \$model of method Illuminate\\Foundation\\Testing\\TestCase\:\:assertModelMissing\(\) expects Illuminate\\Database\\Eloquent\\Model, Spatie\\Permission\\Contracts\\Role given\.$#'
+			message: '#^Parameter \#1 \$model of method Illuminate\\Foundation\\Testing\\TestCase\:\:assertModelMissing\(\) expects Illuminate\\Database\\Eloquent\\Model\|string, Spatie\\Permission\\Contracts\\Role given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
@@ -1939,8 +1276,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationDefaultUsersSeederTest.php
 
 		-
-			message: '#^Call to an undefined static method App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:whereName\(\)\.$#'
-			identifier: staticMethod.notFound
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:hasAllPermissions\(\)\.$#'
+			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationGivePermissionsToRolesSeederTest.php
 
@@ -1969,12 +1306,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationRolesSeederTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/PermissionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertContains\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
@@ -1985,12 +1316,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/PermissionTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/RoleTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertContains\(\)\.$#'
@@ -2011,8 +1336,14 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Providers/MainServiceProviderTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:andThrowExceptions\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
+			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
 
@@ -2023,8 +1354,14 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:andThrowExceptions\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
+			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
 
@@ -2033,18 +1370,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 4
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/FindRoleTaskTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/FindRoleTaskTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -2071,14 +1396,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Traits/AuthorizationRepositoryTraitTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/AssignRolesToUserControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/CreateRoleControllerTest.php
 
@@ -2086,103 +1405,7 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/CreateRoleControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/DeleteRoleControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/DeleteRoleControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/FindPermissionByIdControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/FindRoleByIdControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/GivePermissionsToRoleControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/GivePermissionsToUserControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/ListPermissionsControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/ListRolePermissionsControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/ListRolesControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/ListUserPermissionsControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/ListUserRolesControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/RemoveUserRolesControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/RevokeRolePermissionsControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/RevokeUserPermissionsControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/SyncRolePermissionsControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/SyncUserRolesControllerTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -2209,12 +1432,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/CreateRoleRequestTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/DeleteRoleRequestTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 4
@@ -2227,12 +1444,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/DeleteRoleRequestTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/FindPermissionRequestTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 4
@@ -2243,12 +1454,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/FindPermissionRequestTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/FindRoleByIdRequestTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -2275,12 +1480,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/GivePermissionsToRoleRequestTest.php
 
 		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/GivePermissionsToUserRequestTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 4
@@ -2303,12 +1502,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListPermissionsRequestTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListRolePermissionsRequestTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -2335,12 +1528,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListRolesRequestTest.php
 
 		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListUserPermissionsRequestTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 4
@@ -2351,12 +1538,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListUserPermissionsRequestTest.php
-
-		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListUserRolesRequestTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -2395,12 +1576,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RevokeRolePermissionsRequestTest.php
 
 		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RevokeUserPermissionsRequestTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 4
@@ -2437,50 +1612,14 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/SyncUserRolesRequestTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$description\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$display_name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$guard_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$roles\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:roles\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
 
@@ -2497,44 +1636,14 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
 
 		-
-			message: '#^Parameter \#1 \$permission of method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\PermissionAdminTransformer\:\:transform\(\) expects App\\Containers\\AppSection\\Authorization\\Models\\Permission, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Parameter \#1 \$permission of method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\PermissionTransformer\:\:includeRoles\(\) expects App\\Containers\\AppSection\\Authorization\\Models\\Permission, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$description\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$display_name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
 
@@ -2551,56 +1660,14 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
 
 		-
-			message: '#^Parameter \#1 \$permission of method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\PermissionTransformer\:\:transform\(\) expects App\\Containers\\AppSection\\Authorization\\Models\\Permission, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$description\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$display_name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$guard_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$permissions\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:permissions\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
 
@@ -2617,44 +1684,14 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
 
 		-
-			message: '#^Parameter \#1 \$role of method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\RoleAdminTransformer\:\:transform\(\) expects App\\Containers\\AppSection\\Authorization\\Models\\Role, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Parameter \#1 \$role of method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\RoleTransformer\:\:includePermissions\(\) expects App\\Containers\\AppSection\\Authorization\\Models\\Role, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$description\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$display_name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
 
@@ -2668,12 +1705,6 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
-
-		-
-			message: '#^Parameter \#1 \$role of method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\RoleTransformer\:\:transform\(\) expects App\\Containers\\AppSection\\Authorization\\Models\\Role, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
 
 		-
@@ -2695,12 +1726,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionTransformer.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$roles\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionTransformer.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
@@ -2713,56 +1738,26 @@ parameters:
 			path: app/Containers/AppSection/Authorization/UI/API/Transformers/RoleTransformer.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$permissions\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/UI/API/Transformers/RoleTransformer.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Actions/CreateAdminAction.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\UI\\API\\Requests\\DeleteUserRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Actions/DeleteUserAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\UI\\API\\Requests\\FindUserByIdRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Actions/FindUserByIdAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\UI\\API\\Requests\\UpdatePasswordRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Actions/UpdatePasswordAction.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\UI\\API\\Requests\\UpdateUserRequest\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Actions/UpdateUserAction.php
-
-		-
-			message: '#^PHPDoc type class\-string\<TModel of App\\Containers\\AppSection\\User\\Models\\User\> of property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\:\:\$model is not the same as PHPDoc type class\-string\<Illuminate\\Database\\Eloquent\\Model\> of overridden property Illuminate\\Database\\Eloquent\\Factories\\Factory\<TModel of App\\Containers\\AppSection\\User\\Models\\User\>\:\:\$model\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/Containers/AppSection/User/Data/Factories/UserFactory.php
-
-		-
-			message: '#^Parameter \#1 \$callback of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<TModel of App\\Containers\\AppSection\\User\\Models\\User\>\:\:afterCreating\(\) expects Closure\(Illuminate\\Database\\Eloquent\\Model, Illuminate\\Database\\Eloquent\\Model\|null\)\: mixed, Closure\(App\\Containers\\AppSection\\User\\Models\\User\)\: void given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Data/Factories/UserFactory.php
-
-		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orWhereRaw\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<App\\Containers\\AppSection\\User\\Models\\User\>\:\:orWhereRaw\(\)\.$#'
 			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/User/Models/User.php
+
+		-
+			message: '#^Return type \(App\\Containers\\AppSection\\User\\Data\\Collections\\UserCollection\) of method App\\Containers\\AppSection\\User\\Models\\User\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Containers/AppSection/User/Models/User.php
+
+		-
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Containers\\AppSection\\User\\Models\\User does not\.$#'
+			identifier: class.missingImplements
 			count: 1
 			path: app/Containers/AppSection/User/Models/User.php
 
@@ -2777,42 +1772,6 @@ parameters:
 			identifier: throws.unusedType
 			count: 1
 			path: app/Containers/AppSection/User/Tasks/UpdateUserTask.php
-
-		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/DeleteUserTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/DeleteUserTest.php
-
-		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Functional/API/DeleteUserTest.php
-
-		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Functional/API/FindUserByIdTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/FindUserByIdTest.php
-
-		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Functional/API/FindUserByIdTest.php
 
 		-
 			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$email\.$#'
@@ -2833,31 +1792,13 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Functional/API/GetUserProfileTest.php
 
 		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/GetUserProfileTest.php
-
-		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/ListUsersTest.php
-
-		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
 
 		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
-
-		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$password\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
@@ -2869,25 +1810,13 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
 
 		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
-
-		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
 
 		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
-
-		-
-			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$password\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
@@ -2899,20 +1828,8 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
 
 		-
-			message: '#^Property Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:\$testingUser \(Apiato\\Core\\Abstracts\\Models\\UserModel\|null\) does not accept Illuminate\\Database\\Eloquent\\Model\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:andThrowExceptions\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
-
-		-
-			message: '#^Call to an undefined static method App\\Containers\\AppSection\\User\\Models\\User\:\:where\(\)\.$#'
-			identifier: staticMethod.notFound
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
 
@@ -2921,6 +1838,18 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\)\.$#'
@@ -2941,22 +1870,10 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/DeleteUserActionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/DeleteUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/FindUserByIdActionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -2965,14 +1882,8 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/FindUserByIdActionTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
+			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
 
@@ -2989,21 +1900,15 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/ListUsersActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
-			count: 2
+			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
 
 		-
@@ -3013,13 +1918,25 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
 
 		-
-			message: '#^Parameter \#2 \$user of static method Apiato\\Core\\Abstracts\\Requests\\Request\:\:injectData\(\) expects Apiato\\Core\\Abstracts\\Models\\UserModel\|null, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
+			identifier: property.notFound
 			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
@@ -3037,26 +1954,20 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
 
 		-
-			message: '#^Parameter \#2 \$user of static method Apiato\\Core\\Abstracts\\Requests\\Request\:\:injectData\(\) expects Apiato\\Core\\Abstracts\\Models\\UserModel\|null, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email_verified_at\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
 			identifier: property.notFound
 			count: 2
 			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$gender\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:hasRole\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
 
@@ -3097,44 +2008,32 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Data/Repositories/UserRepositoryTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 2
 			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
+			message: '#^Cannot access property \$email on array\<mixed\>\|object\.$#'
+			identifier: property.nonObject
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getEmailForVerification\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Casting to string something that''s already string\.$#'
+			identifier: cast.useless
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedEmailForVerification\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:sendEmailVerificationNotificationWithVerificationUrl\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Dynamic call to static method Illuminate\\Config\\Repository\:\:unset\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
 
@@ -3151,28 +2050,10 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:notify\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Notifications/PasswordUpdatedNotificationTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
 			path: app/Containers/AppSection/User/Tests/Unit/Notifications/PasswordUpdatedNotificationTest.php
-
-		-
-			message: '#^Parameter \#1 \$notifiable of method App\\Containers\\AppSection\\User\\Notifications\\PasswordUpdatedNotification\:\:toMail\(\) expects App\\Ship\\Parents\\Models\\UserModel, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Notifications/PasswordUpdatedNotificationTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Policies/UserPolicyTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertFalse\(\)\.$#'
@@ -3211,6 +2092,12 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
 
 		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
+
+		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -3229,9 +2116,9 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
-			count: 2
+			count: 3
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByEmailTaskTest.php
 
 		-
@@ -3241,26 +2128,14 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByEmailTaskTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
 			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByIdTaskTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:once\(\)\.$#'
-			identifier: method.notFound
 			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByIdTaskTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 4
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
 
 		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:andThrowExceptions\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
 
@@ -3275,42 +2150,6 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Controllers/DeleteUserControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Controllers/FindUserByIdControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Controllers/GetUserProfileControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Controllers/ListUsersControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Controllers/UpdatePasswordControllerTest.php
-
-		-
-			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\ExpectsHigherOrderMessage\:\:run\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Controllers/UpdateUserControllerTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -3349,9 +2188,9 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/ListUsersRequestTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
-			count: 2
+			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
 
 		-
@@ -3373,15 +2212,9 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
 
 		-
-			message: '#^Parameter \#2 \$user of static method Apiato\\Core\\Abstracts\\Requests\\Request\:\:injectData\(\) expects Apiato\\Core\\Abstracts\\Models\\UserModel\|null, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
-			count: 2
+			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
 
 		-
@@ -3403,93 +2236,45 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
 
 		-
-			message: '#^Parameter \#2 \$user of static method Apiato\\Core\\Abstracts\\Requests\\Request\:\:injectData\(\) expects Apiato\\Core\\Abstracts\\Models\\UserModel\|null, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$birth\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$created_at\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$created_at\.$#'
 			identifier: property.notFound
 			count: 2
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email_verified_at\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$gender\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$permissions\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$roles\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$updated_at\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$updated_at\.$#'
 			identifier: property.notFound
 			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:permissions\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:roles\(\)\.$#'
-			identifier: method.notFound
-			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
@@ -3505,86 +2290,32 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\User\\UI\\API\\Transformers\\UserAdminTransformer\:\:transform\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\User\\UI\\API\\Transformers\\UserTransformer\:\:includePermissions\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\User\\UI\\API\\Transformers\\UserTransformer\:\:includeRoles\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$birth\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$email_verified_at\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$gender\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$name\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$permissions\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$roles\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getHashedKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:getResourceKey\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:permissions\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:roles\(\)\.$#'
-			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
 
@@ -3601,31 +2332,13 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\User\\UI\\API\\Transformers\\UserTransformer\:\:includePermissions\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\User\\UI\\API\\Transformers\\UserTransformer\:\:includeRoles\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\User\\UI\\API\\Transformers\\UserTransformer\:\:transform\(\) expects App\\Containers\\AppSection\\User\\Models\\User, Illuminate\\Database\\Eloquent\\Model given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\UI\\API\\Requests\\UpdatePasswordRequest\:\:\$user_id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/UI/API/Requests/UpdatePasswordRequest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\UI\\API\\Requests\\UpdateUserRequest\:\:\$user_id\.$#'
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/UI/API/Requests/UpdateUserRequest.php
@@ -3634,12 +2347,6 @@ parameters:
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$created_at\.$#'
 			identifier: property.notFound
 			count: 2
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
 			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
 
 		-
@@ -3679,22 +2386,34 @@ parameters:
 			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$permissions\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 12
+			path: app/Ship/Configs/apiato.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$roles\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 8
+			path: app/Ship/Configs/debugbar.php
 
 		-
 			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
 			identifier: ternary.shortNotAllowed
 			count: 1
 			path: app/Ship/Configs/debugbar.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 3
+			path: app/Ship/Configs/hashids.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 6
+			path: app/Ship/Configs/repository.php
 
 		-
 			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\BelongsToRelationCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
@@ -3715,14 +2434,8 @@ parameters:
 			path: app/Ship/Criterias/CreatedTodayCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:groupBy\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:groupBy\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/GroupByCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\GroupByCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/GroupByCriteria.php
 
@@ -3733,14 +2446,8 @@ parameters:
 			path: app/Ship/Criterias/GroupByCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereNull\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereNull\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/IsNullCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\IsNullCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/IsNullCriteria.php
 
@@ -3751,14 +2458,8 @@ parameters:
 			path: app/Ship/Criterias/IsNullCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:limit\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:limit\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/LimitCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\LimitCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/LimitCriteria.php
 
@@ -3769,14 +2470,8 @@ parameters:
 			path: app/Ship/Criterias/LimitCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:selectRaw\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:selectRaw\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/MinCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\MinCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/MinCriteria.php
 
@@ -3787,14 +2482,8 @@ parameters:
 			path: app/Ship/Criterias/MinCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereNotNull\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereNotNull\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/NotNullCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\NotNullCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/NotNullCriteria.php
 
@@ -3805,14 +2494,8 @@ parameters:
 			path: app/Ship/Criterias/NotNullCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByCreationDateAscendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
 
@@ -3823,14 +2506,8 @@ parameters:
 			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByCreationDateDescendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
 
@@ -3841,14 +2518,8 @@ parameters:
 			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/OrderByFieldCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByFieldCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/OrderByFieldCriteria.php
 
@@ -3859,14 +2530,8 @@ parameters:
 			path: app/Ship/Criterias/OrderByFieldCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/OrderByNameCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByNameCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/OrderByNameCriteria.php
 
@@ -3877,14 +2542,8 @@ parameters:
 			path: app/Ship/Criterias/OrderByNameCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderByRaw\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderByRaw\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\OrderBySeveralFieldsCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
 
@@ -3895,20 +2554,14 @@ parameters:
 			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
 
 		-
-			message: '#^Parameter \#2 \$bindings of method Illuminate\\Database\\Query\\Builder\:\:orderByRaw\(\) expects array, string given\.$#'
+			message: '#^Parameter \#2 \$bindings of method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderByRaw\(\) expects array, string given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByUpdateDateAscendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
 
@@ -3919,14 +2572,8 @@ parameters:
 			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:orderBy\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\OrderByUpdateDateDescendingCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
 
@@ -3937,14 +2584,14 @@ parameters:
 			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:select\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:distinct\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criterias\\SelectDistinctTableCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:select\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
 
@@ -3955,14 +2602,8 @@ parameters:
 			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:select\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:select\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/SelectTableCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\SelectTableCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/SelectTableCriteria.php
 
@@ -3973,14 +2614,8 @@ parameters:
 			path: app/Ship/Criterias/SelectTableCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereBetween\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereBetween\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/ThisBetweenDatesCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\ThisBetweenDatesCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/ThisBetweenDatesCriteria.php
 
@@ -4027,14 +2662,8 @@ parameters:
 			path: app/Ship/Criterias/ThisLikeThatCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereIn\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereIn\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/ThisMatchListThat.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\ThisMatchListThat\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/ThisMatchListThat.php
 
@@ -4051,14 +2680,8 @@ parameters:
 			path: app/Ship/Criterias/ThisNotEqualThatCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereIn\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereIn\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/ThisNotMatchListThat.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\ThisNotMatchListThat\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/ThisNotMatchListThat.php
 
@@ -4087,14 +2710,8 @@ parameters:
 			path: app/Ship/Criterias/ThisUserCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereIn\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereIn\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/ThisUsersCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\ThisUsersCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/ThisUsersCriteria.php
 
@@ -4129,7 +2746,7 @@ parameters:
 			path: app/Ship/Criterias/WhereDoesntHaveCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereNull\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereNull\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Criterias/WhereHasNullCriteria.php
@@ -4141,14 +2758,8 @@ parameters:
 			path: app/Ship/Criterias/WhereHasNullCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Query\\Builder\:\:whereJsonContains\(\)\.$#'
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereJsonContains\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Criterias/WhereJsonContainsCriteria.php
-
-		-
-			message: '#^Method App\\Ship\\Criterias\\WhereJsonContainsCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns Illuminate\\Database\\Query\\Builder\.$#'
-			identifier: return.type
 			count: 1
 			path: app/Ship/Criterias/WhereJsonContainsCriteria.php
 
@@ -4495,6 +3106,12 @@ parameters:
 			path: app/Ship/Parents/Factories/Factory.php
 
 		-
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Parents\\Models\\UserModel does not\.$#'
+			identifier: class.missingImplements
+			count: 1
+			path: app/Ship/Parents/Models/UserModel.php
+
+		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -4579,16 +3196,16 @@ parameters:
 			path: app/Ship/Parents/Values/Value.php
 
 		-
-			message: '#^Call to an undefined method Illuminate\\Contracts\\Foundation\\Application\:\:isLocal\(\)\.$#'
-			identifier: method.notFound
+			message: '#^Dynamic call to static method Illuminate\\Foundation\\Application\:\:isLocal\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Providers/ShipProvider.php
 
 		-
-			message: '#^PHPDoc type class\-string\<TModel of App\\Ship\\Tests\\Fakes\\TestUser\> of property App\\Ship\\Tests\\Fakes\\TestUserFactory\:\:\$model is not the same as PHPDoc type class\-string\<Illuminate\\Database\\Eloquent\\Model\> of overridden property Illuminate\\Database\\Eloquent\\Factories\\Factory\<TModel of App\\Ship\\Tests\\Fakes\\TestUser\>\:\:\$model\.$#'
-			identifier: property.phpDocType
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Tests\\Fakes\\TestUser does not\.$#'
+			identifier: class.missingImplements
 			count: 1
-			path: app/Ship/Tests/Fakes/TestUserFactory.php
+			path: app/Ship/Tests/Fakes/TestUser.php
 
 		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
@@ -4597,10 +3214,22 @@ parameters:
 			path: app/Ship/Tests/ShipTestCase.php
 
 		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 11
+			path: app/Ship/Tests/Unit/Configs/ApiatoConfigTest.php
+
+		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Tests/Unit/Configs/ApiatoConfigTest.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 2
+			path: app/Ship/Tests/Unit/Configs/DebugBarConfigTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -4613,6 +3242,12 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Tests/Unit/Configs/FractalConfigTest.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 3
+			path: app/Ship/Tests/Unit/Configs/HashIdsConfigTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -4633,6 +3268,12 @@ parameters:
 			path: app/Ship/Tests/Unit/Configs/NotificationConfigTest.php
 
 		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 6
+			path: app/Ship/Tests/Unit/Configs/RepositoryConfigTest.php
+
+		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -4651,22 +3292,10 @@ parameters:
 			path: app/Ship/Tests/Unit/Criterias/IsNullCriteriaTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByCreationDateAscendingCriteriaTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 3
 			path: app/Ship/Tests/Unit/Criterias/OrderByCreationDateAscendingCriteriaTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByCreationDateDescendingCriteriaTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -4675,22 +3304,10 @@ parameters:
 			path: app/Ship/Tests/Unit/Criterias/OrderByCreationDateDescendingCriteriaTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 6
-			path: app/Ship/Tests/Unit/Criterias/OrderByFieldCriteriaTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 6
 			path: app/Ship/Tests/Unit/Criterias/OrderByFieldCriteriaTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByNameCriteriaTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -4699,8 +3316,8 @@ parameters:
 			path: app/Ship/Tests/Unit/Criterias/OrderByNameCriteriaTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
+			identifier: staticMethod.dynamicCall
 			count: 3
 			path: app/Ship/Tests/Unit/Criterias/OrderByUpdateDateAscendingCriteriaTest.php
 
@@ -4708,25 +3325,7 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByUpdateDateAscendingCriteriaTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 3
 			path: app/Ship/Tests/Unit/Criterias/OrderByUpdateDateDescendingCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByUpdateDateDescendingCriteriaTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/ThisBetweenDatesCriteriaTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
@@ -4741,34 +3340,16 @@ parameters:
 			path: app/Ship/Tests/Unit/Criterias/ThisBetweenDatesCriteriaTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/ThisEqualThatCriteriaTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
 			path: app/Ship/Tests/Unit/Criterias/ThisEqualThatCriteriaTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Ship/Tests/Unit/Criterias/ThisLikeThatCriteriaTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 3
 			path: app/Ship/Tests/Unit/Criterias/ThisLikeThatCriteriaTest.php
-
-		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/ThisUserCriteriaTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
@@ -4793,6 +3374,12 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 3
 			path: app/Ship/Tests/Unit/Parents/Models/UserModelTest.php
+
+		-
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Tests\\Unit\\Parents\\Policies\\FakeUser does not\.$#'
+			identifier: class.missingImplements
+			count: 1
+			path: app/Ship/Tests/Unit/Parents/Policies/FakeUser.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertFalse\(\)\.$#'
