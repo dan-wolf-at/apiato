@@ -19,20 +19,32 @@ final class ShipMigrationTest extends ShipTestCase
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $integer = match ($driver) {
+            'mysql' => 'int',
+            default => 'integer',
+        };
         $smallint = match ($driver) {
-            'mysql'  => 'boolean',
+            'mysql'  => 'tinyint',
             'sqlite' => 'integer',
             default  => 'smallint',
+        };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
+        $text = match ($driver) {
+            'mysql' => 'longtext',
+            default => 'text',
         };
 
         $columns = [
             'id'           => $bigint,
-            'queue'        => 'string',
-            'payload'      => 'text',
+            'queue'        => $string,
+            'payload'      => $text,
             'attempts'     => $smallint,
-            'reserved_at'  => 'integer',
-            'available_at' => 'integer',
-            'created_at'   => 'integer',
+            'reserved_at'  => $integer,
+            'available_at' => $integer,
+            'created_at'   => $integer,
         ];
 
         $this->assertDatabaseTable($table, $columns);
@@ -46,15 +58,27 @@ final class ShipMigrationTest extends ShipTestCase
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
+        $datetime = match ($driver) {
+            'mysql' => 'timestamp',
+            default => 'datetime',
+        };
+        $text = match ($driver) {
+            'mysql' => 'longtext',
+            default => 'text',
+        };
 
         $columns = [
             'id'         => $bigint,
             'connection' => 'text',
             'queue'      => 'text',
-            'payload'    => 'text',
-            'exception'  => 'text',
-            'failed_at'  => 'datetime',
-            'uuid'       => 'string',
+            'payload'    => $text,
+            'exception'  => $text,
+            'failed_at'  => $datetime,
+            'uuid'       => $string,
         ];
 
         $this->assertDatabaseTable($table, $columns);
@@ -66,22 +90,31 @@ final class ShipMigrationTest extends ShipTestCase
         $driver = Schema::getConnection()->getDriverName();
         $guid = match ($driver) {
             'pgsql' => 'guid',
+            'mysql' => 'char',
             default => 'string',
         };
         $bigint = match ($driver) {
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
+        $datetime = match ($driver) {
+            'mysql' => 'timestamp',
+            default => 'datetime',
+        };
 
         $columns = [
             'id'              => $guid,
-            'type'            => 'string',
+            'type'            => $string,
             'notifiable_id'   => $bigint,
-            'notifiable_type' => 'string',
+            'notifiable_type' => $string,
             'data'            => 'text',
-            'read_at'         => 'datetime',
-            'created_at'      => 'datetime',
-            'updated_at'      => 'datetime',
+            'read_at'         => $datetime,
+            'created_at'      => $datetime,
+            'updated_at'      => $datetime,
         ];
 
         $this->assertDatabaseTable($table, $columns);

@@ -35,8 +35,7 @@ class AuthServiceProvider extends ParentAuthServiceProvider implements Deferrabl
             Passport::enableImplicitGrant();
         }
 
-        Passport::$clientUuids = true;
-        Passport::$registersJsonApiRoutes = true;
+        Passport::$clientUuids = false;
         Passport::enablePasswordGrant();
 
         $tokensExpireIn = Carbon::now()->addMinutes((int)config('apiato.api.expires-in'));

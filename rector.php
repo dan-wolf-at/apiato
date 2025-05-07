@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Ship\Linters\Rector\AssertInstanceToStaticCallRector;
 use App\Ship\Linters\Rector\MockObjectStaticToInstanceCallRector;
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\CodeQuality\Rector\ClassMethod\LocallyCalledStaticMethodToNonStaticRector;
@@ -57,16 +58,15 @@ return RectorConfig::configure()
         symfonyCodeQuality: true,
         symfonyConfigs: false,
     )
-    ->withAttributesSets(
-        doctrine: false,
-        phpunit: true,
-    )
+    ->withAttributesSets()
     ->withRules([
         MockObjectStaticToInstanceCallRector::class,
+        AssertInstanceToStaticCallRector::class,
     ])
     ->withSets([
         PHPUnitSetList::PHPUNIT_90,
         PHPUnitSetList::PHPUNIT_100,
+        PHPUnitSetList::PHPUNIT_110,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
         PHPUnitSetList::ANNOTATIONS_TO_ATTRIBUTES,
 
@@ -76,13 +76,13 @@ return RectorConfig::configure()
         SetList::EARLY_RETURN,
         SetList::STRICT_BOOLEANS,
 
-        LevelSetList::UP_TO_PHP_82,
-        LaravelLevelSetList::UP_TO_LARAVEL_100,
-        LaravelSetList::LARAVEL_100,
+        LevelSetList::UP_TO_PHP_83,
+        LaravelLevelSetList::UP_TO_LARAVEL_110,
+        LaravelSetList::LARAVEL_110,
         LaravelSetList::LARAVEL_CODE_QUALITY,
         LaravelSetList::LARAVEL_ARRAY_STR_FUNCTION_TO_STATIC_CALL,
     ])
-    ->withPhpVersion(PhpVersion::PHP_82)
+    ->withPhpVersion(PhpVersion::PHP_83)
     ->withPaths([
         __DIR__ . '/app',
         __DIR__ . '/database',

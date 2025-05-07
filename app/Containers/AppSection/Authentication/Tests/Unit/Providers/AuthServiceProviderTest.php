@@ -24,8 +24,7 @@ final class AuthServiceProviderTest extends UnitTestCase
     public function testCanConfigurePassport(): void
     {
         $this->assertTrue(Passport::$implicitGrantEnabled);
-        $this->assertTrue(Passport::$clientUuids);
-        $this->assertTrue(Passport::$registersJsonApiRoutes);
+        $this->assertFalse(Passport::$clientUuids);
         $this->assertTrue(Passport::$passwordGrantEnabled);
 
         $this->assertEquals('PT59M', Passport::$tokensExpireIn->format('PT%iM'));

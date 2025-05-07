@@ -7,7 +7,7 @@ namespace App\Ship\Linters\Rector;
 use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Expr\StaticCall;
-use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\Name;
 use Rector\PHPUnit\NodeAnalyzer\TestsNodeAnalyzer;
 use Rector\Rector\AbstractRector;
 use Rector\ValueObject\PhpVersion;
@@ -19,19 +19,19 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 /**
  * @implements MinPhpVersionInterface<Node>
  */
-final class MockObjectStaticToInstanceCallRector extends AbstractRector implements MinPhpVersionInterface
+final class AssertInstanceToStaticCallRector extends AbstractRector implements MinPhpVersionInterface
 {
     /**
      * @var string[]
      */
-    private const array MOCK_METHODS = [
-        'any',
-        'once',
-        'never',
-        'atLeast',
-        'atLeastOnce',
-        'atMost',
-        'exactly',
+    private const array ASSERT_METHODS = [
+        'assertInstanceOf',
+        'assertFalse',
+        'assertTrue',
+        'assertContains',
+        'markTestSkipped',
+        'assertSame',
+        'assertCount',
     ];
 
     public function __construct(
@@ -45,7 +45,7 @@ final class MockObjectStaticToInstanceCallRector extends AbstractRector implemen
     public function getRuleDefinition(): RuleDefinition
     {
         return new RuleDefinition(
-            'Changes PHPUnit MockObject static calls like self::any() to instance calls like $this->any()',
+            'Changes PHPUnit assertion instance calls like $this->assertInstanceOf() to static calls like self::assertInstanceOf()',
             [
                 new CodeSample(
                     <<<'CODE_SAMPLE'
@@ -55,13 +55,9 @@ final class SomeTest extends TestCase
 {
     public function test(): void
     {
-        $mock = $this->createMock(Something::class);
-        $mock->expects(self::any())
-            ->method('someMethod')
-            ->willReturn(true);
-
-        $mock->expects(self::once())
-            ->method('otherMethod');
+        $this->assertInstanceOf(Something::class, $object);
+        $this->assertTrue($value);
+        $this->assertCount(5, $items);
     }
 }
 CODE_SAMPLE
@@ -73,13 +69,9 @@ final class SomeTest extends TestCase
 {
     public function test(): void
     {
-        $mock = $this->createMock(Something::class);
-        $mock->expects($this->any())
-            ->method('someMethod')
-            ->willReturn(true);
-
-        $mock->expects($this->once())
-            ->method('otherMethod');
+        self::assertInstanceOf(Something::class, $object);
+        self::assertTrue($value);
+        self::assertCount(5, $items);
     }
 }
 CODE_SAMPLE
@@ -93,11 +85,11 @@ CODE_SAMPLE
      */
     public function getNodeTypes(): array
     {
-        return [StaticCall::class];
+        return [MethodCall::class];
     }
 
     /**
-     * @param StaticCall $node
+     * @param MethodCall $node
      */
     public function refactor(Node $node): ?Node
     {
@@ -105,17 +97,20 @@ CODE_SAMPLE
             return null;
         }
 
-        if (!$this->isNames($node->class, ['self', 'static'])) {
+        // Check if the var is $this
+        if (!$this->isName($node->var, 'this')) {
             return null;
         }
 
-        if (!$this->isNames($node->name, self::MOCK_METHODS)) {
+        // Check if the method name is one of the assertion methods we want to convert
+        if (!$this->isNames($node->name, self::ASSERT_METHODS)) {
             return null;
         }
 
-        return new MethodCall(
-            new Variable('this'),
-            $node->name,
+        // Convert $this->assertSame() to self::assertSame()
+        return new StaticCall(
+            new Name('self'),
+            $this->getName($node->name),
             $node->args
         );
     }

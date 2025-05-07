@@ -36,8 +36,9 @@ final class CreateRoleTest extends ApiTestCase
 
     public function testCreateRoleWithWrongName(): void
     {
+        $field = 'name';
         $data = [
-            'name'         => 'includes Space',
+            $field         => 'includes Space',
             'display_name' => 'manager',
             'description'  => 'he manages things',
         ];
@@ -48,7 +49,7 @@ final class CreateRoleTest extends ApiTestCase
         $testResponse->assertJson(
             static fn (AssertableJson $json): AssertableJson => $json->has('message')
                     ->has('errors')
-                    ->where('errors.name.0', 'String should not contain space.'),
+                    ->where('errors.name.0', \sprintf('String %s should not contain space.', $field)),
         );
     }
 

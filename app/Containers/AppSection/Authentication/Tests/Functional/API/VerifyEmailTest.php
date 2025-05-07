@@ -7,6 +7,7 @@ namespace App\Containers\AppSection\Authentication\Tests\Functional\API;
 use App\Containers\AppSection\Authentication\Notifications\EmailVerified;
 use App\Containers\AppSection\Authentication\Tests\Functional\ApiTestCase;
 use App\Containers\AppSection\User\Data\Factories\UserFactory;
+use App\Containers\AppSection\User\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\URL;
@@ -25,13 +26,14 @@ final class VerifyEmailTest extends ApiTestCase
     public function testVerifyEmail(): void
     {
         Notification::fake();
+        /** @var User|UserFactory $model */
         $model = UserFactory::new()->unverified()->createOne();
         $hashedEmail = sha1((string) $model->getEmailForVerification());
         // enable email verification
         config()->set('appSection-authentication.require_email_verification', true);
         $url = URL::temporarySignedRoute(
             'verification.verify',
-            Carbon::now()->addMinutes(30),
+            Carbon::now()->addMinutes(config('auth.verification.expire', 60)),
             [
                 'user_id' => $model->getHashedKey(),
                 'hash'    => $hashedEmail,
@@ -42,9 +44,10 @@ final class VerifyEmailTest extends ApiTestCase
         $expires = $match[preg_match('/expires=(.*?)&/', $url, $match)];
         $signature = $match[preg_match('/signature=(.*)/', $url, $match)];
 
-        $testResponse = $this->injectId($model->id, replace: '{user_id}')
+        $testResponse = $this
+            ->injectId($model->getKey(), replace: '{user_id}')
             ->injectId($hashedEmail, skipEncoding: true, replace: '{hash}')
-            ->endpoint($this->endpoint . \sprintf('?expires=%s&signature=%s', $expires, $signature))
+            ->endpoint($this->getEndpoint() . \sprintf('?expires=%s&signature=%s', $expires, $signature))
             ->makeCall();
 
         $testResponse->assertOk();
@@ -76,7 +79,7 @@ final class VerifyEmailTest extends ApiTestCase
 
         $testResponse = $this->injectId($model->id, replace: '{user_id}')
             ->injectId($hashedEmail, skipEncoding: true, replace: '{hash}')
-            ->endpoint($this->endpoint . \sprintf('?expires=%s&signature=%s', $expires, $signature))
+            ->endpoint($this->getEndpoint() . \sprintf('?expires=%s&signature=%s', $expires, $signature))
             ->makeCall();
 
         $testResponse->assertForbidden();

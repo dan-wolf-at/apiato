@@ -42,7 +42,7 @@
         "ext-pdo": "*",
         "ext-sodium": "*",
         "ext-tokenizer": "*",
-        "dan-wolf-at/apiato-core": "^v8.6.0",
+        "dan-wolf-at/apiato-core": "^8.17.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^11",
         "laravel/tinker": "^2.8",

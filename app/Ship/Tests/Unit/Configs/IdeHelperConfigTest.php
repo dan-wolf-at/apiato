@@ -32,18 +32,16 @@ final class IdeHelperConfigTest extends ShipTestCase
             'model_locations' => [
                 'app/Containers/*/*/Models',
             ],
-            'ignored_models' => [
-            ],
+            'ignored_models' => [],
             'model_hooks' => [
                 // App\Support\IdeHelper\MyModelHook::class
             ],
-            'extra' => [
+            'extra'          => [
                 'Eloquent' => [Builder::class, \Illuminate\Database\Query\Builder::class],
                 'Session'  => [Store::class],
             ],
             'magic'                       => [],
             'interfaces'                  => [],
-            'custom_db_types'             => [],
             'model_camel_case_properties' => false,
             'type_overrides'              => [
                 'integer' => 'int',
@@ -54,9 +52,15 @@ final class IdeHelperConfigTest extends ShipTestCase
             'use_generics_annotations'         => true,
             'additional_relation_types'        => [],
             'additional_relation_return_types' => [],
+            'enforce_nullable_relationships'   => true,
             'post_migrate'                     => [
                 // 'ide-helper:models --nowrite',
             ],
+            'macroable_traits' => [
+                'Filament\Support\Concerns\Macroable',
+                'Spatie\Macroable\Macroable',
+            ],
+            'custom_db_types' => [],
         ];
 
         $this->assertSame($expected, $config);

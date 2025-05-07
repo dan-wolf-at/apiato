@@ -26,13 +26,6 @@ class User extends ParentUserModel implements MustVerifyEmail
         'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'immutable_datetime',
-        'password'          => 'hashed',
-        'gender'            => Gender::class,
-        'birth'             => 'immutable_date',
-    ];
-
     #[\Override]
     public function newCollection(array $models = []): UserCollection
     {
@@ -74,5 +67,15 @@ class User extends ParentUserModel implements MustVerifyEmail
         return new Attribute(
             get: static fn (null|string $value): null|string => $value === null ? null : strtolower($value),
         );
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'immutable_datetime',
+            'password'          => 'hashed',
+            'gender'            => Gender::class,
+            'birth'             => 'immutable_date',
+        ];
     }
 }
