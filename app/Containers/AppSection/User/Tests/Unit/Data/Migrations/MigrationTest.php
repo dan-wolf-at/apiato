@@ -18,18 +18,26 @@ final class MigrationTest extends UnitTestCase
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
+        $datetime = match ($driver) {
+            'mysql' => 'timestamp',
+            default => 'datetime',
+        };
 
         $columns = [
             'id'                => $bigint,
-            'name'              => 'string',
-            'email'             => 'string',
-            'email_verified_at' => 'datetime',
-            'password'          => 'string',
-            'gender'            => 'string',
+            'name'              => $string,
+            'email'             => $string,
+            'email_verified_at' => $datetime,
+            'password'          => $string,
+            'gender'            => $string,
             'birth'             => 'date',
-            'remember_token'    => 'string',
-            'created_at'        => 'datetime',
-            'updated_at'        => 'datetime',
+            'remember_token'    => $string,
+            'created_at'        => $datetime,
+            'updated_at'        => $datetime,
         ];
 
         $this->assertDatabaseTable('users', $columns);
@@ -37,10 +45,19 @@ final class MigrationTest extends UnitTestCase
 
     public function testPasswordResetsTableHasExpectedColumns(): void
     {
+        $driver = Schema::getConnection()->getDriverName();
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
+        $datetime = match ($driver) {
+            'mysql' => 'timestamp',
+            default => 'datetime',
+        };
         $columns = [
-            'email'      => 'string',
-            'token'      => 'string',
-            'created_at' => 'datetime',
+            'email'      => $string,
+            'token'      => $string,
+            'created_at' => $datetime,
         ];
 
         $this->assertDatabaseTable('password_reset_tokens', $columns);

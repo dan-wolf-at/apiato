@@ -22,15 +22,23 @@ final class MigrationTest extends UnitTestCase
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
+        $datetime = match ($driver) {
+            'mysql' => 'timestamp',
+            default => 'datetime',
+        };
 
         $columns = [
             'id'           => $bigint,
-            'name'         => 'string',
-            'guard_name'   => 'string',
-            'display_name' => 'string',
-            'description'  => 'string',
-            'created_at'   => 'datetime',
-            'updated_at'   => 'datetime',
+            'name'         => $string,
+            'guard_name'   => $string,
+            'display_name' => $string,
+            'description'  => $string,
+            'created_at'   => $datetime,
+            'updated_at'   => $datetime,
         ];
 
         $this->assertDatabaseTable($this->tableNames['permissions'], $columns);
@@ -43,15 +51,23 @@ final class MigrationTest extends UnitTestCase
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
+        $datetime = match ($driver) {
+            'mysql' => 'timestamp',
+            default => 'datetime',
+        };
 
         $columns = [
             'id'           => $bigint,
-            'name'         => 'string',
-            'guard_name'   => 'string',
-            'display_name' => 'string',
-            'description'  => 'string',
-            'created_at'   => 'datetime',
-            'updated_at'   => 'datetime',
+            'name'         => $string,
+            'guard_name'   => $string,
+            'display_name' => $string,
+            'description'  => $string,
+            'created_at'   => $datetime,
+            'updated_at'   => $datetime,
         ];
 
         $this->assertDatabaseTable($this->tableNames['roles'], $columns);
@@ -64,10 +80,14 @@ final class MigrationTest extends UnitTestCase
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
 
         $columns = [
             'permission_id'                       => $bigint,
-            'model_type'                          => 'string',
+            'model_type'                          => $string,
             $this->columnNames['model_morph_key'] => $bigint,
         ];
 
@@ -81,10 +101,14 @@ final class MigrationTest extends UnitTestCase
             'sqlite' => 'integer',
             default  => 'bigint',
         };
+        $string = match ($driver) {
+            'mysql' => 'varchar',
+            default => 'string',
+        };
 
         $columns = [
             'role_id'                             => $bigint,
-            'model_type'                          => 'string',
+            'model_type'                          => $string,
             $this->columnNames['model_morph_key'] => $bigint,
         ];
 

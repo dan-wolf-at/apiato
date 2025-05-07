@@ -21,6 +21,7 @@ class MainServiceProvider extends ParentMainServiceProvider
         // 'Foo' => Bar::class,
     ];
 
+    #[\Override]
     public function boot(): void
     {
         parent::boot();
