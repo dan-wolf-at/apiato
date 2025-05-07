@@ -1711,26 +1711,8 @@ parameters:
 			path: app/Ship/Linters/Rector/MockObjectStaticToInstanceCallRector.php
 
 		-
-			message: '#^Method App\\Ship\\Parents\\Actions\\Action\:\:transactionInterceptor\(\) should return static\(App\\Ship\\Parents\\Actions\\Action\) but returns class@anonymous/app/Ship/Parents/Traits/TransactionInterceptorTrait\.php\:27\.$#'
-			identifier: return.type
-			count: 1
-			path: app/Ship/Parents/Actions/Action.php
-
-		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
 			identifier: phpDoc.parseError
-			count: 1
-			path: app/Ship/Parents/Actions/Action.php
-
-		-
-			message: '#^PHPDoc tag @var with type App\\Ship\\Parents\\Actions\\Action is not subtype of native type \$this\(App\\Ship\\Parents\\Actions\\Action\)\.$#'
-			identifier: varTag.nativeType
-			count: 1
-			path: app/Ship/Parents/Actions/Action.php
-
-		-
-			message: '#^Variable method call on object\.$#'
-			identifier: method.dynamicName
 			count: 1
 			path: app/Ship/Parents/Actions/Action.php
 
@@ -1768,6 +1750,12 @@ parameters:
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
 			identifier: phpDoc.parseError
 			count: 1
+			path: app/Ship/Parents/Events/Event.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
 			path: app/Ship/Parents/Exceptions/Exception.php
 
 		-
@@ -1775,6 +1763,12 @@ parameters:
 			identifier: phpDoc.parseError
 			count: 1
 			path: app/Ship/Parents/Factories/Factory.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Listeners/Listener.php
 
 		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
