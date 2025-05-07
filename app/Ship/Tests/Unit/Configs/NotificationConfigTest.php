@@ -20,6 +20,6 @@ final class NotificationConfigTest extends ShipTestCase
             ],
         ];
 
-        $this->assertSame($expected, $config);
+        self::assertSame($expected, $config);
     }
 }

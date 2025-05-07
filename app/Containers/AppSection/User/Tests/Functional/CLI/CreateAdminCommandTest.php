@@ -34,7 +34,7 @@ final class CreateAdminCommandTest extends CliTestCase
             'name'  => $data['name'],
             'email' => $data['email'],
         ]);
-        $this->assertTrue(Hash::check($data['password'], User::where('email', $data['email'])->first()->password));
+        self::assertTrue(Hash::check($data['password'], User::where('email', $data['email'])->first()->password));
     }
 
     public function testErrorsOnNotMatchingPassword(): void

@@ -27,17 +27,17 @@ final class TokenTransformerTest extends UnitTestCase
 
         $transformedResource = $this->transformer->transform($token);
 
-        $this->assertSame($expected, $transformedResource);
+        self::assertSame($expected, $transformedResource);
     }
 
     public function testAvailableIncludes(): void
     {
-        $this->assertSame([], $this->transformer->getAvailableIncludes());
+        self::assertSame([], $this->transformer->getAvailableIncludes());
     }
 
     public function testDefaultIncludes(): void
     {
-        $this->assertSame([], $this->transformer->getDefaultIncludes());
+        self::assertSame([], $this->transformer->getDefaultIncludes());
     }
 
     #[\Override]

@@ -17,18 +17,18 @@ final class AuthServiceProviderTest extends UnitTestCase
 
     public function testProviderHasCorrectFields(): void
     {
-        $this->assertTrue($this->provider->isDeferred());
-        $this->assertSame([], $this->provider->policies());
+        self::assertTrue($this->provider->isDeferred());
+        self::assertSame([], $this->provider->policies());
     }
 
     public function testCanConfigurePassport(): void
     {
-        $this->assertTrue(Passport::$implicitGrantEnabled);
-        $this->assertFalse(Passport::$clientUuids);
-        $this->assertTrue(Passport::$passwordGrantEnabled);
+        self::assertTrue(Passport::$implicitGrantEnabled);
+        self::assertFalse(Passport::$clientUuids);
+        self::assertTrue(Passport::$passwordGrantEnabled);
 
-        $this->assertEquals('PT59M', Passport::$tokensExpireIn->format('PT%iM'));
-        $this->assertEquals('PT59M', Passport::$refreshTokensExpireIn->format('PT%iM'));
+        self::assertEquals('PT59M', Passport::$tokensExpireIn->format('PT%iM'));
+        self::assertEquals('PT59M', Passport::$refreshTokensExpireIn->format('PT%iM'));
     }
 
     public function testRegistersPassportApiRoutes(): void
@@ -57,7 +57,7 @@ final class AuthServiceProviderTest extends UnitTestCase
         $apiPrefix = $this->removeLeadingSlashes(config('apiato.api.prefix'));
         $oAuthPrefix = $apiPrefix . 'v1/oauth';
         foreach ($passportRouteNames as $passportRouteName) {
-            $this->assertInstanceOf(\Illuminate\Routing\Route::class, $routeCollection->getByName($passportRouteName));
+            self::assertInstanceOf(\Illuminate\Routing\Route::class, $routeCollection->getByName($passportRouteName));
             $this->assertSamePrefix($oAuthPrefix, $routeCollection->getByName($passportRouteName)->getPrefix());
         }
     }
@@ -74,7 +74,7 @@ final class AuthServiceProviderTest extends UnitTestCase
         ];
 
         foreach ($passportRouteNames as $passportRouteName) {
-            $this->assertNotInstanceOf(\Illuminate\Routing\Route::class, $routeCollection->getByName($passportRouteName));
+            self::assertNotInstanceOf(\Illuminate\Routing\Route::class, $routeCollection->getByName($passportRouteName));
         }
     }
 
@@ -93,10 +93,6 @@ final class AuthServiceProviderTest extends UnitTestCase
 
     private function assertSamePrefix(string $prefix, string $endpoint): void
     {
-        $this->assertSame(
-            $prefix,
-            $endpoint,
-            'The prefix of the route does not match the expected value.',
-        );
+        self::assertSame($prefix, $endpoint, 'The prefix of the route does not match the expected value.');
     }
 }

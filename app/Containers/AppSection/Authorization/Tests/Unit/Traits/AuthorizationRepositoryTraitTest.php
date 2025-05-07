@@ -20,8 +20,8 @@ final class AuthorizationRepositoryTraitTest extends UnitTestCase
 
         $traitTestRepository->whereGuard($guard);
 
-        $this->assertSame($guard, $this->getInaccessiblePropertyValue($traitTestRepository->getCriteria()->first(), 'guard'));
-        $this->assertContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
+        self::assertSame($guard, $this->getInaccessiblePropertyValue($traitTestRepository->getCriteria()->first(), 'guard'));
+        self::assertContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
     }
 
     public function testItDoesNotPushCriteriaWhenGuardIsNull(): void
@@ -31,6 +31,6 @@ final class AuthorizationRepositoryTraitTest extends UnitTestCase
 
         $traitTestRepository->whereGuard($guard);
 
-        $this->assertNotContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
+        self::assertNotContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
     }
 }

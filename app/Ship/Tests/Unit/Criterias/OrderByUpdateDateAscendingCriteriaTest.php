@@ -25,8 +25,8 @@ final class OrderByUpdateDateAscendingCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertSame($modelA->id, $result->first()->id);
-        $this->assertSame($modelB->id, $result->get(1)->id);
-        $this->assertSame($modelC->id, $result->last()->id);
+        self::assertSame($modelA->id, $result->first()->id);
+        self::assertSame($modelB->id, $result->get(1)->id);
+        self::assertSame($modelC->id, $result->last()->id);
     }
 }

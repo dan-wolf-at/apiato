@@ -21,10 +21,10 @@ final class PasswordUpdatedNotificationTest extends UnitTestCase
 
         $model->notify(new PasswordUpdatedNotification());
 
-        Notification::assertSentTo($model, PasswordUpdatedNotification::class, function (PasswordUpdatedNotification $notification) use ($model): true {
+        Notification::assertSentTo($model, PasswordUpdatedNotification::class, static function (PasswordUpdatedNotification $notification) use ($model): true {
             $mailMessage = $notification->toMail($model);
-            $this->assertSame('Account Change Notice', $mailMessage->subject);
-            $this->assertSame([
+            self::assertSame('Account Change Notice', $mailMessage->subject);
+            self::assertSame([
                 'We wanted to let you know that some information was changed for your account:',
                 'Your password has been change.',
                 'If you recently made account changes, please disregard this message. However, if you did NOT make any changes to your account, we recommend you change your password and make appropriate corrections as soon as possible to ensure account security.',

@@ -18,7 +18,7 @@ final class PolicyTest extends ShipTestCase
 
         $fakeRequest = FakeRequest::injectData([], $this->testingUser);
 
-        $this->assertTrue($fakeRequest->authorize(app(Gate::class)));
+        self::assertTrue($fakeRequest->authorize(app(Gate::class)));
     }
 
     public function testNonAdminCannotBypassAllAuthorizations(): void
@@ -27,7 +27,7 @@ final class PolicyTest extends ShipTestCase
 
         $fakeRequest = FakeRequest::injectData([], $this->testingUser);
 
-        $this->assertFalse($fakeRequest->authorize(app(Gate::class)));
+        self::assertFalse($fakeRequest->authorize(app(Gate::class)));
     }
 
     #[\Override]

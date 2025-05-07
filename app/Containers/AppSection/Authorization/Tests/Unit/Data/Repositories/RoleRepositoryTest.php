@@ -20,13 +20,13 @@ final class RoleRepositoryTest extends UnitTestCase
         ];
         $repository = app(RoleRepository::class);
 
-        $this->assertSame($data, $repository->getFieldsSearchable());
+        self::assertSame($data, $repository->getFieldsSearchable());
     }
 
     public function testReturnsCorrectModel(): void
     {
         $repository = app(RoleRepository::class);
 
-        $this->assertSame(config('permission.models.role'), $repository->model());
+        self::assertSame(config('permission.models.role'), $repository->model());
     }
 }

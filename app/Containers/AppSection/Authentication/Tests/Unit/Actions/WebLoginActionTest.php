@@ -258,12 +258,12 @@ final class WebLoginActionTest extends UnitTestCase
         /** @var MessageBag $errors */
         $errors = $response->getSession()->get('errors');
         foreach (['email', 'name'] as $field) {
-            $this->assertTrue($errors->has($field));
-            $this->assertCount(1, $errors->get($field));
-            $this->assertSame(__('auth.failed'), $errors->get($field)[0]);
+            self::assertTrue($errors->has($field));
+            self::assertCount(1, $errors->get($field));
+            self::assertSame(__('auth.failed'), $errors->get($field)[0]);
         }
 
-        $this->assertTrue($response->isRedirect());
+        self::assertTrue($response->isRedirect());
     }
 
     public function testCanLoginWithMultipleLoginFieldsEvenIfOneFieldIsCorrect(): void
@@ -285,7 +285,7 @@ final class WebLoginActionTest extends UnitTestCase
 
         $response = $action->run($loginRequest);
 
-        $this->assertTrue($response->isRedirect());
+        self::assertTrue($response->isRedirect());
         $this->assertAuthenticatedAs($model, AuthGuard::WEB->value);
     }
 

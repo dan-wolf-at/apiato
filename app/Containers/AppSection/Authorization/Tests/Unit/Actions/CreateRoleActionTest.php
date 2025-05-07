@@ -24,9 +24,9 @@ final class CreateRoleActionTest extends UnitTestCase
 
         $role = $action->run($createRoleRequest);
 
-        $this->assertSame($createRoleRequest->name, $role->name);
-        $this->assertSame($createRoleRequest->description, $role->description);
-        $this->assertSame($createRoleRequest->display_name, $role->display_name);
-        $this->assertSame(AuthGuard::API->value, $role->guard_name);
+        self::assertSame($createRoleRequest->name, $role->name);
+        self::assertSame($createRoleRequest->description, $role->description);
+        self::assertSame($createRoleRequest->display_name, $role->display_name);
+        self::assertSame(AuthGuard::API->value, $role->guard_name);
     }
 }

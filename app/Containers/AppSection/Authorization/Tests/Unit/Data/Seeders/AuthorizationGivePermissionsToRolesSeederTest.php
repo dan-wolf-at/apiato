@@ -17,9 +17,9 @@ final class AuthorizationGivePermissionsToRolesSeederTest extends UnitTestCase
         $adminRoleName = config('appSection-authorization.admin_role');
         $adminRoles = Role::whereName($adminRoleName)->get();
 
-        $this->assertNotEmpty($adminRoles);
+        self::assertNotEmpty($adminRoles);
         foreach ($adminRoles as $adminRole) {
-            $this->assertTrue($adminRole->hasAllPermissions());
+            self::assertTrue($adminRole->hasAllPermissions());
         }
     }
 }

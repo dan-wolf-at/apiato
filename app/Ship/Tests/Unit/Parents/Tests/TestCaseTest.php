@@ -17,6 +17,6 @@ final class TestCaseTest extends ShipTestCase
         $fakeTestCase = new FakeTestCase('test');
         $application = $fakeTestCase->createApplication();
 
-        $this->assertInstanceOf(Application::class, $application);
+        self::assertInstanceOf(Application::class, $application);
     }
 }

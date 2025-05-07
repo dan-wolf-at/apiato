@@ -16,7 +16,7 @@ final class PermissionTest extends UnitTestCase
 {
     public function testUsesCorrectTraits(): void
     {
-        $this->assertContains(ModelTrait::class, class_uses_recursive(Permission::class));
+        self::assertContains(ModelTrait::class, class_uses_recursive(Permission::class));
     }
 
     public function testUsesCorrectGuard(): void
@@ -24,7 +24,7 @@ final class PermissionTest extends UnitTestCase
         $model = PermissionFactory::new()->createOne();
         $guard = AuthGuard::API->value;
 
-        $this->assertSame($guard, $this->getInaccessiblePropertyValue($model, 'guard_name'));
+        self::assertSame($guard, $this->getInaccessiblePropertyValue($model, 'guard_name'));
     }
 
     public function testHasCorrectFillableFields(): void
@@ -38,7 +38,7 @@ final class PermissionTest extends UnitTestCase
         ];
 
         foreach ($fillables as $fillable) {
-            $this->assertContains($fillable, $model->getFillable());
+            self::assertContains($fillable, $model->getFillable());
         }
     }
 
@@ -47,13 +47,13 @@ final class PermissionTest extends UnitTestCase
         $model = PermissionFactory::new()->createOne();
         $table = 'permissions';
 
-        $this->assertSame($table, $model->getTable());
+        self::assertSame($table, $model->getTable());
     }
 
     public function testHasCorrectResourceKey(): void
     {
         $model = PermissionFactory::new()->createOne();
 
-        $this->assertSame('Permission', $model->getResourceKey());
+        self::assertSame('Permission', $model->getResourceKey());
     }
 }

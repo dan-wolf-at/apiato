@@ -21,10 +21,10 @@ final class EmailVerifiedTest extends UnitTestCase
 
         $model->notify(new EmailVerified());
 
-        Notification::assertSentTo($model, EmailVerified::class, function (EmailVerified $notification) use ($model): true {
+        Notification::assertSentTo($model, EmailVerified::class, static function (EmailVerified $notification) use ($model): true {
             $mailMessage = $notification->toMail($model);
-            $this->assertSame('Email Verified', $mailMessage->subject);
-            $this->assertSame(['Your email has been verified.'], $mailMessage->introLines);
+            self::assertSame('Email Verified', $mailMessage->subject);
+            self::assertSame(['Your email has been verified.'], $mailMessage->introLines);
 
             return true;
         });

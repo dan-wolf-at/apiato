@@ -26,8 +26,8 @@ final class GivePermissionsToUserActionTest extends UnitTestCase
 
         $result = $action->run($givePermissionsToUserRequest);
 
-        $this->assertSame($result->id, $model->id);
-        $this->assertTrue($result->hasPermissionTo($permission->name));
+        self::assertSame($result->id, $model->id);
+        self::assertTrue($result->hasPermissionTo($permission->name));
     }
 
     public function testCanGiveMultiplePermissions(): void
@@ -43,7 +43,7 @@ final class GivePermissionsToUserActionTest extends UnitTestCase
 
         $result = $action->run($givePermissionsToUserRequest);
 
-        $this->assertSame($result->id, $model->id);
-        $this->assertTrue($result->hasAllPermissions([$permissionA->name, $permissionB->name]));
+        self::assertSame($result->id, $model->id);
+        self::assertTrue($result->hasAllPermissions([$permissionA->name, $permissionB->name]));
     }
 }

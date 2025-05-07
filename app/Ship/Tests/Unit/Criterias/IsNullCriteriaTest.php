@@ -24,6 +24,6 @@ final class IsNullCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertCount(3, $result);
+        self::assertCount(3, $result);
     }
 }

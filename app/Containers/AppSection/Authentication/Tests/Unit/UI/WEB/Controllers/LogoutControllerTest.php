@@ -9,6 +9,7 @@ use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
 use App\Containers\AppSection\Authentication\UI\WEB\Controllers\HomePageController;
 use App\Containers\AppSection\Authentication\UI\WEB\Controllers\LogoutController;
 use App\Containers\AppSection\Authentication\UI\WEB\Requests\LogoutRequest;
+use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(LogoutController::class)]
@@ -18,11 +19,12 @@ final class LogoutControllerTest extends UnitTestCase
     {
         $controller = app(LogoutController::class);
         $logoutRequest = LogoutRequest::injectData();
+        /** @var WebLogoutAction|MockInterface $mock */
         $mock = $this->mock(WebLogoutAction::class);
         $mock->expects()->run();
 
         $response = $controller($logoutRequest, $mock);
 
-        $this->assertTrue($response->isRedirect(action(HomePageController::class)));
+        self::assertTrue($response->isRedirect(action(HomePageController::class)));
     }
 }

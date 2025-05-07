@@ -16,7 +16,7 @@ final class DeleteRoleRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => 'manage-roles',
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -24,14 +24,14 @@ final class DeleteRoleRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'role_id',
         ], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'role_id',
         ], $this->request->getUrlParametersArray());
     }
@@ -40,7 +40,7 @@ final class DeleteRoleRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([], $rules);
+        self::assertSame([], $rules);
     }
 
     public function testAuthorizeMethodGateCall(): void
@@ -48,7 +48,7 @@ final class DeleteRoleRequestTest extends UnitTestCase
         $userModel = $this->getTestingUser(access: ['permissions' => 'manage-roles']);
         $deleteRoleRequest = DeleteRoleRequest::injectData([], $userModel)->withUrlParameters(['role_id' => RoleFactory::new()->createOne()->id]);
 
-        $this->assertTrue($deleteRoleRequest->authorize());
+        self::assertTrue($deleteRoleRequest->authorize());
     }
 
     #[\Override]

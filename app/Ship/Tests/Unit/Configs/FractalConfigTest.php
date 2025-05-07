@@ -35,6 +35,6 @@ final class FractalConfigTest extends ShipTestCase
             ],
         ];
 
-        $this->assertSame($expected, $config);
+        self::assertSame($expected, $config);
     }
 }

@@ -48,7 +48,7 @@ final class LoginFieldParserTest extends UnitTestCase
 
         $result = LoginFieldParser::extractAll($input);
 
-        $this->assertEquals($result, $expected);
+        self::assertEquals($result, $expected);
     }
 
     public function testShouldDiscardUnknownFields(): void
@@ -62,7 +62,7 @@ final class LoginFieldParserTest extends UnitTestCase
 
         $result = LoginFieldParser::extractAll($credentials);
 
-        $this->assertEquals($result, $expected);
+        self::assertEquals($result, $expected);
     }
 
     public function testUsesEmailFieldAsDefaultFallback(): void
@@ -76,7 +76,7 @@ final class LoginFieldParserTest extends UnitTestCase
 
         $result = LoginFieldParser::extractAll($credentials);
 
-        $this->assertEquals($result, $expected);
+        self::assertEquals($result, $expected);
     }
 
     public function testEmptyCredentialsThrowsException(): void
@@ -200,7 +200,7 @@ final class LoginFieldParserTest extends UnitTestCase
 
         $result = LoginFieldParser::mergeValidationRules($rules);
 
-        $this->assertSame([
+        self::assertSame([
             'phone'             => ['required', 'numeric'],
             'address'           => ['string'],
             'age'               => ['nullable', 'integer'],
@@ -250,7 +250,7 @@ final class LoginFieldParserTest extends UnitTestCase
 
         $result = LoginFieldParser::mergeValidationRules($rules);
 
-        $this->assertSame([
+        self::assertSame([
             'phone'        => ['required', 'numeric'],
             'address'      => ['string'],
             'age'          => ['nullable', 'integer'],

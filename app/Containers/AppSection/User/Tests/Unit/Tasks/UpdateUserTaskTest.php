@@ -25,8 +25,8 @@ final class UpdateUserTaskTest extends UnitTestCase
 
         $updatedUser = app(UpdateUserTask::class)->run($model->id, $data);
 
-        $this->assertSame($model->id, $updatedUser->id);
-        $this->assertSame($data['name'], $updatedUser->name);
+        self::assertSame($model->id, $updatedUser->id);
+        self::assertSame($data['name'], $updatedUser->name);
     }
 
     public function testUpdateUserWithInvalidID(): void
@@ -47,7 +47,7 @@ final class UpdateUserTaskTest extends UnitTestCase
 
         $result = app(UpdateUserTask::class)->run($model->id, $data);
 
-        $this->assertTrue(Hash::check($data['password'], $result->password));
+        self::assertTrue(Hash::check($data['password'], $result->password));
     }
 
     public function testCatchesAllExceptionsAndThrowsCustomException(): void

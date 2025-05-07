@@ -30,6 +30,6 @@ final class ListUserRolesTest extends ApiTestCase
         $testResponse->assertOk();
 
         $responseContent = $this->getResponseContentObject();
-        $this->assertSame($role->name, $responseContent->data[0]->name);
+        self::assertSame($role->name, $responseContent->data[0]->name);
     }
 }

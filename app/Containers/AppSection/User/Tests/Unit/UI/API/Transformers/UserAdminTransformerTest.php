@@ -36,12 +36,12 @@ final class UserAdminTransformerTest extends UnitTestCase
 
         $transformedResource = $this->transformer->transform($model);
 
-        $this->assertEquals($expected, $transformedResource);
+        self::assertEquals($expected, $transformedResource);
     }
 
     public function testAvailableIncludes(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'roles',
             'permissions',
         ], $this->transformer->getAvailableIncludes());
@@ -49,7 +49,7 @@ final class UserAdminTransformerTest extends UnitTestCase
 
     public function testDefaultIncludes(): void
     {
-        $this->assertSame([], $this->transformer->getDefaultIncludes());
+        self::assertSame([], $this->transformer->getDefaultIncludes());
     }
 
     public function testIncludeRoles(): void
@@ -60,7 +60,7 @@ final class UserAdminTransformerTest extends UnitTestCase
 
         $collection = $this->transformer->includeRoles($model);
 
-        $this->assertSame($model->roles, $collection->getData());
+        self::assertSame($model->roles, $collection->getData());
     }
 
     public function testIncludePermissions(): void
@@ -71,7 +71,7 @@ final class UserAdminTransformerTest extends UnitTestCase
 
         $collection = $this->transformer->includePermissions($model);
 
-        $this->assertSame($model->permissions, $collection->getData());
+        self::assertSame($model->permissions, $collection->getData());
     }
 
     #[\Override]

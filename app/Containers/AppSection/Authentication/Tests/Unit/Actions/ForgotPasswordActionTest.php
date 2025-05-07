@@ -26,7 +26,7 @@ final class ForgotPasswordActionTest extends UnitTestCase
         $forgotPasswordRequest = new ForgotPasswordRequest($data);
         $result = app(ForgotPasswordAction::class)->run($forgotPasswordRequest);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
         Mail::assertQueued(ForgotPassword::class);
     }
 
@@ -40,7 +40,7 @@ final class ForgotPasswordActionTest extends UnitTestCase
         $forgotPasswordRequest = new ForgotPasswordRequest($data);
         $result = app(ForgotPasswordAction::class)->run($forgotPasswordRequest);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
         Mail::assertNotQueued(ForgotPassword::class);
     }
 }

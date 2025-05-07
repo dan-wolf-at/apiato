@@ -25,9 +25,9 @@ final class OrderByFieldCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertSame($modelA->id, $result->first()->id);
-        $this->assertSame($modelB->id, $result->get(1)->id);
-        $this->assertSame($modelC->id, $result->last()->id);
+        self::assertSame($modelA->id, $result->first()->id);
+        self::assertSame($modelB->id, $result->get(1)->id);
+        self::assertSame($modelC->id, $result->last()->id);
     }
 
     public function testCriteriaDescending(): void
@@ -42,9 +42,9 @@ final class OrderByFieldCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertSame($modelC->id, $result->first()->id);
-        $this->assertSame($modelB->id, $result->get(1)->id);
-        $this->assertSame($modelA->id, $result->last()->id);
+        self::assertSame($modelC->id, $result->first()->id);
+        self::assertSame($modelB->id, $result->get(1)->id);
+        self::assertSame($modelA->id, $result->last()->id);
     }
 
     public function testCriteriaThrowExceptionWhenSortOrderIsWrong(): void

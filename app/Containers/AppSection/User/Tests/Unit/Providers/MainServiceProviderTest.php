@@ -16,24 +16,21 @@ final class MainServiceProviderTest extends UnitTestCase
 
     public function testProviderHasCorrectProviders(): void
     {
-        $this->assertSame([], $this->provider->serviceProviders);
+        self::assertSame([], $this->provider->serviceProviders);
     }
 
     public function testProviderHasCorrectAliases(): void
     {
-        $this->assertSame([], $this->provider->aliases);
+        self::assertSame([], $this->provider->aliases);
     }
 
     public function testProviderSetsDefaultPasswordRules(): void
     {
-        $this->assertEquals(
-            Password::min(8)
-                ->letters()
-                ->mixedCase()
-                ->numbers()
-                ->symbols(),
-            Password::defaults(),
-        );
+        self::assertEquals(Password::min(8)
+            ->letters()
+            ->mixedCase()
+            ->numbers()
+            ->symbols(), Password::defaults());
     }
 
     #[\Override]

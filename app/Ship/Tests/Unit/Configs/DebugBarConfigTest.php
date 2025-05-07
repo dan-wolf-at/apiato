@@ -15,7 +15,7 @@ final class DebugBarConfigTest extends ShipTestCase
         $config = config('debugbar');
         $expected = [
             'enabled' => env('DEBUGBAR_ENABLED', null),
-            'except' => [
+            'except'  => [
                 'telescope*',
                 'horizon*',
             ],
@@ -37,9 +37,9 @@ final class DebugBarConfigTest extends ShipTestCase
             'add_ajax_timing'         => false,
             'ajax_handler_auto_show'  => true,
             'ajax_handler_enable_tab' => true,
-            'error_handler' => false,
-            'clockwork'     => false,
-            'collectors'    => [
+            'error_handler'           => false,
+            'clockwork'               => false,
+            'collectors'              => [
                 'phpinfo'         => false,
                 'messages'        => true,
                 'time'            => true,
@@ -142,6 +142,6 @@ final class DebugBarConfigTest extends ShipTestCase
             'defer_datasets'        => false,
         ];
 
-        $this->assertSame($expected, $config);
+        self::assertSame($expected, $config);
     }
 }

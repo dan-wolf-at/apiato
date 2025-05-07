@@ -30,6 +30,6 @@ final class ListRolePermissionsTest extends ApiTestCase
         $testResponse->assertOk();
 
         $responseContent = $this->getResponseContentObject();
-        $this->assertSame($permission->name, $responseContent->data[0]->name);
+        self::assertSame($permission->name, $responseContent->data[0]->name);
     }
 }

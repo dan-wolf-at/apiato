@@ -22,10 +22,10 @@ final class CreateRoleTaskTest extends UnitTestCase
 
         $role = app(CreateRoleTask::class)->run($name, $description, $display_name);
 
-        $this->assertSame(strtolower($name), $role->name);
-        $this->assertSame($description, $role->description);
-        $this->assertSame($display_name, $role->display_name);
-        $this->assertSame(AuthGuard::API->value, $role->guard_name);
+        self::assertSame(strtolower($name), $role->name);
+        self::assertSame($description, $role->description);
+        self::assertSame($display_name, $role->display_name);
+        self::assertSame(AuthGuard::API->value, $role->guard_name);
     }
 
     public function testCatchesAllExceptionsAndThrowsCustomException(): void

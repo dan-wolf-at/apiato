@@ -29,7 +29,7 @@ final class VerifyEmailActionTest extends UnitTestCase
 
         $action->run($verifyEmailRequest);
 
-        $this->assertTrue($model->refresh()->hasVerifiedEmail());
+        self::assertTrue($model->refresh()->hasVerifiedEmail());
         Notification::assertSentTo($model, EmailVerified::class);
     }
 

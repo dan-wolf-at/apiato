@@ -58,6 +58,6 @@ final class ApiatoConfigTest extends ShipTestCase
             ],
         ];
 
-        $this->assertSame($expected, $config);
+        self::assertSame($expected, $config);
     }
 }

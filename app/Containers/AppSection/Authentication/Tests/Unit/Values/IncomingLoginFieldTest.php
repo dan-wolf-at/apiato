@@ -15,7 +15,7 @@ final class IncomingLoginFieldTest extends UnitTestCase
     {
         $incomingLoginField = new IncomingLoginField('email', 'gandalf@the.grey');
 
-        $this->assertSame('email', $incomingLoginField->name);
-        $this->assertSame('gandalf@the.grey', $incomingLoginField->value);
+        self::assertSame('email', $incomingLoginField->name);
+        self::assertSame('gandalf@the.grey', $incomingLoginField->value);
     }
 }

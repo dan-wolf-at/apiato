@@ -26,9 +26,9 @@ final class RemoveUserRolesActionTest extends UnitTestCase
 
         $result = $action->run($removeUserRolesRequest);
 
-        $this->assertCount(2, $result->roles);
-        $this->assertSame($roles[0]->id, $result->roles->first()->id);
-        $this->assertSame($roles[2]->id, $result->roles->last()->id);
+        self::assertCount(2, $result->roles);
+        self::assertSame($roles[0]->id, $result->roles->first()->id);
+        self::assertSame($roles[2]->id, $result->roles->last()->id);
     }
 
     public function testCanRemoveRoles(): void
@@ -43,7 +43,7 @@ final class RemoveUserRolesActionTest extends UnitTestCase
 
         $result = $action->run($removeUserRolesRequest);
 
-        $this->assertCount(1, $result->roles);
-        $this->assertSame($roles[1]->id, $result->roles->sole()->id);
+        self::assertCount(1, $result->roles);
+        self::assertSame($roles[1]->id, $result->roles->sole()->id);
     }
 }

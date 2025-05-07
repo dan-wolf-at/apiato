@@ -53,7 +53,7 @@ final class VerifyEmailTest extends ApiTestCase
         $testResponse->assertOk();
 
         $model->refresh();
-        $this->assertTrue($model->hasVerifiedEmail());
+        self::assertTrue($model->hasVerifiedEmail());
         Notification::assertSentTo($model, EmailVerified::class);
     }
 
