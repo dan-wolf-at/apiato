@@ -19,6 +19,6 @@ final class ListUsersActionTest extends UnitTestCase
 
         $foundUsers = $task->run();
 
-        $this->assertCount(3, $foundUsers);
+        self::assertCount(3, $foundUsers);
     }
 }

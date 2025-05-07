@@ -18,11 +18,11 @@ final class WebLogoutActionTest extends UnitTestCase
     {
         $user = UserFactory::new()->create();
         $this->actingAs($user, AuthGuard::WEB->value);
-        $this->assertEquals(auth()->user()?->getAuthIdentifier(), $user->getKey());
+        self::assertEquals(auth()->user()?->getAuthIdentifier(), $user->getKey());
         $action = app(WebLogoutAction::class);
 
         $action->run();
 
-        $this->assertNotInstanceOf(Authenticatable::class, auth()->user());
+        self::assertNotInstanceOf(Authenticatable::class, auth()->user());
     }
 }

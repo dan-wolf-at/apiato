@@ -21,7 +21,7 @@ final class DeleteUserActionTest extends UnitTestCase
 
         $result = $action->run($deleteUserRequest);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
         $this->assertModelMissing($model);
     }
 }

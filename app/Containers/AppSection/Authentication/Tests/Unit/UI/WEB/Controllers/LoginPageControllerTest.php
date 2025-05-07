@@ -17,6 +17,6 @@ final class LoginPageControllerTest extends UnitTestCase
 
         $view = $controller();
 
-        $this->assertSame('appSection@authentication::login', $view->name());
+        self::assertSame('appSection@authentication::login', $view->name());
     }
 }

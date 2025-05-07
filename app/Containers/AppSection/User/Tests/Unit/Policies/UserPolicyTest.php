@@ -16,21 +16,21 @@ final class UserPolicyTest extends UnitTestCase
     {
         $policy = app(UserPolicy::class);
 
-        $this->assertFalse($policy->delete());
+        self::assertFalse($policy->delete());
     }
 
     public function testCanShowUserOnlyIfAdmin(): void
     {
         $policy = app(UserPolicy::class);
 
-        $this->assertFalse($policy->show());
+        self::assertFalse($policy->show());
     }
 
     public function testCanIndexUsersOnlyIfAdmin(): void
     {
         $policy = app(UserPolicy::class);
 
-        $this->assertFalse($policy->index());
+        self::assertFalse($policy->index());
     }
 
     public function testCanUpdateUserAsOwner(): void
@@ -38,6 +38,6 @@ final class UserPolicyTest extends UnitTestCase
         $policy = app(UserPolicy::class);
         $model = UserFactory::new()->createOne();
 
-        $this->assertTrue($policy->update($model, $model->id));
+        self::assertTrue($policy->update($model, $model->id));
     }
 }

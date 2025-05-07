@@ -17,13 +17,13 @@ final class PermissionFactoryTest extends UnitTestCase
     {
         $model = PermissionFactory::new()->createOne();
 
-        $this->assertInstanceOf(Permission::class, $model);
+        self::assertInstanceOf(Permission::class, $model);
     }
 
     public function testCanSetGuard(): void
     {
         $model = PermissionFactory::new()->withGuard(AuthGuard::API->value)->createOne();
 
-        $this->assertSame(AuthGuard::API->value, $model->guard_name);
+        self::assertSame(AuthGuard::API->value, $model->guard_name);
     }
 }

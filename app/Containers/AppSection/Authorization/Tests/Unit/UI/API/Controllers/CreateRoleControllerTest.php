@@ -9,6 +9,7 @@ use App\Containers\AppSection\Authorization\Data\Factories\RoleFactory;
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
 use App\Containers\AppSection\Authorization\UI\API\Controllers\CreateRoleController;
 use App\Containers\AppSection\Authorization\UI\API\Requests\CreateRoleRequest;
+use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,11 +20,12 @@ final class CreateRoleControllerTest extends UnitTestCase
     {
         $controller = app(CreateRoleController::class);
         $createRoleRequest = CreateRoleRequest::injectData();
+        /** @var CreateRoleAction|MockInterface $actionMock */
         $actionMock = $this->mock(CreateRoleAction::class);
         $actionMock->expects()->run($createRoleRequest)->andReturn(RoleFactory::new()->createOne());
 
         $response = $controller($createRoleRequest, $actionMock);
 
-        $this->assertSame(Response::HTTP_CREATED, $response->getStatusCode(), $response->getContent());
+        self::assertSame(Response::HTTP_CREATED, $response->getStatusCode(), $response->getContent());
     }
 }

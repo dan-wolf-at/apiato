@@ -21,7 +21,7 @@ final class GetUserProfileActionTest extends UnitTestCase
 
         $foundUser = $action->run();
 
-        $this->assertInstanceOf(User::class, $foundUser);
-        $this->assertSame($model->id, $foundUser->id);
+        self::assertInstanceOf(User::class, $foundUser);
+        self::assertSame($model->id, $foundUser->id);
     }
 }

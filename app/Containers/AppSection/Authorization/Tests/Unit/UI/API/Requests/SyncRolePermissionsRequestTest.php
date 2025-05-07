@@ -15,7 +15,7 @@ final class SyncRolePermissionsRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => 'manage-roles',
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -23,7 +23,7 @@ final class SyncRolePermissionsRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'role_id',
             'permission_ids.*',
         ], $this->request->getDecodeArray());
@@ -31,7 +31,7 @@ final class SyncRolePermissionsRequestTest extends UnitTestCase
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'role_id',
         ], $this->request->getUrlParametersArray());
     }
@@ -40,7 +40,7 @@ final class SyncRolePermissionsRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([
+        self::assertSame([
             'role_id'          => 'exists:roles,id',
             'permission_ids'   => 'array|required',
             'permission_ids.*' => 'required|exists:permissions,id',
@@ -52,7 +52,7 @@ final class SyncRolePermissionsRequestTest extends UnitTestCase
         $userModel = $this->getTestingUser(access: ['permissions' => 'manage-roles']);
         $syncRolePermissionsRequest = SyncRolePermissionsRequest::injectData([], $userModel);
 
-        $this->assertTrue($syncRolePermissionsRequest->authorize());
+        self::assertTrue($syncRolePermissionsRequest->authorize());
     }
 
     #[\Override]

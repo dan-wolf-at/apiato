@@ -15,7 +15,7 @@ final class RefreshProxyRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => null,
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -23,17 +23,17 @@ final class RefreshProxyRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecodeArray());
+        self::assertSame([], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([], $this->request->getUrlParametersArray());
+        self::assertSame([], $this->request->getUrlParametersArray());
     }
 
     public function testValidationRules(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'refresh_token' => 'string',
         ], $this->request->rules());
     }
@@ -42,7 +42,7 @@ final class RefreshProxyRequestTest extends UnitTestCase
     {
         $refreshProxyRequest = RefreshProxyRequest::injectData([], $this->getTestingUserWithoutAccess());
 
-        $this->assertTrue($refreshProxyRequest->authorize());
+        self::assertTrue($refreshProxyRequest->authorize());
     }
 
     #[\Override]

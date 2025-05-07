@@ -28,7 +28,7 @@ final class ApiLogoutActionTest extends UnitTestCase
 
         $action->run($logoutRequest);
 
-        $this->assertTrue(true);
+        self::assertTrue(true);
     }
 
     private function createAccessTokenFor(string $email, string $password): string

@@ -16,7 +16,7 @@ final class LoginRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => null,
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -24,32 +24,29 @@ final class LoginRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecodeArray());
+        self::assertSame([], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([], $this->request->getUrlParametersArray());
+        self::assertSame([], $this->request->getUrlParametersArray());
     }
 
     public function testValidationRules(): void
     {
         $rules = $this->request->rules();
 
-        $this->assertSame(
-            LoginFieldParser::mergeValidationRules([
-                'password' => 'required',
-                'remember' => 'boolean',
-            ]),
-            $rules,
-        );
+        self::assertSame(LoginFieldParser::mergeValidationRules([
+            'password' => 'required',
+            'remember' => 'boolean',
+        ]), $rules);
     }
 
     public function testAuthorizeMethodGateCall(): void
     {
         $loginRequest = LoginRequest::injectData([], $this->getTestingUserWithoutAccess());
 
-        $this->assertTrue($loginRequest->authorize());
+        self::assertTrue($loginRequest->authorize());
     }
 
     #[\Override]

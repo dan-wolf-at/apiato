@@ -26,12 +26,22 @@ final class AssertInstanceToStaticCallRector extends AbstractRector implements M
      */
     private const array ASSERT_METHODS = [
         'assertInstanceOf',
+        'assertNotInstanceOf',
+        'assertContains',
+        'assertNotContains',
+        'markTestSkipped',
         'assertFalse',
         'assertTrue',
-        'assertContains',
-        'markTestSkipped',
         'assertSame',
+        'assertEquals',
         'assertCount',
+        'assertNull',
+        'assertNotNull',
+        'assertEmpty',
+        'assertNotEmpty',
+        'assertIsString',
+        'assertIsArray',
+        'assertArrayHasKey',
     ];
 
     public function __construct(

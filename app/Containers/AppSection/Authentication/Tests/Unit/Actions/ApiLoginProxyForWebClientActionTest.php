@@ -29,7 +29,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
 
         $response = $action->run($loginProxyPasswordGrantRequest);
 
-        $this->assertSame('refreshToken', $response->refreshTokenCookie->getName());
+        self::assertSame('refreshToken', $response->refreshTokenCookie->getName());
     }
 
     public function testCanLoginWithMultipleCorrectLoginFields(): void
@@ -49,7 +49,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
 
         $response = $action->run($loginProxyPasswordGrantRequest);
 
-        $this->assertSame('refreshToken', $response->refreshTokenCookie->getName());
+        self::assertSame('refreshToken', $response->refreshTokenCookie->getName());
     }
 
     public function testCannotLoginWithMultipleWrongLoginFields(): void
@@ -99,7 +99,7 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
 
         $response = $action->run($loginProxyPasswordGrantRequest);
 
-        $this->assertSame('refreshToken', $response->refreshTokenCookie->getName());
+        self::assertSame('refreshToken', $response->refreshTokenCookie->getName());
     }
 
     public function testCanLoginWithMultipleLoginFieldsEvenIfOneFieldIsCorrect(): void
@@ -131,6 +131,6 @@ final class ApiLoginProxyForWebClientActionTest extends UnitTestCase
 
         $response = $action->run($loginProxyPasswordGrantRequest);
 
-        $this->assertSame('refreshToken', $response->refreshTokenCookie->getName());
+        self::assertSame('refreshToken', $response->refreshTokenCookie->getName());
     }
 }

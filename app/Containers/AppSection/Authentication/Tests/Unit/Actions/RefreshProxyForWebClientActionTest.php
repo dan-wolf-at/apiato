@@ -29,7 +29,7 @@ final class RefreshProxyForWebClientActionTest extends UnitTestCase
 
         $response = $action->run($refreshProxyRequest);
 
-        $this->assertSame('refreshToken', $response->refreshTokenCookie->getName());
+        self::assertSame('refreshToken', $response->refreshTokenCookie->getName());
     }
 
     public function testCanRefreshTokenFromCookie(): void
@@ -48,7 +48,7 @@ final class RefreshProxyForWebClientActionTest extends UnitTestCase
 
         $response = $action->run($refreshProxyRequest);
 
-        $this->assertSame('refreshToken', $response->refreshTokenCookie->getName());
+        self::assertSame('refreshToken', $response->refreshTokenCookie->getName());
     }
 
     private function createRefreshTokenFor(string $email, string $password): string

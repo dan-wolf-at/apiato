@@ -26,8 +26,8 @@ final class ThisLikeThatCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertSame(2, $result->count());
-        $this->assertSame($modelB->id, $result->first()->id);
-        $this->assertSame($modelA->id, $result->last()->id);
+        self::assertSame(2, $result->count());
+        self::assertSame($modelB->id, $result->first()->id);
+        self::assertSame($modelA->id, $result->last()->id);
     }
 }

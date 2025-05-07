@@ -21,8 +21,8 @@ final class GetAuthenticatedUserTaskTest extends UnitTestCase
 
         $foundUser = $task->run();
 
-        $this->assertInstanceOf(User::class, $foundUser);
-        $this->assertSame($model->id, $foundUser->id);
+        self::assertInstanceOf(User::class, $foundUser);
+        self::assertSame($model->id, $foundUser->id);
     }
 
     public function testGivenUserNotAuthenticatedThrowsException(): void

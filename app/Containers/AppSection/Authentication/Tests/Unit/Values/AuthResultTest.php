@@ -23,15 +23,15 @@ final class AuthResultTest extends UnitTestCase
             ),
         );
 
-        $this->assertInstanceOf(Token::class, $authResult->token);
-        $this->assertInstanceOf(Cookie::class, $authResult->refreshTokenCookie);
+        self::assertInstanceOf(Token::class, $authResult->token);
+        self::assertInstanceOf(Cookie::class, $authResult->refreshTokenCookie);
     }
 
     public function testCanCreateFakeValue(): void
     {
         $authResult = AuthResult::fake();
 
-        $this->assertInstanceOf(Token::class, $authResult->token);
-        $this->assertInstanceOf(Cookie::class, $authResult->refreshTokenCookie);
+        self::assertInstanceOf(Token::class, $authResult->token);
+        self::assertInstanceOf(Cookie::class, $authResult->refreshTokenCookie);
     }
 }

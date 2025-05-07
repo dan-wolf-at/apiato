@@ -19,7 +19,7 @@ final class SyncRolePermissionsActionTest extends UnitTestCase
         $model = RoleFactory::new()->createOne();
         $permissions = PermissionFactory::new()->count(3)->create();
         $model->givePermissionTo($permissions);
-        $this->assertCount(3, $model->permissions);
+        self::assertCount(3, $model->permissions);
         $syncRolePermissionsRequest = SyncRolePermissionsRequest::injectData([
             'permission_ids' => $permissions[1]->getHashedKey(),
         ])->withUrlParameters(['role_id' => $model->id]);
@@ -27,8 +27,8 @@ final class SyncRolePermissionsActionTest extends UnitTestCase
 
         $result = $action->run($syncRolePermissionsRequest);
 
-        $this->assertCount(1, $result->permissions);
-        $this->assertSame($permissions[1]->id, $result->permissions->sole()->id);
+        self::assertCount(1, $result->permissions);
+        self::assertSame($permissions[1]->id, $result->permissions->sole()->id);
     }
 
     public function testCanSyncPermissions(): void
@@ -36,7 +36,7 @@ final class SyncRolePermissionsActionTest extends UnitTestCase
         $model = RoleFactory::new()->createOne();
         $permissions = PermissionFactory::new()->count(3)->create();
         $model->givePermissionTo($permissions);
-        $this->assertCount(3, $model->permissions);
+        self::assertCount(3, $model->permissions);
         $syncRolePermissionsRequest = SyncRolePermissionsRequest::injectData([
             'permission_ids' => [$permissions[0]->getHashedKey(), $permissions[2]->getHashedKey()],
         ])->withUrlParameters(['role_id' => $model->id]);
@@ -44,8 +44,8 @@ final class SyncRolePermissionsActionTest extends UnitTestCase
 
         $result = $action->run($syncRolePermissionsRequest);
 
-        $this->assertCount(2, $result->permissions);
-        $this->assertSame($permissions[0]->id, $result->permissions->first()->id);
-        $this->assertSame($permissions[2]->id, $result->permissions->last()->id);
+        self::assertCount(2, $result->permissions);
+        self::assertSame($permissions[0]->id, $result->permissions->first()->id);
+        self::assertSame($permissions[2]->id, $result->permissions->last()->id);
     }
 }

@@ -26,9 +26,9 @@ final class RevokeUserPermissionsActionTest extends UnitTestCase
 
         $result = $action->run($revokeUserPermissionsRequest);
 
-        $this->assertCount(2, $result->permissions);
-        $this->assertSame($permissions[0]->id, $result->permissions->first()->id);
-        $this->assertSame($permissions[2]->id, $result->permissions->last()->id);
+        self::assertCount(2, $result->permissions);
+        self::assertSame($permissions[0]->id, $result->permissions->first()->id);
+        self::assertSame($permissions[2]->id, $result->permissions->last()->id);
     }
 
     public function testCanRevokeMultiplePermissions(): void
@@ -43,7 +43,7 @@ final class RevokeUserPermissionsActionTest extends UnitTestCase
 
         $result = $action->run($revokeUserPermissionsRequest);
 
-        $this->assertCount(1, $result->permissions);
-        $this->assertSame($permissions[1]->id, $result->permissions->sole()->id);
+        self::assertCount(1, $result->permissions);
+        self::assertSame($permissions[1]->id, $result->permissions->sole()->id);
     }
 }

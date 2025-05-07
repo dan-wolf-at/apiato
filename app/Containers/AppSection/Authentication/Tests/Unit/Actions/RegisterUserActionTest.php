@@ -31,10 +31,10 @@ final class RegisterUserActionTest extends UnitTestCase
         $user = $action->run($registerUserRequest);
 
         $this->assertModelExists($user);
-        $this->assertInstanceOf(User::class, $user);
-        $this->assertSame(strtolower($data['email']), $user->email);
-        $this->assertTrue(Hash::check($data['password'], $user->password));
-        $this->assertNull($user->email_verified_at);
+        self::assertInstanceOf(User::class, $user);
+        self::assertSame(strtolower($data['email']), $user->email);
+        self::assertTrue(Hash::check($data['password'], $user->password));
+        self::assertNull($user->email_verified_at);
         Notification::assertSentTo($user, Welcome::class);
 
         if (config('appSection-authentication.require_email_verification')) {

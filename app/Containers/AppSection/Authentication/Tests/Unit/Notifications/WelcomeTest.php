@@ -21,10 +21,10 @@ final class WelcomeTest extends UnitTestCase
 
         $model->notify(new Welcome());
 
-        Notification::assertSentTo($model, Welcome::class, function (Welcome $notification) use ($model): true {
+        Notification::assertSentTo($model, Welcome::class, static function (Welcome $notification) use ($model): true {
             $mailMessage = $notification->toMail($model);
-            $this->assertSame('Welcome to ' . config('app.name'), $mailMessage->subject);
-            $this->assertSame(['Thank you for registering ' . $model->name], $mailMessage->introLines);
+            self::assertSame('Welcome to ' . config('app.name'), $mailMessage->subject);
+            self::assertSame(['Thank you for registering ' . $model->name], $mailMessage->introLines);
 
             return true;
         });

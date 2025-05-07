@@ -28,8 +28,8 @@ final class AssignRolesToUserActionTest extends UnitTestCase
 
         $result = $action->run($assignRolesToUserRequest);
 
-        $this->assertSame($result->id, $model->id);
-        $this->assertTrue($result->hasRole($role->name));
+        self::assertSame($result->id, $model->id);
+        self::assertTrue($result->hasRole($role->name));
     }
 
     public function testCanAssignMultipleRole(): void
@@ -47,7 +47,7 @@ final class AssignRolesToUserActionTest extends UnitTestCase
 
         $result = $action->run($assignRolesToUserRequest);
 
-        $this->assertSame($result->id, $model->id);
-        $this->assertTrue($result->hasAllRoles([$roleA->name, $roleB->name]));
+        self::assertSame($result->id, $model->id);
+        self::assertTrue($result->hasAllRoles([$roleA->name, $roleB->name]));
     }
 }

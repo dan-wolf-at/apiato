@@ -24,6 +24,6 @@ final class ListPermissionsTest extends ApiTestCase
         $testResponse->assertOk();
 
         $responseContent = $this->getResponseContentObject();
-        $this->assertNotEmpty($responseContent->data);
+        self::assertNotEmpty($responseContent->data);
     }
 }

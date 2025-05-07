@@ -24,12 +24,12 @@ final class MainServiceProviderTest extends UnitTestCase
             PassportServiceProvider::class,
         ];
 
-        $this->assertSame($data, $this->provider->serviceProviders);
+        self::assertSame($data, $this->provider->serviceProviders);
     }
 
     public function testProviderHasCorrectAliases(): void
     {
-        $this->assertSame([], $this->provider->aliases);
+        self::assertSame([], $this->provider->aliases);
     }
 
     #[\Override]

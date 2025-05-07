@@ -50,6 +50,6 @@ final class PermissionConfigTest extends ShipTestCase
             'use_passport_client_credentials' => false,
         ];
 
-        $this->assertEquals($expected, $config);
+        self::assertEquals($expected, $config);
     }
 }

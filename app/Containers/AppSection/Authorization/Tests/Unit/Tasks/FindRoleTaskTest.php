@@ -19,7 +19,7 @@ final class FindRoleTaskTest extends UnitTestCase
 
         $result = app(FindRoleTask::class)->run($model->id);
 
-        $this->assertSame($model->id, $result->id);
+        self::assertSame($model->id, $result->id);
     }
 
     public function testFindRoleByName(): void
@@ -28,7 +28,7 @@ final class FindRoleTaskTest extends UnitTestCase
 
         $result = app(FindRoleTask::class)->run($model->name);
 
-        $this->assertSame($model->id, $result->id);
+        self::assertSame($model->id, $result->id);
     }
 
     public function testFindRoleWithInvalidIdThrows404(): void

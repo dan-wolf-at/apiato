@@ -68,7 +68,7 @@ final class RedirectIfAuthenticatedTest extends UnitTestCase
 
         $response = $redirectIfAuthenticated->handle($request, static fn (Request $req): Request => $req, $requestGuard);
 
-        $this->assertTrue($response->isRedirect(action(HomePageController::class)));
+        self::assertTrue($response->isRedirect(action(HomePageController::class)));
     }
 
     #[TestDox('dont redirect if logged in with different guard (means not logged in)')]
@@ -80,8 +80,8 @@ final class RedirectIfAuthenticatedTest extends UnitTestCase
         $request = Request::create(route('login'));
         $redirectIfAuthenticated = new RedirectIfAuthenticated();
 
-        $redirectIfAuthenticated->handle($request, function (Request $req): void {
-            $this->assertInstanceOf(Request::class, $req);
+        $redirectIfAuthenticated->handle($request, static function (Request $req): void {
+            self::assertInstanceOf(Request::class, $req);
         }, $requestGuard);
     }
 
@@ -90,8 +90,8 @@ final class RedirectIfAuthenticatedTest extends UnitTestCase
         $request = Request::create(route('login'));
         $redirectIfAuthenticated = new RedirectIfAuthenticated();
 
-        $redirectIfAuthenticated->handle($request, function (Request $req): void {
-            $this->assertInstanceOf(Request::class, $req);
+        $redirectIfAuthenticated->handle($request, static function (Request $req): void {
+            self::assertInstanceOf(Request::class, $req);
         });
     }
 }

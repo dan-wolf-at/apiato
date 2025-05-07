@@ -20,14 +20,14 @@ final class UpdateUserRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getUrlParametersArray());
     }
@@ -36,7 +36,7 @@ final class UpdateUserRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertEquals([
+        self::assertEquals([
             'name'             => 'min:2|max:50',
             'gender'           => [Rule::enum(Gender::class), 'nullable'],
             'birth'            => ['date', 'nullable'],
@@ -64,7 +64,7 @@ final class UpdateUserRequestTest extends UnitTestCase
             $model->id,
         ]);
 
-        $this->assertTrue($updateUserRequest->authorize($gateMock));
+        self::assertTrue($updateUserRequest->authorize($gateMock));
     }
 
     #[\Override]

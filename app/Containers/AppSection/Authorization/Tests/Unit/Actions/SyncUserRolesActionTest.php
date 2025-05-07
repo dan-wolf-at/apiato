@@ -19,7 +19,7 @@ final class SyncUserRolesActionTest extends UnitTestCase
         $model = UserFactory::new()->createOne();
         $roles = RoleFactory::new()->count(3)->create();
         $model->assignRole($roles);
-        $this->assertCount(3, $model->roles);
+        self::assertCount(3, $model->roles);
         $syncUserRolesRequest = SyncUserRolesRequest::injectData([
             'role_ids' => $roles[1]->getHashedKey(),
         ])->withUrlParameters(['user_id' => $model->id]);
@@ -27,8 +27,8 @@ final class SyncUserRolesActionTest extends UnitTestCase
 
         $result = $action->run($syncUserRolesRequest);
 
-        $this->assertCount(1, $result->roles);
-        $this->assertSame($roles[1]->id, $result->roles->sole()->id);
+        self::assertCount(1, $result->roles);
+        self::assertSame($roles[1]->id, $result->roles->sole()->id);
     }
 
     public function testCanSyncPermissions(): void
@@ -36,7 +36,7 @@ final class SyncUserRolesActionTest extends UnitTestCase
         $model = UserFactory::new()->createOne();
         $roles = RoleFactory::new()->count(3)->create();
         $model->assignRole($roles);
-        $this->assertCount(3, $model->roles);
+        self::assertCount(3, $model->roles);
         $syncUserRolesRequest = SyncUserRolesRequest::injectData([
             'role_ids' => [$roles[0]->getHashedKey(), $roles[2]->getHashedKey()],
         ])->withUrlParameters(['user_id' => $model->id]);
@@ -44,8 +44,8 @@ final class SyncUserRolesActionTest extends UnitTestCase
 
         $result = $action->run($syncUserRolesRequest);
 
-        $this->assertCount(2, $result->roles);
-        $this->assertSame($roles[0]->id, $result->roles->first()->id);
-        $this->assertSame($roles[2]->id, $result->roles->last()->id);
+        self::assertCount(2, $result->roles);
+        self::assertSame($roles[0]->id, $result->roles->first()->id);
+        self::assertSame($roles[2]->id, $result->roles->last()->id);
     }
 }

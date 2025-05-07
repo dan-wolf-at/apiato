@@ -33,10 +33,10 @@ final class IdeHelperConfigTest extends ShipTestCase
                 'app/Containers/*/*/Models',
             ],
             'ignored_models' => [],
-            'model_hooks' => [
+            'model_hooks'    => [
                 // App\Support\IdeHelper\MyModelHook::class
             ],
-            'extra'          => [
+            'extra' => [
                 'Eloquent' => [Builder::class, \Illuminate\Database\Query\Builder::class],
                 'Session'  => [Store::class],
             ],
@@ -63,6 +63,6 @@ final class IdeHelperConfigTest extends ShipTestCase
             'custom_db_types' => [],
         ];
 
-        $this->assertSame($expected, $config);
+        self::assertSame($expected, $config);
     }
 }

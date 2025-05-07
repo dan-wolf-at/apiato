@@ -15,12 +15,12 @@ final class MainServiceProviderTest extends UnitTestCase
 
     public function testProviderHasCorrectProviders(): void
     {
-        $this->assertSame([], $this->provider->serviceProviders);
+        self::assertSame([], $this->provider->serviceProviders);
     }
 
     public function testProviderHasCorrectAliases(): void
     {
-        $this->assertSame([], $this->provider->aliases);
+        self::assertSame([], $this->provider->aliases);
     }
 
     #[\Override]

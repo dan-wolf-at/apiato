@@ -27,19 +27,19 @@ final class RoleTransformerTest extends UnitTestCase
 
         $transformedResource = $this->transformer->transform($model);
 
-        $this->assertEquals($expected, $transformedResource);
+        self::assertEquals($expected, $transformedResource);
     }
 
     public function testAvailableIncludes(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions',
         ], $this->transformer->getAvailableIncludes());
     }
 
     public function testDefaultIncludes(): void
     {
-        $this->assertSame([], $this->transformer->getDefaultIncludes());
+        self::assertSame([], $this->transformer->getDefaultIncludes());
     }
 
     #[\Override]

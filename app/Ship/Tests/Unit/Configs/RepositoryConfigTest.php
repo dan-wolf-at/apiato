@@ -84,6 +84,6 @@ final class RepositoryConfigTest extends ShipTestCase
             ],
         ];
 
-        $this->assertSame($expected, $config);
+        self::assertSame($expected, $config);
     }
 }

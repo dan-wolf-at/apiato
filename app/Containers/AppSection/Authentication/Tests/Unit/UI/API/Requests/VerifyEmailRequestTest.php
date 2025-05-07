@@ -15,7 +15,7 @@ final class VerifyEmailRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => null,
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -23,28 +23,28 @@ final class VerifyEmailRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getUrlParametersArray());
     }
 
     public function testValidationRules(): void
     {
-        $this->assertSame([], $this->request->rules());
+        self::assertSame([], $this->request->rules());
     }
 
     public function testAuthorizeMethodGateCall(): void
     {
         $verifyEmailRequest = VerifyEmailRequest::injectData([], $this->getTestingUserWithoutAccess());
 
-        $this->assertTrue($verifyEmailRequest->authorize());
+        self::assertTrue($verifyEmailRequest->authorize());
     }
 
     #[\Override]

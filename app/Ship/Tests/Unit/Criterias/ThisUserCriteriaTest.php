@@ -25,7 +25,7 @@ final class ThisUserCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertSame(1, $result->count());
-        $this->assertSame($model1->id, $result->first()->id);
+        self::assertSame(1, $result->count());
+        self::assertSame($model1->id, $result->first()->id);
     }
 }

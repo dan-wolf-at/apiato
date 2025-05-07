@@ -36,7 +36,7 @@ final class ResetPasswordActionTest extends UnitTestCase
 
         app(ResetPasswordAction::class)->run($resetPasswordRequest);
 
-        $this->assertTrue(Hash::check($data['password'], $this->user->fresh()->password));
+        self::assertTrue(Hash::check($data['password'], $this->user->fresh()->password));
         Notification::assertSentTo($this->user, PasswordReset::class);
     }
 

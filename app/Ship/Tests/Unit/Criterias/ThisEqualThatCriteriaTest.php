@@ -25,7 +25,7 @@ final class ThisEqualThatCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertSame(1, $result->count());
-        $this->assertSame($modelA->id, $result->first()->id);
+        self::assertSame(1, $result->count());
+        self::assertSame($modelA->id, $result->first()->id);
     }
 }

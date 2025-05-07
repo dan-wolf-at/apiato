@@ -15,7 +15,7 @@ final class RevokeRolePermissionsRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => 'manage-roles',
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -23,7 +23,7 @@ final class RevokeRolePermissionsRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'role_id',
             'permission_ids.*',
         ], $this->request->getDecodeArray());
@@ -31,7 +31,7 @@ final class RevokeRolePermissionsRequestTest extends UnitTestCase
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'role_id',
         ], $this->request->getUrlParametersArray());
     }
@@ -40,7 +40,7 @@ final class RevokeRolePermissionsRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([
+        self::assertSame([
             'role_id'          => 'exists:roles,id',
             'permission_ids'   => 'array|required',
             'permission_ids.*' => 'exists:permissions,id',
@@ -52,7 +52,7 @@ final class RevokeRolePermissionsRequestTest extends UnitTestCase
         $userModel = $this->getTestingUser(access: ['permissions' => 'manage-roles']);
         $revokeRolePermissionsRequest = RevokeRolePermissionsRequest::injectData([], $userModel);
 
-        $this->assertTrue($revokeRolePermissionsRequest->authorize());
+        self::assertTrue($revokeRolePermissionsRequest->authorize());
     }
 
     #[\Override]

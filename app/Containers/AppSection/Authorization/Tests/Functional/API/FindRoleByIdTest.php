@@ -27,7 +27,7 @@ final class FindRoleByIdTest extends ApiTestCase
         $testResponse->assertOk();
 
         $responseContent = $this->getResponseContentObject();
-        $this->assertSame($model->name, $responseContent->data->name);
+        self::assertSame($model->name, $responseContent->data->name);
     }
 
     public function testFindNonExistingRole(): void

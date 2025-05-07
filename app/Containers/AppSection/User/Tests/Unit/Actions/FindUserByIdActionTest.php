@@ -21,6 +21,6 @@ final class FindUserByIdActionTest extends UnitTestCase
 
         $result = $action->run($findUserByIdRequest);
 
-        $this->assertSame($model->id, $result->id);
+        self::assertSame($model->id, $result->id);
     }
 }

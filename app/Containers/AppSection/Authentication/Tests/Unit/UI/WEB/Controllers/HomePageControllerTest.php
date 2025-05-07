@@ -17,6 +17,6 @@ final class HomePageControllerTest extends UnitTestCase
 
         $view = $controller();
 
-        $this->assertSame('appSection@authentication::home', $view->name());
+        self::assertSame('appSection@authentication::home', $view->name());
     }
 }

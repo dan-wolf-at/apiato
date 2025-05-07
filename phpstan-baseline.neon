@@ -1,41 +1,8 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Call to an undefined method Laravel\\Passport\\TokenRepository\:\:revokeAccessToken\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
-
-		-
 			message: '#^Call to an undefined method Lcobucci\\JWT\\Token\:\:claims\(\)\.$#'
 			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
-
-		-
-			message: '#^Call to method revokeRefreshTokensByAccessTokenId\(\) on an unknown class Laravel\\Passport\\RefreshTokenRepository\.$#'
-			identifier: class.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
-
-		-
-			message: '#^Parameter \$refreshTokenRepository of method App\\Containers\\AppSection\\Authentication\\Actions\\ApiLogoutAction\:\:__construct\(\) has invalid type Laravel\\Passport\\RefreshTokenRepository\.$#'
-			identifier: class.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
-
-		-
-			message: '''
-				#^Parameter \$tokenRepository of method App\\Containers\\AppSection\\Authentication\\Actions\\ApiLogoutAction\:\:__construct\(\) has typehint with deprecated class Laravel\\Passport\\TokenRepository\:
-				Will be removed in a future Laravel version\.$#
-			'''
-			identifier: parameter.deprecatedClass
-			count: 1
-			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
-
-		-
-			message: '#^Property App\\Containers\\AppSection\\Authentication\\Actions\\ApiLogoutAction\:\:\$refreshTokenRepository has unknown class Laravel\\Passport\\RefreshTokenRepository as its type\.$#'
-			identifier: class.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
 
@@ -108,7 +75,7 @@ parameters:
 		-
 			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
 			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 4
+			count: 5
 			path: app/Containers/AppSection/Authentication/Configs/passport.php
 
 		-
@@ -134,6 +101,12 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Notifications/Welcome.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/Providers/AuthServiceProvider.php
 
 		-
 			message: '#^ServiceProviders that implement the "DeferrableProvider" interface should implement the "provides" method that returns an array of strings or class\-strings$#'
@@ -178,32 +151,20 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
-
-		-
 			message: '#^Offset 0\|1\|false does not exist on array\{\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ApiLoginProxyForWebClientActionTest.php
-
-		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^PHPDoc tag @var with type App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\|App\\Containers\\AppSection\\User\\Models\\User is not subtype of type App\\Containers\\AppSection\\User\\Models\\User\.$#'
+			identifier: varTag.type
 			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ApiLogoutActionTest.php
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ApiLogoutActionTest.php
 
@@ -212,18 +173,6 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ForgotPasswordActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ForgotPasswordActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RefreshProxyForWebClientActionTest.php
 
 		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
@@ -244,32 +193,8 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
 
 		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNull\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
 
@@ -292,20 +217,8 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ResetPasswordActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ResetPasswordActionTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/VerifyEmailActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/VerifyEmailActionTest.php
 
@@ -328,39 +241,9 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
-
-		-
 			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:user\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
 
 		-
@@ -370,60 +253,12 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
-
-		-
 			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
 			identifier: larastan.noEnvCallsOutsideOfConfig
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 15
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEmpty\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertFalse\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertIsArray\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 2
@@ -436,40 +271,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Mails/ForgotPasswordTest.php
 
 		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Illuminate\\\\Http\\\\Request'' and Illuminate\\Http\\Request will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Illuminate\\\\Http\\\\Request'' and Illuminate\\Http\\Request will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Middlewares/RedirectIfAuthenticatedTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Middlewares/RedirectIfAuthenticatedTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Middlewares/RedirectIfAuthenticatedTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/EmailVerifiedTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/PasswordResetTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/VerifyEmailTest.php
 
 		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
@@ -478,74 +283,14 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/WelcomeTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/WelcomeTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/AuthServiceProviderTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/MainServiceProviderTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/MiddlewareServiceProviderTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
 
 		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with string will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with string will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
 
@@ -556,304 +301,28 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/MakeRefreshCookieTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/MakeRefreshCookieTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/ForgotPasswordControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/WelcomeControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Controllers/WelcomeControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/ForgotPasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/ForgotPasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/ForgotPasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/LoginProxyPasswordGrantRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/LoginProxyPasswordGrantRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/LoginProxyPasswordGrantRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/LogoutRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/LogoutRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/RefreshProxyRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/RefreshProxyRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/RegisterUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/RegisterUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/RegisterUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/ResetPasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/ResetPasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/ResetPasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/SendVerificationEmailRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/SendVerificationEmailRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/SendVerificationEmailRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/VerifyEmailRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/VerifyEmailRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Transformers/TokenTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Controllers/HomePageControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Controllers/LoginPageControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Controllers/LogoutControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Requests/LoginRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Requests/LoginRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Requests/LogoutRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/WEB/Requests/LogoutRequestTest.php
-
-		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Values\\\\Token'' and App\\Containers\\AppSection\\Authentication\\Values\\Token will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Values\\\\Token'' and App\\Containers\\AppSection\\Authentication\\Values\\Token will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/AuthResultTest.php
 
 		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Symfony\\\\Component\\\\HttpFoundation\\\\Cookie'' and Symfony\\Component\\HttpFoundation\\Cookie will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Symfony\\\\Component\\\\HttpFoundation\\\\Cookie'' and Symfony\\Component\\HttpFoundation\\Cookie will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/AuthResultTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/AuthResultTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/IncomingLoginFieldTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/LoginFieldTest.php
-
-		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''integer'' and ''integer'' will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''integer'' and ''integer'' will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/TokenTest.php
 
 		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''string'' and ''string'' will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''string'' and ''string'' will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 6
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/TokenTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 8
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/TokenTest.php
-
-		-
-			message: '''
-				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\AuthorizedAccessTokenController\:
-				Will be removed in a future Laravel version\.$#
-			'''
-			identifier: classConstant.deprecatedClass
-			count: 2
-			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
-
-		-
-			message: '''
-				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\ClientController\:
-				Will be removed in a future Laravel version\.$#
-			'''
-			identifier: classConstant.deprecatedClass
-			count: 4
-			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
-
-		-
-			message: '''
-				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\PersonalAccessTokenController\:
-				Will be removed in a future Laravel version\.$#
-			'''
-			identifier: classConstant.deprecatedClass
-			count: 3
-			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
-
-		-
-			message: '''
-				#^Access to constant on deprecated class Laravel\\Passport\\Http\\Controllers\\ScopeController\:
-				Will be removed in a future Laravel version\.$#
-			'''
-			identifier: classConstant.deprecatedClass
-			count: 1
-			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
 
 		-
 			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
@@ -940,18 +409,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
 
 		-
-			message: '#^Static access to instance property Spatie\\Permission\\PermissionRegistrar\:\:\$pivotPermission\.$#'
-			identifier: property.staticAccess
-			count: 7
-			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
-
-		-
-			message: '#^Static access to instance property Spatie\\Permission\\PermissionRegistrar\:\:\$pivotRole\.$#'
-			identifier: property.staticAccess
-			count: 7
-			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
-
-		-
 			message: '#^Return type \(App\\Containers\\AppSection\\Authorization\\Data\\Collections\\PermissionCollection\) of method App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
 			identifier: method.childReturnType
 			count: 1
@@ -964,70 +421,10 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Models/Role.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/CreateRoleTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindPermissionByIdTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/FindRoleByIdTest.php
-
-		-
 			message: '#^Parameter \#1 \$id of method Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:encode\(\) expects int, string given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Functional/API/GivePermissionsToRoleTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotEmpty\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListPermissionsTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListRolePermissionsTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotEmpty\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListRolesTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserPermissionsTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Functional/API/ListUserRolesTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/AssignRolesToUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/AssignRolesToUserActionTest.php
 
 		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
@@ -1042,86 +439,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/DeleteRoleActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToRoleActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToRoleActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/GivePermissionsToUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListPermissionsActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListRolePermissionsActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListRolesActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListUserPermissionsActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListUserRolesActionTest.php
-
-		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
 			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
 
@@ -1132,32 +451,8 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
-
-		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
 			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
 
@@ -1168,87 +463,21 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
-
-		-
 			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
 			identifier: property.notFound
 			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Configs/PermissionConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Criterias/WhereGuardCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Criterias/WhereGuardCriteriaTest.php
-
-		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Permission'' and App\\Containers\\AppSection\\Authorization\\Models\\Permission will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Permission'' and App\\Containers\\AppSection\\Authorization\\Models\\Permission will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/PermissionFactoryTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Role'' and App\\Containers\\AppSection\\Authorization\\Models\\Role will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/PermissionFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/PermissionFactoryTest.php
-
-		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Role'' and App\\Containers\\AppSection\\Authorization\\Models\\Role will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
 
 		-
@@ -1256,18 +485,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Repositories/PermissionRepositoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Repositories/RoleRepositoryTest.php
 
 		-
 			message: '#^PHPDoc tag @var with type Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector is not subtype of type Mockery\\Expectation\.$#'
@@ -1278,18 +495,6 @@ parameters:
 		-
 			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:hasAllPermissions\(\)\.$#'
 			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationGivePermissionsToRolesSeederTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotEmpty\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationGivePermissionsToRolesSeederTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationGivePermissionsToRolesSeederTest.php
 
@@ -1306,36 +511,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationRolesSeederTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertContains\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/PermissionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/PermissionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertContains\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/RoleTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/RoleTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Providers/MainServiceProviderTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
@@ -1345,12 +520,6 @@ parameters:
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
 
 		-
@@ -1366,252 +535,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/FindRoleTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertContains\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Traits/AuthorizationRepositoryTraitTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotContains\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Traits/AuthorizationRepositoryTraitTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Traits/AuthorizationRepositoryTraitTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/CreateRoleControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Controllers/DeleteRoleControllerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/AssignRolesToUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/AssignRolesToUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/CreateRoleRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/CreateRoleRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/DeleteRoleRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/DeleteRoleRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/FindPermissionRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/FindPermissionRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/FindRoleByIdRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/FindRoleByIdRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/GivePermissionsToRoleRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/GivePermissionsToRoleRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/GivePermissionsToUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/GivePermissionsToUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListPermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListPermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListRolePermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListRolePermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListRolesRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListRolesRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListUserPermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListUserPermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListUserRolesRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/ListUserRolesRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RemoveUserRolesRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RemoveUserRolesRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RevokeRolePermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RevokeRolePermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RevokeUserPermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/RevokeUserPermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/SyncRolePermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/SyncRolePermissionsRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/SyncUserRolesRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Requests/SyncUserRolesRequestTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
@@ -1621,18 +544,6 @@ parameters:
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
 
 		-
@@ -1648,18 +559,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
 			identifier: property.notFound
 			count: 1
@@ -1669,18 +568,6 @@ parameters:
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
 
 		-
@@ -1694,24 +581,6 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/WEB/Controllers/UnauthorizedPageControllerTest.php
 
 		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
@@ -1752,12 +621,6 @@ parameters:
 		-
 			message: '#^Return type \(App\\Containers\\AppSection\\User\\Data\\Collections\\UserCollection\) of method App\\Containers\\AppSection\\User\\Models\\User\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
 			identifier: method.childReturnType
-			count: 1
-			path: app/Containers/AppSection/User/Models/User.php
-
-		-
-			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Containers\\AppSection\\User\\Models\\User does not\.$#'
-			identifier: class.missingImplements
 			count: 1
 			path: app/Containers/AppSection/User/Models/User.php
 
@@ -1804,12 +667,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 1
@@ -1822,20 +679,8 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
 
@@ -1852,68 +697,14 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/DeleteUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/FindUserByIdActionTest.php
-
-		-
 			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/ListUsersActionTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
 
@@ -1942,18 +733,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
 			identifier: property.notFound
 			count: 2
@@ -1966,46 +745,10 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
 
 		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertNull\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Data/Repositories/UserRepositoryTest.php
 
 		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
@@ -2038,48 +781,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 8
-			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Notifications/PasswordUpdatedNotificationTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertFalse\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/User/Tests/Unit/Policies/UserPolicyTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Policies/UserPolicyTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Providers/MainServiceProviderTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Providers/MainServiceProviderTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 1
@@ -2092,26 +793,8 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
 
 		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
 
@@ -2119,12 +802,6 @@ parameters:
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
 			identifier: property.notFound
 			count: 3
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByEmailTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByEmailTaskTest.php
 
 		-
@@ -2140,98 +817,14 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/DeleteUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/DeleteUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/FindUserByIdRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/FindUserByIdRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/ListUsersRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/ListUsersRequestTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
 			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
 
@@ -2278,18 +871,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
-
-		-
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
 			identifier: property.notFound
 			count: 1
@@ -2317,18 +898,6 @@ parameters:
 			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
 			identifier: property.notFound
 			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 4
 			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
 
 		-
@@ -2938,6 +1507,108 @@ parameters:
 			path: app/Ship/Exceptions/ValidationFailedException.php
 
 		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 100000 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 50200 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 50300 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 50400 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 50500 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 50600 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 70000 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 70100 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 70200 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 70300 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 70400 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 80000 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 80100 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 80200 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:provideMinPhpVersion\(\) never returns 80400 so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^PHPDoc tag @implements contains generic type Rector\\VersionBonding\\Contract\\MinPhpVersionInterface\<PhpParser\\Node\> but interface Rector\\VersionBonding\\Contract\\MinPhpVersionInterface is not generic\.$#'
+			identifier: generics.notGeneric
+			count: 1
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
+			message: '#^Parameter \#1 \$node \(PhpParser\\Node\\Expr\\MethodCall\) of method App\\Ship\\Linters\\Rector\\AssertInstanceToStaticCallRector\:\:refactor\(\) should be contravariant with parameter \$node \(PhpParser\\Node\) of method Rector\\Contract\\Rector\\RectorInterface\:\:refactor\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Linters/Rector/AssertInstanceToStaticCallRector.php
+
+		-
 			message: '#^Method App\\Ship\\Linters\\Rector\\MockObjectStaticToInstanceCallRector\:\:provideMinPhpVersion\(\) never returns 100000 so it can be removed from the return type\.$#'
 			identifier: return.unusedType
 			count: 1
@@ -3106,12 +1777,6 @@ parameters:
 			path: app/Ship/Parents/Factories/Factory.php
 
 		-
-			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Parents\\Models\\UserModel does not\.$#'
-			identifier: class.missingImplements
-			count: 1
-			path: app/Ship/Parents/Models/UserModel.php
-
-		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -3202,12 +1867,6 @@ parameters:
 			path: app/Ship/Providers/ShipProvider.php
 
 		-
-			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Tests\\Fakes\\TestUser does not\.$#'
-			identifier: class.missingImplements
-			count: 1
-			path: app/Ship/Tests/Fakes/TestUser.php
-
-		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -3220,28 +1879,10 @@ parameters:
 			path: app/Ship/Tests/Unit/Configs/ApiatoConfigTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Configs/ApiatoConfigTest.php
-
-		-
 			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
 			identifier: larastan.noEnvCallsOutsideOfConfig
 			count: 2
 			path: app/Ship/Tests/Unit/Configs/DebugBarConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Configs/DebugBarConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Configs/FractalConfigTest.php
 
 		-
 			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
@@ -3250,118 +1891,10 @@ parameters:
 			path: app/Ship/Tests/Unit/Configs/HashIdsConfigTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Configs/HashIdsConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Configs/IdeHelperConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Configs/NotificationConfigTest.php
-
-		-
 			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
 			identifier: larastan.noEnvCallsOutsideOfConfig
 			count: 6
 			path: app/Ship/Tests/Unit/Configs/RepositoryConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Configs/RepositoryConfigTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/CreatedTodayCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/IsNullCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByCreationDateAscendingCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByCreationDateDescendingCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 6
-			path: app/Ship/Tests/Unit/Criterias/OrderByFieldCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByNameCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByUpdateDateAscendingCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/OrderByUpdateDateDescendingCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertCount\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/ThisBetweenDatesCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Criterias/ThisBetweenDatesCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Ship/Tests/Unit/Criterias/ThisEqualThatCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Criterias/ThisLikeThatCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 2
-			path: app/Ship/Tests/Unit/Criterias/ThisUserCriteriaTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:markTestSkipped\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/GenerateDocumentationTest.php
 
 		-
 			message: '#^Unreachable statement \- code above always terminates\.$#'
@@ -3370,37 +1903,7 @@ parameters:
 			path: app/Ship/Tests/Unit/GenerateDocumentationTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertContains\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 3
-			path: app/Ship/Tests/Unit/Parents/Models/UserModelTest.php
-
-		-
-			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Tests\\Unit\\Parents\\Policies\\FakeUser does not\.$#'
-			identifier: class.missingImplements
-			count: 1
-			path: app/Ship/Tests/Unit/Parents/Policies/FakeUser.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertFalse\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Parents/Policies/PolicyTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 1
-			path: app/Ship/Tests/Unit/Parents/Policies/PolicyTest.php
-
-		-
-			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Illuminate\\\\Contracts\\\\Foundation\\\\Application'' and Illuminate\\Foundation\\Application will always evaluate to true\.$#'
-			identifier: method.alreadyNarrowedType
-			count: 1
-			path: app/Ship/Tests/Unit/Parents/Tests/TestCaseTest.php
-
-		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\)\.$#'
-			identifier: staticMethod.dynamicCall
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Illuminate\\\\Contracts\\\\Foundation\\\\Application'' and Illuminate\\Foundation\\Application will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Ship/Tests/Unit/Parents/Tests/TestCaseTest.php

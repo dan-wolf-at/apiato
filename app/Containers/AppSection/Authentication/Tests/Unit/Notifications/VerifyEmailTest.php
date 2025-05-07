@@ -21,16 +21,16 @@ final class VerifyEmailTest extends UnitTestCase
 
         $model->notify(new VerifyEmail('https://example.com'));
 
-        Notification::assertSentTo($model, VerifyEmail::class, function (VerifyEmail $notification) use ($model): true {
+        Notification::assertSentTo($model, VerifyEmail::class, static function (VerifyEmail $notification) use ($model): true {
             $mailMessage = $notification->toMail($model);
-            $this->assertSame('Verify Email Address', $mailMessage->subject);
-            $this->assertSame([
+            self::assertSame('Verify Email Address', $mailMessage->subject);
+            self::assertSame([
                 'Please click the below button to verify your email address.',
             ], $mailMessage->introLines);
-            $this->assertSame([
+            self::assertSame([
                 'If you did not create an account, no further action is required.',
             ], $mailMessage->outroLines);
-            $this->assertSame('Verify Email Address', $mailMessage->actionText);
+            self::assertSame('Verify Email Address', $mailMessage->actionText);
 
             return true;
         });

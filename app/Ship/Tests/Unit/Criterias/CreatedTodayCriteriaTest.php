@@ -26,6 +26,6 @@ final class CreatedTodayCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertCount(6, $result);
+        self::assertCount(6, $result);
     }
 }

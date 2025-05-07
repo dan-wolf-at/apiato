@@ -15,7 +15,7 @@ final class CreateRoleRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => 'manage-roles',
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -23,19 +23,19 @@ final class CreateRoleRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecodeArray());
+        self::assertSame([], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([], $this->request->getUrlParametersArray());
+        self::assertSame([], $this->request->getUrlParametersArray());
     }
 
     public function testValidationRules(): void
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([
+        self::assertSame([
             'name'         => 'required|unique:' . config('permission.table_names.roles') . ',name|min:2|max:20|no_spaces',
             'description'  => 'max:255',
             'display_name' => 'max:100',
@@ -47,7 +47,7 @@ final class CreateRoleRequestTest extends UnitTestCase
         $userModel = $this->getTestingUser(access: ['permissions' => 'manage-roles']);
         $createRoleRequest = CreateRoleRequest::injectData([], $userModel);
 
-        $this->assertTrue($createRoleRequest->authorize());
+        self::assertTrue($createRoleRequest->authorize());
     }
 
     #[\Override]

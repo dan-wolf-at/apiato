@@ -19,14 +19,14 @@ final class UpdatePasswordRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getUrlParametersArray());
     }
@@ -35,7 +35,7 @@ final class UpdatePasswordRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertEquals([
+        self::assertEquals([
             'current_password' => [
                 Rule::requiredIf(fn (): bool => !\is_null($this->request->user()->password)),
                 'current_password:api',
@@ -60,7 +60,7 @@ final class UpdatePasswordRequestTest extends UnitTestCase
             $model->id,
         ]);
 
-        $this->assertTrue($updatePasswordRequest->authorize($gateMock));
+        self::assertTrue($updatePasswordRequest->authorize($gateMock));
     }
 
     #[\Override]

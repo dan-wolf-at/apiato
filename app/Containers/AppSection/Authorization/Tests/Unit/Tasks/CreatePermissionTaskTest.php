@@ -22,10 +22,10 @@ final class CreatePermissionTaskTest extends UnitTestCase
 
         $permission = app(CreatePermissionTask::class)->run($name, $description, $display_name);
 
-        $this->assertSame(strtolower($name), $permission->name);
-        $this->assertSame($description, $permission->description);
-        $this->assertSame($display_name, $permission->display_name);
-        $this->assertSame(AuthGuard::API->value, $permission->guard_name);
+        self::assertSame(strtolower($name), $permission->name);
+        self::assertSame($description, $permission->description);
+        self::assertSame($display_name, $permission->display_name);
+        self::assertSame(AuthGuard::API->value, $permission->guard_name);
     }
 
     public function testCatchesAllExceptionsAndThrowsCustomException(): void

@@ -21,7 +21,7 @@ final class UserTest extends UnitTestCase
         $model = UserFactory::new()->createOne();
         $table = 'users';
 
-        $this->assertSame($table, $model->getTable());
+        self::assertSame($table, $model->getTable());
     }
 
     public function testHasCorrectFillableFields(): void
@@ -35,7 +35,7 @@ final class UserTest extends UnitTestCase
             'birth',
         ];
 
-        $this->assertSame($fillables, $model->getFillable());
+        self::assertSame($fillables, $model->getFillable());
     }
 
     public function testHasCorrectCasts(): void
@@ -49,7 +49,7 @@ final class UserTest extends UnitTestCase
             'birth'             => 'immutable_date',
         ];
 
-        $this->assertSame($casts, $model->getCasts());
+        self::assertSame($casts, $model->getCasts());
     }
 
     public function testHasCorrectHiddenFields(): void
@@ -60,14 +60,14 @@ final class UserTest extends UnitTestCase
             'remember_token',
         ];
 
-        $this->assertSame($hiddens, $model->getHidden());
+        self::assertSame($hiddens, $model->getHidden());
     }
 
     public function testHasCorrectResourceKey(): void
     {
         $model = UserFactory::new()->createOne();
 
-        $this->assertSame('User', $model->getResourceKey());
+        self::assertSame('User', $model->getResourceKey());
     }
 
     public function testSendEmailVerificationNotificationWithVerificationUrl(): void
@@ -86,7 +86,7 @@ final class UserTest extends UnitTestCase
 
         $hashedEmail = $model->getHashedEmailForVerification();
 
-        $this->assertSame(sha1((string) $model->getEmailForVerification()), $hashedEmail);
+        self::assertSame(sha1((string) $model->getEmailForVerification()), $hashedEmail);
     }
 
     public function testUsesEmailFieldAsDefaultLoginFieldFallback(): void
@@ -96,7 +96,7 @@ final class UserTest extends UnitTestCase
 
         $result = (new User())->findForPassport($model->email);
 
-        $this->assertTrue($model->is($result));
+        self::assertTrue($model->is($result));
     }
 
     public function testCanAuthenticateUsingAllowedLoginFields(): void
@@ -106,7 +106,7 @@ final class UserTest extends UnitTestCase
 
         $result = (new User())->findForPassport($model->name);
 
-        $this->assertTrue($model->is($result));
+        self::assertTrue($model->is($result));
     }
 
     public function testLowerCasesEmailOnAccess(): void
@@ -116,7 +116,7 @@ final class UserTest extends UnitTestCase
         $expectedSet = 'GanDalf@thE.Gray';
         $model = UserFactory::new()->createOne(['email' => $original]);
 
-        $this->assertSame($expectedGet, $model->email);
-        $this->assertSame($expectedSet, DB::query()->from('users')->find($model->id)->email);
+        self::assertSame($expectedGet, $model->email);
+        self::assertSame($expectedSet, DB::query()->from('users')->find($model->id)->email);
     }
 }

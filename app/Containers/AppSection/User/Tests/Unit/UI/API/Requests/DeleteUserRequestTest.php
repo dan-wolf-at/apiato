@@ -16,14 +16,14 @@ final class DeleteUserRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
         ], $this->request->getUrlParametersArray());
     }
@@ -32,7 +32,7 @@ final class DeleteUserRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([], $rules);
+        self::assertSame([], $rules);
     }
 
     public function testAuthorizeMethodGateCall(): void
@@ -42,7 +42,7 @@ final class DeleteUserRequestTest extends UnitTestCase
             User::class,
         ]);
 
-        $this->assertTrue($deleteUserRequest->authorize($gateMock));
+        self::assertTrue($deleteUserRequest->authorize($gateMock));
     }
 
     #[\Override]

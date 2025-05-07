@@ -16,7 +16,7 @@ final class ForgotPasswordRequestTest extends UnitTestCase
 
     public function testAccess(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permissions' => null,
             'roles'       => null,
         ], $this->request->getAccessArray());
@@ -24,17 +24,17 @@ final class ForgotPasswordRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecodeArray());
+        self::assertSame([], $this->request->getDecodeArray());
     }
 
     public function testUrlParametersArray(): void
     {
-        $this->assertSame([], $this->request->getUrlParametersArray());
+        self::assertSame([], $this->request->getUrlParametersArray());
     }
 
     public function testValidationRules(): void
     {
-        $this->assertEquals([
+        self::assertEquals([
             'email'    => 'required|email',
             'reseturl' => [
                 'required',
@@ -47,7 +47,7 @@ final class ForgotPasswordRequestTest extends UnitTestCase
     {
         $forgotPasswordRequest = ForgotPasswordRequest::injectData([], $this->getTestingUserWithoutAccess());
 
-        $this->assertTrue($forgotPasswordRequest->authorize());
+        self::assertTrue($forgotPasswordRequest->authorize());
     }
 
     #[\Override]
