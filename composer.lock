@@ -174,16 +174,16 @@
         },
         {
             "name": "dan-wolf-at/apiato-core",
-            "version": "v8.17.1",
+            "version": "v8.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dan-wolf-at/core.git",
-                "reference": "bb2d928d10fd09d74a4903df53c9ec44ba267a6b"
+                "reference": "6c01bb1e53993bf012f3d29d6d7e9e3411ab3571"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dan-wolf-at/core/zipball/bb2d928d10fd09d74a4903df53c9ec44ba267a6b",
-                "reference": "bb2d928d10fd09d74a4903df53c9ec44ba267a6b",
+                "url": "https://api.github.com/repos/dan-wolf-at/core/zipball/6c01bb1e53993bf012f3d29d6d7e9e3411ab3571",
+                "reference": "6c01bb1e53993bf012f3d29d6d7e9e3411ab3571",
                 "shasum": ""
             },
             "require": {
@@ -295,7 +295,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-05-07T12:49:54+00:00"
+            "time": "2025-05-07T18:20:20+00:00"
         },
         {
             "name": "defuse/php-encryption",
