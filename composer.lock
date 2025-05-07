@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ced2e7042eb47310c8785ba928965414",
+    "content-hash": "84160a69cccb27f43cd52165406ed47e",
     "packages": [
         {
             "name": "apiato/container-installer",
@@ -174,16 +174,16 @@
         },
         {
             "name": "dan-wolf-at/apiato-core",
-            "version": "v8.17.0",
+            "version": "v8.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dan-wolf-at/core.git",
-                "reference": "8454ab150912a7f298f5cf6ab451760ef8a562a2"
+                "reference": "bb2d928d10fd09d74a4903df53c9ec44ba267a6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dan-wolf-at/core/zipball/8454ab150912a7f298f5cf6ab451760ef8a562a2",
-                "reference": "8454ab150912a7f298f5cf6ab451760ef8a562a2",
+                "url": "https://api.github.com/repos/dan-wolf-at/core/zipball/bb2d928d10fd09d74a4903df53c9ec44ba267a6b",
+                "reference": "bb2d928d10fd09d74a4903df53c9ec44ba267a6b",
                 "shasum": ""
             },
             "require": {
@@ -295,7 +295,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-05-07T10:07:41+00:00"
+            "time": "2025-05-07T12:49:54+00:00"
         },
         {
             "name": "defuse/php-encryption",
