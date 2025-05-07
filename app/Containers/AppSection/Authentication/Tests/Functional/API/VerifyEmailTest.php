@@ -44,7 +44,7 @@ final class VerifyEmailTest extends ApiTestCase
 
         $testResponse = $this->injectId($model->id, replace: '{user_id}')
             ->injectId($hashedEmail, skipEncoding: true, replace: '{hash}')
-            ->endpoint($this->endpoint . \sprintf('?expires=%s&signature=%s', $expires, $signature))
+            ->endpoint($this->endpoint . sprintf('?expires=%s&signature=%s', $expires, $signature))
             ->makeCall();
 
         $testResponse->assertOk();
@@ -76,7 +76,7 @@ final class VerifyEmailTest extends ApiTestCase
 
         $testResponse = $this->injectId($model->id, replace: '{user_id}')
             ->injectId($hashedEmail, skipEncoding: true, replace: '{hash}')
-            ->endpoint($this->endpoint . \sprintf('?expires=%s&signature=%s', $expires, $signature))
+            ->endpoint($this->endpoint . sprintf('?expires=%s&signature=%s', $expires, $signature))
             ->makeCall();
 
         $testResponse->assertForbidden();

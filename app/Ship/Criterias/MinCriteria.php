@@ -23,7 +23,7 @@ class MinCriteria extends ParentCriteria
     public function apply($model, PrettusRepositoryInterface $repository): Builder
     {
         return $model->selectRaw(
-            \sprintf(
+            sprintf(
                 'MIN(%s) AS %s %s',
                 $this->field,
                 $this->asField,

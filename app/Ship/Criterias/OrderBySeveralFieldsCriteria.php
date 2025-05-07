@@ -23,6 +23,6 @@ class OrderBySeveralFieldsCriteria extends ParentCriteria
     {
         $placeholders = implode(', ', array_fill(0, \count($this->values), '?'));
 
-        return $model->orderByRaw(\sprintf('FIELD(%s, %s)', $this->field, $placeholders), $placeholders);
+        return $model->orderByRaw(sprintf('FIELD(%s, %s)', $this->field, $placeholders), $placeholders);
     }
 }

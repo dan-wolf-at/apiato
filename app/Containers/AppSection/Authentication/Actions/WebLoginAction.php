@@ -32,7 +32,7 @@ class WebLoginAction extends ParentAction
         foreach ($loginFields as $loginField) {
             $credentials[$loginField->name] =
                 static fn (Builder $query): Builder => $query
-                    ->orWhereRaw(\sprintf('lower(%s) = lower(?)', $loginField->name), [$loginField->value]);
+                    ->orWhereRaw(sprintf('lower(%s) = lower(?)', $loginField->name), [$loginField->value]);
         }
 
         $credentials['password'] = $sanitizedData['password'];

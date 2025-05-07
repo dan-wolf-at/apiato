@@ -58,7 +58,7 @@ class User extends ParentUserModel implements MustVerifyEmail
         $query = $this->newModelQuery();
 
         foreach ($allowedLoginFields as $allowedLoginField) {
-            $query->orWhereRaw(\sprintf('lower(%s) = lower(?)', $allowedLoginField), [$username]);
+            $query->orWhereRaw(sprintf('lower(%s) = lower(?)', $allowedLoginField), [$username]);
         }
 
         return $query->first();

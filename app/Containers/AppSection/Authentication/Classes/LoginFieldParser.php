@@ -75,7 +75,7 @@ class LoginFieldParser
             }
 
             $fieldName = $prefix . $key;
-            $fieldRules = \sprintf('required_without_all:%s|%s', $otherLoginFields, $fieldRules);
+            $fieldRules = sprintf('required_without_all:%s|%s', $otherLoginFields, $fieldRules);
             $fieldRules = self::trimPipes($fieldRules);
 
             $rules[$fieldName] = $fieldRules;

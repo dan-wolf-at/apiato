@@ -21,7 +21,7 @@ class SelectDistinctTableCriteria extends ParentCriteria
     {
         $table = $model->getModel()->getTable();
 
-        $fields = $this->fields === null || $this->fields === [] ? $table . '.*' : array_map(static fn (string $field): string => \sprintf('%s.%s', $table, $field), $this->fields);
+        $fields = $this->fields === null || $this->fields === [] ? $table . '.*' : array_map(static fn (string $field): string => sprintf('%s.%s', $table, $field), $this->fields);
 
         return $model->select($fields)->distinct();
     }
