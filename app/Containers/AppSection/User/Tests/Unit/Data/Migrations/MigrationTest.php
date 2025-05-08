@@ -16,6 +16,7 @@ final class MigrationTest extends UnitTestCase
         $driver = Schema::getConnection()->getDriverName();
         $bigint = match ($driver) {
             'sqlite' => 'integer',
+            'pgsql'  => 'int8',
             default  => 'bigint',
         };
         $string = match ($driver) {
@@ -40,7 +41,7 @@ final class MigrationTest extends UnitTestCase
             'updated_at'        => $datetime,
         ];
 
-        $this->assertDatabaseTable('users', $columns);
+        self::assertDatabaseTable('users', $columns);
     }
 
     public function testPasswordResetsTableHasExpectedColumns(): void
@@ -60,6 +61,6 @@ final class MigrationTest extends UnitTestCase
             'created_at' => $datetime,
         ];
 
-        $this->assertDatabaseTable('password_reset_tokens', $columns);
+        self::assertDatabaseTable('password_reset_tokens', $columns);
     }
 }

@@ -47,7 +47,7 @@ final class ShipMigrationTest extends ShipTestCase
             'created_at'   => $integer,
         ];
 
-        $this->assertDatabaseTable($table, $columns);
+        self::assertDatabaseTable($table, $columns);
     }
 
     public function testFailedJobsTableHasExpectedColumns(): void
@@ -81,7 +81,7 @@ final class ShipMigrationTest extends ShipTestCase
             'uuid'       => $string,
         ];
 
-        $this->assertDatabaseTable($table, $columns);
+        self::assertDatabaseTable($table, $columns);
     }
 
     public function testNotificationsTableHasExpectedColumns(): void
@@ -89,16 +89,17 @@ final class ShipMigrationTest extends ShipTestCase
         $table = 'notifications';
         $driver = Schema::getConnection()->getDriverName();
         $guid = match ($driver) {
-            'pgsql' => 'guid',
+            'pgsql' => 'uuid',
             'mysql' => 'char',
             default => 'string',
         };
         $bigint = match ($driver) {
             'sqlite' => 'integer',
+            'pgsql'  => 'int8',
             default  => 'bigint',
         };
         $string = match ($driver) {
-            'mysql' => 'varchar',
+            'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
         $datetime = match ($driver) {
@@ -117,6 +118,6 @@ final class ShipMigrationTest extends ShipTestCase
             'updated_at'      => $datetime,
         ];
 
-        $this->assertDatabaseTable($table, $columns);
+        self::assertDatabaseTable($table, $columns);
     }
 }
