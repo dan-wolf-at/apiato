@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Ship\Linters\Rector\AssertInstanceToStaticCallRector;
-use App\Ship\Linters\Rector\MockObjectStaticToInstanceCallRector;
+use Apiato\Core\Linters\Rector\AssertInstanceToStaticCallRector;
+use Apiato\Core\Linters\Rector\MockObjectStaticToInstanceCallRector;
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\CodeQuality\Rector\ClassMethod\LocallyCalledStaticMethodToNonStaticRector;
 use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
