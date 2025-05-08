@@ -20,11 +20,11 @@ final class MigrationTest extends UnitTestCase
             default  => 'bigint',
         };
         $string = match ($driver) {
-            'mysql' => 'varchar',
+            'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
         $datetime = match ($driver) {
-            'mysql' => 'timestamp',
+            'mysql', 'pgsql' => 'timestamp',
             default => 'datetime',
         };
 
@@ -48,11 +48,11 @@ final class MigrationTest extends UnitTestCase
     {
         $driver = Schema::getConnection()->getDriverName();
         $string = match ($driver) {
-            'mysql' => 'varchar',
+            'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
         $datetime = match ($driver) {
-            'mysql' => 'timestamp',
+            'mysql', 'pgsql' => 'timestamp',
             default => 'datetime',
         };
         $columns = [
