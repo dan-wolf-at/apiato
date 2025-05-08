@@ -20,7 +20,7 @@ final class MigrationTest extends UnitTestCase
             default  => 'bigint',
         };
         $string = match ($driver) {
-            'mysql', 'pgsql' => 'varchar',
+            'sqlite', 'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
         $datetime = match ($driver) {
@@ -48,7 +48,7 @@ final class MigrationTest extends UnitTestCase
     {
         $driver = Schema::getConnection()->getDriverName();
         $string = match ($driver) {
-            'mysql', 'pgsql' => 'varchar',
+            'sqlite', 'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
         $datetime = match ($driver) {
