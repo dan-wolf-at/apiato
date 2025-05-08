@@ -22,6 +22,7 @@ final class ShipMigrationTest extends ShipTestCase
         };
         $integer = match ($driver) {
             'mysql' => 'int',
+            'pgsql' => 'int4',
             default => 'integer',
         };
         $smallint = match ($driver) {
