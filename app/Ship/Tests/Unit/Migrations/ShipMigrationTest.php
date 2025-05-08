@@ -17,6 +17,7 @@ final class ShipMigrationTest extends ShipTestCase
         $driver = Schema::getConnection()->getDriverName();
         $bigint = match ($driver) {
             'sqlite' => 'integer',
+            'pgsql'  => 'int8',
             default  => 'bigint',
         };
         $integer = match ($driver) {
@@ -29,7 +30,7 @@ final class ShipMigrationTest extends ShipTestCase
             default  => 'smallint',
         };
         $string = match ($driver) {
-            'mysql' => 'varchar',
+            'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
         $text = match ($driver) {
@@ -56,14 +57,15 @@ final class ShipMigrationTest extends ShipTestCase
         $driver = Schema::getConnection()->getDriverName();
         $bigint = match ($driver) {
             'sqlite' => 'integer',
+            'pgsql'  => 'int8',
             default  => 'bigint',
         };
         $string = match ($driver) {
-            'mysql' => 'varchar',
+            'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
         $datetime = match ($driver) {
-            'mysql' => 'timestamp',
+            'mysql', 'pgsql' => 'timestamp',
             default => 'datetime',
         };
         $text = match ($driver) {
@@ -103,7 +105,7 @@ final class ShipMigrationTest extends ShipTestCase
             default => 'string',
         };
         $datetime = match ($driver) {
-            'mysql' => 'timestamp',
+            'mysql', 'pgsql' => 'timestamp',
             default => 'datetime',
         };
 
