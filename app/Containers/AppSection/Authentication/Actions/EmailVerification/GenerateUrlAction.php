@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Actions\EmailVerification;
 
 use App\Containers\AppSection\User\Models\User;
@@ -16,7 +18,7 @@ final class GenerateUrlAction extends ParentAction
             'verification.verify',
             Date::now()->addMinutes(config()->integer('auth.verification.expire', 60)),
             [
-                'id' => $notifiable->getHashedKey(),
+                'id'   => $notifiable->getHashedKey(),
                 'hash' => sha1($notifiable->getEmailForVerification()),
             ],
         );

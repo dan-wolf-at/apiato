@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Actions\Api;
 
 use App\Containers\AppSection\Authentication\Actions\Api\RevokeTokenAction;
@@ -16,10 +18,11 @@ final class RevokeTokenActionTest extends UnitTestCase
 {
     public function testCanGetTokenViaRefreshToken(): void
     {
+        /** @var User $user */
         $user = User::factory()->createOne([
             'password' => 'youShallNotPass',
         ]);
-        $this->assertCount(0, $user->tokens);
+        self::assertCount(0, $user->tokens);
         app(PasswordTokenFactory::class)->for($user)->make(
             AccessTokenProxy::create(
                 UserCredential::create(
@@ -29,13 +32,13 @@ final class RevokeTokenActionTest extends UnitTestCase
                 ClientFactory::webClient(),
             ),
         );
-        $this->assertCount(1, $user->tokens);
-        $this->assertFalse($user->token()->revoked);
+        self::assertCount(1, $user->tokens);
+        self::assertFalse($user->token()->revoked);
         $action = app(RevokeTokenAction::class);
 
         $result = $action->run($user);
 
-        $this->assertTrue($user->token()->revoked);
-        $this->assertTrue($result->isCleared());
+        self::assertTrue($user->token()->revoked);
+        self::assertTrue($result->isCleared());
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Actions;
 
 use App\Containers\AppSection\Authorization\Data\Collections\RoleCollection;
@@ -9,9 +11,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 final class ListRolesAction extends ParentAction
 {
-    public function __construct(
-        private readonly RoleRepository $repository,
-    ) {
+    public function __construct(private readonly RoleRepository $repository)
+    {
     }
 
     public function run(): LengthAwarePaginator|RoleCollection
