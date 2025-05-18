@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Tests\Unit\UI\API\Requests;
 
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
@@ -24,8 +26,8 @@ final class RevokeUserPermissionsRequestTest extends UnitTestCase
         $rules = $this->request->rules();
 
         $this->assertSame([
-            'user_id' => 'exists:users,id',
-            'permission_ids' => 'array|required',
+            'user_id'          => 'exists:users,id',
+            'permission_ids'   => 'array|required',
             'permission_ids.*' => 'exists:permissions,id',
         ], $rules);
     }

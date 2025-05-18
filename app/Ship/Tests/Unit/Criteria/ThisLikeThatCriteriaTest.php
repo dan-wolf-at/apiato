@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Tests\Unit\Criteria;
 
 use App\Ship\Criteria\ThisLikeThatCriteria;
@@ -15,16 +17,16 @@ final class ThisLikeThatCriteriaTest extends ShipTestCase
     {
         $modelB = TestUserFactory::new()->create(['name' => 'EFGHIJ']);
         $modelA = TestUserFactory::new()->create(['name' => 'ABCDEF']);
-        $modelC = TestUserFactory::new()->create(['name' => 'PQRSTU']);
-        $modelD = TestUserFactory::new()->create(['name' => 'JKLMNO']);
+        TestUserFactory::new()->create(['name' => 'PQRSTU']);
+        TestUserFactory::new()->create(['name' => 'JKLMNO']);
 
         $repository = app(TestUserRepository::class);
-        $criteria = new ThisLikeThatCriteria('name', '*EF*');
-        $repository->pushCriteria($criteria);
+        $thisLikeThatCriteria = new ThisLikeThatCriteria('name', '*EF*');
+        $repository->pushCriteria($thisLikeThatCriteria);
 
         $result = $repository->all();
 
-        $this->assertSame(2, $result->count());
+        $this->assertCount(2, $result);
         $this->assertSame($modelB->id, $result->first()->id);
         $this->assertSame($modelA->id, $result->last()->id);
     }

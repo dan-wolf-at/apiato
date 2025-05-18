@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Unit\Models;
 
 use App\Containers\AppSection\User\Enums\Gender;
@@ -37,11 +39,11 @@ final class UserTest extends UnitTestCase
     {
         $user = User::factory()->createOne();
         $casts = [
-            'id' => 'int',
+            'id'                => 'int',
             'email_verified_at' => 'immutable_datetime',
-            'password' => 'hashed',
-            'gender' => Gender::class,
-            'birth' => 'immutable_date',
+            'password'          => 'hashed',
+            'gender'            => Gender::class,
+            'birth'             => 'immutable_date',
         ];
 
         $this->assertSame($casts, $user->getCasts());

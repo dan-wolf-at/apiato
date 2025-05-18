@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\UI\API\Requests\WebClient;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -18,9 +20,9 @@ final class IssueTokenRequestTest extends UnitTestCase
 
     public function testValidationRules(): void
     {
-        $this->assertEquals(
+        $this->assertSame(
             [
-                'email' => ['required', 'email'],
+                'email'    => ['required', 'email'],
                 'password' => 'required',
             ],
             $this->request->rules(),

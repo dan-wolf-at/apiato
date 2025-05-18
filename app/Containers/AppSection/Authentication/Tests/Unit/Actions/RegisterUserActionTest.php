@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Actions;
 
 use App\Containers\AppSection\Authentication\Actions\RegisterUserAction;
@@ -19,7 +21,7 @@ final class RegisterUserActionTest extends UnitTestCase
         Notification::fake();
         Event::fake();
         $data = [
-            'email' => 'gandalf@the.grey',
+            'email'    => 'gandalf@the.grey',
             'password' => 'youShallNotPass',
         ];
         $action = app(RegisterUserAction::class);

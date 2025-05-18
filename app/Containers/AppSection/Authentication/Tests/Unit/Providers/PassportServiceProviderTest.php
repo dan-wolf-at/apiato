@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Providers;
 
 use App\Containers\AppSection\Authentication\Providers\PassportServiceProvider;
@@ -21,6 +23,7 @@ final class PassportServiceProviderTest extends UnitTestCase
     {
         $registeredRoutes = Route::getRoutes();
         $registeredRoutes->refreshNameLookups();
+
         $passportRouteNames = [
             'passport.token',
             'passport.tokens.index',
@@ -41,9 +44,9 @@ final class PassportServiceProviderTest extends UnitTestCase
 
         $apiPrefix = $this->removeLeadingSlashes(apiato()->routing()->getApiPrefix());
         $oAuthPrefix = $apiPrefix . 'v1/oauth';
-        foreach ($passportRouteNames as $routeName) {
-            $this->assertNotNull($registeredRoutes->getByName($routeName));
-            $this->assertSamePrefix($oAuthPrefix, $registeredRoutes->getByName($routeName)->getPrefix());
+        foreach ($passportRouteNames as $passportRouteName) {
+            $this->assertInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
+            $this->assertSamePrefix($oAuthPrefix, $registeredRoutes->getByName($passportRouteName)->getPrefix());
         }
     }
 
@@ -65,14 +68,15 @@ final class PassportServiceProviderTest extends UnitTestCase
     {
         $registeredRoutes = Route::getRoutes();
         $registeredRoutes->refreshNameLookups();
+
         $passportRouteNames = [
             'passport.authorizations.authorize',
             'passport.authorizations.approve',
             'passport.authorizations.deny',
         ];
 
-        foreach ($passportRouteNames as $routeName) {
-            $this->assertNull($registeredRoutes->getByName($routeName));
+        foreach ($passportRouteNames as $passportRouteName) {
+            $this->assertNotInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
         }
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Data\Criteria;
 
 use App\Ship\Parents\Criteria\Criteria as ParentCriteria;

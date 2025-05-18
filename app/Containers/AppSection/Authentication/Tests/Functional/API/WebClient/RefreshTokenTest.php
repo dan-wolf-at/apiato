@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Functional\API\WebClient;
 
 use App\Containers\AppSection\Authentication\Data\Factories\ClientFactory;
@@ -77,7 +79,7 @@ final class RefreshTokenTest extends ApiTestCase
         parent::setUp();
 
         $data = [
-            'email' => 'gandalf@the.grey',
+            'email'    => 'gandalf@the.grey',
             'password' => 'youShallNotPass',
         ];
         User::factory()->createOne($data);

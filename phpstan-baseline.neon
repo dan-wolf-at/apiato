@@ -1,0 +1,1699 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method Lcobucci\\JWT\\Token\:\:claims\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Actions/ApiLogoutAction.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orWhereRaw\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Session\\Store\:\:regenerate\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Actions/WebLoginAction.php
+
+		-
+			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
+			identifier: booleanNot.exprNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Unsafe call to private method App\\Containers\\AppSection\\Authentication\\Classes\\LoginFieldParser\:\:extractAllMatchingLoginFields\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Unsafe call to private method App\\Containers\\AppSection\\Authentication\\Classes\\LoginFieldParser\:\:getAllowedLoginFields\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Unsafe call to private method App\\Containers\\AppSection\\Authentication\\Classes\\LoginFieldParser\:\:getMatchingLoginFieldValue\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Unsafe call to private method App\\Containers\\AppSection\\Authentication\\Classes\\LoginFieldParser\:\:getPrefix\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Unsafe call to private method App\\Containers\\AppSection\\Authentication\\Classes\\LoginFieldParser\:\:loginFieldHasValue\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Unsafe call to private method App\\Containers\\AppSection\\Authentication\\Classes\\LoginFieldParser\:\:prepareLoginField\(\) through static\:\:\.$#'
+			identifier: staticClassAccess.privateMethod
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Variable \$elements in PHPDoc tag @var does not exist\.$#'
+			identifier: varTag.variableNotFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Classes/LoginFieldParser.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 8
+			path: app/Containers/AppSection/Authentication/Configs/appSection-authentication.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 5
+			path: app/Containers/AppSection/Authentication/Configs/passport.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/Authentication/Mails/ForgotPassword.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Mails/ForgotPassword.php
+
+		-
+			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
+			identifier: ternary.condNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/Notifications/VerifyEmail.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Notifications/Welcome.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/Providers/AuthServiceProvider.php
+
+		-
+			message: '#^ServiceProviders that implement the "DeferrableProvider" interface should implement the "provides" method that returns an array of strings or class\-strings$#'
+			identifier: larastan.deferrableServiceProvider.missingProvides
+			count: 1
+			path: app/Containers/AppSection/Authentication/Providers/AuthServiceProvider.php
+
+		-
+			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
+			identifier: booleanAnd.rightNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tasks/SendVerificationEmailTask.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Http\\Response\:\:getContent\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RefreshProxyForWebClientTest.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RegisterUserTest.php
+
+		-
+			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/ResetPasswordTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Tasks\\CreatePasswordResetTokenTask\:\:run\(\) expects App\\Ship\\Parents\\Models\\UserModel, Apiato\\Core\\Abstracts\\Models\\UserModel\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/ResetPasswordTest.php
+
+		-
+			message: '#^Casting to string something that''s already string\.$#'
+			identifier: cast.useless
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
+
+		-
+			message: '#^Offset 0\|1\|false does not exist on array\{\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
+
+		-
+			message: '#^PHPDoc tag @var with type App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\|App\\Containers\\AppSection\\User\\Models\\User is not subtype of type App\\Containers\\AppSection\\User\\Models\\User\.$#'
+			identifier: varTag.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/VerifyEmailTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ApiLogoutActionTest.php
+
+		-
+			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ForgotPasswordActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ResetPasswordActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/ResetPasswordActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/VerifyEmailActionTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\|Mockery\\MockInterface\:\:attempt\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\|Mockery\\MockInterface\:\:guard\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Config\\Repository\:\:unset\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLoginActionTest.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:user\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/WebLogoutActionTest.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Config\\Repository\:\:unset\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Classes/LoginFieldParserTest.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationConfigTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Mails/ForgotPasswordTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Mails/ForgotPasswordTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Illuminate\\\\Http\\\\Request'' and Illuminate\\Http\\Request will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Middlewares/RedirectIfAuthenticatedTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Notifications/WelcomeTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with string will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/CreatePasswordResetTokenTaskTest.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/GetAuthenticatedUserTaskTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Values\\\\Token'' and App\\Containers\\AppSection\\Authentication\\Values\\Token will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/AuthResultTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Symfony\\\\Component\\\\HttpFoundation\\\\Cookie'' and Symfony\\Component\\HttpFoundation\\Cookie will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/AuthResultTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''integer'' and ''integer'' will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/TokenTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''string'' and ''string'' will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 6
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/TokenTest.php
+
+		-
+			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
+			identifier: ternary.condNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authentication/UI/API/Routes/Passport.v1.private.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListRolePermissionsAction\:\:run\(\) should return Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Permission\> but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListRolePermissionsAction.php
+
+		-
+			message: '#^Type Spatie\\Permission\\Contracts\\Permission in generic type Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Permission\> in PHPDoc tag @return is not subtype of template type TModel of Illuminate\\Database\\Eloquent\\Model of class Illuminate\\Database\\Eloquent\\Collection\.$#'
+			identifier: generics.notSubtype
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListRolePermissionsAction.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListUserPermissionsAction\:\:run\(\) should return Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Permission\> but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListUserPermissionsAction.php
+
+		-
+			message: '#^Type Spatie\\Permission\\Contracts\\Permission in generic type Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Permission\> in PHPDoc tag @return is not subtype of template type TModel of Illuminate\\Database\\Eloquent\\Model of class Illuminate\\Database\\Eloquent\\Collection\.$#'
+			identifier: generics.notSubtype
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListUserPermissionsAction.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListUserRolesAction\:\:run\(\) should return Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Role\> but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListUserRolesAction.php
+
+		-
+			message: '#^Type Spatie\\Permission\\Contracts\\Role in generic type Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), Spatie\\Permission\\Contracts\\Role\> in PHPDoc tag @return is not subtype of template type TModel of Illuminate\\Database\\Eloquent\\Model of class Illuminate\\Database\\Eloquent\\Collection\.$#'
+			identifier: generics.notSubtype
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListUserRolesAction.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: app/Containers/AppSection/Authorization/Configs/appSection-authorization.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Containers\\AppSection\\Authorization\\Data\\Criterias\\WhereGuardCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Containers/AppSection/Authorization/Data/Criterias/WhereGuardCriteria.php
+
+		-
+			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
+			identifier: empty.notAllowed
+			count: 3
+			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
+
+		-
+			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
+			identifier: booleanAnd.leftNotBoolean
+			count: 1
+			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
+
+		-
+			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			identifier: if.condNotBoolean
+			count: 2
+			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
+
+		-
+			message: '#^Only booleans are allowed in \|\|, mixed given on the left side\.$#'
+			identifier: booleanOr.leftNotBoolean
+			count: 2
+			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
+
+		-
+			message: '#^Only booleans are allowed in \|\|, mixed given on the right side\.$#'
+			identifier: booleanOr.rightNotBoolean
+			count: 2
+			path: app/Containers/AppSection/Authorization/Data/Migrations/2016_12_29_201047_create_permission_tables.php
+
+		-
+			message: '#^Return type \(App\\Containers\\AppSection\\Authorization\\Data\\Collections\\PermissionCollection\) of method App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Containers/AppSection/Authorization/Models/Permission.php
+
+		-
+			message: '#^Return type \(App\\Containers\\AppSection\\Authorization\\Data\\Collections\\RoleCollection\) of method App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Containers/AppSection/Authorization/Models/Role.php
+
+		-
+			message: '#^Parameter \#1 \$id of method Apiato\\Core\\Abstracts\\Tests\\PhpUnit\\TestCase\:\:encode\(\) expects int, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Functional/API/GivePermissionsToRoleTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Permission'' and App\\Containers\\AppSection\\Authorization\\Models\\Permission will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/PermissionFactoryTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authorization\\\\Models\\\\Role'' and App\\Containers\\AppSection\\Authorization\\Models\\Role will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
+
+		-
+			message: '#^Parameter \#1 \$model of method Illuminate\\Foundation\\Testing\\TestCase\:\:assertModelMissing\(\) expects Illuminate\\Database\\Eloquent\\Model\|string, Spatie\\Permission\\Contracts\\Role given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Factories/RoleFactoryTest.php
+
+		-
+			message: '#^PHPDoc tag @var with type Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector is not subtype of type Mockery\\Expectation\.$#'
+			identifier: varTag.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationDefaultUsersSeederTest.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Model\:\:hasAllPermissions\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationGivePermissionsToRolesSeederTest.php
+
+		-
+			message: '#^PHPDoc tag @var with type Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector is not subtype of type Mockery\\Expectation\.$#'
+			identifier: varTag.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationPermissionsSeederTest.php
+
+		-
+			message: '#^PHPDoc tag @var with type Mockery\\LegacyMockInterface\|Mockery\\VerificationDirector is not subtype of type Mockery\\Expectation\.$#'
+			identifier: varTag.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/AuthorizationRolesSeederTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/PermissionTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/Tests/Unit/UI/API/Transformers/RoleTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/UI/API/Transformers/RoleTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authorization/UI/API/Transformers/RoleTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Actions/CreateAdminAction.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<App\\Containers\\AppSection\\User\\Models\\User\>\:\:orWhereRaw\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/User/Models/User.php
+
+		-
+			message: '#^Return type \(App\\Containers\\AppSection\\User\\Data\\Collections\\UserCollection\) of method App\\Containers\\AppSection\\User\\Models\\User\:\:newCollection\(\) should be compatible with return type \(Illuminate\\Database\\Eloquent\\Collection\<\(int\|string\), static\(Illuminate\\Database\\Eloquent\\Model\)\>\) of method Illuminate\\Database\\Eloquent\\Model\:\:newCollection\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Containers/AppSection/User/Models/User.php
+
+		-
+			message: '#^Dead catch \- Illuminate\\Database\\Eloquent\\ModelNotFoundException is never thrown in the try block\.$#'
+			identifier: catch.neverThrown
+			count: 1
+			path: app/Containers/AppSection/User/Tasks/UpdateUserTask.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\User\\Tasks\\UpdateUserTask\:\:run\(\) has App\\Ship\\Exceptions\\NotFoundException in PHPDoc @throws tag but it''s not thrown\.$#'
+			identifier: throws.unusedType
+			count: 1
+			path: app/Containers/AppSection/User/Tasks/UpdateUserTask.php
+
+		-
+			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/API/GetUserProfileTest.php
+
+		-
+			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$gender\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/API/GetUserProfileTest.php
+
+		-
+			message: '#^Access to an undefined property Apiato\\Core\\Abstracts\\Models\\UserModel\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/API/GetUserProfileTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserPasswordTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/API/UpdateUserTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminCommandTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Contracts\\Auth\\Guard\:\:setUser\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/GetUserProfileActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Data/Factories/UserFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
+
+		-
+			message: '#^Cannot access property \$email on array\<mixed\>\|object\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
+
+		-
+			message: '#^Casting to string something that''s already string\.$#'
+			identifier: cast.useless
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Config\\Repository\:\:unset\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Models/UserTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 3
+			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByEmailTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdatePasswordRequestTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Requests/UpdateUserRequestTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserAdminTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/Tests/Unit/UI/API/Transformers/UserTransformerTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/UI/API/Requests/UpdatePasswordRequest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/UI/API/Requests/UpdateUserRequest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$created_at\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$updated_at\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 12
+			path: app/Ship/Configs/apiato.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 8
+			path: app/Ship/Configs/debugbar.php
+
+		-
+			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
+			identifier: ternary.shortNotAllowed
+			count: 1
+			path: app/Ship/Configs/debugbar.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 3
+			path: app/Ship/Configs/hashids.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 6
+			path: app/Ship/Configs/repository.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\BelongsToRelationCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/BelongsToRelationCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\CountCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/CountCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\CreatedTodayCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/CreatedTodayCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:groupBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/GroupByCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\GroupByCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/GroupByCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereNull\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/IsNullCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\IsNullCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/IsNullCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:limit\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/LimitCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\LimitCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/LimitCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:selectRaw\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/MinCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\MinCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/MinCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereNotNull\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/NotNullCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\NotNullCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/NotNullCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByCreationDateAscendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByCreationDateAscendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByCreationDateDescendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByCreationDateDescendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderByFieldCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByFieldCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByFieldCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderByNameCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByNameCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByNameCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderByRaw\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderBySeveralFieldsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Parameter \#2 \$bindings of method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderByRaw\(\) expects array, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Ship/Criterias/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByUpdateDateAscendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByUpdateDateAscendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderBy\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\OrderByUpdateDateDescendingCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/OrderByUpdateDateDescendingCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:distinct\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:select\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\SelectDistinctTableCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/SelectDistinctTableCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:select\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/SelectTableCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\SelectTableCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/SelectTableCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereBetween\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/ThisBetweenDatesCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisBetweenDatesCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisBetweenDatesCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisEqualThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisEqualThatCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisGreaterThanColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisGreaterThanColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisGreaterThanOrEqualColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisGreaterThanOrEqualColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisLessThanColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisLessThanColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisLessThanOrEqualColumn\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisLessThanOrEqualColumn.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisLikeThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisLikeThatCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereIn\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/ThisMatchListThat.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisMatchListThat\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisMatchListThat.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisNotEqualThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisNotEqualThatCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereIn\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/ThisNotMatchListThat.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisNotMatchListThat\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisNotMatchListThat.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Builder\:\:onlyTrashed\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Ship/Criterias/ThisOnlyTrashedCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisOnlyTrashedCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisOnlyTrashedCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisUserCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisUserCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereIn\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/ThisUsersCriteria.php
+
+		-
+			message: '#^PHPDoc tag @param for parameter \$userIds with type array\<int\>\|int is not subtype of native type array\.$#'
+			identifier: parameter.phpDocType
+			count: 1
+			path: app/Ship/Criterias/ThisUsersCriteria.php
+
+		-
+			message: '#^PHPDoc type for property App\\Ship\\Criterias\\ThisUsersCriteria\:\:\$userIds with type array\<int\>\|int is not subtype of native type array\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Criterias/ThisUsersCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisUsersCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisUsersCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\ThisWhereOrWhereThatCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/ThisWhereOrWhereThatCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereDoesntHaveCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereDoesntHaveCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereNull\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/WhereHasNullCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereHasNullCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereHasNullCriteria.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:whereJsonContains\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Criterias/WhereJsonContainsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereJsonContainsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereJsonContainsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WhereNestedCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WhereNestedCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithAvgRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithAvgRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithCountRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithCountRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithExistsRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithExistsRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithQueryCastsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithQueryCastsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithRelationsCriteria.php
+
+		-
+			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criterias\\WithoutRelationsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
+			identifier: method.childParameterType
+			count: 2
+			path: app/Ship/Criterias/WithoutRelationsCriteria.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\AccessDeniedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/AccessDeniedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\AccessDeniedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/AccessDeniedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\CreateResourceFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/CreateResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\CreateResourceFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/CreateResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\DeleteResourceFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/DeleteResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\DeleteResourceFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/DeleteResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\EmailIsMissedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/EmailIsMissedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\EmailIsMissedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/EmailIsMissedException.php
+
+		-
+			message: '#^Casting to int something that''s already int\.$#'
+			identifier: cast.useless
+			count: 1
+			path: app/Ship/Exceptions/Handlers/ExceptionsHandler.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\InternalErrorException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/InternalErrorException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\InternalErrorException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/InternalErrorException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\NotFoundException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/NotFoundException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\NotFoundException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/NotFoundException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\NotImplementedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/NotImplementedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\NotImplementedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/NotImplementedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\UnsupportedFractalSerializerException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/UnsupportedFractalSerializerException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\UnsupportedFractalSerializerException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/UnsupportedFractalSerializerException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\UpdateResourceFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/UpdateResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\UpdateResourceFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/UpdateResourceFailedException.php
+
+		-
+			message: '#^PHPDoc type int of property App\\Ship\\Exceptions\\ValidationFailedException\:\:\$code is not the same as PHPDoc type mixed of overridden property Exception\:\:\$code\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/ValidationFailedException.php
+
+		-
+			message: '#^PHPDoc type string of property App\\Ship\\Exceptions\\ValidationFailedException\:\:\$message is not the same as PHPDoc type mixed of overridden property Exception\:\:\$message\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Exceptions/ValidationFailedException.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Actions/Action.php
+
+		-
+			message: '#^Class App\\Ship\\Parents\\Collections\\EloquentCollection @extends tag contains incompatible type Apiato\\Core\\Abstracts\\Collections\\EloquentCollection&iterable\<TKey of \(int\|string\), TModel of Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			identifier: generics.notCompatible
+			count: 1
+			path: app/Ship/Parents/Collections/EloquentCollection.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 149 on line 7$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Collections/EloquentCollection.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Controllers/ApiController.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Controllers/WebController.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Criterias/Criteria.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Events/Event.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Exceptions/Exception.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 101 on line 6$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Factories/Factory.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Listeners/Listener.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Notifications/Notification.php
+
+		-
+			message: '#^PHPDoc type array\<class\-string, array\<int, class\-string\>\> of property App\\Ship\\Parents\\Providers\\EventServiceProvider\:\:\$listen is not the same as PHPDoc type array\<string, array\<int, string\>\> of overridden property Illuminate\\Foundation\\Support\\Providers\\EventServiceProvider\:\:\$listen\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: app/Ship/Parents/Providers/EventServiceProvider.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 111 on line 5$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Providers/MainServiceProvider.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 62 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Repositories/Repository.php
+
+		-
+			message: '#^Parameter \#1 \$id \(int\|string\) of method App\\Ship\\Parents\\Repositories\\Repository\:\:delete\(\) should be contravariant with parameter \$id \(mixed\) of method Prettus\\Repository\\Contracts\\RepositoryInterface\:\:delete\(\)$#'
+			identifier: method.childParameterType
+			count: 1
+			path: app/Ship/Parents/Repositories/Repository.php
+
+		-
+			message: '#^Parameter \#1 \$id \(int\|string\) of method App\\Ship\\Parents\\Repositories\\Repository\:\:delete\(\) should be contravariant with parameter \$id \(mixed\) of method Prettus\\Repository\\Eloquent\\BaseRepository\:\:delete\(\)$#'
+			identifier: method.childParameterType
+			count: 1
+			path: app/Ship/Parents/Repositories/Repository.php
+
+		-
+			message: '#^Return type \(bool\) of method App\\Ship\\Parents\\Repositories\\Repository\:\:delete\(\) should be compatible with return type \(int\) of method Prettus\\Repository\\Contracts\\RepositoryInterface\:\:delete\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Ship/Parents/Repositories/Repository.php
+
+		-
+			message: '#^Return type \(bool\) of method App\\Ship\\Parents\\Repositories\\Repository\:\:delete\(\) should be compatible with return type \(int\) of method Prettus\\Repository\\Eloquent\\BaseRepository\:\:delete\(\)$#'
+			identifier: method.childReturnType
+			count: 1
+			path: app/Ship/Parents/Repositories/Repository.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Requests/Request.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Seeders/Seeder.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Tasks/Task.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Tests/TestCase.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Transformers/Transformer.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Values/Value.php
+
+		-
+			message: '#^Dynamic call to static method Illuminate\\Foundation\\Application\:\:isLocal\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Providers/ShipProvider.php
+
+		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Tests/ShipTestCase.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 11
+			path: app/Ship/Tests/Unit/Configs/ApiatoConfigTest.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 2
+			path: app/Ship/Tests/Unit/Configs/DebugBarConfigTest.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 3
+			path: app/Ship/Tests/Unit/Configs/HashIdsConfigTest.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 6
+			path: app/Ship/Tests/Unit/Configs/RepositoryConfigTest.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 1
+			path: app/Ship/Tests/Unit/GenerateDocumentationTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Illuminate\\\\Contracts\\\\Foundation\\\\Application'' and Illuminate\\Foundation\\Application will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Ship/Tests/Unit/Parents/Tests/TestCaseTest.php

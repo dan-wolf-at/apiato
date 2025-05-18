@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Parents\Repositories;
 
 use Apiato\Core\Repositories\Repository as AbstractRepository;

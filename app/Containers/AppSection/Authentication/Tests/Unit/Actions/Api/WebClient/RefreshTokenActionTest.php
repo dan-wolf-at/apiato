@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Actions\Api\WebClient;
 
 use App\Containers\AppSection\Authentication\Actions\Api\WebClient\RefreshTokenAction;

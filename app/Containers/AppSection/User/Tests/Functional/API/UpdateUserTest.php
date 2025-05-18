@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Functional\API;
 
 use App\Containers\AppSection\User\Enums\Gender;
@@ -18,17 +20,17 @@ final class UpdateUserTest extends ApiTestCase
     public function testCanUpdateAsOwner(): void
     {
         $user = User::factory()->createOne([
-            'name' => 'He who must not be named',
-            'gender' => Gender::FEMALE,
+            'name'     => 'He who must not be named',
+            'gender'   => Gender::FEMALE,
             'password' => 'Av@dakedavra!',
         ]);
         $this->actingAs($user);
         $data = [
-            'name' => 'Updated Name',
-            'gender' => Gender::MALE->value,
-            'birth' => Date::today()->toIso8601String(),
-            'current_password' => 'Av@dakedavra!',
-            'new_password' => 'updated#Password111',
+            'name'                      => 'Updated Name',
+            'gender'                    => Gender::MALE->value,
+            'birth'                     => Date::today()->toIso8601String(),
+            'current_password'          => 'Av@dakedavra!',
+            'new_password'              => 'updated#Password111',
             'new_password_confirmation' => 'updated#Password111',
         ];
 

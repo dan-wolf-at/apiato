@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Data\DTOs;
 
 use App\Containers\AppSection\Authentication\Data\DTOs\PasswordToken;
@@ -15,16 +17,16 @@ final class PasswordTokenTest extends UnitTestCase
         $expiredIn = fake()->numberBetween();
         $accessToken = fake()->sha256();
         $refreshToken = fake()->sha256();
-        $value = new PasswordToken(
+        $passwordToken = new PasswordToken(
             'Bearer',
             $expiredIn,
             $accessToken,
             RefreshToken::create($refreshToken),
         );
 
-        $this->assertSame('Bearer', $value->tokenType);
-        $this->assertSame($expiredIn, $value->expiresIn);
-        $this->assertSame($accessToken, $value->accessToken);
-        $this->assertSame($refreshToken, $value->refreshToken->value());
+        $this->assertSame('Bearer', $passwordToken->tokenType);
+        $this->assertSame($expiredIn, $passwordToken->expiresIn);
+        $this->assertSame($accessToken, $passwordToken->accessToken);
+        $this->assertSame($refreshToken, $passwordToken->refreshToken->value());
     }
 }

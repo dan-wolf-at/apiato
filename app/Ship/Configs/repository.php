@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use League\Fractal\Serializer\DataArraySerializer;
 
 /*
@@ -142,7 +144,7 @@ return [
        | 'except'  =>['find'],
        */
         'allowed' => [
-            'only' => null,
+            'only'   => null,
             'except' => null,
         ],
     ],
@@ -215,14 +217,14 @@ return [
         |
         */
         'params' => [
-            'search' => 'search',
+            'search'       => 'search',
             'searchFields' => 'searchFields',
-            'filter' => 'l5_filter', // we will override the filter in apiato (using fractal)
-            'orderBy' => 'orderBy',
-            'sortedBy' => 'sortedBy',
-            'with' => 'l5_with', // use `include` instead (provided by fractal)
-            'searchJoin' => 'searchJoin',
-            'withCount' => 'withCount',
+            'filter'       => 'l5_filter', // we will override the filter in apiato (using fractal)
+            'orderBy'      => 'orderBy',
+            'sortedBy'     => 'sortedBy',
+            'with'         => 'l5_with', // use `include` instead (provided by fractal)
+            'searchJoin'   => 'searchJoin',
+            'withCount'    => 'withCount',
         ],
     ],
     /*
@@ -232,19 +234,19 @@ return [
     |
     */
     'generator' => [
-        'basePath' => env('SRC_PATH', app()->path()),
-        'rootNamespace' => env('ROOT_NAMESPACE', 'App\\'),
+        'basePath'          => env('SRC_PATH', app()->path()),
+        'rootNamespace'     => env('ROOT_NAMESPACE', 'App\\'),
         'stubsOverridePath' => app()->path(),
-        'paths' => [
-            'models' => 'Entities',
+        'paths'             => [
+            'models'       => 'Entities',
             'repositories' => 'Repositories',
-            'interfaces' => 'Repositories',
+            'interfaces'   => 'Repositories',
             'transformers' => 'Transformers',
-            'presenters' => 'Presenters',
-            'validators' => 'Validators',
-            'controllers' => 'Http/Controllers',
-            'provider' => 'RepositoryServiceProvider',
-            'criteria' => 'Criteria',
+            'presenters'   => 'Presenters',
+            'validators'   => 'Validators',
+            'controllers'  => 'Http/Controllers',
+            'provider'     => 'RepositoryServiceProvider',
+            'criteria'     => 'Criteria',
         ],
     ],
 ];

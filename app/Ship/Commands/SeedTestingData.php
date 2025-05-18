@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Commands;
 
 use Apiato\Core\Console\Command as ParentCommand;
@@ -8,6 +10,7 @@ use App\Ship\Seeders\TestingDataSeeder;
 final class SeedTestingData extends ParentCommand
 {
     protected $signature = 'apiato:seed-test';
+
     protected $description = 'Seed testing data.';
 
     public function handle(): void

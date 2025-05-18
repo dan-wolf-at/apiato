@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Actions\Api\WebClient;
 
 use App\Containers\AppSection\Authentication\Actions\Api\WebClient\IssueTokenAction;
@@ -17,7 +19,7 @@ final class IssueTokenActionTest extends UnitTestCase
     {
         ClientFactory::webClient();
         $credentials = [
-            'email' => 'ganldalf@the.grey',
+            'email'    => 'ganldalf@the.grey',
             'password' => 'youShallNotPass',
         ];
         $user = User::factory()->createOne($credentials);

@@ -1,34 +1,25 @@
-name: Tests
+name: "Test suite"
 
 on:
   push:
-    branches:
-      - master
-      - '*.x'
+    branches: [ master, '*.x' ]
   pull_request:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  matrix_prep:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: nelonoel/branch-name@v1.0.1
-      - id: set-matrix
-        uses: JoshuaTheMiller/conditional-build-matrix@v2.0.1
-        with:
-          filter: '[?runOn==`${{ env.BRANCH_NAME }}` || runOn==`${{ github.event.pull_request.base.ref }}` || runOn==`always`]'
   tests:
-    needs: matrix_prep
-    runs-on: ${{ matrix.runs_on }}
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: true
-      matrix: ${{fromJson(needs.matrix_prep.outputs.matrix)}}
-    name: PHP ${{ matrix.php_version }}
+      matrix:
+        php: [ 8.3 ]
+    name: PHP ${{ matrix.php }}
     timeout-minutes: 10
     services:
       postgres:
@@ -40,42 +31,53 @@ jobs:
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      redis:
+        image: redis:alpine
+        ports:
+          - 6379:6379
+        options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install npm dependencies
-        run: npm install
-
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php_version }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, redis
           coverage: xdebug
-          tools: ${{ matrix.php_unit_version }}
 
       - name: Setup Composer token
         run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache PHPUnit results
+        uses: actions/cache@v4
+        with:
+          path: .phpunit.result.cache
+          key: ${{ runner.os }}-php-${{ matrix.php }}-phpunit-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-php-${{ matrix.php }}-phpunit-
 
       # If you encounter an error during Laravel package discovery, remember this:
       # Composer doesn't have access to env variables at this stage,
       # Therefore, it uses the default value for all env variables.
       # To fix this, we need to copy the .env.ci file to .env before running composer install.
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-interaction --no-progress
-
-      - name: Copy environment file
+      - name: Copy environment file for Composer
         run: cp .env.ci .env
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v3
+        with:
+          composer-options: --prefer-dist
 
       - name: Generate app key
         run: php artisan key:generate
 
       - name: Execute tests
-        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml --testdox --cache-directory=.phpunit.result.cache --colors=always --display-deprecations --display-phpunit-deprecations
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           fail_ci_if_error: true
           verbose: true

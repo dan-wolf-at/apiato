@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Tests\Unit\Data\Factories;
 
 use App\Containers\AppSection\Authorization\Data\Factories\PermissionFactory;

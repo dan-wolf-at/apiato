@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Policies;
 
 use App\Containers\AppSection\User\Data\Repositories\UserRepository;

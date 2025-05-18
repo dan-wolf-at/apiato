@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Actions\PasswordReset;
 
 use App\Containers\AppSection\Authentication\UI\API\Requests\PasswordReset\ResetPasswordRequest;
@@ -23,7 +25,7 @@ final class ResetPasswordAction extends ParentAction
 
         $status = Password::reset(
             $sanitizedData,
-            static function (User $user, string $password) {
+            static function (User $user, string $password): void {
                 $user->forceFill([
                     'password' => $password,
                 ])->setRememberToken(Str::random(60));
@@ -36,8 +38,8 @@ final class ResetPasswordAction extends ParentAction
 
         return match ($status) {
             Password::PASSWORD_RESET => __($status),
-            Password::INVALID_TOKEN => throw ValidationException::withMessages(['token' => __($status)]),
-            default => throw ValidationException::withMessages(['email' => __($status)]),
+            Password::INVALID_TOKEN  => throw ValidationException::withMessages(['token' => __($status)]),
+            default                  => throw ValidationException::withMessages(['email' => __($status)]),
         };
     }
 }

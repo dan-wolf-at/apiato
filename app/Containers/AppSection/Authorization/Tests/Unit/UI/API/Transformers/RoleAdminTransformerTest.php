@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Tests\Unit\UI\API\Transformers;
 
 use App\Containers\AppSection\Authorization\Models\Permission;
@@ -17,12 +19,12 @@ final class RoleAdminTransformerTest extends UnitTestCase
     {
         $role = Role::factory()->createOne();
         $expected = [
-            'type' => $role->getResourceKey(),
-            'id' => $role->getHashedKey(),
-            'name' => $role->name,
+            'type'         => $role->getResourceKey(),
+            'id'           => $role->getHashedKey(),
+            'name'         => $role->name,
             'display_name' => $role->display_name,
-            'guard_name' => $role->guard_name,
-            'description' => $role->description,
+            'guard_name'   => $role->guard_name,
+            'description'  => $role->description,
         ];
 
         $transformedResource = $this->transformer->transform($role);

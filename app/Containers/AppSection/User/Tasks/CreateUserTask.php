@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tasks;
 
 use App\Containers\AppSection\User\Data\Repositories\UserRepository;
@@ -17,7 +19,7 @@ final class CreateUserTask extends ParentTask
     {
         tap(validator(
             [
-                'email' => strtolower($data['email']),
+                'email' => strtolower((string) $data['email']),
             ],
             [
                 'email' => ['unique:users,email'],

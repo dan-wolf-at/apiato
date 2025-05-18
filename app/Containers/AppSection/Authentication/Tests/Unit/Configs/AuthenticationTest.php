@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Configs;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -14,11 +16,11 @@ final class AuthenticationTest extends UnitTestCase
         $expected = [
             'clients' => [
                 'web' => [
-                    'id' => env('CLIENT_WEB_ID'),
+                    'id'     => env('CLIENT_WEB_ID'),
                     'secret' => env('CLIENT_WEB_SECRET'),
                 ],
             ],
-            'tokens-expire-in' => env('API_TOKEN_EXPIRES', 1440),
+            'tokens-expire-in'         => env('API_TOKEN_EXPIRES', 1440),
             'refresh-tokens-expire-in' => env('API_REFRESH_TOKEN_EXPIRES', 43200),
         ];
 

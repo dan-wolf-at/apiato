@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Tests\Unit\UI\API\Transformers;
 
 use App\Containers\AppSection\Authorization\Models\Permission;
@@ -16,11 +18,11 @@ final class PermissionTransformerTest extends UnitTestCase
     {
         $permission = Permission::factory()->createOne();
         $expected = [
-            'type' => $permission->getResourceKey(),
-            'id' => $permission->getHashedKey(),
-            'name' => $permission->name,
+            'type'         => $permission->getResourceKey(),
+            'id'           => $permission->getHashedKey(),
+            'name'         => $permission->name,
             'display_name' => $permission->display_name,
-            'description' => $permission->description,
+            'description'  => $permission->description,
         ];
 
         $transformedResource = $this->transformer->transform($permission);

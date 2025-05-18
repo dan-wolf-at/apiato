@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<phpmd-baseline>
+  <violation rule="PHPMD\Rule\Controversial\CamelCaseVariableName" file="app/Containers/AppSection/Authentication/Notifications/VerifyEmail.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCaseVariableName" file="app/Containers/AppSection/Authorization/Actions/RemoveUserRolesAction.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCasePropertyName" file="app/Containers/AppSection/Authorization/Models/Permission.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCasePropertyName" file="app/Containers/AppSection/Authorization/Models/Role.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionAdminTransformer.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Containers/AppSection/Authorization/UI/API/Transformers/RoleAdminTransformer.php"/>
+  <violation rule="PHPMD\Rule\Design\DepthOfInheritance" file="app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php"/>
+  <violation rule="PHPMD\Rule\Controversial\CamelCaseVariableName" file="app/Containers/AppSection/User/UI/CLI/Commands/CreateAdminCommand.php"/>
+  <violation rule="PHPMD\Rule\Design\CouplingBetweenObjects" file="app/Ship/Exceptions/Handlers/ExceptionsHandler.php"/>
+</phpmd-baseline>

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Unit\Actions;
 
 use App\Containers\AppSection\User\Actions\UpdateUserAction;
@@ -19,9 +21,9 @@ final class UpdateUserActionTest extends UnitTestCase
             ->gender(Gender::FEMALE)
             ->createOne(['password' => 'youShallNotPass']);
         $data = [
-            'name' => 'a name',
-            'gender' => Gender::MALE->value,
-            'birth' => Date::today()->toIso8601String(),
+            'name'     => 'a name',
+            'gender'   => Gender::MALE->value,
+            'birth'    => Date::today()->toIso8601String(),
             'password' => 'test',
         ];
         $action = app(UpdateUserAction::class);

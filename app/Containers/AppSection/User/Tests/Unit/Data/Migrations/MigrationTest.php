@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Unit\Data\Migrations;
 
 use App\Containers\AppSection\User\Tests\UnitTestCase;
@@ -11,16 +13,16 @@ final class MigrationTest extends UnitTestCase
     public function testUsersTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'int8',
-            'name' => 'varchar',
-            'email' => 'varchar',
+            'id'                => 'int8',
+            'name'              => 'varchar',
+            'email'             => 'varchar',
             'email_verified_at' => 'timestamp',
-            'password' => 'varchar',
-            'gender' => 'varchar',
-            'birth' => 'date',
-            'remember_token' => 'varchar',
-            'created_at' => 'timestamp',
-            'updated_at' => 'timestamp',
+            'password'          => 'varchar',
+            'gender'            => 'varchar',
+            'birth'             => 'date',
+            'remember_token'    => 'varchar',
+            'created_at'        => 'timestamp',
+            'updated_at'        => 'timestamp',
         ];
 
         $this->assertDatabaseTable('users', $columns);
@@ -29,8 +31,8 @@ final class MigrationTest extends UnitTestCase
     public function testPasswordResetsTableHasExpectedColumns(): void
     {
         $columns = [
-            'email' => 'varchar',
-            'token' => 'varchar',
+            'email'      => 'varchar',
+            'token'      => 'varchar',
             'created_at' => 'timestamp',
         ];
 
@@ -40,11 +42,11 @@ final class MigrationTest extends UnitTestCase
     public function testSessionsTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'varchar',
-            'user_id' => 'int8',
-            'ip_address' => 'varchar',
-            'user_agent' => 'text',
-            'payload' => 'text',
+            'id'            => 'varchar',
+            'user_id'       => 'int8',
+            'ip_address'    => 'varchar',
+            'user_agent'    => 'text',
+            'payload'       => 'text',
             'last_activity' => 'int4',
         ];
 

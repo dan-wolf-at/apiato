@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Criteria;
 
 use App\Ship\Parents\Criteria\Criteria as ParentCriteria;
@@ -9,8 +11,8 @@ use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterfa
 class OrderByFieldCriteria extends ParentCriteria
 {
     public function __construct(
-        private string $field,
-        private string $sortOrder,
+        private readonly string $field,
+        private readonly string $sortOrder,
     ) {
         if (!$this->isValidSortOrder($sortOrder)) {
             throw new \InvalidArgumentException("Invalid argument supplied. Valid arguments are 'asc' and 'desc'");
@@ -25,7 +27,7 @@ class OrderByFieldCriteria extends ParentCriteria
             'desc',
         ];
 
-        return in_array($sortOrder, $availableDirections, true);
+        return \in_array($sortOrder, $availableDirections, true);
     }
 
     public function apply($model, PrettusRepositoryInterface $repository)

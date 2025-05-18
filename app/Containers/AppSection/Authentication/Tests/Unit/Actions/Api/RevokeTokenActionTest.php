@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Actions\Api;
 
 use App\Containers\AppSection\Authentication\Actions\Api\RevokeTokenAction;

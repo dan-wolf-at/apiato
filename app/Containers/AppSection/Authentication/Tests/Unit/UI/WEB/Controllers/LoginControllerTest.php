@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\UI\WEB\Controllers;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Data\Factories;
 
 use App\Containers\AppSection\Authentication\Data\DTOs\PasswordToken;
@@ -32,20 +34,20 @@ final class PasswordTokenFactory
         );
 
         $token = $this->findAccessToken($response);
-        tap($token, function (Token $token) {
+        tap($token, function (Token $token): void {
             $this->tokens->save($token->forceFill([
                 'user_id' => $token->user_id,
             ]));
         });
 
-        if (!is_null($this->user)) {
+        if (!\is_null($this->user)) {
             $this->setUserCurrentToken($token);
         }
 
         return $response;
     }
 
-    protected function dispatchRequestToAuthorizationServer(ServerRequestInterface $request): PasswordToken
+    private function dispatchRequestToAuthorizationServer(ServerRequestInterface $request): PasswordToken
     {
         return PasswordToken::fromArray(
             json_decode(
@@ -60,7 +62,7 @@ final class PasswordTokenFactory
         );
     }
 
-    protected function createRequest(AccessTokenProxy|RefreshTokenProxy $proxy): ServerRequestInterface
+    private function createRequest(AccessTokenProxy|RefreshTokenProxy $proxy): ServerRequestInterface
     {
         return (new ServerRequest('POST', 'not-important'))
             ->withParsedBody($proxy->toArray());

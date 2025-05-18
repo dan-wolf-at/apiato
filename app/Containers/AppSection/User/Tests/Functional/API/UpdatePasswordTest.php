@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Functional\API;
 
 use App\Containers\AppSection\User\Models\User;
@@ -19,8 +21,8 @@ final class UpdatePasswordTest extends ApiTestCase
         ]);
         $this->actingAs($user);
         $data = [
-            'current_password' => 'Av@dakedavra!',
-            'new_password' => 'updated#Password111',
+            'current_password'          => 'Av@dakedavra!',
+            'new_password'              => 'updated#Password111',
             'new_password_confirmation' => 'updated#Password111',
         ];
 

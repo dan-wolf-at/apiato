@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Tests\Unit\Criteria;
 
 use App\Ship\Criteria\ThisEqualThatCriteria;
@@ -13,17 +15,17 @@ final class ThisEqualThatCriteriaTest extends ShipTestCase
 {
     public function testCriteria(): void
     {
-        $modelB = TestUserFactory::new()->create(['name' => 'B']);
+        TestUserFactory::new()->create(['name' => 'B']);
         $modelA = TestUserFactory::new()->create(['name' => 'A']);
-        $modelC = TestUserFactory::new()->create(['name' => 'C']);
+        TestUserFactory::new()->create(['name' => 'C']);
 
         $repository = app(TestUserRepository::class);
-        $criteria = new ThisEqualThatCriteria('name', 'A');
-        $repository->pushCriteria($criteria);
+        $thisEqualThatCriteria = new ThisEqualThatCriteria('name', 'A');
+        $repository->pushCriteria($thisEqualThatCriteria);
 
         $result = $repository->all();
 
-        $this->assertSame(1, $result->count());
+        $this->assertCount(1, $result);
         $this->assertSame($modelA->id, $result->first()->id);
     }
 }

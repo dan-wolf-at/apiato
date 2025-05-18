@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Actions\Web;
 
 use App\Containers\AppSection\Authentication\Actions\Web\LoginAction;
@@ -16,7 +18,7 @@ final class LoginActionTest extends UnitTestCase
     public function testCanLoginWithCredentials(): void
     {
         $user = User::factory()->createOne([
-            'email' => 'gandalf@the.grey',
+            'email'    => 'gandalf@the.grey',
             'password' => 'youShallNotPass',
         ]);
         $action = app(LoginAction::class);
@@ -30,7 +32,7 @@ final class LoginActionTest extends UnitTestCase
     public function testCanReturnErrors(): void
     {
         $credentials = [
-            'email' => 'gandalf@the.grey',
+            'email'    => 'gandalf@the.grey',
             'password' => 'youShallNotPass',
         ];
         User::factory()->createOne($credentials);

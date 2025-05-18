@@ -1,0 +1,24 @@
+#https://phpstan.org/user-guide/getting-started
+
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: max
+    paths:
+        - app
+        - config
+        - tests
+        - database
+    tmpDir: phpstan_cache
+    excludePaths:
+        - vendor/*
+        - app/Containers/Vendor/*
+
+    reportUnmatchedIgnoredErrors: true
+
+#    ignoreErrors:
+#        - '#PHPDoc tag @var#'
+
+    fileExtensions:
+        - php

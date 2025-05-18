@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Tests\Unit\Data\Repositories\Concerns;
 
 use App\Containers\AppSection\Authorization\Data\Criteria\WhereGuardCriteria;
@@ -14,23 +16,23 @@ final class InteractsWithGuardTest extends UnitTestCase
 {
     public function testItPushesCriteriaWhenGuardIsNotNull(): void
     {
-        $repository = new TraitTestRepository();
+        $traitTestRepository = new TraitTestRepository();
         $guard = 'web';
 
-        $repository->whereGuard($guard);
+        $traitTestRepository->whereGuard($guard);
 
-        $this->assertSame($guard, $repository->getCriteria()->first()->guard);
-        $this->assertContains(WhereGuardCriteria::class, $repository->getCriteria()->map(static fn ($criteria) => get_class($criteria)));
+        $this->assertSame($guard, $traitTestRepository->getCriteria()->first()->guard);
+        $this->assertContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
     }
 
     public function testItDoesNotPushCriteriaWhenGuardIsNull(): void
     {
-        $repository = new TraitTestRepository();
+        $traitTestRepository = new TraitTestRepository();
         $guard = null;
 
-        $repository->whereGuard($guard);
+        $traitTestRepository->whereGuard($guard);
 
-        $this->assertNotContains(WhereGuardCriteria::class, $repository->getCriteria()->map(static fn ($criteria) => get_class($criteria)));
+        $this->assertNotContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
     }
 }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Tests\Unit\Data\Migrations;
 
 use App\Containers\AppSection\Authorization\Tests\UnitTestCase;
@@ -9,6 +11,7 @@ use PHPUnit\Framework\Attributes\CoversNothing;
 final class MigrationTest extends UnitTestCase
 {
     private array $tableNames;
+
     private array $columnNames;
 
     protected function setUp(): void
@@ -21,13 +24,13 @@ final class MigrationTest extends UnitTestCase
     public function testPermissionsTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'int8',
-            'name' => 'varchar',
-            'guard_name' => 'varchar',
+            'id'           => 'int8',
+            'name'         => 'varchar',
+            'guard_name'   => 'varchar',
             'display_name' => 'varchar',
-            'description' => 'varchar',
-            'created_at' => 'timestamp',
-            'updated_at' => 'timestamp',
+            'description'  => 'varchar',
+            'created_at'   => 'timestamp',
+            'updated_at'   => 'timestamp',
         ];
 
         $this->assertDatabaseTable($this->tableNames['permissions'], $columns);
@@ -36,13 +39,13 @@ final class MigrationTest extends UnitTestCase
     public function testRolesTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'int8',
-            'name' => 'varchar',
-            'guard_name' => 'varchar',
+            'id'           => 'int8',
+            'name'         => 'varchar',
+            'guard_name'   => 'varchar',
             'display_name' => 'varchar',
-            'description' => 'varchar',
-            'created_at' => 'timestamp',
-            'updated_at' => 'timestamp',
+            'description'  => 'varchar',
+            'created_at'   => 'timestamp',
+            'updated_at'   => 'timestamp',
         ];
 
         $this->assertDatabaseTable($this->tableNames['roles'], $columns);
@@ -51,8 +54,8 @@ final class MigrationTest extends UnitTestCase
     public function testModelHasPermissionsTableHasExpectedColumns(): void
     {
         $columns = [
-            'permission_id' => 'int8',
-            'model_type' => 'varchar',
+            'permission_id'                       => 'int8',
+            'model_type'                          => 'varchar',
             $this->columnNames['model_morph_key'] => 'int8',
         ];
 
@@ -62,8 +65,8 @@ final class MigrationTest extends UnitTestCase
     public function testModelHasRolesTableHasExpectedColumns(): void
     {
         $columns = [
-            'role_id' => 'int8',
-            'model_type' => 'varchar',
+            'role_id'                             => 'int8',
+            'model_type'                          => 'varchar',
             $this->columnNames['model_morph_key'] => 'int8',
         ];
 
@@ -74,7 +77,7 @@ final class MigrationTest extends UnitTestCase
     {
         $columns = [
             'permission_id' => 'int8',
-            'role_id' => 'int8',
+            'role_id'       => 'int8',
         ];
 
         $this->assertDatabaseTable($this->tableNames['role_has_permissions'], $columns);

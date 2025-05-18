@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authorization\Tasks;
 
 use App\Containers\AppSection\Authorization\Data\Repositories\PermissionRepository;
@@ -16,10 +18,10 @@ final class CreatePermissionTask extends ParentTask
     public function run(string $name, string|null $description = null, string|null $displayName = null, string $guardName = 'api'): Permission
     {
         return $this->repository->create([
-            'name' => strtolower($name),
-            'description' => $description,
+            'name'         => strtolower($name),
+            'description'  => $description,
             'display_name' => $displayName,
-            'guard_name' => $guardName,
+            'guard_name'   => $guardName,
         ]);
     }
 }

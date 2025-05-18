@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Unit\Notifications;
 
 use App\Containers\AppSection\User\Models\User;
@@ -19,7 +21,7 @@ final class PasswordUpdatedNotificationTest extends UnitTestCase
 
         $user->notify(new PasswordUpdatedNotification());
 
-        Notification::assertSentTo($user, PasswordUpdatedNotification::class, function (PasswordUpdatedNotification $notification) use ($user) {
+        Notification::assertSentTo($user, PasswordUpdatedNotification::class, function (PasswordUpdatedNotification $notification) use ($user): true {
             $email = $notification->toMail($user);
             $this->assertSame('Account Change Notice', $email->subject);
             $this->assertSame([

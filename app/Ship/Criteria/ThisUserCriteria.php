@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Criteria;
 
 use App\Ship\Parents\Criteria\Criteria as ParentCriteria;
@@ -8,7 +10,7 @@ use Prettus\Repository\Contracts\RepositoryInterface as PrettusRepositoryInterfa
 class ThisUserCriteria extends ParentCriteria
 {
     public function __construct(
-        private int $userId,
+        private readonly int $userId,
     ) {
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Tests\Unit\Criteria;
 
 use App\Ship\Criteria\OrderByUpdateDateDescendingCriteria;
@@ -18,8 +20,8 @@ final class OrderByUpdateDateDescendingCriteriaTest extends ShipTestCase
         $modelC = TestUserFactory::new()->create(['updated_at' => now()->addDay()]);
 
         $repository = app(TestUserRepository::class);
-        $criteria = new OrderByUpdateDateDescendingCriteria();
-        $repository->pushCriteria($criteria);
+        $orderByUpdateDateDescendingCriteria = new OrderByUpdateDateDescendingCriteria();
+        $repository->pushCriteria($orderByUpdateDateDescendingCriteria);
 
         $result = $repository->all();
 

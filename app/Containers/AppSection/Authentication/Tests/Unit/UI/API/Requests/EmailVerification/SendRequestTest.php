@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\UI\API\Requests\EmailVerification;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -18,7 +20,7 @@ final class SendRequestTest extends UnitTestCase
 
     public function testValidationRules(): void
     {
-        $this->assertEquals([], $this->request->rules());
+        $this->assertSame([], $this->request->rules());
     }
 
     protected function setUp(): void

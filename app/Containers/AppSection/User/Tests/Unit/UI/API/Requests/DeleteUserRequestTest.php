@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Unit\UI\API\Requests;
 
 use App\Containers\AppSection\User\Tests\UnitTestCase;

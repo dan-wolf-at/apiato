@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\UI\API\Requests\PasswordReset;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -18,7 +20,7 @@ final class ForgotPasswordRequestTest extends UnitTestCase
 
     public function testValidationRules(): void
     {
-        $this->assertEquals([
+        $this->assertSame([
             'email' => 'required|email',
         ], $this->request->rules());
     }

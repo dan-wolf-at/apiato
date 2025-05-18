@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Values;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -17,11 +19,11 @@ final class RefreshTokenTest extends UnitTestCase
 
         $this->assertSame(RefreshToken::cookieName(), $cookie->getName());
         $this->assertSame($refreshToken->value(), $cookie->getValue());
-        $this->assertEquals(
+        $this->assertSame(
             (int) config('appSection-authentication.refresh-tokens-expire-in'),
             $cookie->getExpiresTime(),
         );
-        $this->assertEquals('/', $cookie->getPath());
+        $this->assertSame('/', $cookie->getPath());
         $this->assertNull($cookie->getDomain());
         $this->assertEquals(config('session.secure'), $cookie->isSecure());
         $this->assertEquals(config('session.http_only'), $cookie->isHttpOnly());

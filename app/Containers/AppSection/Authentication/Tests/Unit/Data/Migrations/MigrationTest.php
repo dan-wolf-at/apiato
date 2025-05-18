@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\Data\Migrations;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -11,11 +13,11 @@ final class MigrationTest extends UnitTestCase
     public function testOAuthAuthCodesTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'varchar',
-            'user_id' => 'int8',
-            'client_id' => 'int8',
-            'scopes' => 'text',
-            'revoked' => 'bool',
+            'id'         => 'varchar',
+            'user_id'    => 'int8',
+            'client_id'  => 'int8',
+            'scopes'     => 'text',
+            'revoked'    => 'bool',
             'expires_at' => 'timestamp',
         ];
 
@@ -25,12 +27,12 @@ final class MigrationTest extends UnitTestCase
     public function testOAuthAccessTokenTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'varchar',
-            'user_id' => 'int8',
-            'client_id' => 'int8',
-            'name' => 'varchar',
-            'scopes' => 'text',
-            'revoked' => 'bool',
+            'id'         => 'varchar',
+            'user_id'    => 'int8',
+            'client_id'  => 'int8',
+            'name'       => 'varchar',
+            'scopes'     => 'text',
+            'revoked'    => 'bool',
             'created_at' => 'timestamp',
             'updated_at' => 'timestamp',
             'expires_at' => 'timestamp',
@@ -42,10 +44,10 @@ final class MigrationTest extends UnitTestCase
     public function testOAuthRefreshTokenTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'varchar',
+            'id'              => 'varchar',
             'access_token_id' => 'varchar',
-            'revoked' => 'bool',
-            'expires_at' => 'timestamp',
+            'revoked'         => 'bool',
+            'expires_at'      => 'timestamp',
         ];
 
         $this->assertDatabaseTable('oauth_refresh_tokens', $columns);
@@ -54,17 +56,17 @@ final class MigrationTest extends UnitTestCase
     public function testOAuthClientsTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'int8',
-            'user_id' => 'int8',
-            'name' => 'varchar',
-            'secret' => 'varchar',
-            'provider' => 'varchar',
-            'redirect' => 'text',
+            'id'                     => 'int8',
+            'user_id'                => 'int8',
+            'name'                   => 'varchar',
+            'secret'                 => 'varchar',
+            'provider'               => 'varchar',
+            'redirect'               => 'text',
             'personal_access_client' => 'bool',
-            'password_client' => 'bool',
-            'revoked' => 'bool',
-            'created_at' => 'timestamp',
-            'updated_at' => 'timestamp',
+            'password_client'        => 'bool',
+            'revoked'                => 'bool',
+            'created_at'             => 'timestamp',
+            'updated_at'             => 'timestamp',
         ];
 
         $this->assertDatabaseTable('oauth_clients', $columns);
@@ -73,8 +75,8 @@ final class MigrationTest extends UnitTestCase
     public function testOAuthPersonamAccessClientsTableHasExpectedColumns(): void
     {
         $columns = [
-            'id' => 'int8',
-            'client_id' => 'int8',
+            'id'         => 'int8',
+            'client_id'  => 'int8',
             'created_at' => 'timestamp',
             'updated_at' => 'timestamp',
         ];

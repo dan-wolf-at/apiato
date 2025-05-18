@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Tests\Unit\Middleware;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -18,13 +20,13 @@ final class ValidateAppIdTest extends UnitTestCase
             server: ['HTTP_App-Identifier' => 'desktop'],
         );
         config(['apiato.apps' => [
-            'web' => null,
+            'web'     => null,
             'desktop' => null,
-            'mobile' => null,
+            'mobile'  => null,
         ]]);
-        $middleware = new ValidateAppId();
+        $validateAppId = new ValidateAppId();
 
-        $result = $middleware->handle($request, static fn (Request $req) => $req);
+        $result = $validateAppId->handle($request, static fn (Request $req): Request => $req);
 
         $this->assertSame($request, $result);
     }
@@ -38,12 +40,12 @@ final class ValidateAppIdTest extends UnitTestCase
             server: ['HTTP_App-Identifier' => 'non-existing'],
         );
         config(['apiato.apps' => [
-            'web' => null,
+            'web'     => null,
             'desktop' => null,
-            'mobile' => null,
+            'mobile'  => null,
         ]]);
-        $middleware = new ValidateAppId();
+        $validateAppId = new ValidateAppId();
 
-        $middleware->handle($request, static fn (Request $req) => $req);
+        $validateAppId->handle($request, static fn (Request $req): Request => $req);
     }
 }

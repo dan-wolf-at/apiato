@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Actions\PasswordReset;
 
 use App\Containers\AppSection\Authentication\UI\API\Requests\PasswordReset\ForgotPasswordRequest;
@@ -20,7 +22,7 @@ final class ForgotPasswordAction extends ParentAction
         return match ($status) {
             Password::RESET_LINK_SENT => __($status),
             Password::RESET_THROTTLED => throw ValidationException::withMessages(['throttle' => __($status)]),
-            default => throw ValidationException::withMessages(['email' => __($status)]),
+            default                   => throw ValidationException::withMessages(['email' => __($status)]),
         };
     }
 }

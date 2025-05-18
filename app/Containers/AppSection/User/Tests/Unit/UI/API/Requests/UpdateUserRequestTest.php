@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Unit\UI\API\Requests;
 
 use App\Containers\AppSection\User\Enums\Gender;
@@ -26,11 +28,11 @@ final class UpdateUserRequestTest extends UnitTestCase
         $rules = $this->request->rules();
 
         $this->assertEquals([
-            'name' => 'min:2|max:50',
-            'gender' => [Rule::enum(Gender::class), 'nullable'],
-            'birth' => ['date', 'nullable'],
+            'name'             => 'min:2|max:50',
+            'gender'           => [Rule::enum(Gender::class), 'nullable'],
+            'birth'            => ['date', 'nullable'],
             'current_password' => [
-                Rule::requiredIf(fn (): bool => !is_null($this->request->user()->password) && $this->request->filled('new_password')),
+                Rule::requiredIf(fn (): bool => !\is_null($this->request->user()->password) && $this->request->filled('new_password')),
                 'current_password:api',
             ],
             'new_password' => [

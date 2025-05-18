@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Values\Clients;
 
 use App\Ship\Parents\Values\Value as ParentValue;
@@ -9,7 +11,9 @@ use Webmozart\Assert\Assert;
 final readonly class WebClient extends ParentValue implements Client
 {
     private const ID_CONFIG_KEY = 'appSection-authentication.clients.web.id';
+
     private const SECRET_CONFIG_KEY = 'appSection-authentication.clients.web.secret';
+
     private PassportClient $client;
 
     public function __construct(
@@ -20,8 +24,8 @@ final readonly class WebClient extends ParentValue implements Client
         config([self::SECRET_CONFIG_KEY => $this->secret]);
 
         $this->client = PassportClient::query()->where([
-            'id' => $this->id,
-            'secret' => $this->secret,
+            'id'              => $this->id,
+            'secret'          => $this->secret,
             'password_client' => true,
         ])->firstOrFail();
     }
@@ -39,7 +43,7 @@ final readonly class WebClient extends ParentValue implements Client
 
     public function id(): mixed
     {
-        return $this->instance()->getKey();
+        return $this->client->getKey();
     }
 
     public function instance(): PassportClient
@@ -49,6 +53,6 @@ final readonly class WebClient extends ParentValue implements Client
 
     public function secret(): string
     {
-        return $this->instance()->secret;
+        return $this->client->secret;
     }
 }

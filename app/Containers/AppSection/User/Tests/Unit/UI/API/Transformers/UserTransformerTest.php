@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Tests\Unit\UI\API\Transformers;
 
 use App\Containers\AppSection\Authorization\Models\Permission;
@@ -18,13 +20,13 @@ final class UserTransformerTest extends UnitTestCase
     {
         $user = User::factory()->createOne();
         $expected = [
-            'type' => $user->getResourceKey(),
-            'id' => $user->getHashedKey(),
-            'name' => $user->name,
-            'email' => $user->email,
+            'type'              => $user->getResourceKey(),
+            'id'                => $user->getHashedKey(),
+            'name'              => $user->name,
+            'email'             => $user->email,
             'email_verified_at' => $user->email_verified_at,
-            'gender' => $user->gender,
-            'birth' => $user->birth,
+            'gender'            => $user->gender,
+            'birth'             => $user->birth,
         ];
 
         $transformedResource = $this->transformer->transform($user);

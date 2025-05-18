@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Unit\UI\API\Requests\PasswordReset;
 
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
@@ -20,8 +22,8 @@ final class ResetPasswordRequestTest extends UnitTestCase
     public function testValidationRules(): void
     {
         $this->assertEquals([
-            'token' => 'required',
-            'email' => 'required|email',
+            'token'    => 'required',
+            'email'    => 'required|email',
             'password' => [...Password::required(), 'confirmed'],
         ], $this->request->rules());
     }
