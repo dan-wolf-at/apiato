@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Tests\Functional\API;
 
 use App\Containers\AppSection\Authentication\Data\Factories\ClientFactory;
@@ -20,7 +22,7 @@ final class RevokeTokenTest extends ApiTestCase
             'password' => 'password',
         ]);
 
-        $this->assertCount(0, $user->tokens);
+        self::assertCount(0, $user->tokens);
 
         app(PasswordTokenFactory::class)->for($user)->make(
             AccessTokenProxy::create(
@@ -31,14 +33,14 @@ final class RevokeTokenTest extends ApiTestCase
                 ClientFactory::webClient(),
             ),
         );
-        $this->assertCount(1, $user->tokens);
-        $this->assertFalse($user->token()->revoked);
+        self::assertCount(1, $user->tokens);
+        self::assertFalse($user->token()->revoked);
         $this->actingAs($user, 'api');
 
         $response = $this->postJson(action(RevokeTokenController::class));
 
         $response->assertAccepted();
-        $this->assertTrue($user->token()->revoked);
+        self::assertTrue($user->token()->revoked);
         $response->assertCookieExpired('refreshToken');
     }
 }

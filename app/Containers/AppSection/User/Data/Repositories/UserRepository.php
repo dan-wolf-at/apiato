@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Data\Repositories;
 
 use App\Containers\AppSection\User\Models\User;
@@ -13,11 +15,11 @@ use App\Ship\Parents\Repositories\Repository as ParentRepository;
 final class UserRepository extends ParentRepository
 {
     protected $fieldSearchable = [
-        'id' => '=',
-        'name' => 'like',
-        'email' => '=',
+        'id'                => '=',
+        'name'              => 'like',
+        'email'             => '=',
         'email_verified_at' => 'like',
-        'created_at' => 'like',
+        'created_at'        => 'like',
     ];
 
     public function model(): string

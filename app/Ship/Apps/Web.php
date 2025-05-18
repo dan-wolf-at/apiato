@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Ship\Apps;
 
 final readonly class Web implements App

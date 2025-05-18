@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\Authentication\Data\Factories;
 
 use App\Containers\AppSection\Authentication\Data\DTOs\PasswordToken;
@@ -16,7 +18,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class PasswordTokenFactory
 {
-    private User|null $user = null;
+    private null|User $user = null;
 
     public function __construct(
         private readonly AuthorizationServer $server,
@@ -32,20 +34,37 @@ final class PasswordTokenFactory
         );
 
         $token = $this->findAccessToken($response);
-        tap($token, function (Token $token) {
+        tap($token, function (Token $token): void {
             $this->tokens->save($token->forceFill([
                 'user_id' => $token->user_id,
             ]));
         });
 
-        if (!is_null($this->user)) {
+        if (!\is_null($this->user)) {
             $this->setUserCurrentToken($token);
         }
 
         return $response;
     }
 
-    protected function dispatchRequestToAuthorizationServer(ServerRequestInterface $request): PasswordToken
+    public function findAccessToken(PasswordToken $token): Token
+    {
+        return $this->tokens->find(
+            $this->jwt->parse($token->accessToken)->claims()->get('jti'),
+        );
+    }
+
+    /**
+     * Set the access token as the user's current token.
+     */
+    public function for(User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    private function dispatchRequestToAuthorizationServer(ServerRequestInterface $request): PasswordToken
     {
         return PasswordToken::fromArray(
             json_decode(
@@ -60,31 +79,14 @@ final class PasswordTokenFactory
         );
     }
 
-    protected function createRequest(AccessTokenProxy|RefreshTokenProxy $proxy): ServerRequestInterface
+    private function createRequest(AccessTokenProxy|RefreshTokenProxy $proxy): ServerRequestInterface
     {
         return (new ServerRequest('POST', 'not-important'))
             ->withParsedBody($proxy->toArray());
     }
 
-    public function findAccessToken(PasswordToken $token): Token
-    {
-        return $this->tokens->find(
-            $this->jwt->parse($token->accessToken)->claims()->get('jti'),
-        );
-    }
-
     private function setUserCurrentToken(Token $token): void
     {
         $this->user->refresh()->withAccessToken($token);
-    }
-
-    /**
-     * Set the access token as the user's current token.
-     */
-    public function for(User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
     }
 }

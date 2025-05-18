@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Containers\AppSection\User\Models;
 
 use App\Containers\AppSection\Authorization\Enums\Role as RoleEnum;
@@ -23,13 +25,6 @@ final class User extends ParentUserModel
         'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'immutable_datetime',
-        'password' => 'hashed',
-        'gender' => Gender::class,
-        'birth' => 'immutable_date',
-    ];
-
     public function newCollection(array $models = []): UserCollection
     {
         return new UserCollection($models);
@@ -38,7 +33,7 @@ final class User extends ParentUserModel
     /**
      * Allows Passport to find the user by email (case-insensitive).
      */
-    public function findForPassport(string $username): self|null
+    public function findForPassport(string $username): null|self
     {
         return self::orWhereRaw('lower(email) = lower(?)', [$username])->first();
     }
@@ -57,7 +52,17 @@ final class User extends ParentUserModel
     protected function email(): Attribute
     {
         return new Attribute(
-            get: static fn (string|null $value): string|null => is_null($value) ? null : strtolower($value),
+            get: static fn (null|string $value): null|string => \is_null($value) ? null : strtolower($value),
         );
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'immutable_datetime',
+            'password'          => 'hashed',
+            'gender'            => Gender::class,
+            'birth'             => 'immutable_date',
+        ];
     }
 }

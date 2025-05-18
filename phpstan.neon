@@ -1,0 +1,32 @@
+#https://phpstan.org/user-guide/getting-started
+
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: max
+    paths:
+        - app
+        - config
+        - tests
+        - database
+    tmpDir: phpstan_cache
+    excludePaths:
+        - vendor/*
+        - app/Containers/Vendor/*
+        - app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+        - app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+        - app/Containers/AppSection/Authentication/Tests/Functional/API/WebClient/RefreshTokenTest.php
+        - app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/RefreshTokenActionTest.php
+        - app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/IssueTokenActionTest.php
+        - app/Containers/AppSection/Authentication/Tests/Unit/Tasks/PasswordTokenFactoryTest.php
+        - app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
+        - app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
+
+    reportUnmatchedIgnoredErrors: true
+
+#    ignoreErrors:
+#        - '#PHPDoc tag @var#'
+
+    fileExtensions:
+        - php
