@@ -17,15 +17,12 @@ final class RefreshTokenTest extends UnitTestCase
 
         $cookie = $refreshToken->asCookie();
 
-        $this->assertSame(RefreshToken::cookieName(), $cookie->getName());
-        $this->assertSame($refreshToken->value(), $cookie->getValue());
-        $this->assertSame(
-            (int) config('appSection-authentication.refresh-tokens-expire-in'),
-            $cookie->getExpiresTime(),
-        );
-        $this->assertSame('/', $cookie->getPath());
-        $this->assertNull($cookie->getDomain());
-        $this->assertEquals(config('session.secure'), $cookie->isSecure());
-        $this->assertEquals(config('session.http_only'), $cookie->isHttpOnly());
+        self::assertSame(RefreshToken::cookieName(), $cookie->getName());
+        self::assertSame($refreshToken->value(), $cookie->getValue());
+        self::assertSame((int) config('appSection-authentication.refresh-tokens-expire-in'), $cookie->getExpiresTime());
+        self::assertSame('/', $cookie->getPath());
+        self::assertNull($cookie->getDomain());
+        self::assertEquals(config('session.secure'), $cookie->isSecure());
+        self::assertEquals(config('session.http_only'), $cookie->isHttpOnly());
     }
 }

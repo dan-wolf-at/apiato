@@ -15,7 +15,7 @@ final class LoginFailedTest extends UnitTestCase
     {
         $this->expectExceptionMessage('Login Failed.');
         $exception = LoginFailed::create();
-        $this->assertSame(422, $exception->getStatusCode());
+        self::assertSame(422, $exception->getStatusCode());
 
         throw $exception;
     }

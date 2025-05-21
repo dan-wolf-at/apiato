@@ -9,9 +9,8 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 
 final class DeleteRoleAction extends ParentAction
 {
-    public function __construct(
-        private readonly RoleRepository $repository,
-    ) {
+    public function __construct(private readonly RoleRepository $repository)
+    {
     }
 
     public function run(int $id): bool

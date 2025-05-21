@@ -29,6 +29,6 @@ final class GenerateUrlActionTest extends UnitTestCase
             'hash' => sha1((string) $user->getEmailForVerification()),
         ]);
         $expiration = Date::now()->addMinutes(config('auth.verification.expire', 60))->unix();
-        $this->assertStringContainsString(urlencode(AppFactory::current()->verifyEmailUrl() . sprintf('?verification_url=%s?expires=%d&signature=', $apiEndpoint, $expiration)), $url);
+        $this->assertStringContainsString(urlencode(AppFactory::current()->verifyEmailUrl() . \sprintf('?verification_url=%s?expires=%d&signature=', $apiEndpoint, $expiration)), $url);
     }
 }

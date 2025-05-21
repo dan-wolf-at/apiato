@@ -18,6 +18,6 @@ final class FindPermissionByIdActionTest extends UnitTestCase
 
         $result = app(FindPermissionByIdAction::class)->run($permission->id);
 
-        $this->assertTrue($permission->is($result));
+        self::assertTrue($permission->is($result));
     }
 }

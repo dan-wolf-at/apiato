@@ -15,8 +15,8 @@ final class PassportServiceProviderTest extends UnitTestCase
 {
     public function testCanConfigurePassport(): void
     {
-        $this->assertSame(59, Passport::$tokensExpireIn->i);
-        $this->assertSame(59, Passport::$refreshTokensExpireIn->i);
+        self::assertSame(59, Passport::$tokensExpireIn->i);
+        self::assertSame(59, Passport::$refreshTokensExpireIn->i);
     }
 
     public function testRegistersPassportApiRoutes(): void
@@ -45,23 +45,9 @@ final class PassportServiceProviderTest extends UnitTestCase
         $apiPrefix = $this->removeLeadingSlashes(apiato()->routing()->getApiPrefix());
         $oAuthPrefix = $apiPrefix . 'v1/oauth';
         foreach ($passportRouteNames as $passportRouteName) {
-            $this->assertInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
+            self::assertInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
             $this->assertSamePrefix($oAuthPrefix, $registeredRoutes->getByName($passportRouteName)->getPrefix());
         }
-    }
-
-    private function removeLeadingSlashes(string $value): string
-    {
-        return ltrim($value, '/');
-    }
-
-    private function assertSamePrefix(string $prefix, string $endpoint): void
-    {
-        $this->assertSame(
-            $prefix,
-            $endpoint,
-            'The prefix of the route does not match the expected value.',
-        );
     }
 
     public function testDoesntRegisterPassportWebRoutes(): void
@@ -76,7 +62,17 @@ final class PassportServiceProviderTest extends UnitTestCase
         ];
 
         foreach ($passportRouteNames as $passportRouteName) {
-            $this->assertNotInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
+            self::assertNotInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
         }
+    }
+
+    private function removeLeadingSlashes(string $value): string
+    {
+        return ltrim($value, '/');
+    }
+
+    private function assertSamePrefix(string $prefix, string $endpoint): void
+    {
+        self::assertSame($prefix, $endpoint, 'The prefix of the route does not match the expected value.');
     }
 }

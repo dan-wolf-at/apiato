@@ -21,6 +21,6 @@ final class ListUserPermissionsActionTest extends UnitTestCase
 
         $result = $action->run($user->id);
 
-        $this->assertCount(3, $result);
+        self::assertCount(3, $result);
     }
 }

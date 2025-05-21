@@ -8,9 +8,8 @@ use App\Ship\Parents\Values\Value as ParentValue;
 
 final readonly class Scope extends ParentValue
 {
-    private function __construct(
-        private string $name,
-    ) {
+    private function __construct(private string $name)
+    {
     }
 
     public static function create(string $name): self

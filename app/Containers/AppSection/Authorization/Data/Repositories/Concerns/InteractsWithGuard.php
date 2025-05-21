@@ -8,7 +8,7 @@ use App\Containers\AppSection\Authorization\Data\Criteria\WhereGuardCriteria;
 
 trait InteractsWithGuard
 {
-    public function whereGuard(string|null $guard): static
+    public function whereGuard(null|string $guard): static
     {
         if ($guard !== null) {
             $this->pushCriteriaWith(WhereGuardCriteria::class, ['guard' => $guard]);

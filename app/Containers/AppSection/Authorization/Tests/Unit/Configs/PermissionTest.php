@@ -50,6 +50,6 @@ final class PermissionTest extends ShipTestCase
             'events_enabled' => false,
         ];
 
-        $this->assertEquals($expected, $config);
+        self::assertEquals($expected, $config);
     }
 }

@@ -24,6 +24,6 @@ final class AuthenticationTest extends UnitTestCase
             'refresh-tokens-expire-in' => env('API_REFRESH_TOKEN_EXPIRES', 43200),
         ];
 
-        $this->assertEquals($expected, $config);
+        self::assertEquals($expected, $config);
     }
 }

@@ -10,9 +10,8 @@ use App\Ship\Parents\Tasks\Task as ParentTask;
 
 final class UpdateUserTask extends ParentTask
 {
-    public function __construct(
-        private readonly UserRepository $repository,
-    ) {
+    public function __construct(private readonly UserRepository $repository)
+    {
     }
 
     public function run(int $id, array $properties): User

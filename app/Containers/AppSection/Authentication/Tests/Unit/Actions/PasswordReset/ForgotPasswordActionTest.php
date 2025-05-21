@@ -25,14 +25,15 @@ final class ForgotPasswordActionTest extends UnitTestCase
         $forgotPasswordRequest = new ForgotPasswordRequest($data);
         $result = app(ForgotPasswordAction::class)->run($forgotPasswordRequest);
 
-        $this->assertSame(__(Password::RESET_LINK_SENT), $result);
+        self::assertSame(__(Password::RESET_LINK_SENT), $result);
     }
 
     public function testPassingInvalidDataThrowsException(): void
     {
         $this->expectExceptionObject(
             ValidationException::withMessages([
-                'email' => __(Password::INVALID_USER)]),
+                'email' => __(Password::INVALID_USER),
+            ]),
         );
 
         $data = [
@@ -47,7 +48,8 @@ final class ForgotPasswordActionTest extends UnitTestCase
     {
         $this->expectExceptionObject(
             ValidationException::withMessages([
-                'throttle' => __(Password::RESET_THROTTLED)]),
+                'throttle' => __(Password::RESET_THROTTLED),
+            ]),
         );
 
         $data = [

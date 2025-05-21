@@ -20,7 +20,7 @@ final class DeleteRoleActionTest extends UnitTestCase
 
         $result = $action->run($role->id);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
         $this->assertModelMissing($role);
     }
 }

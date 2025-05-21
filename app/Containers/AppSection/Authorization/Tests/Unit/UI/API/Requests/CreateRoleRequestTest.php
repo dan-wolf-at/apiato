@@ -15,14 +15,14 @@ final class CreateRoleRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecode());
+        self::assertSame([], $this->request->getDecode());
     }
 
     public function testValidationRules(): void
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([
+        self::assertSame([
             'name'         => 'required|unique:' . config('permission.table_names.roles') . ',name|min:2|max:20|alpha',
             'description'  => 'max:255',
             'display_name' => 'max:100',

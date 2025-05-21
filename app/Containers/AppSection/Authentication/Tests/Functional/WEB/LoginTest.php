@@ -73,6 +73,6 @@ final class LoginTest extends WebTestCase
             ->assertOk();
 
         // Assert that the user was authenticated via the "remember" cookie
-        $this->assertTrue($response->json('viaRemember'));
+        self::assertTrue($response->json('viaRemember'));
     }
 }

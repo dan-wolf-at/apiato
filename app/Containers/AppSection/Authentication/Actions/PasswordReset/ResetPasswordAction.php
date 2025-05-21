@@ -14,6 +14,9 @@ use Illuminate\Validation\ValidationException;
 
 final class ResetPasswordAction extends ParentAction
 {
+    /**
+     * @throws ValidationException
+     */
     public function run(ResetPasswordRequest $request): string
     {
         $sanitizedData = $request->sanitize([

@@ -21,6 +21,6 @@ final class ListRolePermissionsActionTest extends UnitTestCase
 
         $result = $action->run($role->id);
 
-        $this->assertCount(3, $result);
+        self::assertCount(3, $result);
     }
 }

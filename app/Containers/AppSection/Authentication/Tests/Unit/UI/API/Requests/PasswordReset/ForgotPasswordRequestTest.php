@@ -15,12 +15,12 @@ final class ForgotPasswordRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecode());
+        self::assertSame([], $this->request->getDecode());
     }
 
     public function testValidationRules(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'email' => 'required|email',
         ], $this->request->rules());
     }

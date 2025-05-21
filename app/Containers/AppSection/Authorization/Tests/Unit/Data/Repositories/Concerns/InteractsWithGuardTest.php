@@ -21,8 +21,8 @@ final class InteractsWithGuardTest extends UnitTestCase
 
         $traitTestRepository->whereGuard($guard);
 
-        $this->assertSame($guard, $traitTestRepository->getCriteria()->first()->guard);
-        $this->assertContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
+        self::assertSame($guard, $traitTestRepository->getCriteria()->first()->guard);
+        self::assertContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
     }
 
     public function testItDoesNotPushCriteriaWhenGuardIsNull(): void
@@ -32,7 +32,7 @@ final class InteractsWithGuardTest extends UnitTestCase
 
         $traitTestRepository->whereGuard($guard);
 
-        $this->assertNotContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
+        self::assertNotContains(WhereGuardCriteria::class, $traitTestRepository->getCriteria()->map(static fn ($criteria): string|false => $criteria::class));
     }
 }
 

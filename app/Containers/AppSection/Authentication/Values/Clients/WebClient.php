@@ -16,10 +16,8 @@ final readonly class WebClient extends ParentValue implements Client
 
     private PassportClient $client;
 
-    public function __construct(
-        private int $id,
-        private string $secret,
-    ) {
+    public function __construct(private int $id, private string $secret)
+    {
         config([self::ID_CONFIG_KEY => $this->id]);
         config([self::SECRET_CONFIG_KEY => $this->secret]);
 

@@ -18,6 +18,6 @@ final class FindUserByIdTaskTest extends UnitTestCase
 
         $result = app(FindUserByIdTask::class)->run($user->id);
 
-        $this->assertTrue($result->is($user));
+        self::assertTrue($result->is($user));
     }
 }

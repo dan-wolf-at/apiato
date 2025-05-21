@@ -25,6 +25,6 @@ final class PassportTest extends ShipTestCase
             ],
         ];
 
-        $this->assertSame($expected, $config);
+        self::assertSame($expected, $config);
     }
 }

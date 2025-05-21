@@ -11,9 +11,8 @@ use Webmozart\Assert\Assert;
 
 final readonly class RefreshToken extends ParentValue
 {
-    private function __construct(
-        private string $refreshToken,
-    ) {
+    private function __construct(private string $refreshToken)
+    {
     }
 
     public static function createFrom(Request $request): self

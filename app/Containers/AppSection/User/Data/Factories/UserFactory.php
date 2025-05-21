@@ -18,7 +18,7 @@ use Illuminate\Support\Str;
  */
 final class UserFactory extends ParentFactory
 {
-    private static string|null $password;
+    private static null|string $password;
 
     /** @var class-string<TModel> */
     protected $model = User::class;

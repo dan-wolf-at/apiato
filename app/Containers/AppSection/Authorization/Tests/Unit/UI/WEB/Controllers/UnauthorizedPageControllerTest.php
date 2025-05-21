@@ -15,8 +15,8 @@ final class UnauthorizedPageControllerTest extends UnitTestCase
     {
         $controller = app(UnauthorizedPageController::class);
 
-        $view = $controller->__invoke();
+        $view = $controller();
 
-        $this->assertSame('appSection@authorization::unauthorized', $view->name());
+        self::assertSame('appSection@authorization::unauthorized', $view->name());
     }
 }

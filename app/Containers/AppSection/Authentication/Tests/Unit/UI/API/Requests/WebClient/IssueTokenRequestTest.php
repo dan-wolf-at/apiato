@@ -15,18 +15,15 @@ final class IssueTokenRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecode());
+        self::assertSame([], $this->request->getDecode());
     }
 
     public function testValidationRules(): void
     {
-        $this->assertSame(
-            [
-                'email'    => ['required', 'email'],
-                'password' => 'required',
-            ],
-            $this->request->rules(),
-        );
+        self::assertSame([
+            'email'    => ['required', 'email'],
+            'password' => 'required',
+        ], $this->request->rules());
     }
 
     protected function setUp(): void

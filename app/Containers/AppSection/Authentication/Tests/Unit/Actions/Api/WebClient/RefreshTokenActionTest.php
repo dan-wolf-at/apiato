@@ -32,10 +32,10 @@ final class RefreshTokenActionTest extends UnitTestCase
         )->refreshToken->value();
         $action = app(RefreshTokenAction::class);
 
-        $this->assertCount(1, $user->tokens);
+        self::assertCount(1, $user->tokens);
 
         $result = $action->run(RefreshToken::create($refreshToken));
 
-        $this->assertInstanceOf(PasswordToken::class, $result);
+        self::assertInstanceOf(PasswordToken::class, $result);
     }
 }

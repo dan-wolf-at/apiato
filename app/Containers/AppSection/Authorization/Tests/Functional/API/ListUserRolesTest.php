@@ -31,7 +31,7 @@ final class ListUserRolesTest extends ApiTestCase
             static fn (AssertableJson $json): AssertableJson => $json->has(
                 'data',
                 static fn (AssertableJson $json): AssertableJson => $json->where('0.name', $role->name)
-                ->etc(),
+                    ->etc(),
             )->etc(),
         );
     }

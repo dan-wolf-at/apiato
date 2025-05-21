@@ -50,7 +50,7 @@ final class UpdateUserTest extends ApiTestCase
                     ->etc(),
             )->etc(),
         );
-        $this->assertTrue(Hash::check($data['new_password'], $user->refresh()->password));
+        self::assertTrue(Hash::check($data['new_password'], $user->refresh()->password));
     }
 
     // TODO: move to request test

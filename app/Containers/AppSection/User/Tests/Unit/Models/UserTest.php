@@ -18,7 +18,7 @@ final class UserTest extends UnitTestCase
         $user = User::factory()->createOne();
         $table = 'users';
 
-        $this->assertSame($table, $user->getTable());
+        self::assertSame($table, $user->getTable());
     }
 
     public function testHasCorrectFillableFields(): void
@@ -32,7 +32,7 @@ final class UserTest extends UnitTestCase
             'birth',
         ];
 
-        $this->assertSame($fillable, $user->getFillable());
+        self::assertSame($fillable, $user->getFillable());
     }
 
     public function testHasCorrectCasts(): void
@@ -46,7 +46,7 @@ final class UserTest extends UnitTestCase
             'birth'             => 'immutable_date',
         ];
 
-        $this->assertSame($casts, $user->getCasts());
+        self::assertSame($casts, $user->getCasts());
     }
 
     public function testHasCorrectHiddenFields(): void
@@ -57,14 +57,14 @@ final class UserTest extends UnitTestCase
             'remember_token',
         ];
 
-        $this->assertSame($hiddens, $user->getHidden());
+        self::assertSame($hiddens, $user->getHidden());
     }
 
     public function testHasCorrectResourceKey(): void
     {
         $user = User::factory()->createOne();
 
-        $this->assertSame('User', $user->getResourceKey());
+        self::assertSame('User', $user->getResourceKey());
     }
 
     public function testCanAuthenticateUsingEmail(): void
@@ -73,7 +73,7 @@ final class UserTest extends UnitTestCase
 
         $result = (new User())->findForPassport($user->email);
 
-        $this->assertTrue($user->is($result));
+        self::assertTrue($user->is($result));
     }
 
     public function testLowerCasesEmailOnAccess(): void
@@ -83,18 +83,18 @@ final class UserTest extends UnitTestCase
         $expectedSet = 'GanDalf@thE.Gray';
         $user = User::factory()->createOne(['email' => $original]);
 
-        $this->assertSame($expectedGet, $user->email);
-        $this->assertSame($expectedSet, DB::query()->from('users')->find($user->id)->email);
+        self::assertSame($expectedGet, $user->email);
+        self::assertSame($expectedSet, DB::query()->from('users')->find($user->id)->email);
     }
 
     public function testIsSuperAdmin(): void
     {
         $user = User::factory()->createOne();
 
-        $this->assertFalse($user->isSuperAdmin());
+        self::assertFalse($user->isSuperAdmin());
 
         $user = User::factory()->superAdmin()->createOne();
 
-        $this->assertTrue($user->isSuperAdmin());
+        self::assertTrue($user->isSuperAdmin());
     }
 }

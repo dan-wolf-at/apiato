@@ -13,9 +13,8 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 
 final class IssueTokenAction extends ParentAction
 {
-    public function __construct(
-        private readonly PasswordTokenFactory $factory,
-    ) {
+    public function __construct(private readonly PasswordTokenFactory $factory)
+    {
     }
 
     public function run(UserCredential $credential): PasswordToken

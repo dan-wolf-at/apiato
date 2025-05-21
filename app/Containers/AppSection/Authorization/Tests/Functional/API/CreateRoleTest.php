@@ -30,7 +30,7 @@ final class CreateRoleTest extends ApiTestCase
             static fn (AssertableJson $json): AssertableJson => $json->has(
                 'data',
                 static fn (AssertableJson $json): AssertableJson => $json->where('name', $data['name'])
-                ->etc(),
+                    ->etc(),
             )->etc(),
         );
     }

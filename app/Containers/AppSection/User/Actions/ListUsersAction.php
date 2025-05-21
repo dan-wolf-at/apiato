@@ -11,9 +11,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 final class ListUsersAction extends ParentAction
 {
-    public function __construct(
-        private readonly UserRepository $repository,
-    ) {
+    public function __construct(private readonly UserRepository $repository)
+    {
     }
 
     public function run(): LengthAwarePaginator|UserCollection

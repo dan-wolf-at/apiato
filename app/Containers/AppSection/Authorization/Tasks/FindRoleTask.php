@@ -11,9 +11,8 @@ use Illuminate\Support\Str;
 
 final class FindRoleTask extends ParentTask
 {
-    public function __construct(
-        private readonly RoleRepository $repository,
-    ) {
+    public function __construct(private readonly RoleRepository $repository)
+    {
     }
 
     public function run(string|int $nameOrId, string $guardName = 'api'): Role

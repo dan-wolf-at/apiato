@@ -23,7 +23,7 @@ final class DeleteUserActionTest extends UnitTestCase
 
         $result = $action->run($anotherUser->id);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
         $this->assertModelMissing($anotherUser);
     }
 

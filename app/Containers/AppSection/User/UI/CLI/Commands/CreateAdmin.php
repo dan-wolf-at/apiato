@@ -34,8 +34,8 @@ final class CreateAdmin extends ParentCommand
 
         try {
             $action->run($data);
-        } catch (\Exception $exception) {
-            $this->error($exception->getMessage());
+        } catch (\Throwable $throwable) {
+            $this->error($throwable->getMessage());
 
             return;
         }

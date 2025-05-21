@@ -10,9 +10,8 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 
 final class ListRolePermissionsAction extends ParentAction
 {
-    public function __construct(
-        private readonly FindRoleTask $findRoleTask,
-    ) {
+    public function __construct(private readonly FindRoleTask $findRoleTask)
+    {
     }
 
     public function run(int $id): PermissionCollection

@@ -31,7 +31,7 @@ final class ListUserPermissionsTest extends ApiTestCase
             static fn (AssertableJson $json): AssertableJson => $json->has(
                 'data',
                 static fn (AssertableJson $json): AssertableJson => $json->where('0.name', $permission->name)
-                ->etc(),
+                    ->etc(),
             )->etc(),
         );
     }

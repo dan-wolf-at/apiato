@@ -33,9 +33,9 @@ final class WhereGuardCriteriaTest extends UnitTestCase
 
         $result = $repository->all();
 
-        $this->assertCount(3, $result);
-        $this->assertEquals($guard, $result->first()->guard_name);
-        $this->assertEquals($guard, $result->last()->guard_name);
+        self::assertCount(3, $result);
+        self::assertEquals($guard, $result->first()->guard_name);
+        self::assertEquals($guard, $result->last()->guard_name);
     }
 
     #[DataProvider('authGuardDataProvider')]
@@ -49,8 +49,8 @@ final class WhereGuardCriteriaTest extends UnitTestCase
 
         $result = $repository->all();
 
-        $this->assertCount(2, $result);
-        $this->assertEquals($guard, $result->first()->guard_name);
-        $this->assertEquals($guard, $result->last()->guard_name);
+        self::assertCount(2, $result);
+        self::assertEquals($guard, $result->first()->guard_name);
+        self::assertEquals($guard, $result->last()->guard_name);
     }
 }

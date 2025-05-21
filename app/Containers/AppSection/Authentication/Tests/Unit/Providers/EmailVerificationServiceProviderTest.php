@@ -15,6 +15,6 @@ final class EmailVerificationServiceProviderTest extends UnitTestCase
 {
     public function testItCustomizesVerificationUrl(): void
     {
-        $this->assertInstanceOf(GenerateUrlAction::class, VerifyEmail::$createUrlCallback);
+        self::assertInstanceOf(GenerateUrlAction::class, VerifyEmail::$createUrlCallback);
     }
 }

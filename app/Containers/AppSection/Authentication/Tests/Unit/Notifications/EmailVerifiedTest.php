@@ -19,7 +19,7 @@ final class EmailVerifiedTest extends UnitTestCase
 
         $result = $emailVerified->toMail($user);
 
-        $this->assertSame('Email Verified', $result->subject);
-        $this->assertSame(['Your email has been verified.'], $result->introLines);
+        self::assertSame('Email Verified', $result->subject);
+        self::assertSame(['Your email has been verified.'], $result->introLines);
     }
 }

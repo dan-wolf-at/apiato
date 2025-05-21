@@ -33,7 +33,7 @@ final class User extends ParentUserModel
     /**
      * Allows Passport to find the user by email (case-insensitive).
      */
-    public function findForPassport(string $username): self|null
+    public function findForPassport(string $username): null|self
     {
         return self::orWhereRaw('lower(email) = lower(?)', [$username])->first();
     }
@@ -52,7 +52,7 @@ final class User extends ParentUserModel
     protected function email(): Attribute
     {
         return new Attribute(
-            get: static fn (string|null $value): string|null => \is_null($value) ? null : strtolower($value),
+            get: static fn (null|string $value): null|string => \is_null($value) ? null : strtolower($value),
         );
     }
 

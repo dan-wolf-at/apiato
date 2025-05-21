@@ -29,7 +29,7 @@ final class FindRoleByIdTest extends ApiTestCase
             static fn (AssertableJson $json): AssertableJson => $json->has(
                 'data',
                 static fn (AssertableJson $json): AssertableJson => $json->where('name', $roleA->name)
-                ->etc(),
+                    ->etc(),
             )->etc(),
         );
     }

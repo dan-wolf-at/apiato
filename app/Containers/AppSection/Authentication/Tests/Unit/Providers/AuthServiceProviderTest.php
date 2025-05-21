@@ -20,9 +20,9 @@ final class AuthServiceProviderTest extends UnitTestCase
     {
         $user = User::factory()->createOne();
 
-        $this->assertNull(Auth::activeGuard());
+        self::assertNull(Auth::activeGuard());
 
         $this->actingAs($user, $guard);
-        $this->assertEquals($guard, Auth::activeGuard());
+        self::assertEquals($guard, Auth::activeGuard());
     }
 }

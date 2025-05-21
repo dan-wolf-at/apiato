@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 final class RevokeTokenAction extends ParentAction
 {
-    public function run(User|null $user): Cookie
+    public function run(null|User $user): Cookie
     {
         $user?->token()?->revoke();
 

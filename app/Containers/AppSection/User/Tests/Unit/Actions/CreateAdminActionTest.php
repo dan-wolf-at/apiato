@@ -21,16 +21,18 @@ final class CreateAdminActionTest extends UnitTestCase
 
         $admin = app(CreateAdminAction::class)->run($data);
 
-        $this->assertSame($data['email'], $admin->email);
-        $this->assertTrue($admin->isSuperAdmin());
-        $this->assertNotNull($admin->email_verified_at);
+        self::assertSame($data['email'], $admin->email);
+        self::assertTrue($admin->isSuperAdmin());
+        self::assertNotNull($admin->email_verified_at);
     }
 
     public function testGivenInvalidDataThrowExceptionAndRollbackDB(): void
     {
         $this->expectException(\Error::class);
 
-        $data = ['email' => new class () {}];
+        $data = ['email' => new class () {
+        },
+        ];
 
         $admin = app(CreateAdminAction::class)->run($data);
 

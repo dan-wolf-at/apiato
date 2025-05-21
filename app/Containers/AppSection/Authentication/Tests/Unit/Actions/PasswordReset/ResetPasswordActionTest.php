@@ -56,8 +56,8 @@ final class ResetPasswordActionTest extends UnitTestCase
 
         $result = app(ResetPasswordAction::class)->run($resetPasswordRequest);
 
-        $this->assertSame(__(Password::PASSWORD_RESET), $result);
-        $this->assertTrue(Hash::check($data['password'], $user->fresh()->password));
+        self::assertSame(__(Password::PASSWORD_RESET), $result);
+        self::assertTrue(Hash::check($data['password'], $user->fresh()->password));
         Event::assertDispatched(
             PasswordReset::class,
             static function (PasswordReset $event) use ($user) {
@@ -71,7 +71,8 @@ final class ResetPasswordActionTest extends UnitTestCase
     {
         $this->expectExceptionObject(
             ValidationException::withMessages([
-                $key => __($message)]),
+                $key => __($message),
+            ]),
         );
 
         $resetPasswordRequest = new ResetPasswordRequest($data);

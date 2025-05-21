@@ -18,7 +18,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class PasswordTokenFactory
 {
-    private User|null $user = null;
+    private null|User $user = null;
 
     public function __construct(
         private readonly AuthorizationServer $server,
@@ -47,6 +47,23 @@ final class PasswordTokenFactory
         return $response;
     }
 
+    public function findAccessToken(PasswordToken $token): Token
+    {
+        return $this->tokens->find(
+            $this->jwt->parse($token->accessToken)->claims()->get('jti'),
+        );
+    }
+
+    /**
+     * Set the access token as the user's current token.
+     */
+    public function for(User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
     private function dispatchRequestToAuthorizationServer(ServerRequestInterface $request): PasswordToken
     {
         return PasswordToken::fromArray(
@@ -68,25 +85,8 @@ final class PasswordTokenFactory
             ->withParsedBody($proxy->toArray());
     }
 
-    public function findAccessToken(PasswordToken $token): Token
-    {
-        return $this->tokens->find(
-            $this->jwt->parse($token->accessToken)->claims()->get('jti'),
-        );
-    }
-
     private function setUserCurrentToken(Token $token): void
     {
         $this->user->refresh()->withAccessToken($token);
-    }
-
-    /**
-     * Set the access token as the user's current token.
-     */
-    public function for(User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
     }
 }

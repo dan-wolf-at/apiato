@@ -24,6 +24,6 @@ final class GenerateUrlActionTest extends UnitTestCase
 
         $apiEndpoint = action(ResetPasswordController::class);
 
-        $this->assertStringContainsString(AppFactory::current()->resetPasswordUrl() . sprintf('?reset_url=%s?token=%s&email=%s', $apiEndpoint, $token, $user->getEmailForVerification()), $url);
+        $this->assertStringContainsString(AppFactory::current()->resetPasswordUrl() . \sprintf('?reset_url=%s?token=%s&email=%s', $apiEndpoint, $token, $user->getEmailForVerification()), $url);
     }
 }

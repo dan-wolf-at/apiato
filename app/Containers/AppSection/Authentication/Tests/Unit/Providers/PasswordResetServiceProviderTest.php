@@ -15,6 +15,6 @@ final class PasswordResetServiceProviderTest extends UnitTestCase
 {
     public function testItCustomizesResetUrl(): void
     {
-        $this->assertInstanceOf(GenerateUrlAction::class, ResetPassword::$createUrlCallback);
+        self::assertInstanceOf(GenerateUrlAction::class, ResetPassword::$createUrlCallback);
     }
 }

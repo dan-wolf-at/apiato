@@ -15,7 +15,7 @@ final class UserPolicy extends ParentPolicy
     ) {
     }
 
-    public function before(User $user): bool|null
+    public function before(User $user): null|bool
     {
         if ($user->isSuperAdmin()) {
             return true;

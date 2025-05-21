@@ -24,8 +24,8 @@ final class CreateUserTaskTest extends UnitTestCase
         $user = app(CreateUserTask::class)->run($data);
 
         $this->assertModelExists($user);
-        $this->assertInstanceOf(User::class, $user);
-        $this->assertSame(Str::lower($data['email']), $user->email);
-        $this->assertTrue(Hash::check($data['password'], $user->password));
+        self::assertInstanceOf(User::class, $user);
+        self::assertSame(Str::lower($data['email']), $user->email);
+        self::assertTrue(Hash::check($data['password'], $user->password));
     }
 }

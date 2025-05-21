@@ -10,9 +10,8 @@ use App\Ship\Parents\Tasks\Task as ParentTask;
 
 final class FindUserByIdTask extends ParentTask
 {
-    public function __construct(
-        private readonly UserRepository $repository,
-    ) {
+    public function __construct(private readonly UserRepository $repository)
+    {
     }
 
     public function run(mixed $userId): User

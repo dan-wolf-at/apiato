@@ -26,7 +26,7 @@ final class LoginActionTest extends UnitTestCase
         $result = $action->run('gandalf@the.grey', 'youShallNotPass', false);
 
         $this->assertAuthenticatedAs($user, 'web');
-        $this->assertTrue($result->isRedirect(action(HomePageController::class)));
+        self::assertTrue($result->isRedirect(action(HomePageController::class)));
     }
 
     public function testCanReturnErrors(): void
@@ -46,9 +46,9 @@ final class LoginActionTest extends UnitTestCase
         /** @var MessageBag $errors */
         $errors = $response->getSession()->get('errors');
         $field = 'email';
-        $this->assertTrue($errors->has($field));
-        $this->assertCount(1, $errors->get($field));
-        $this->assertSame(__('auth.failed'), $errors->get($field)[0]);
-        $this->assertTrue($response->isRedirect());
+        self::assertTrue($errors->has($field));
+        self::assertCount(1, $errors->get($field));
+        self::assertSame(__('auth.failed'), $errors->get($field)[0]);
+        self::assertTrue($response->isRedirect());
     }
 }

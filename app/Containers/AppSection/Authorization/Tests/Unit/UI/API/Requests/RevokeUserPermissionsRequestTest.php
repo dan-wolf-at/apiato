@@ -15,7 +15,7 @@ final class RevokeUserPermissionsRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'user_id',
             'permission_ids.*',
         ], $this->request->getDecode());
@@ -25,7 +25,7 @@ final class RevokeUserPermissionsRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([
+        self::assertSame([
             'user_id'          => 'exists:users,id',
             'permission_ids'   => 'array|required',
             'permission_ids.*' => 'exists:permissions,id',

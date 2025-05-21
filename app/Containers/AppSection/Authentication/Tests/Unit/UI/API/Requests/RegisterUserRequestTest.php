@@ -18,12 +18,12 @@ final class RegisterUserRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecode());
+        self::assertSame([], $this->request->getDecode());
     }
 
     public function testValidationRules(): void
     {
-        $this->assertEquals([
+        self::assertEquals([
             'email'    => 'required|email|unique:users,email',
             'password' => [
                 'required',

@@ -25,10 +25,10 @@ final class IssueTokenActionTest extends UnitTestCase
         $user = User::factory()->createOne($credentials);
         $action = app(IssueTokenAction::class);
 
-        $this->assertCount(0, $user->tokens);
+        self::assertCount(0, $user->tokens);
 
         $result = $action->run(UserCredential::create($credentials['email'], $credentials['password']));
 
-        $this->assertInstanceOf(PasswordToken::class, $result);
+        self::assertInstanceOf(PasswordToken::class, $result);
     }
 }

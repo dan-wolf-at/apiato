@@ -59,7 +59,6 @@ return RectorConfig::configure()
         symfonyCodeQuality: true,
         symfonyConfigs: false,
     )
-    ->withAttributesSets()
     ->withRules([
         MockObjectStaticToInstanceCallRector::class,
         AssertInstanceToStaticCallRector::class,
@@ -102,8 +101,9 @@ return RectorConfig::configure()
         RenamePropertyToMatchTypeRector::class, // it's breaks the Entity
         RenameVariableToMatchMethodCallReturnTypeRector::class, // it's redundant
         PrivatizeFinalClassMethodRector::class => [
+            // it's breaks the Models
             __DIR__ . '/app/Containers/*/*/Models/*'
-        ], // it's breaks the Models
+        ],
 
         //        THINKING
         AddMethodCallBasedStrictParamTypeRector::class, // it's breaks the using multiple Traits

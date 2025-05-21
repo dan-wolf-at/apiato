@@ -23,7 +23,7 @@ final class UpdatePasswordActionTest extends UnitTestCase
 
         $result = $action->run($user->id, 'test');
 
-        $this->assertTrue(Hash::check('test', $result->password));
+        self::assertTrue(Hash::check('test', $result->password));
         Notification::assertSentTo($user, PasswordUpdatedNotification::class);
     }
 }

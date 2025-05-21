@@ -14,13 +14,10 @@ final class UserServiceProviderTest extends UnitTestCase
 {
     public function testProviderSetsDefaultPasswordRules(): void
     {
-        $this->assertEquals(
-            Password::min(8)
-                ->letters()
-                ->mixedCase()
-                ->numbers()
-                ->symbols(),
-            Password::defaults(),
-        );
+        self::assertEquals(Password::min(8)
+            ->letters()
+            ->mixedCase()
+            ->numbers()
+            ->symbols(), Password::defaults());
     }
 }

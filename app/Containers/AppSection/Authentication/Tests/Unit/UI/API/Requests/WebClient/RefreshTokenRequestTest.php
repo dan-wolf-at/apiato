@@ -17,7 +17,7 @@ final class RefreshTokenRequestTest extends UnitTestCase
     {
         $refreshTokenRequest = new RefreshTokenRequest();
 
-        $this->assertSame([], $refreshTokenRequest->getDecode());
+        self::assertSame([], $refreshTokenRequest->getDecode());
     }
 
     public function testValidationRules(): void
@@ -25,7 +25,7 @@ final class RefreshTokenRequestTest extends UnitTestCase
         $refreshTokenRequest = new RefreshTokenRequest();
         $cookieName = RefreshToken::cookieName();
 
-        $this->assertEquals([
+        self::assertEquals([
             'refresh_token' => [
                 'string',
                 Rule::requiredIf(

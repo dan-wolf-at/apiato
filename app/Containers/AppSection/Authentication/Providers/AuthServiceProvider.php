@@ -13,7 +13,7 @@ final class AuthServiceProvider extends ParentServiceProvider
 {
     public function boot(): void
     {
-        $method = function (): int|string|null {
+        $method = function (): null|int|string {
             foreach (array_keys(config('auth.guards')) as $guard) {
                 if (Auth::guard($guard)->check()) {
                     return $guard;

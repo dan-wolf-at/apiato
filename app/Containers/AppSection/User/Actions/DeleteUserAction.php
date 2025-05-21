@@ -10,9 +10,8 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 
 final class DeleteUserAction extends ParentAction
 {
-    public function __construct(
-        private readonly UserRepository $repository,
-    ) {
+    public function __construct(private readonly UserRepository $repository)
+    {
     }
 
     public function run(int $id): bool

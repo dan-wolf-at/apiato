@@ -19,6 +19,6 @@ final class ListRolesActionTest extends UnitTestCase
 
         $result = $action->run();
 
-        $this->assertCount(4, $result);
+        self::assertCount(4, $result);
     }
 }

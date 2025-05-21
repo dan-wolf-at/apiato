@@ -17,7 +17,7 @@ final class PermissionFactoryTest extends UnitTestCase
     {
         $permission = Permission::factory()->createOne();
 
-        $this->assertInstanceOf(Permission::class, $permission);
+        self::assertInstanceOf(Permission::class, $permission);
     }
 
     #[TestWith(['web'])]
@@ -25,6 +25,6 @@ final class PermissionFactoryTest extends UnitTestCase
     public function testCanSetGuard(string $guard): void
     {
         $permission = Permission::factory()->withGuard($guard)->createOne();
-        $this->assertSame($guard, $permission->guard_name);
+        self::assertSame($guard, $permission->guard_name);
     }
 }

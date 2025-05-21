@@ -19,6 +19,6 @@ final class ListPermissionsActionTest extends UnitTestCase
 
         $result = $action->run();
 
-        $this->assertCount(3, $result);
+        self::assertCount(3, $result);
     }
 }

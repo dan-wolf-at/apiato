@@ -14,7 +14,7 @@ final class RoleTest extends UnitTestCase
 {
     public function testUsesCorrectTraits(): void
     {
-        $this->assertContains(InteractsWithApiato::class, class_uses_recursive(Role::class));
+        self::assertContains(InteractsWithApiato::class, class_uses_recursive(Role::class));
     }
 
     public function testHasCorrectFillableFields(): void
@@ -28,7 +28,7 @@ final class RoleTest extends UnitTestCase
         ];
 
         foreach ($fillables as $fillable) {
-            $this->assertContains($fillable, $role->getFillable());
+            self::assertContains($fillable, $role->getFillable());
         }
     }
 
@@ -37,13 +37,13 @@ final class RoleTest extends UnitTestCase
         $role = Role::factory()->createOne();
         $table = 'roles';
 
-        $this->assertSame($table, $role->getTable());
+        self::assertSame($table, $role->getTable());
     }
 
     public function testHasCorrectResourceKey(): void
     {
         $role = Role::factory()->createOne();
 
-        $this->assertSame('Role', $role->getResourceKey());
+        self::assertSame('Role', $role->getResourceKey());
     }
 }

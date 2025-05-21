@@ -22,8 +22,8 @@ final class UpdateUserTaskTest extends UnitTestCase
 
         $updatedUser = app(UpdateUserTask::class)->run($user->id, $data);
 
-        $this->assertSame($user->id, $updatedUser->id);
-        $this->assertSame($data['name'], $updatedUser->name);
+        self::assertSame($user->id, $updatedUser->id);
+        self::assertSame($data['name'], $updatedUser->name);
     }
 
     public function testUpdatedPasswordShouldBeHashed(): void
@@ -35,6 +35,6 @@ final class UpdateUserTaskTest extends UnitTestCase
 
         $result = app(UpdateUserTask::class)->run($user->id, $data);
 
-        $this->assertTrue(Hash::check($data['password'], $result->password));
+        self::assertTrue(Hash::check($data['password'], $result->password));
     }
 }

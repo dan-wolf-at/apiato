@@ -29,23 +29,6 @@ final class RefreshTokenTest extends ApiTestCase
         $this->assertJsonResponse($response);
     }
 
-    private function assertJsonResponse(TestResponse $response): void
-    {
-        $response->assertok();
-        $response->assertJson(
-            static fn (AssertableJson $json): AssertableJson => $json->has(
-                'data',
-                static fn (AssertableJson $json): AssertableJson => $json->hasAll([
-                    'access_token',
-                    'refresh_token',
-                    'token_type',
-                    'expires_in',
-                ])->where('token_type', 'Bearer')
-                    ->etc(),
-            )->etc(),
-        );
-    }
-
     public function testCanHandleMissingRefreshToken(): void
     {
         $response = $this->postJson(action(RefreshTokenController::class));
@@ -92,5 +75,22 @@ final class RefreshTokenTest extends ApiTestCase
                 ClientFactory::webClient(),
             ),
         )->refreshToken->value();
+    }
+
+    private function assertJsonResponse(TestResponse $response): void
+    {
+        $response->assertok();
+        $response->assertJson(
+            static fn (AssertableJson $json): AssertableJson => $json->has(
+                'data',
+                static fn (AssertableJson $json): AssertableJson => $json->hasAll([
+                    'access_token',
+                    'refresh_token',
+                    'token_type',
+                    'expires_in',
+                ])->where('token_type', 'Bearer')
+                    ->etc(),
+            )->etc(),
+        );
     }
 }

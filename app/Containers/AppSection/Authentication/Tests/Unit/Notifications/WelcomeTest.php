@@ -19,7 +19,7 @@ final class WelcomeTest extends UnitTestCase
 
         $result = $welcome->toMail($user);
 
-        $this->assertSame('Welcome to ' . config('app.name'), $result->subject);
-        $this->assertSame(['Thank you for registering ' . $user->name], $result->introLines);
+        self::assertSame('Welcome to ' . config('app.name'), $result->subject);
+        self::assertSame(['Thank you for registering ' . $user->name], $result->introLines);
     }
 }

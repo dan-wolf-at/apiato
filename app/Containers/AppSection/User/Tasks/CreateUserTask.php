@@ -10,9 +10,8 @@ use App\Ship\Parents\Tasks\Task as ParentTask;
 
 final class CreateUserTask extends ParentTask
 {
-    public function __construct(
-        private readonly UserRepository $repository,
-    ) {
+    public function __construct(private readonly UserRepository $repository)
+    {
     }
 
     public function run(array $data): User

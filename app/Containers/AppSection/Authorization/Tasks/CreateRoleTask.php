@@ -10,12 +10,11 @@ use App\Ship\Parents\Tasks\Task as ParentTask;
 
 final class CreateRoleTask extends ParentTask
 {
-    public function __construct(
-        private readonly RoleRepository $repository,
-    ) {
+    public function __construct(private readonly RoleRepository $repository)
+    {
     }
 
-    public function run(string $name, string|null $description = null, string|null $displayName = null, string $guardName = 'api'): Role
+    public function run(string $name, null|string $description = null, null|string $displayName = null, string $guardName = 'api'): Role
     {
         return $this->repository->create([
             'name'         => strtolower($name),

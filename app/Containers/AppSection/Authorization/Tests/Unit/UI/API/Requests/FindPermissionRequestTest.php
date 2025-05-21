@@ -15,7 +15,7 @@ final class FindPermissionRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([
+        self::assertSame([
             'permission_id',
         ], $this->request->getDecode());
     }
@@ -24,7 +24,7 @@ final class FindPermissionRequestTest extends UnitTestCase
     {
         $rules = $this->request->rules();
 
-        $this->assertSame([], $rules);
+        self::assertSame([], $rules);
     }
 
     protected function setUp(): void

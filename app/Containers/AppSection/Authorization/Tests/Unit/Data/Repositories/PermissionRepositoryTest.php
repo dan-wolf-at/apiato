@@ -20,13 +20,13 @@ final class PermissionRepositoryTest extends UnitTestCase
         ];
         $repository = app(PermissionRepository::class);
 
-        $this->assertSame($data, $repository->getFieldsSearchable());
+        self::assertSame($data, $repository->getFieldsSearchable());
     }
 
     public function testReturnsCorrectModel(): void
     {
         $repository = app(PermissionRepository::class);
 
-        $this->assertSame(config('permission.models.permission'), $repository->model());
+        self::assertSame(config('permission.models.permission'), $repository->model());
     }
 }

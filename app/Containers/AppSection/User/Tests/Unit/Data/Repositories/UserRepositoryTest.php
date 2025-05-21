@@ -22,13 +22,13 @@ final class UserRepositoryTest extends UnitTestCase
         ];
         $repository = app(UserRepository::class);
 
-        $this->assertSame($data, $repository->getFieldsSearchable());
+        self::assertSame($data, $repository->getFieldsSearchable());
     }
 
     public function testReturnsCorrectModel(): void
     {
         $repository = app(UserRepository::class);
 
-        $this->assertSame(config('auth.providers.users.model'), $repository->model());
+        self::assertSame(config('auth.providers.users.model'), $repository->model());
     }
 }

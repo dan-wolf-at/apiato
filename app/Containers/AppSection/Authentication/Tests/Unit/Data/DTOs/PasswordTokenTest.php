@@ -24,9 +24,9 @@ final class PasswordTokenTest extends UnitTestCase
             RefreshToken::create($refreshToken),
         );
 
-        $this->assertSame('Bearer', $passwordToken->tokenType);
-        $this->assertSame($expiredIn, $passwordToken->expiresIn);
-        $this->assertSame($accessToken, $passwordToken->accessToken);
-        $this->assertSame($refreshToken, $passwordToken->refreshToken->value());
+        self::assertSame('Bearer', $passwordToken->tokenType);
+        self::assertSame($expiredIn, $passwordToken->expiresIn);
+        self::assertSame($accessToken, $passwordToken->accessToken);
+        self::assertSame($refreshToken, $passwordToken->refreshToken->value());
     }
 }

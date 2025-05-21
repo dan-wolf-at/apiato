@@ -16,12 +16,12 @@ final class ResetPasswordRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecode());
+        self::assertSame([], $this->request->getDecode());
     }
 
     public function testValidationRules(): void
     {
-        $this->assertEquals([
+        self::assertEquals([
             'token'    => 'required',
             'email'    => 'required|email',
             'password' => [...Password::required(), 'confirmed'],

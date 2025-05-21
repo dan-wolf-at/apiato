@@ -22,7 +22,7 @@ final class PasswordTokenFactoryTest extends UnitTestCase
         $user = User::factory()->createOne(['password' => 'youShallNotPass']);
         $factory = app(PasswordTokenFactory::class);
 
-        $this->assertCount(0, $user->tokens);
+        self::assertCount(0, $user->tokens);
 
         $factory->make(
             AccessTokenProxy::create(
@@ -34,7 +34,7 @@ final class PasswordTokenFactoryTest extends UnitTestCase
             ),
         );
 
-        $this->assertCount(1, $user->refresh()->tokens);
+        self::assertCount(1, $user->refresh()->tokens);
     }
 
     public function testCanIssueRefreshToken(): void
@@ -52,7 +52,7 @@ final class PasswordTokenFactoryTest extends UnitTestCase
             ),
         )->refreshToken->value();
 
-        $this->assertCount(1, $user->refresh()->tokens);
+        self::assertCount(1, $user->refresh()->tokens);
 
         $factory->make(
             RefreshTokenProxy::create(
@@ -64,8 +64,8 @@ final class PasswordTokenFactoryTest extends UnitTestCase
         );
 
         $tokens = $user->refresh()->tokens;
-        $this->assertCount(2, $tokens);
-        $this->assertSame(1, $tokens->where('revoked', true)->count());
-        $this->assertSame(1, $tokens->where('revoked', false)->count());
+        self::assertCount(2, $tokens);
+        self::assertSame(1, $tokens->where('revoked', true)->count());
+        self::assertSame(1, $tokens->where('revoked', false)->count());
     }
 }

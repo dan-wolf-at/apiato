@@ -33,22 +33,23 @@ final class PasswordTokenTransformerTest extends UnitTestCase
 
         $transformedResource = $this->transformer->transform($passwordToken);
 
-        $this->assertSame($expected, $transformedResource);
+        self::assertSame($expected, $transformedResource);
     }
 
     public function testAvailableIncludes(): void
     {
-        $this->assertSame([], $this->transformer->getAvailableIncludes());
+        self::assertSame([], $this->transformer->getAvailableIncludes());
     }
 
     public function testDefaultIncludes(): void
     {
-        $this->assertSame([], $this->transformer->getDefaultIncludes());
+        self::assertSame([], $this->transformer->getDefaultIncludes());
     }
 
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->transformer = new PasswordTokenTransformer();
     }
 }

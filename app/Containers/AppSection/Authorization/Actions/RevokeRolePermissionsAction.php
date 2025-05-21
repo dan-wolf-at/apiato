@@ -10,9 +10,8 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 
 final class RevokeRolePermissionsAction extends ParentAction
 {
-    public function __construct(
-        private readonly FindRoleTask $findRoleTask,
-    ) {
+    public function __construct(private readonly FindRoleTask $findRoleTask)
+    {
     }
 
     public function run(int $roleId, int ...$permissionIds): Role

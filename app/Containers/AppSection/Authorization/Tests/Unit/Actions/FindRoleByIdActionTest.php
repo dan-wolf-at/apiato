@@ -18,6 +18,6 @@ final class FindRoleByIdActionTest extends UnitTestCase
 
         $result = app(FindRoleByIdAction::class)->run($role->id);
 
-        $this->assertTrue($role->is($result));
+        self::assertTrue($role->is($result));
     }
 }

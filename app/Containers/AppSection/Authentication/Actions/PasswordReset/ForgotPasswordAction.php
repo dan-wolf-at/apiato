@@ -11,6 +11,9 @@ use Illuminate\Validation\ValidationException;
 
 final class ForgotPasswordAction extends ParentAction
 {
+    /**
+     * @throws ValidationException
+     */
     public function run(ForgotPasswordRequest $request): string
     {
         $sanitizedData = $request->sanitize([

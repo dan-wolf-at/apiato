@@ -35,7 +35,7 @@ final class IssueTokenTest extends ApiTestCase
                     'token_type',
                     'expires_in',
                 ])->where('token_type', 'Bearer')
-                ->etc(),
+                    ->etc(),
             )->etc(),
         );
     }

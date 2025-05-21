@@ -15,21 +15,18 @@ final class LoginRequestTest extends UnitTestCase
 
     public function testDecode(): void
     {
-        $this->assertSame([], $this->request->getDecode());
+        self::assertSame([], $this->request->getDecode());
     }
 
     public function testValidationRules(): void
     {
         $rules = $this->request->rules();
 
-        $this->assertSame(
-            [
-                'email'    => ['required', 'email'],
-                'password' => 'required',
-                'remember' => 'boolean',
-            ],
-            $rules,
-        );
+        self::assertSame([
+            'email'    => ['required', 'email'],
+            'password' => 'required',
+            'remember' => 'boolean',
+        ], $rules);
     }
 
     protected function setUp(): void
