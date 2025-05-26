@@ -50,6 +50,8 @@ final class RepositoryTest extends ShipTestCase
                     '=',
                     'like',
                     'in',
+                    'between',
+                    'null',
                 ],
                 'params' => [
                     'search'       => 'search',
@@ -60,6 +62,8 @@ final class RepositoryTest extends ShipTestCase
                     'with'         => 'l5_with',
                     'searchJoin'   => 'searchJoin',
                     'withCount'    => 'withCount',
+                    'has'          => 'has',
+                    'whereHas'     => 'whereHas',
                 ],
             ],
             'generator' => [

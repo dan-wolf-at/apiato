@@ -17,8 +17,8 @@ final class UserModelTest extends ShipTestCase
 {
     public function testClassUsesCorrectTraits(): void
     {
-        $this->assertContains(Notifiable::class, class_uses_recursive(TestUser::class));
-        $this->assertContains(HasApiTokens::class, class_uses_recursive(TestUser::class));
-        $this->assertContains(HasRoles::class, class_uses_recursive(TestUser::class));
+        self::assertContains(Notifiable::class, class_uses_recursive(TestUser::class));
+        self::assertContains(HasApiTokens::class, class_uses_recursive(TestUser::class));
+        self::assertContains(HasRoles::class, class_uses_recursive(TestUser::class));
     }
 }

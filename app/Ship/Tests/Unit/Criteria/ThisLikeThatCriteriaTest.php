@@ -9,14 +9,18 @@ use App\Ship\Tests\Fakes\TestUserFactory;
 use App\Ship\Tests\Fakes\TestUserRepository;
 use App\Ship\Tests\ShipTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 #[CoversClass(ThisLikeThatCriteria::class)]
 final class ThisLikeThatCriteriaTest extends ShipTestCase
 {
+    /**
+     * @throws RepositoryException
+     */
     public function testCriteria(): void
     {
-        $modelB = TestUserFactory::new()->create(['name' => 'EFGHIJ']);
         $modelA = TestUserFactory::new()->create(['name' => 'ABCDEF']);
+        $modelB = TestUserFactory::new()->create(['name' => 'EFGHIJ']);
         TestUserFactory::new()->create(['name' => 'PQRSTU']);
         TestUserFactory::new()->create(['name' => 'JKLMNO']);
 
@@ -26,8 +30,7 @@ final class ThisLikeThatCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertCount(2, $result);
-        $this->assertSame($modelB->id, $result->first()->id);
-        $this->assertSame($modelA->id, $result->last()->id);
+        self::assertCount(2, $result);
+        self::assertEquals([$modelA->id, $modelB->id], $result->pluck('id')->toArray());
     }
 }

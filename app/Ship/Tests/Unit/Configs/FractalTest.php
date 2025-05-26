@@ -35,6 +35,6 @@ final class FractalTest extends ShipTestCase
             ],
         ];
 
-        $this->assertEqualsCanonicalizing($expected, $config);
+        self::assertEqualsCanonicalizing($expected, $config);
     }
 }

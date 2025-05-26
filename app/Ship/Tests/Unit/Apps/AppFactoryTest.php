@@ -18,6 +18,6 @@ final class AppFactoryTest extends ShipTestCase
 
         $result = AppFactory::current();
 
-        $this->assertInstanceOf(Web::class, $result);
+        self::assertInstanceOf(Web::class, $result);
     }
 }

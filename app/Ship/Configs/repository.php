@@ -30,12 +30,11 @@ return [
     | Fractal Presenter Config
     |--------------------------------------------------------------------------
     |
-
-    Available serializers:
-    ArraySerializer
-    DataArraySerializer
-    JsonApiSerializer
-
+    | Available serializers:
+    |    * ArraySerializer
+    |    * DataArraySerializer
+    |    * JsonApiSerializer
+    |
     */
     'fractal' => [
         'params' => [
@@ -129,20 +128,20 @@ return [
         ],
 
         /*
-       |--------------------------------------------------------------------------
-       | Methods Allowed
-       |--------------------------------------------------------------------------
-       |
-       | methods cacheable : all, paginate, find, findByField, findWhere, getByCriteria
-       |
-       | Ex:
-       |
-       | 'only'  =>['all','paginate'],
-       |
-       | or
-       |
-       | 'except'  =>['find'],
-       */
+        |--------------------------------------------------------------------------
+        | Methods Allowed
+        |--------------------------------------------------------------------------
+        |
+        | methods cacheable : all, paginate, find, findByField, findWhere, getByCriteria
+        |
+        | Ex:
+        |
+        | 'only'  =>['all','paginate'],
+        |
+        | or
+        |
+        | 'except'  =>['find'],
+        */
         'allowed' => [
             'only'   => null,
             'except' => null,
@@ -177,6 +176,8 @@ return [
             '=',
             'like',
             'in',
+            'between',
+            'null',
         ],
         /*
         |--------------------------------------------------------------------------
@@ -225,6 +226,8 @@ return [
             'with'         => 'l5_with', // use `include` instead (provided by fractal)
             'searchJoin'   => 'searchJoin',
             'withCount'    => 'withCount',
+            'has'          => 'has',
+            'whereHas'     => 'whereHas',
         ],
     ],
     /*

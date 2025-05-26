@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Ship\Tests\Unit\Configs;
 
+use App\Ship\Tests\ShipTestCase;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Session\Store;
-use App\Ship\Tests\ShipTestCase;
 use PHPUnit\Framework\Attributes\CoversNothing;
 
 #[CoversNothing]
@@ -58,6 +58,6 @@ final class IdeHelperTest extends ShipTestCase
             ],
         ];
 
-        $this->assertEqualsCanonicalizing($expected, $config);
+        self::assertEqualsCanonicalizing($expected, $config);
     }
 }

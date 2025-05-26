@@ -9,10 +9,14 @@ use App\Ship\Tests\Fakes\TestUserFactory;
 use App\Ship\Tests\Fakes\TestUserRepository;
 use App\Ship\Tests\ShipTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 #[CoversClass(IsNullCriteria::class)]
 final class IsNullCriteriaTest extends ShipTestCase
 {
+    /**
+     * @throws RepositoryException
+     */
     public function testCriteria(): void
     {
         TestUserFactory::new()->count(3)->create(['published' => null]);
@@ -24,6 +28,6 @@ final class IsNullCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertCount(3, $result);
+        self::assertCount(3, $result);
     }
 }

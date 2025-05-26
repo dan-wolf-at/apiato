@@ -19,16 +19,18 @@ final class ValidateAppIdTest extends UnitTestCase
             action([WelcomeController::class, 'unversioned']),
             server: ['HTTP_App-Identifier' => 'desktop'],
         );
-        config(['apiato.apps' => [
-            'web'     => null,
-            'desktop' => null,
-            'mobile'  => null,
-        ]]);
+        config([
+            'apiato.apps' => [
+                'web'     => null,
+                'desktop' => null,
+                'mobile'  => null,
+            ],
+        ]);
         $validateAppId = new ValidateAppId();
 
         $result = $validateAppId->handle($request, static fn (Request $req): Request => $req);
 
-        $this->assertSame($request, $result);
+        self::assertSame($request, $result);
     }
 
     public function testItThrowsIfInvalidAppIdIsProvided(): void
@@ -39,11 +41,13 @@ final class ValidateAppIdTest extends UnitTestCase
             action([WelcomeController::class, 'unversioned']),
             server: ['HTTP_App-Identifier' => 'non-existing'],
         );
-        config(['apiato.apps' => [
-            'web'     => null,
-            'desktop' => null,
-            'mobile'  => null,
-        ]]);
+        config([
+            'apiato.apps' => [
+                'web'     => null,
+                'desktop' => null,
+                'mobile'  => null,
+            ],
+        ]);
         $validateAppId = new ValidateAppId();
 
         $validateAppId->handle($request, static fn (Request $req): Request => $req);

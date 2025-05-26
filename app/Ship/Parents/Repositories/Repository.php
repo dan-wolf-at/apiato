@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  * @template TModel of Model
  *
  * @extends AbstractRepository<TModel>
+ *
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
  */
 abstract class Repository extends AbstractRepository
 {

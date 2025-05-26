@@ -81,13 +81,17 @@ final class MigrationTest extends UnitTestCase
             'pgsql' => 'int4',
             default => 'integer',
         };
+        $text = match ($driver) {
+            'mysql' => 'longtext',
+            default => 'text',
+        };
 
         $columns = [
             'id'            => $string,
             'user_id'       => $bigint,
             'ip_address'    => $string,
             'user_agent'    => 'text',
-            'payload'       => 'text',
+            'payload'       => $text,
             'last_activity' => $integer,
         ];
 

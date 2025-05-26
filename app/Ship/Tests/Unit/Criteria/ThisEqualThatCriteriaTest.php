@@ -9,10 +9,14 @@ use App\Ship\Tests\Fakes\TestUserFactory;
 use App\Ship\Tests\Fakes\TestUserRepository;
 use App\Ship\Tests\ShipTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 #[CoversClass(ThisEqualThatCriteria::class)]
 final class ThisEqualThatCriteriaTest extends ShipTestCase
 {
+    /**
+     * @throws RepositoryException
+     */
     public function testCriteria(): void
     {
         TestUserFactory::new()->create(['name' => 'B']);
@@ -25,7 +29,7 @@ final class ThisEqualThatCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertCount(1, $result);
-        $this->assertSame($modelA->id, $result->first()->id);
+        self::assertCount(1, $result);
+        self::assertSame($modelA->id, $result->first()->id);
     }
 }

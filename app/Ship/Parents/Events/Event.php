@@ -6,6 +6,9 @@ namespace App\Ship\Parents\Events;
 
 use Apiato\Core\Events\Event as AbstractEvent;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 abstract class Event extends AbstractEvent
 {
 }

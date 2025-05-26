@@ -20,7 +20,7 @@ final class ShipServiceProviderTest extends ShipTestCase
     }
 
     #[DataProvider('appDataProvider')]
-    public function testItCanReturnAppId(string|null $appId, \Closure $expectation): void
+    public function testItCanReturnAppId(null|string $appId, \Closure $expectation): void
     {
         if ($appId !== null && $appId !== '' && $appId !== '0') {
             request()->headers->set('App-Identifier', $appId);
@@ -30,10 +30,11 @@ final class ShipServiceProviderTest extends ShipTestCase
             'web'     => null,
             'desktop' => null,
             'mobile'  => null,
-        ]]);
+        ],
+        ]);
 
         $result = request()->appId();
 
-        $this->assertEquals($result, $expectation());
+        self::assertEquals($result, $expectation());
     }
 }

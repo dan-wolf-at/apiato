@@ -19,7 +19,13 @@ class TestUserFactory extends ParentFactory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name'      => fake()->name(),
+            'email'     => fake()->unique()->safeEmail(),
+            'age'       => fake()->numberBetween(18, 80),
+            'active'    => true,
+            'score'     => fake()->randomFloat(1, 0, 5),
+            'published' => fake()->randomElement(['yes', 'no']),
+            'metadata'  => [],
         ];
     }
 }

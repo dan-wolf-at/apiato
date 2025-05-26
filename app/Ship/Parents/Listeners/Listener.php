@@ -6,6 +6,9 @@ namespace App\Ship\Parents\Listeners;
 
 use Apiato\Core\Listeners\Listener as AbstractListener;
 
+/**
+ * @SuppressWarnings(PHPMD.NumberOfChildren)
+ */
 abstract class Listener extends AbstractListener
 {
 }

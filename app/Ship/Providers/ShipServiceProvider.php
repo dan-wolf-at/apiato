@@ -25,11 +25,12 @@ final class ShipServiceProvider extends ParentServiceProvider
 
     public function registerMacros(): void
     {
-        /*
+        /**
          * Get the App-Identifier header value from the request or use the default app.
          */
         Request::macro('appId', function (): string {
-            return $this->header('App-Identifier', config()->string('apiato.defaults.app'));
+            /** @var Request $this */
+            return $this->header('App-Identifier', config()?->string('apiato.defaults.app'));
         });
     }
 }

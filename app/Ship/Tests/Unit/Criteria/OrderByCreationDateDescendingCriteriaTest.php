@@ -9,10 +9,14 @@ use App\Ship\Tests\Fakes\TestUserFactory;
 use App\Ship\Tests\Fakes\TestUserRepository;
 use App\Ship\Tests\ShipTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 #[CoversClass(OrderByCreationDateDescendingCriteria::class)]
 final class OrderByCreationDateDescendingCriteriaTest extends ShipTestCase
 {
+    /**
+     * @throws RepositoryException
+     */
     public function testCriteria(): void
     {
         $modelB = TestUserFactory::new()->create(['created_at' => now()]);
@@ -25,8 +29,8 @@ final class OrderByCreationDateDescendingCriteriaTest extends ShipTestCase
 
         $result = $repository->all();
 
-        $this->assertSame($modelC->id, $result->first()->id);
-        $this->assertSame($modelB->id, $result->get(1)->id);
-        $this->assertSame($modelA->id, $result->last()->id);
+        self::assertSame($modelC->id, $result->first()->id);
+        self::assertSame($modelB->id, $result->get(1)->id);
+        self::assertSame($modelA->id, $result->last()->id);
     }
 }
