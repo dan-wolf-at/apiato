@@ -21,7 +21,7 @@ final class PasswordUpdatedNotificationTest extends UnitTestCase
 
         $user->notify(new PasswordUpdatedNotification());
 
-        Notification::assertSentTo($user, PasswordUpdatedNotification::class, function (PasswordUpdatedNotification $notification) use ($user): true {
+        Notification::assertSentTo($user, PasswordUpdatedNotification::class, static function (PasswordUpdatedNotification $notification) use ($user): true {
             $email = $notification->toMail($user);
             self::assertSame('Account Change Notice', $email->subject);
             self::assertSame([

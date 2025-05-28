@@ -59,6 +59,10 @@ return RectorConfig::configure()
         symfonyCodeQuality: true,
         symfonyConfigs: false,
     )
+    ->withAttributesSets(
+        doctrine: false,
+        phpunit: true,
+    )
     ->withRules([
         MockObjectStaticToInstanceCallRector::class,
         AssertInstanceToStaticCallRector::class,

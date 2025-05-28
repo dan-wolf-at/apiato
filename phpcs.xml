@@ -153,7 +153,9 @@
         Description: Excludes specific rules from the PSR-1 standard for certain file patterns.
         Priority: High
     -->
-    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
+    <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+        <exclude-pattern>app/Containers/*/*/Data/Seeders/*_\d+.php</exclude-pattern>
+    </rule>
     <!--
         Group: Exclusion
         Documentation: https://kalimah-apps.com/phpcs/docs/rules/PSR1/Classes.ClassDeclaration.html
@@ -555,9 +557,9 @@
         </properties>
     </rule>
     <!-- https://github.com/slevomat/coding-standard/blob/8.18.0/doc/functions.md#slevomatcodingstandardfunctionsstaticclosure- -->
-<!--    <rule ref="SlevomatCodingStandard.Functions.StaticClosure">-->
-<!--        <exclude-pattern>app/Containers/*/*/Data/Factories</exclude-pattern>-->
-<!--    </rule>-->
+    <rule ref="SlevomatCodingStandard.Functions.StaticClosure">
+        <exclude-pattern>app/Containers/*/*/Data/Factories</exclude-pattern>
+    </rule>
     <!-- https://github.com/slevomat/coding-standard/blob/8.18.0/doc/operators.md#slevomatcodingstandardoperatorsdisallowequaloperators- -->
     <rule ref="SlevomatCodingStandard.Operators.DisallowEqualOperators"/>
     <!-- https://github.com/slevomat/coding-standard/blob/8.18.0/doc/operators.md#slevomatcodingstandardoperatorsrequirecombinedassignmentoperator- -->

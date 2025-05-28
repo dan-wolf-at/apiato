@@ -59,7 +59,7 @@ final class LoginTest extends WebTestCase
         // Retrieve the value of the remember cookie
         /** @var Cookie $rememberCookie */
         $rememberCookie = collect($response->headers->getCookies())
-            ->first(fn (Cookie $cookie): bool => $cookie->getName() === $rememberCookieName);
+            ->first(static fn (Cookie $cookie): bool => $cookie->getName() === $rememberCookieName);
 
         $this->flushSession();
         Route::get('test', static function () {

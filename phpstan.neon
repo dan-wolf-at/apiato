@@ -10,6 +10,7 @@ parameters:
         - config
         - tests
         - database
+        - .php-cs-fixer.dist.php
     tmpDir: phpstan_cache
     excludePaths:
         - vendor/*

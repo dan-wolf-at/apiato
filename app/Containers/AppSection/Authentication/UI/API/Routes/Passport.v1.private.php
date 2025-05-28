@@ -20,7 +20,7 @@ Route::group([
         ->name('token')
         ->middleware(['throttle']);
 
-    Route::middleware(['web', $guard ? 'auth:' . $guard : 'auth'])->group(function (): void {
+    Route::middleware(['web', $guard ? 'auth:' . $guard : 'auth'])->group(static function (): void {
         Route::post('/token/refresh', [TransientTokenController::class, 'refresh'])
             ->name('token.refresh');
 

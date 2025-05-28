@@ -30,7 +30,7 @@ final class WhereNestedCriteriaTest extends ShipTestCase
         // Create a nested where condition: name = 'A' OR (name = 'B' AND age = 30)
         $whereNestedCriteria = new WhereNestedCriteria(static function (Builder $query): void {
             $query->where('name', 'A')
-                  ->orWhere(function (Builder $subQuery): void {
+                  ->orWhere(static function (Builder $subQuery): void {
                       $subQuery->where('name', 'B')
                               ->where('age', 30);
                   });

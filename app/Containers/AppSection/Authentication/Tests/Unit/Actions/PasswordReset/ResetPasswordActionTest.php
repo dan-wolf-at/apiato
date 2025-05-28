@@ -24,14 +24,14 @@ final class ResetPasswordActionTest extends UnitTestCase
         yield [
             [
                 'token' => static fn (): string => 'invalid token',
-                'email' => fn () => User::factory()->createOne()->email,
+                'email' => static fn () => User::factory()->createOne()->email,
             ],
             'token',
             Password::INVALID_TOKEN,
         ];
         yield [
             [
-                'token' => fn () => Password::createToken(User::factory()->createOne()),
+                'token' => static fn () => Password::createToken(User::factory()->createOne()),
                 'email' => 'invalid email',
             ],
             'token',
