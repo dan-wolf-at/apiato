@@ -18,9 +18,9 @@ final class CreateAdmin extends ParentCommand
         $username = $this->ask('Enter the username for this user');
         $email = $this->ask('Enter the email address of this user');
         $password = $this->secret('Enter the password for this user');
-        $password_confirmation = $this->secret('Please confirm the password');
+        $passwordConfirmation = $this->secret('Please confirm the password');
 
-        if ($password !== $password_confirmation) {
+        if ($password !== $passwordConfirmation) {
             $this->error('Passwords does not match - exiting!');
 
             return;

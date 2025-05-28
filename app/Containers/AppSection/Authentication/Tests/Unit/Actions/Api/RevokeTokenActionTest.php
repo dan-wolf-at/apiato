@@ -18,6 +18,7 @@ final class RevokeTokenActionTest extends UnitTestCase
 {
     public function testCanGetTokenViaRefreshToken(): void
     {
+        /** @var User $user */
         $user = User::factory()->createOne([
             'password' => 'youShallNotPass',
         ]);
