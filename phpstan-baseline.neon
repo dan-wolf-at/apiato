@@ -1,6 +1,24 @@
 parameters:
 	ignoreErrors:
 		-
+			message: '#^Call to an undefined method PhpCsFixer\\ConfigInterface\:\:setParallelConfig\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: .php-cs-fixer.dist.php
+
+		-
+			message: '#^Cannot call method setFinder\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: .php-cs-fixer.dist.php
+
+		-
+			message: '#^Cannot call method setRules\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: .php-cs-fixer.dist.php
+
+		-
 			message: '#^Call to an undefined method Laravel\\Passport\\Token\|Laravel\\Passport\\TransientToken\:\:revoke\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -487,19 +505,13 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Functional/WEB/LogoutTest.php
 
 		-
-			message: '#^Cannot access property \$email on mixed\.$#'
-			identifier: property.nonObject
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
 
 		-
-			message: '#^Cannot access property \$revoked on mixed\.$#'
-			identifier: property.nonObject
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
-
-		-
-			message: '#^Cannot access property \$tokens on mixed\.$#'
+			message: '#^Cannot access property \$revoked on Laravel\\Passport\\Token\|Laravel\\Passport\\TransientToken\|null\.$#'
 			identifier: property.nonObject
 			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
@@ -511,31 +523,7 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
 
 		-
-			message: '#^Cannot call method token\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 2
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
-
-		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Actions\\Api\\RevokeTokenAction\:\:run\(\) expects App\\Containers\\AppSection\\User\\Models\\User\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
-
-		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:for\(\) expects App\\Containers\\AppSection\\User\\Models\\User, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
-
-		-
 			message: '#^Parameter \#1 \$username of static method App\\Containers\\AppSection\\Authentication\\Values\\UserCredential\:\:create\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertCount\(\) expects Countable\|iterable, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
