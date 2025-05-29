@@ -31,7 +31,10 @@ final class BelongsToRelationCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select * from `test_users` where exists (select * from `test_users` as `laravel_reserved_%d` where `test_users`.`id` = `laravel_reserved_%d`.`id` and `post_id` = ? %s) %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
         self::assertNotEmpty($query->getQuery()->wheres);
     }
 
@@ -53,7 +56,10 @@ final class BelongsToRelationCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select * from `test_users` where exists (select * from `test_users` as `laravel_reserved_%d` where `test_users`.`id` = `laravel_reserved_%d`.`id` and `post_id` > ? %s) %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
         self::assertNotEmpty($query->getQuery()->wheres);
     }
 }

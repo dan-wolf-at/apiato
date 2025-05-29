@@ -26,7 +26,10 @@ final class WhereHasNullCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select * from `test_users` where exists (select * from `test_users` as `laravel_reserved_%d` where `test_users`.`id` = `laravel_reserved_%d`.`id` and `email` is null %s) %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
         self::assertNotEmpty($query->getQuery()->wheres);
     }
 }

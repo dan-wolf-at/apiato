@@ -21,8 +21,24 @@ class OrderBySeveralFieldsCriteria extends ParentCriteria
      */
     public function apply($model, PrettusRepositoryInterface $repository): Builder
     {
-        $placeholders = implode(', ', array_fill(0, \count($this->values), '?'));
+        if ($this->values === []) {
+            return $model;
+        }
 
-        return $model->orderByRaw(\sprintf('FIELD(%s, %s)', $this->field, $placeholders), $this->values);
+        $field = $model->getModel()->getConnection()->getQueryGrammar()->wrap($this->field);
+
+        $cases = [];
+        $bindings = [];
+
+        foreach ($this->values as $index => $value) {
+            $cases[] = \sprintf('WHEN %s = ? THEN ?', $field);
+            $bindings[] = $value;
+            $bindings[] = $index;
+        }
+
+        $caseStatement = 'CASE ' . implode(' ', $cases) . ' ELSE ? END';
+        $bindings[] = \count($this->values) + 1;
+
+        return $model->orderByRaw($caseStatement, $bindings);
     }
 }

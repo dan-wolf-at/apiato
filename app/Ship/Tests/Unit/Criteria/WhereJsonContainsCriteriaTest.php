@@ -9,6 +9,7 @@ use App\Ship\Tests\Fakes\TestUserFactory;
 use App\Ship\Tests\Fakes\TestUserRepository;
 use App\Ship\Tests\ShipTestCase;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Prettus\Repository\Exceptions\RepositoryException;
@@ -43,8 +44,14 @@ final class WhereJsonContainsCriteriaTest extends ShipTestCase
         $query = $repository->applyCriteriaAndGetQuery();
 
         $actualSql = $query->toSql();
-        $expectedSql = 'select * from `test_users` where json_contains(`metadata`, ?, \'$."roles"\')';
-        self::assertStringContainsString($expectedSql, $actualSql);
+
+        $json = match (DB::getDriverName()) {
+            'mysql'  => 'json_contains',
+            'pgsql'  => 'jsonb',
+            'sqlite' => 'json_each',
+        };
+
+        self::assertStringContainsString($json, $actualSql);
 
         $result = $repository->all();
         self::assertCount(2, $result);

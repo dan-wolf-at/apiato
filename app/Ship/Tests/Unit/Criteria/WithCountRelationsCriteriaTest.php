@@ -29,7 +29,10 @@ final class WithCountRelationsCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select `test_users`.*, (select count(*) from `test_users` as `laravel_reserved_%d` %s) as `posts_count` %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
     }
 
     /**
@@ -47,6 +50,9 @@ final class WithCountRelationsCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select `test_users`.*, (select count(*) from `test_users` as `laravel_reserved_%d` %s) as `posts_count`, (select count(*) from `test_users` as `laravel_reserved_%d` %s) as `comments_count` %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
     }
 }

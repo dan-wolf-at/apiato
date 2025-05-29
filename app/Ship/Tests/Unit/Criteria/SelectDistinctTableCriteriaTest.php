@@ -31,7 +31,10 @@ final class SelectDistinctTableCriteriaTest extends ShipTestCase
 
         $actualSql = $query->toSql();
         $expectedSql = 'select distinct `test_users`.`name` from `test_users`';
-        self::assertStringContainsString($expectedSql, $actualSql);
+        self::assertStringContainsString(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
 
         $result = $repository->all();
         self::assertCount(2, $result);
@@ -54,6 +57,9 @@ final class SelectDistinctTableCriteriaTest extends ShipTestCase
 
         $actualSql = $query->toSql();
         $expectedSql = 'select distinct `test_users`.* from `test_users`';
-        self::assertStringContainsString($expectedSql, $actualSql);
+        self::assertStringContainsString(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
     }
 }

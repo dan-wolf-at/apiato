@@ -29,7 +29,10 @@ final class WithAvgRelationsCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select `test_users`.*, (select avg(`laravel_reserved_%d`.`rating`) from `test_users` as `laravel_reserved_%d` %s) as `posts_avg_rating` from `test_users` %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
     }
 
     /**
@@ -47,6 +50,9 @@ final class WithAvgRelationsCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select `test_users`.*, (select avg(`laravel_reserved_%d`.`score`) from `test_users` as `laravel_reserved_%d` %s) as `posts_avg_score`, (select avg(`laravel_reserved_%d`.`score`) from `test_users` as `laravel_reserved_%d` %s) as `comments_avg_score` from `test_users` %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
     }
 }

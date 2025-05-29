@@ -29,7 +29,10 @@ final class WithExistsRelationsCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select `test_users`.*, exists(select * from `test_users` as `laravel_reserved_%d` %s) as `posts_exists` %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
     }
 
     /**
@@ -47,6 +50,9 @@ final class WithExistsRelationsCriteriaTest extends ShipTestCase
         $actualSql = $query->toSql();
         $expectedSql = 'select `test_users`.*, exists(select * from `test_users` as `laravel_reserved_%d` %s) as `posts_exists`, exists(select * from `test_users` as `laravel_reserved_%d` %s) as `comments_exists` %s';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
     }
 }

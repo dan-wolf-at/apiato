@@ -29,10 +29,13 @@ final class OrderBySeveralFieldsCriteriaTest extends ShipTestCase
 
         $query = $repository->applyCriteriaAndGetQuery();
         $actualSql = $query->toSql();
-        $expectedSql = 'select * from `test_users`%s order by FIELD(name, ?, ?, ?)';
+        $expectedSql = 'select * from `test_users`%s order by CASE WHEN `name` = ? THEN ? WHEN `name` = ? THEN ? WHEN `name` = ? THEN ? ELSE ? END';
 
-        self::assertStringMatchesFormat($expectedSql, $actualSql);
-        self::assertEquals(['B', 'A', 'C'], $query->getBindings());
+        self::assertStringMatchesFormat(
+            self::normalizeSql($expectedSql),
+            self::normalizeSql($actualSql),
+        );
+        self::assertEquals(['B', 0, 'A', 1, 'C', 2, 4], $query->getBindings());
 
         $result = $repository->all();
         self::assertEquals('B', $result[0]->name);

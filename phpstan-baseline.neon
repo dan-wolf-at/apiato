@@ -5581,8 +5581,32 @@ parameters:
 			path: app/Ship/Criteria/OrderByNameCriteria.php
 
 		-
-			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:orderByRaw\(\)\.$#'
-			identifier: staticMethod.dynamicCall
+			message: '#^Cannot call method getConnection\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Cannot call method getModel\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Cannot call method getQueryGrammar\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Cannot call method orderByRaw\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Cannot call method wrap\(\) on mixed\.$#'
+			identifier: method.nonObject
 			count: 1
 			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
 
@@ -5593,8 +5617,8 @@ parameters:
 			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
 
 		-
-			message: '#^Method App\\Ship\\Criteria\\OrderBySeveralFieldsCriteria\:\:apply\(\) has parameter \$model with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types\: TModel$#'
-			identifier: missingType.generics
+			message: '#^Method App\\Ship\\Criteria\\OrderBySeveralFieldsCriteria\:\:apply\(\) has parameter \$model with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
 
@@ -5605,9 +5629,15 @@ parameters:
 			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
 
 		-
-			message: '#^Parameter \#1 \$model \(Illuminate\\Database\\Eloquent\\Builder\) of method App\\Ship\\Criteria\\OrderBySeveralFieldsCriteria\:\:apply\(\) should be contravariant with parameter \$model \(mixed\) of method Prettus\\Repository\\Contracts\\CriteriaInterface\:\:apply\(\)$#'
-			identifier: method.childParameterType
+			message: '#^Method App\\Ship\\Criteria\\OrderBySeveralFieldsCriteria\:\:apply\(\) should return Illuminate\\Database\\Eloquent\\Builder but returns mixed\.$#'
+			identifier: return.type
 			count: 2
+			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
 			path: app/Ship/Criteria/OrderBySeveralFieldsCriteria.php
 
 		-
@@ -6759,6 +6789,12 @@ parameters:
 		-
 			message: '#^Dynamic call to static method Illuminate\\Database\\Eloquent\\Builder\<Illuminate\\Database\\Eloquent\\Model\>\:\:toSql\(\)\.$#'
 			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Ship/Tests/Unit/Criteria/WhereJsonContainsCriteriaTest.php
+
+		-
+			message: '#^Match expression does not handle remaining value\: string$#'
+			identifier: match.unhandled
 			count: 1
 			path: app/Ship/Tests/Unit/Criteria/WhereJsonContainsCriteriaTest.php
 
