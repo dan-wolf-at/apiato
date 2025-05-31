@@ -44,9 +44,9 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: phpstan_cache
-          key: ${{ runner.os }}-phpstan-result-cache-${{ github.sha }}
+          key: ${{ runner.OS }}-${{ github.repository }}-phpstan-result-cache-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-phpstan-result-cache-
+            ${{ runner.OS }}-${{ github.repository }}-phpstan-result-cache-
 
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse --memory-limit=512M --ansi --error-format=github

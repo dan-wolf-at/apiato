@@ -11,12 +11,13 @@ use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
 use App\Containers\AppSection\Authentication\Values\RequestProxies\PasswordGrant\AccessTokenProxy;
 use App\Containers\AppSection\Authentication\Values\UserCredential;
 use App\Containers\AppSection\User\Models\User;
+use Laravel\Passport\Contracts\ScopeAuthorizable;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(RevokeTokenAction::class)]
 final class RevokeTokenActionTest extends UnitTestCase
 {
-    public function testCanGetTokenViaRefreshToken(): void
+    public function testCanRevokeToken(): void
     {
         /** @var User $user */
         $user = User::factory()->createOne([
@@ -38,7 +39,7 @@ final class RevokeTokenActionTest extends UnitTestCase
 
         $result = $action->run($user);
 
-        self::assertTrue($user->token()->revoked);
+        self::assertNotInstanceOf(ScopeAuthorizable::class, $user->fresh()->token());
         self::assertTrue($result->isCleared());
     }
 }

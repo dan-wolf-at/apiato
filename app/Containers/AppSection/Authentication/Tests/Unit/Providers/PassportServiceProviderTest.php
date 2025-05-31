@@ -19,48 +19,58 @@ final class PassportServiceProviderTest extends UnitTestCase
         self::assertSame(59, Passport::$refreshTokensExpireIn->i);
     }
 
-    public function testRegistersPassportApiRoutes(): void
+    public function testRegistersPassportRoutes(): void
     {
         $registeredRoutes = Route::getRoutes();
         $registeredRoutes->refreshNameLookups();
 
         $passportRouteNames = [
             'passport.token',
-            'passport.tokens.index',
-            'passport.tokens.destroy',
-
             'passport.token.refresh',
 
-            'passport.clients.index',
-            'passport.clients.store',
-            'passport.clients.update',
-            'passport.clients.destroy',
+            'passport.authorizations.authorize',
+            'passport.authorizations.approve',
+            'passport.authorizations.deny',
 
-            'passport.scopes.index',
-            'passport.personal.tokens.index',
-            'passport.personal.tokens.store',
-            'passport.personal.tokens.destroy',
+            'passport.device',
+            'passport.device.code',
+            'passport.device.authorizations.authorize',
+            'passport.device.authorizations.approve',
+            'passport.device.authorizations.deny',
         ];
 
         $apiPrefix = $this->removeLeadingSlashes(apiato()->routing()->getApiPrefix());
         $oAuthPrefix = $apiPrefix . 'v1/oauth';
+        foreach ($passportRouteNames as $routeName) {
+            self::assertInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($routeName));
+            $this->assertSamePrefix($oAuthPrefix, $registeredRoutes->getByName($routeName)->getPrefix());
+        }
+
         foreach ($passportRouteNames as $passportRouteName) {
             self::assertInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
             $this->assertSamePrefix($oAuthPrefix, $registeredRoutes->getByName($passportRouteName)->getPrefix());
         }
     }
 
-    public function testDoesntRegisterPassportWebRoutes(): void
+    public function testDoesNotRegisterJsonApiRoutes(): void
     {
         $registeredRoutes = Route::getRoutes();
         $registeredRoutes->refreshNameLookups();
 
         $passportRouteNames = [
-            'passport.authorizations.authorize',
-            'passport.authorizations.approve',
-            'passport.authorizations.deny',
+            'passport.tokens.index',
+            'passport.tokens.destroy',
+            'passport.clients.index',
+            'passport.clients.store',
+            'passport.clients.update',
+            'passport.clients.destroy',
+            'passport.scopes.index',
+            'passport.personal.tokens.index',
+            'passport.personal.tokens.store',
+            'passport.personal.tokens.destroy',
         ];
 
+        self::assertFalse(Passport::$registersJsonApiRoutes);
         foreach ($passportRouteNames as $passportRouteName) {
             self::assertNotInstanceOf(\Illuminate\Routing\Route::class, $registeredRoutes->getByName($passportRouteName));
         }
