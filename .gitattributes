@@ -9,7 +9,6 @@
 /.github export-ignore
 /.ddev export-ignore
 /tests export-ignore
-/workbench export-ignore
 .deptrac.cache export-ignore
 .editorconfig export-ignore
 .gitattributes export-ignore

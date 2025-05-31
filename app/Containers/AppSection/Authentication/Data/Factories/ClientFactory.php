@@ -20,6 +20,6 @@ final readonly class ClientFactory
                 ...$attributes,
             ]);
 
-        return new WebClient($client->id, $client->secret);
+        return new WebClient($client->id, $client->plainSecret);
     }
 }
