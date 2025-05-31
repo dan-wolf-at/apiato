@@ -10,6 +10,7 @@ use App\Containers\AppSection\Authentication\Tests\Functional\ApiTestCase;
 use App\Containers\AppSection\Authentication\UI\API\Controllers\RevokeTokenController;
 use App\Containers\AppSection\Authentication\Values\RequestProxies\PasswordGrant\AccessTokenProxy;
 use App\Containers\AppSection\Authentication\Values\UserCredential;
+use App\Containers\AppSection\User\Data\Factories\UserFactory;
 use App\Containers\AppSection\User\Models\User;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -18,13 +19,17 @@ final class RevokeTokenTest extends ApiTestCase
 {
     public function testCanLogout(): void
     {
+        /** @var User|UserFactory<User> $user */
         $user = User::factory()->createOne([
             'password' => 'password',
         ]);
 
+        /** @var PasswordTokenFactory $passwordTokenFactory */
+        $passwordTokenFactory = app(PasswordTokenFactory::class);
+
         self::assertCount(0, $user->tokens);
 
-        app(PasswordTokenFactory::class)->for($user)->make(
+        $passwordTokenFactory->for($user)->make(
             AccessTokenProxy::create(
                 UserCredential::create(
                     $user->email,

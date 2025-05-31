@@ -167,13 +167,6 @@
     <!-- ** Additional Custom Rules ** -->
 
     <!--
-        Group: Generic Exceptions
-        Documentation: https://kalimah-apps.com/phpcs/docs/rules/Generic/CodeAnalysis.EmptyStatement.html
-        Description: Excludes generic rules that are deemed irrelevant or unnecessary for the project.
-        Priority: Low
-    -->
-    <rule ref="Generic.CodeAnalysis.EmptyStatement.DetectedCatch"/>
-    <!--
         Group: Generic
         Documentation: https://kalimah-apps.com/phpcs/docs/rules/Generic/Arrays.DisallowLongArraySyntax.html
         Description: Enforces the use of short array syntax (`[]`) over the long array syntax (`array()`).
@@ -186,8 +179,9 @@
         Documentation: https://kalimah-apps.com/phpcs/docs/rules/Generic/CodeAnalysis.EmptyStatement.html
         Priority: High
     -->
-    <rule ref="Generic.CodeAnalysis.EmptyStatement">
-        <exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCATCH"/>
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+    <rule ref="Generic.CodeAnalysis.EmptyStatement.DetectedCatch">
+        <severity>0</severity>
     </rule>
     <!--
         Group: Generic

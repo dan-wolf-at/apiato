@@ -23,6 +23,7 @@ final class IssueTokenActionTest extends UnitTestCase
             'password' => 'youShallNotPass',
         ];
         $user = User::factory()->createOne($credentials);
+        /** @var IssueTokenAction $action */
         $action = app(IssueTokenAction::class);
 
         self::assertCount(0, $user->tokens);

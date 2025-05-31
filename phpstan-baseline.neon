@@ -1,7 +1,7 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Call to an undefined method Laravel\\Passport\\Token\|Laravel\\Passport\\TransientToken\:\:revoke\(\)\.$#'
+			message: '#^Call to an undefined method Laravel\\Passport\\Contracts\\ScopeAuthorizable\:\:revoke\(\)\.$#'
 			identifier: method.notFound
 			count: 1
 			path: app/Containers/AppSection/Authentication/Actions/Api/RevokeTokenAction.php
@@ -49,18 +49,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Actions/Web/LoginAction.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 4
-			path: app/Containers/AppSection/Authentication/Configs/appSection-authentication.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 5
-			path: app/Containers/AppSection/Authentication/Configs/passport.php
-
-		-
 			message: '#^Method App\\Containers\\AppSection\\Authentication\\Data\\DTOs\\PasswordToken\:\:fromArray\(\) has parameter \$data with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -91,37 +79,13 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Data/DTOs/PasswordToken.php
 
 		-
-			message: '#^Cannot access property \$id on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
-
-		-
-			message: '#^Cannot access property \$secret on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
-
-		-
-			message: '#^Cannot call method asPasswordClient\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
-
-		-
-			message: '#^Cannot call method createOne\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
-
-		-
 			message: '#^Method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\ClientFactory\:\:webClient\(\) has parameter \$attributes with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
 
 		-
-			message: '#^Parameter \#1 \$id of class App\\Containers\\AppSection\\Authentication\\Values\\Clients\\WebClient constructor expects int, mixed given\.$#'
+			message: '#^Parameter \#1 \$attributes of method Illuminate\\Database\\Eloquent\\Factories\\Factory\<Laravel\\Passport\\Client\>\:\:createOne\(\) expects array\<string, mixed\>\|\(callable\(array\<string, mixed\>\)\: array\<string, mixed\>\), non\-empty\-array given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
@@ -133,28 +97,10 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
 
 		-
-			message: '#^Parameter \#2 \$secret of class App\\Containers\\AppSection\\Authentication\\Values\\Clients\\WebClient constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$plainSecret of class App\\Containers\\AppSection\\Authentication\\Values\\Clients\\WebClient constructor expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Data/Factories/ClientFactory.php
-
-		-
-			message: '#^Access to an undefined property Laravel\\Passport\\Token\:\:\$user_id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
-
-		-
-			message: '#^Call to an undefined method Lcobucci\\JWT\\Token\:\:claims\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
-
-		-
-			message: '#^Cannot call method get\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
 
 		-
 			message: '#^Cannot call method refresh\(\) on App\\Containers\\AppSection\\User\\Models\\User\|null\.$#'
@@ -163,22 +109,76 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
 
 		-
-			message: '#^Parameter \#1 \$data of static method App\\Containers\\AppSection\\Authentication\\Data\\DTOs\\PasswordToken\:\:fromArray\(\) expects array, mixed given\.$#'
+			message: '#^Method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:dispatchRequestToAuthorizationServer\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:dispatchRequestToAuthorizationServer\(\) should return array but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:processTokenRequest\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:setUserCurrentToken\(\) has parameter \$token with generic class Laravel\\Passport\\AccessToken but does not specify its types\: TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
+
+		-
+			message: '#^Parameter \#1 \$accessToken of method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:updateUserTokenIfNeeded\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
 
 		-
-			message: '#^Parameter \#1 \$id of method Laravel\\Passport\\TokenRepository\:\:find\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$attributes of class Laravel\\Passport\\AccessToken constructor expects array\<string, mixed\>, array given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
 
 		-
-			message: '#^Parameter \#1 \$jwt of method Lcobucci\\JWT\\Parser\:\:parse\(\) expects non\-empty\-string, string given\.$#'
-			identifier: argument.type
+			message: '#^Method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\TokenAttributeFormatter\:\:format\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
 			count: 1
-			path: app/Containers/AppSection/Authentication/Data/Factories/PasswordTokenFactory.php
+			path: app/Containers/AppSection/Authentication/Data/Factories/TokenAttributeFormatter.php
+
+		-
+			message: '#^Method Illuminate\\Database\\Migrations\\Migration@anonymous/app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000001_create_oauth_auth_codes_table\.php\:9\:\:getConnection\(\) should return string\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000001_create_oauth_auth_codes_table.php
+
+		-
+			message: '#^Method Illuminate\\Database\\Migrations\\Migration@anonymous/app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000002_create_oauth_access_tokens_table\.php\:9\:\:getConnection\(\) should return string\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000002_create_oauth_access_tokens_table.php
+
+		-
+			message: '#^Method Illuminate\\Database\\Migrations\\Migration@anonymous/app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000003_create_oauth_refresh_tokens_table\.php\:9\:\:getConnection\(\) should return string\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000003_create_oauth_refresh_tokens_table.php
+
+		-
+			message: '#^Method Illuminate\\Database\\Migrations\\Migration@anonymous/app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000004_create_oauth_clients_table\.php\:9\:\:getConnection\(\) should return string\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000004_create_oauth_clients_table.php
+
+		-
+			message: '#^Method Illuminate\\Database\\Migrations\\Migration@anonymous/app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000005_create_oauth_device_codes_table\.php\:9\:\:getConnection\(\) should return string\|null but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Data/Migrations/0002_01_01_000005_create_oauth_device_codes_table.php
 
 		-
 			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\MustVerifyEmail\:\:notify\(\)\.$#'
@@ -203,18 +203,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/Containers/AppSection/Authentication/Notifications/EmailVerified.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Notifications/Welcome.php
-
-		-
-			message: '#^Binary operation "\." between ''Thank you for…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: app/Containers/AppSection/Authentication/Notifications/Welcome.php
 
 		-
 			message: '#^Binary operation "\." between ''Welcome to '' and mixed results in an error\.$#'
@@ -331,6 +319,12 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/EmailVerification/VerifyTest.php
 
 		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/PasswordReset/ForgotPasswordTest.php
+
+		-
 			message: '#^Cannot access property \$email on mixed\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -367,10 +361,82 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RegisterUserTest.php
 
 		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$tokens\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Call to an undefined method App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:fresh\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Call to an undefined method App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:token\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Cannot access property \$revoked on Laravel\\Passport\\Contracts\\ScopeAuthorizable\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Cannot call method token\(\) on App\\Containers\\AppSection\\User\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:for\(\) expects App\\Containers\\AppSection\\User\\Models\\User, App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+
+		-
 			message: '#^Cannot call method createOne\(\) on mixed\.$#'
 			identifier: method.nonObject
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Functional/API/WebClient/IssueTokenTest.php
+
+		-
+			message: '#^Call to method Illuminate\\Testing\\TestResponse\<Symfony\\Component\\HttpFoundation\\Response\>\:\:assertOk\(\) with incorrect case\: assertok$#'
+			identifier: method.nameCase
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/WebClient/RefreshTokenTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/WebClient/RefreshTokenTest.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authentication\\Tests\\Functional\\API\\WebClient\\RefreshTokenTest\:\:assertJsonResponse\(\) has parameter \$response with generic class Illuminate\\Testing\\TestResponse but does not specify its types\: TResponse$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/WebClient/RefreshTokenTest.php
 
 		-
 			message: '#^Cannot access property \$email on mixed\.$#'
@@ -413,6 +479,108 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Functional/WEB/LogoutTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$tokens\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Call to an undefined method App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:fresh\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Call to an undefined method App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:token\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Cannot access property \$revoked on Laravel\\Passport\\Contracts\\ScopeAuthorizable\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Cannot call method token\(\) on App\\Containers\\AppSection\\User\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Actions\\Api\\RevokeTokenAction\:\:run\(\) expects App\\Containers\\AppSection\\User\\Models\\User\|null, App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:for\(\) expects App\\Containers\\AppSection\\User\\Models\\User, App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/RevokeTokenActionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Data\\\\DTOs\\\\PasswordToken'' and App\\Containers\\AppSection\\Authentication\\Data\\DTOs\\PasswordToken will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/IssueTokenActionTest.php
+
+		-
+			message: '#^Cannot access property \$tokens on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/IssueTokenActionTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/IssueTokenActionTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertCount\(\) expects Countable\|iterable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/IssueTokenActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/RefreshTokenActionTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$tokens\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/RefreshTokenActionTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Data\\\\DTOs\\\\PasswordToken'' and App\\Containers\\AppSection\\Authentication\\Data\\DTOs\\PasswordToken will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/RefreshTokenActionTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/RefreshTokenActionTest.php
 
 		-
 			message: '#^Cannot call method createOne\(\) on mixed\.$#'
@@ -463,7 +631,7 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/EmailVerification/SendActionTest.php
 
 		-
-			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Actions\\EmailVerification\\SendAction\:\:run\(\) expects Illuminate\\Contracts\\Auth\\MustVerifyEmail, mixed given\.$#'
+			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Actions\\EmailVerification\\SendAction\:\:run\(\) expects Illuminate\\Contracts\\Auth\\MustVerifyEmail, App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|Illuminate\\Contracts\\Auth\\MustVerifyEmail given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/EmailVerification/SendActionTest.php
@@ -607,24 +775,6 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/PasswordReset/ResetPasswordActionTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
-
-		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -637,7 +787,7 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
 
 		-
-			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/RegisterUserActionTest.php
@@ -703,16 +853,124 @@ parameters:
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Web/LogoutActionTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 4
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/AuthenticationTest.php
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$grant_types\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 5
-			path: app/Containers/AppSection/Authentication/Tests/Unit/Configs/PassportTest.php
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$owner_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$owner_type\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$provider\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$redirect_uris\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$revoked\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Values\\\\Clients\\\\WebClient'' and App\\Containers\\AppSection\\Authentication\\Values\\Clients\\WebClient will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/ClientFactoryTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotEmpty\(\) with App\\Containers\\AppSection\\Authentication\\Values\\RefreshToken will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Cannot access property \$email on App\\Containers\\AppSection\\User\\Models\\User\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Cannot call method for\(\) on App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Cannot call method make\(\) on App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Cannot call method token\(\) on App\\Containers\\AppSection\\User\\Models\\User\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertGreaterThan\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Parameter \#1 \$proxy of method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:make\(\) expects App\\Containers\\AppSection\\Authentication\\Values\\RequestProxies\\PasswordGrant\\AccessTokenProxy\|App\\Containers\\AppSection\\Authentication\\Values\\RequestProxies\\PasswordGrant\\RefreshTokenProxy, App\\Containers\\AppSection\\Authentication\\Values\\RequestProxies\\PasswordGrant\\AccessTokenProxy\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Property App\\Containers\\AppSection\\Authentication\\Tests\\Unit\\Data\\Factories\\PasswordTokenFactoryTest\:\:\$user \(App\\Containers\\AppSection\\User\\Models\\User\|null\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Cannot access property \$email on mixed\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/TokenAttributeFormatterTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/TokenAttributeFormatterTest.php
+
+		-
+			message: '#^Parameter \#1 \$username of static method App\\Containers\\AppSection\\Authentication\\Values\\UserCredential\:\:create\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Data/Factories/TokenAttributeFormatterTest.php
 
 		-
 			message: '#^Cannot call method makeOne\(\) on mixed\.$#'
@@ -807,7 +1065,7 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$endpoint of method App\\Containers\\AppSection\\Authentication\\Tests\\Unit\\Providers\\PassportServiceProviderTest\:\:assertSamePrefix\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 1
+			count: 2
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/PassportServiceProviderTest.php
 
 		-
@@ -815,6 +1073,30 @@ parameters:
 			identifier: staticMethod.impossibleType
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/Providers/PasswordResetServiceProviderTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:\$tokens\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Call to an undefined method App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory\<App\\Containers\\AppSection\\User\\Models\\User\>\|App\\Containers\\AppSection\\User\\Models\\User\:\:refresh\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/PasswordTokenFactoryTest.php
+
+		-
+			message: '#^Cannot call method createOne\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Tasks/PasswordTokenFactoryTest.php
 
 		-
 			message: '#^Cannot call method createOne\(\) on mixed\.$#'
@@ -833,6 +1115,60 @@ parameters:
 			identifier: cast.string
 			count: 1
 			path: app/Containers/AppSection/Authentication/Tests/Unit/UI/API/Requests/EmailVerification/VerifyRequestTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$grant_types\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$owner_id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$owner_type\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$provider\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$redirect_uris\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$revoked\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Values\\\\Clients\\\\WebClient'' and App\\Containers\\AppSection\\Authentication\\Values\\Clients\\WebClient will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with string will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Values/Clients/WebClientTest.php
 
 		-
 			message: '#^Cannot cast mixed to int\.$#'
@@ -997,26 +1333,8 @@ parameters:
 			path: app/Containers/AppSection/Authentication/UI/WEB/Requests/LogoutRequest.php
 
 		-
-			message: '#^Access to an undefined property Laravel\\Passport\\Client\:\:\$secret\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authentication/Values/Clients/WebClient.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: app/Containers/AppSection/Authentication/Values/Clients/WebClient.php
-
-		-
-			message: '#^Method App\\Containers\\AppSection\\Authentication\\Values\\Clients\\WebClient\:\:secret\(\) should return string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: app/Containers/AppSection/Authentication/Values/Clients/WebClient.php
-
-		-
-			message: '#^Parameter \#2 \$secret of class App\\Containers\\AppSection\\Authentication\\Values\\Clients\\WebClient constructor expects string, mixed given\.$#'
-			identifier: argument.type
+			message: '#^Using nullsafe method call on non\-nullable type Illuminate\\Config\\Repository\. Use \-\> instead\.$#'
+			identifier: nullsafe.neverNull
 			count: 1
 			path: app/Containers/AppSection/Authentication/Values/Clients/WebClient.php
 
@@ -1081,22 +1399,40 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Actions/FindPermissionByIdAction.php
 
 		-
-			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListRolePermissionsAction\:\:run\(\) should return App\\Containers\\AppSection\\Authorization\\Data\\Collections\\PermissionCollection but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
-			identifier: return.type
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListPermissionsAction\:\:__construct\(\) has parameter \$repository with generic class App\\Containers\\AppSection\\Authorization\\Data\\Repositories\\PermissionRepository but does not specify its types\: TModel$#'
+			identifier: missingType.generics
 			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/ListRolePermissionsAction.php
+			path: app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
 
 		-
-			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListUserPermissionsAction\:\:run\(\) should return App\\Containers\\AppSection\\Authorization\\Data\\Collections\\PermissionCollection but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
-			identifier: return.type
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListPermissionsAction\:\:run\(\) return type with generic class Illuminate\\Pagination\\LengthAwarePaginator does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
 			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/ListUserPermissionsAction.php
+			path: app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
 
 		-
-			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListUserRolesAction\:\:run\(\) should return App\\Containers\\AppSection\\Authorization\\Data\\Collections\\RoleCollection but returns Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\.$#'
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListPermissionsAction\:\:run\(\) should return App\\Containers\\AppSection\\Authorization\\Data\\Collections\\PermissionCollection\|Illuminate\\Pagination\\LengthAwarePaginator but returns mixed\.$#'
 			identifier: return.type
 			count: 1
-			path: app/Containers/AppSection/Authorization/Actions/ListUserRolesAction.php
+			path: app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListRolesAction\:\:__construct\(\) has parameter \$repository with generic class App\\Containers\\AppSection\\Authorization\\Data\\Repositories\\RoleRepository but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListRolesAction\:\:run\(\) return type with generic class Illuminate\\Pagination\\LengthAwarePaginator does not specify its types\: TKey, TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
+
+		-
+			message: '#^Method App\\Containers\\AppSection\\Authorization\\Actions\\ListRolesAction\:\:run\(\) should return App\\Containers\\AppSection\\Authorization\\Data\\Collections\\RoleCollection\|Illuminate\\Pagination\\LengthAwarePaginator but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
 
 		-
 			message: '#^Parameter \#1 \$permission of method Spatie\\Permission\\Models\\Role\:\:revokePermissionTo\(\) expects array\<Spatie\\Permission\\Contracts\\Permission\|string\>\|BackedEnum\|Spatie\\Permission\\Contracts\\Permission\|string, int given\.$#'
@@ -1357,10 +1693,22 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Data/Seeders/AuthorizationSeeder_1.php
 
 		-
+			message: '#^PHPDoc tag @method for method App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:factory\(\) return type contains generic class App\\Containers\\AppSection\\Authorization\\Data\\Factories\\PermissionFactory but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Containers/AppSection/Authorization/Models/Permission.php
+
+		-
 			message: '#^Parameter \#1 \$items of class App\\Containers\\AppSection\\Authorization\\Data\\Collections\\PermissionCollection constructor expects Illuminate\\Contracts\\Support\\Arrayable\<\(int\|string\), App\\Containers\\AppSection\\Authorization\\Models\\Permission\>\|iterable\<\(int\|string\), App\\Containers\\AppSection\\Authorization\\Models\\Permission\>\|null, array\<Illuminate\\Database\\Eloquent\\Model\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Models/Permission.php
+
+		-
+			message: '#^PHPDoc tag @method for method App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:factory\(\) return type contains generic class App\\Containers\\AppSection\\Authorization\\Data\\Factories\\RoleFactory but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Containers/AppSection/Authorization/Models/Role.php
 
 		-
 			message: '#^Parameter \#1 \$items of class App\\Containers\\AppSection\\Authorization\\Data\\Collections\\RoleCollection constructor expects Illuminate\\Contracts\\Support\\Arrayable\<\(int\|string\), App\\Containers\\AppSection\\Authorization\\Models\\Role\>\|iterable\<\(int\|string\), App\\Containers\\AppSection\\Authorization\\Models\\Role\>\|null, array\<Illuminate\\Database\\Eloquent\\Model\> given\.$#'
@@ -1909,18 +2257,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/AssignRolesToUserActionTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/CreateRoleActionTest.php
-
-		-
 			message: '#^Cannot access property \$id on mixed\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -2215,12 +2551,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/ListUserRolesActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -2239,7 +2569,7 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
 
 		-
-			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			message: '#^Cannot access property \$id on App\\Containers\\AppSection\\Authorization\\Models\\Role\|null\.$#'
 			identifier: property.nonObject
 			count: 2
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
@@ -2293,12 +2623,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RemoveUserRolesActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -2317,7 +2641,7 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
 
 		-
-			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			message: '#^Cannot access property \$id on App\\Containers\\AppSection\\Authorization\\Models\\Permission\|null\.$#'
 			identifier: property.nonObject
 			count: 2
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
@@ -2371,12 +2695,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeRolePermissionsActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -2395,7 +2713,7 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
 
 		-
-			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			message: '#^Cannot access property \$id on App\\Containers\\AppSection\\Authorization\\Models\\Permission\|null\.$#'
 			identifier: property.nonObject
 			count: 2
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
@@ -2449,12 +2767,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/RevokeUserPermissionsActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -2473,7 +2785,7 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
 
 		-
-			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			message: '#^Cannot access property \$id on App\\Containers\\AppSection\\Authorization\\Models\\Permission\|null\.$#'
 			identifier: property.nonObject
 			count: 2
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
@@ -2539,12 +2851,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncRolePermissionsActionTest.php
 
 		-
-			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -2563,7 +2869,7 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
 
 		-
-			message: '#^Cannot access property \$id on Illuminate\\Database\\Eloquent\\Model\|null\.$#'
+			message: '#^Cannot access property \$id on App\\Containers\\AppSection\\Authorization\\Models\\Role\|null\.$#'
 			identifier: property.nonObject
 			count: 2
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Actions/SyncUserRolesActionTest.php
@@ -2797,7 +3103,7 @@ parameters:
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/SuperAdminSeederTest.php
 
 		-
-			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Data/Seeders/SuperAdminSeederTest.php
@@ -2861,30 +3167,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/Authorization/Tests/Unit/Models/RoleTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreatePermissionTaskTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/Tests/Unit/Tasks/CreateRoleTaskTest.php
 
 		-
 			message: '#^Cannot access property \$id on mixed\.$#'
@@ -3601,18 +3883,6 @@ parameters:
 			path: app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionAdminTransformer.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Permission\:\:\$display_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/UI/API/Transformers/PermissionTransformer.php
-
-		-
 			message: '#^Method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\PermissionTransformer\:\:transform\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -3635,18 +3905,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/Containers/AppSection/Authorization/UI/API/Transformers/RoleAdminTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$description\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/UI/API/Transformers/RoleTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\Authorization\\Models\\Role\:\:\$display_name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/Authorization/UI/API/Transformers/RoleTransformer.php
 
 		-
 			message: '#^Method App\\Containers\\AppSection\\Authorization\\UI\\API\\Transformers\\RoleTransformer\:\:transform\(\) return type has no value type specified in iterable type array\.$#'
@@ -3769,6 +4027,12 @@ parameters:
 			path: app/Containers/AppSection/User/Models/User.php
 
 		-
+			message: '#^PHPDoc tag @method for method App\\Containers\\AppSection\\User\\Models\\User\:\:factory\(\) return type contains generic class App\\Containers\\AppSection\\User\\Data\\Factories\\UserFactory but does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: app/Containers/AppSection/User/Models/User.php
+
+		-
 			message: '#^Parameter \#1 \$array of function array_keys expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3783,6 +4047,12 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$guard of method App\\Ship\\Parents\\Models\\UserModel\:\:hasRole\(\) expects string\|null, int\|string given\.$#'
 			identifier: argument.type
+			count: 1
+			path: app/Containers/AppSection/User/Models/User.php
+
+		-
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Containers\\AppSection\\User\\Models\\User does not\.$#'
+			identifier: class.missingImplements
 			count: 1
 			path: app/Containers/AppSection/User/Models/User.php
 
@@ -4063,22 +4333,10 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminTest.php
 
 		-
-			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Functional/CLI/CreateAdminTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/CreateAdminActionTest.php
 
 		-
 			message: '#^Cannot access property \$id on mixed\.$#'
@@ -4141,12 +4399,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/ListUsersActionTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
-
-		-
 			message: '#^Cannot access property \$id on mixed\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -4165,34 +4417,10 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
 
 		-
-			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdatePasswordActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
 
 		-
 			message: '#^Cannot access property \$id on mixed\.$#'
@@ -4213,7 +4441,7 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
 
 		-
-			message: '#^Cannot call method isSameDay\(\) on mixed\.$#'
+			message: '#^Cannot call method isSameDay\(\) on Carbon\\CarbonImmutable\|null\.$#'
 			identifier: method.nonObject
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
@@ -4225,7 +4453,7 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
 
 		-
-			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Actions/UpdateUserActionTest.php
@@ -4411,25 +4639,13 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Policies/UserPolicyTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
-
-		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\User\\\\Models\\\\User'' and App\\Containers\\AppSection\\User\\Models\\User will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
 
 		-
-			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/CreateUserTaskTest.php
@@ -4453,18 +4669,6 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/FindUserByIdTaskTest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$password\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
-
-		-
 			message: '#^Cannot access property \$id on mixed\.$#'
 			identifier: property.nonObject
 			count: 3
@@ -4483,7 +4687,7 @@ parameters:
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
 
 		-
-			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$hashedValue of static method Illuminate\\Support\\Facades\\Hash\:\:check\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: app/Containers/AppSection/User/Tests/Unit/Tasks/UpdateUserTaskTest.php
@@ -4849,19 +5053,7 @@ parameters:
 			path: app/Containers/AppSection/User/UI/API/Requests/UpdateUserRequest.php
 
 		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$created_at\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$updated_at\.$#'
-			identifier: property.notFound
-			count: 2
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
-
-		-
-			message: '#^Cannot call method diffForHumans\(\) on mixed\.$#'
+			message: '#^Cannot call method diffForHumans\(\) on Carbon\\CarbonImmutable\|null\.$#'
 			identifier: method.nonObject
 			count: 2
 			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
@@ -4871,36 +5063,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/Containers/AppSection/User/UI/API/Transformers/UserAdminTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$birth\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$email_verified_at\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$gender\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
-
-		-
-			message: '#^Access to an undefined property App\\Containers\\AppSection\\User\\Models\\User\:\:\$name\.$#'
-			identifier: property.notFound
-			count: 1
-			path: app/Containers/AppSection/User/UI/API/Transformers/UserTransformer.php
 
 		-
 			message: '#^Method App\\Containers\\AppSection\\User\\UI\\API\\Transformers\\UserTransformer\:\:transform\(\) return type has no value type specified in iterable type array\.$#'
@@ -4969,34 +5131,10 @@ parameters:
 			path: app/Ship/Commands/SeedTestingData.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 8
-			path: app/Ship/Configs/apiato.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 8
-			path: app/Ship/Configs/debugbar.php
-
-		-
 			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
 			identifier: ternary.shortNotAllowed
 			count: 1
 			path: app/Ship/Configs/debugbar.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 3
-			path: app/Ship/Configs/hashids.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 6
-			path: app/Ship/Configs/repository.php
 
 		-
 			message: '#^Method App\\Ship\\Criteria\\BelongsToRelationCriteria\:\:apply\(\) has parameter \$model with generic class Illuminate\\Database\\Eloquent\\Builder but does not specify its types\: TModel$#'
@@ -6007,6 +6145,12 @@ parameters:
 			path: app/Ship/Parents/Actions/Action.php
 
 		-
+			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Ship/Parents/Actions/SubAction.php
+
+		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 149 on line 7$#'
 			identifier: phpDoc.parseError
 			count: 1
@@ -6071,6 +6215,12 @@ parameters:
 			identifier: phpDoc.parseError
 			count: 1
 			path: app/Ship/Parents/Models/Model.php
+
+		-
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Parents\\Models\\UserModel does not\.$#'
+			identifier: class.missingImplements
+			count: 1
+			path: app/Ship/Parents/Models/UserModel.php
 
 		-
 			message: '#^PHPDoc tag @SuppressWarnings has invalid value \(\(PHPMD\.NumberOfChildren\)\)\: Unexpected token "\.NumberOfChildren\)", expected ''\)'' at offset 30 on line 2$#'
@@ -6175,6 +6325,12 @@ parameters:
 			path: app/Ship/Tests/Fakes/TestUser.php
 
 		-
+			message: '#^Trait Laravel\\Passport\\HasApiTokens requires using class to implement Laravel\\Passport\\Contracts\\OAuthenticatable, but App\\Ship\\Tests\\Fakes\\TestUser does not\.$#'
+			identifier: class.missingImplements
+			count: 1
+			path: app/Ship/Tests/Fakes/TestUser.php
+
+		-
 			message: '#^Class App\\Ship\\Tests\\Fakes\\TestUserRepository extends generic class App\\Ship\\Parents\\Repositories\\Repository but does not specify its types\: TModel$#'
 			identifier: missingType.generics
 			count: 1
@@ -6199,34 +6355,10 @@ parameters:
 			path: app/Ship/Tests/Unit/Commands/HelloWorldTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 8
-			path: app/Ship/Tests/Unit/Configs/ApiatoTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: app/Ship/Tests/Unit/Configs/ApiatoTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 2
-			path: app/Ship/Tests/Unit/Configs/DebugBarTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 3
-			path: app/Ship/Tests/Unit/Configs/HashIdsTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 6
-			path: app/Ship/Tests/Unit/Configs/RepositoryTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
@@ -6613,34 +6745,16 @@ parameters:
 			path: tests/Unit/Configs/AppTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 15
-			path: tests/Unit/Configs/AppTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: tests/Unit/Configs/AppTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 5
-			path: tests/Unit/Configs/AuthTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: tests/Unit/Configs/AuthTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 18
-			path: tests/Unit/Configs/BroadcastingTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
@@ -6655,12 +6769,6 @@ parameters:
 			path: tests/Unit/Configs/BroadcastingTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 19
-			path: tests/Unit/Configs/CacheTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -6673,12 +6781,6 @@ parameters:
 			path: tests/Unit/Configs/CacheTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 2
-			path: tests/Unit/Configs/CorsTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
@@ -6688,12 +6790,6 @@ parameters:
 			message: '#^Call to function array_filter\(\) requires parameter \#2 to be passed to avoid loose comparison semantics\.$#'
 			identifier: arrayFilter.strict
 			count: 2
-			path: tests/Unit/Configs/DatabaseTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 56
 			path: tests/Unit/Configs/DatabaseTest.php
 
 		-
@@ -6715,22 +6811,10 @@ parameters:
 			path: tests/Unit/Configs/DatabaseTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 9
-			path: tests/Unit/Configs/FileSystemsTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: tests/Unit/Configs/FileSystemsTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 22
-			path: tests/Unit/Configs/LoggingTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
@@ -6739,22 +6823,10 @@ parameters:
 			path: tests/Unit/Configs/LoggingTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 13
-			path: tests/Unit/Configs/MailTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: tests/Unit/Configs/MailTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 20
-			path: tests/Unit/Configs/QueueTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
@@ -6763,22 +6835,10 @@ parameters:
 			path: tests/Unit/Configs/QueueTest.php
 
 		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 7
-			path: tests/Unit/Configs/ServicesTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: tests/Unit/Configs/ServicesTest.php
-
-		-
-			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
-			identifier: larastan.noEnvCallsOutsideOfConfig
-			count: 15
-			path: tests/Unit/Configs/SessionTest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEqualsCanonicalizing\(\)\.$#'

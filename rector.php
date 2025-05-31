@@ -14,9 +14,14 @@ use Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector;
 use Rector\CodingStyle\Rector\Use_\SeparateMultiUseImportsRector;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector;
+use Rector\Doctrine\Dbal211\Rector\MethodCall\ReplaceFetchAllMethodCallRector;
+use Rector\Doctrine\Orm214\Rector\Param\ReplaceLifecycleEventArgsByDedicatedEventArgsRector;
 use Rector\Naming\Rector\Assign\RenameVariableToMatchMethodCallReturnTypeRector;
 use Rector\Naming\Rector\Class_\RenamePropertyToMatchTypeRector;
 use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
+use Rector\Naming\Rector\ClassMethod\RenameVariableToMatchNewTypeRector;
+use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchExprVariableRector;
+use Rector\Naming\Rector\Foreach_\RenameForeachValueVariableToMatchMethodCallReturnTypeRector;
 use Rector\Php71\Rector\FuncCall\RemoveExtraParametersRector;
 use Rector\Php73\Rector\BooleanOr\IsCountableRector;
 use Rector\Php74\Rector\Closure\ClosureToArrowFunctionRector;
@@ -26,6 +31,7 @@ use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Privatization\Rector\ClassMethod\PrivatizeFinalClassMethodRector;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
+use Rector\TypeDeclaration\Rector\Class_\TypedPropertyFromCreateMockAssignRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeRector;
 use Rector\ValueObject\PhpVersion;
 use RectorLaravel\Set\LaravelLevelSetList;
@@ -59,17 +65,22 @@ return RectorConfig::configure()
         symfonyCodeQuality: true,
         symfonyConfigs: false,
     )
+    ->withComposerBased(
+        phpunit: true,
+    )
     ->withAttributesSets(
-        doctrine: false,
         phpunit: true,
     )
     ->withRules([
+        ReplaceFetchAllMethodCallRector::class,
+        ReplaceLifecycleEventArgsByDedicatedEventArgsRector::class,
         MockObjectStaticToInstanceCallRector::class,
         AssertInstanceToStaticCallRector::class,
     ])
     ->withSets([
         PHPUnitSetList::PHPUNIT_90,
         PHPUnitSetList::PHPUNIT_100,
+        PHPUnitSetList::PHPUNIT_110,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
         PHPUnitSetList::ANNOTATIONS_TO_ATTRIBUTES,
 
@@ -108,6 +119,10 @@ return RectorConfig::configure()
             // it's breaks the Models
             __DIR__ . '/app/Containers/*/*/Models/*'
         ],
+        RenameForeachValueVariableToMatchMethodCallReturnTypeRector::class, // it's redundant
+        RenameForeachValueVariableToMatchExprVariableRector::class, // it's breaks the unit tests
+        TypedPropertyFromCreateMockAssignRector::class, // it's breaks the unit tests
+        RenameVariableToMatchNewTypeRector::class, // it's breaks the unit tests
 
         //        THINKING
         AddMethodCallBasedStrictParamTypeRector::class, // it's breaks the using multiple Traits

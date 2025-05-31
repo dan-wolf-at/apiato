@@ -22,6 +22,7 @@ final class UserRepository extends ParentRepository
         'created_at'        => 'like',
     ];
 
+    #[\Override]
     public function model(): string
     {
         return config('auth.providers.users.model');

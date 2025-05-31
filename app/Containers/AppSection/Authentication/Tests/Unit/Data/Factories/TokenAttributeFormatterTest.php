@@ -21,7 +21,9 @@ final class TokenAttributeFormatterTest extends UnitTestCase
         $user = User::factory()->createOne([
             'password' => 'password',
         ]);
-        $token = app(PasswordTokenFactory::class)->make(
+        /** @var PasswordTokenFactory $passwordTokenFactory */
+        $passwordTokenFactory = app(PasswordTokenFactory::class);
+        $token = $passwordTokenFactory->make(
             AccessTokenProxy::create(
                 UserCredential::create(
                     $user->email,
