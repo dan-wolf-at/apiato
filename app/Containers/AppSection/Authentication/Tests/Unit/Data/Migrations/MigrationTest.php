@@ -200,8 +200,8 @@ final class MigrationTest extends UnitTestCase
             'mysql', 'sqlite' => 'tinyint',
             default => 'bool',
         };
-        $timestamp = match ($driver) {
-            'mysql', 'pgsql' => 'timestamp',
+        $datetime = match ($driver) {
+            'pgsql' => 'timestamp',
             default => 'datetime',
         };
 
@@ -212,9 +212,9 @@ final class MigrationTest extends UnitTestCase
             'user_code'        => $char,
             'scopes'           => 'text',
             'revoked'          => $bool,
-            'user_approved_at' => 'datetime',
-            'last_polled_at'   => 'datetime',
-            'expires_at'       => 'datetime',
+            'user_approved_at' => $datetime,
+            'last_polled_at'   => $datetime,
+            'expires_at'       => $datetime,
         ];
 
         self::assertDatabaseTable('oauth_device_codes', $columns);
