@@ -20,13 +20,16 @@ final class MigrationTest extends UnitTestCase
             default  => 'bigint',
         };
         $char = match ($driver) {
-            'sqlite', 'mysql' => 'char',
-            'pgsql' => 'bpchar',
-            default => 'string',
+            'mysql'  => 'char',
+            'pgsql'  => 'bpchar',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
-        $uuid = match ($driver) {
-            'sqlite', 'mysql', 'pgsql' => 'uuid',
-            default => 'guid',
+        $guid = match ($driver) {
+            'pgsql'  => 'uuid',
+            'mysql'  => 'char',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
         $bool = match ($driver) {
             'mysql', 'sqlite' => 'tinyint',
@@ -40,7 +43,7 @@ final class MigrationTest extends UnitTestCase
         $columns = [
             'id'         => $char,
             'user_id'    => $bigint,
-            'client_id'  => $uuid,
+            'client_id'  => $guid,
             'scopes'     => 'text',
             'revoked'    => $bool,
             'expires_at' => $datetime,
@@ -62,13 +65,16 @@ final class MigrationTest extends UnitTestCase
             default => 'string',
         };
         $char = match ($driver) {
-            'sqlite', 'mysql' => 'char',
-            'pgsql' => 'bpchar',
-            default => 'string',
+            'mysql'  => 'char',
+            'pgsql'  => 'bpchar',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
-        $uuid = match ($driver) {
-            'sqlite', 'mysql', 'pgsql' => 'uuid',
-            default => 'guid',
+        $guid = match ($driver) {
+            'pgsql'  => 'uuid',
+            'mysql'  => 'char',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
         $datetime = match ($driver) {
             'mysql', 'sqlite' => 'datetime',
@@ -86,7 +92,7 @@ final class MigrationTest extends UnitTestCase
         $columns = [
             'id'         => $char,
             'user_id'    => $bigint,
-            'client_id'  => $uuid,
+            'client_id'  => $guid,
             'name'       => $string,
             'scopes'     => 'text',
             'revoked'    => $bool,
@@ -102,9 +108,10 @@ final class MigrationTest extends UnitTestCase
     {
         $driver = Schema::getConnection()->getDriverName();
         $char = match ($driver) {
-            'sqlite', 'mysql' => 'char',
-            'pgsql' => 'bpchar',
-            default => 'string',
+            'mysql'  => 'char',
+            'pgsql'  => 'bpchar',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
         $bool = match ($driver) {
             'mysql', 'sqlite' => 'tinyint',
@@ -137,9 +144,11 @@ final class MigrationTest extends UnitTestCase
             'sqlite', 'mysql', 'pgsql' => 'varchar',
             default => 'string',
         };
-        $uuid = match ($driver) {
-            'sqlite', 'mysql', 'pgsql' => 'uuid',
-            default => 'guid',
+        $guid = match ($driver) {
+            'pgsql'  => 'uuid',
+            'mysql'  => 'char',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
         $bool = match ($driver) {
             'mysql', 'sqlite' => 'tinyint',
@@ -151,7 +160,7 @@ final class MigrationTest extends UnitTestCase
         };
 
         $columns = [
-            'id'            => $uuid,
+            'id'            => $guid,
             'owner_type'    => $string,
             'owner_id'      => $bigint,
             'name'          => $string,
@@ -176,13 +185,16 @@ final class MigrationTest extends UnitTestCase
             default  => 'bigint',
         };
         $char = match ($driver) {
-            'sqlite', 'mysql' => 'char',
-            'pgsql' => 'bpchar',
-            default => 'string',
+            'mysql'  => 'char',
+            'pgsql'  => 'bpchar',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
-        $uuid = match ($driver) {
-            'sqlite', 'mysql', 'pgsql' => 'uuid',
-            default => 'guid',
+        $guid = match ($driver) {
+            'pgsql'  => 'uuid',
+            'mysql'  => 'char',
+            'sqlite' => 'varchar',
+            default  => 'string',
         };
         $bool = match ($driver) {
             'mysql', 'sqlite' => 'tinyint',
@@ -196,13 +208,13 @@ final class MigrationTest extends UnitTestCase
         $columns = [
             'id'               => $char,
             'user_id'          => $bigint,
-            'client_id'        => $uuid,
+            'client_id'        => $guid,
             'user_code'        => $char,
             'scopes'           => 'text',
             'revoked'          => $bool,
-            'user_approved_at' => $timestamp,
-            'last_polled_at'   => $timestamp,
-            'expires_at'       => $timestamp,
+            'user_approved_at' => 'datetime',
+            'last_polled_at'   => 'datetime',
+            'expires_at'       => 'datetime',
         ];
 
         self::assertDatabaseTable('oauth_device_codes', $columns);
