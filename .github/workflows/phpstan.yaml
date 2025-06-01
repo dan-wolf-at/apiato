@@ -32,6 +32,9 @@ jobs:
       - name: Setup Composer token
         run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Copy environment file for Composer
+        run: cp .env.ci .env
+
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v3
         with:
@@ -50,6 +53,14 @@ jobs:
 
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse --memory-limit=512M --ansi --error-format=github
+
+      - name: Generate Baseline in CI Context
+        if: always()
+        run: |
+          echo "Attempting to generate PHPStan baseline as phpstan-baseline-from-ci.neon..."
+          vendor/bin/phpstan analyse --memory-limit=512M --generate-baseline=.artifacts/phpstan-baseline-from-ci.neon --allow-empty-baseline -vv || echo "PHPStan baseline generation finished with non-zero exit code (this is okay if errors were found)."
+          echo "Contents of phpstan-baseline-from-ci.neon:"
+          cat .artifacts/phpstan-baseline-from-ci.neon || echo "Could not cat phpstan-baseline-from-ci.neon"
 
       - name: Save PHPStan result cache
         uses: actions/cache/save@v4
