@@ -20,7 +20,7 @@ final class RevokeTokenActionTest extends UnitTestCase
 {
     public function testCanRevokeToken(): void
     {
-        /** @var User|UserFactory $user */
+        /** @var User|UserFactory<User> $user */
         $user = User::factory()->createOne([
             'password' => 'youShallNotPass',
         ]);

@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 /**
  * @property      int                                                                                                                                             $id
  * @property      string|null                                                                                                                                     $name
- * @property      string|null                                                                                                                                     $email
+ * @property      string                                                                                                                                          $email
  * @property      \Carbon\CarbonImmutable|null                                                                                                                    $email_verified_at
  * @property      string|null                                                                                                                                     $password
  * @property      Gender|null                                                                                                                                     $gender

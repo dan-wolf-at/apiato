@@ -19,7 +19,7 @@ final class RevokeTokenTest extends ApiTestCase
 {
     public function testCanLogout(): void
     {
-        /** @var User|UserFactory $user */
+        /** @var User|UserFactory<User> $user */
         $user = User::factory()->createOne([
             'password' => 'password',
         ]);

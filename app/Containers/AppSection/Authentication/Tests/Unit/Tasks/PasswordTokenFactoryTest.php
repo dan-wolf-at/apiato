@@ -20,7 +20,7 @@ final class PasswordTokenFactoryTest extends UnitTestCase
 {
     public function testCanIssueAccessToken(): void
     {
-        /** @var User|UserFactory $user */
+        /** @var User|UserFactory<User> $user */
         $user = User::factory()->createOne(['password' => 'youShallNotPass']);
         /** @var PasswordTokenFactory $factory */
         $factory = app(PasswordTokenFactory::class);
@@ -42,7 +42,7 @@ final class PasswordTokenFactoryTest extends UnitTestCase
 
     public function testCanIssueRefreshToken(): void
     {
-        /** @var User|UserFactory $user */
+        /** @var User|UserFactory<User> $user */
         $user = User::factory()->createOne(['password' => 'youShallNotPass']);
         /** @var PasswordTokenFactory $factory */
         $factory = app(PasswordTokenFactory::class);

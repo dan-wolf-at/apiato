@@ -21,7 +21,7 @@ final class RefreshTokenActionTest extends UnitTestCase
 {
     public function testCanGetTokenViaRefreshToken(): void
     {
-        /** @var User|UserFactory $user */
+        /** @var User|UserFactory<User> $user */
         $user = User::factory()->createOne(['password' => 'youShallNotPass']);
         /** @var PasswordTokenFactory $passwordTokenFactory */
         $passwordTokenFactory = app(PasswordTokenFactory::class);
