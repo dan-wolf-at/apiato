@@ -10,6 +10,7 @@ use App\Containers\AppSection\Authentication\Data\Factories\PasswordTokenFactory
 use App\Containers\AppSection\Authentication\Tests\UnitTestCase;
 use App\Containers\AppSection\Authentication\Values\RequestProxies\PasswordGrant\AccessTokenProxy;
 use App\Containers\AppSection\Authentication\Values\UserCredential;
+use App\Containers\AppSection\User\Data\Factories\UserFactory;
 use App\Containers\AppSection\User\Models\User;
 use Laravel\Passport\Contracts\ScopeAuthorizable;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -19,7 +20,7 @@ final class RevokeTokenActionTest extends UnitTestCase
 {
     public function testCanRevokeToken(): void
     {
-        /** @var User $user */
+        /** @var User|UserFactory $user */
         $user = User::factory()->createOne([
             'password' => 'youShallNotPass',
         ]);

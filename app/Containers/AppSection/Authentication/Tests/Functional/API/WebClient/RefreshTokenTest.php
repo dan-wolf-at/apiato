@@ -66,7 +66,9 @@ final class RefreshTokenTest extends ApiTestCase
             'password' => 'youShallNotPass',
         ];
         User::factory()->createOne($data);
-        $this->refreshToken = app(PasswordTokenFactory::class)->make(
+        /** @var PasswordTokenFactory $passwordTokenFactory */
+        $passwordTokenFactory = app(PasswordTokenFactory::class);
+        $this->refreshToken = $passwordTokenFactory->make(
             AccessTokenProxy::create(
                 UserCredential::create(
                     $data['email'],
