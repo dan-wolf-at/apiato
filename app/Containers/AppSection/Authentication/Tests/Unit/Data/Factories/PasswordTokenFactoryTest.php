@@ -45,6 +45,7 @@ final class PasswordTokenFactoryTest extends UnitTestCase
         $this->user = User::factory()->createOne([
             'password' => 'password',
         ]);
+        /** @phpstan-ignore-next-line */
         $this->factory = app(PasswordTokenFactory::class);
         $this->proxy = AccessTokenProxy::create(
             UserCredential::create(

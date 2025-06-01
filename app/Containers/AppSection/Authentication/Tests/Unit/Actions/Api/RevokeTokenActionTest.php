@@ -25,7 +25,9 @@ final class RevokeTokenActionTest extends UnitTestCase
             'password' => 'youShallNotPass',
         ]);
         self::assertCount(0, $user->tokens);
-        app(PasswordTokenFactory::class)->for($user)->make(
+        /** @var PasswordTokenFactory $passwordTokenFactory */
+        $passwordTokenFactory = app(PasswordTokenFactory::class);
+        $passwordTokenFactory->for($user)->make(
             AccessTokenProxy::create(
                 UserCredential::create(
                     $user->email,

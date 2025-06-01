@@ -22,7 +22,7 @@ final class SendActionTest extends UnitTestCase
     public function testCanSendVerificationEmail(bool $unverified): void
     {
         Notification::fake();
-        /** @var User|UserFactory $user */
+        /** @var User|UserFactory<User>|MustVerifyEmail $user */
         $user = tap(
             User::factory(),
             static function (UserFactory $factory) use ($unverified): void {
@@ -31,6 +31,7 @@ final class SendActionTest extends UnitTestCase
                 }
             },
         )->createOne();
+        /** @var SendAction $action */
         $action = app(SendAction::class);
 
         $action->run($user);
