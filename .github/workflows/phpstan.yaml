@@ -19,24 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-#      - name: Install Act dependencies
-#        if: ${{ env.ACT }}
-#        run: |
-#          apt-get update && apt-get install sudo -y
-#
-#      - name: Install dependencies
-#        run: |
-#          sudo apt-get update && sudo apt-get install curl build-essential -y
-
       - name: Checkout code
         uses: actions/checkout@v4
-
-#      - name: Setup PHP
-#        uses: shivammathur/setup-php@v2
-#        with:
-#          php-version: '8.3'
-#          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
-#          coverage: none
 
       - name: Setup Composer token
         run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
@@ -49,27 +33,6 @@ jobs:
         with:
           composer-options: --prefer-dist
 
-#      - name: Install Composer dependencies
-#        uses: php-actions/composer@v6
-#        env:
-#          COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"} }'
-#        with:
-#          php_version: "8.3"
-#          args: "--prefer-dist"
-#          php_extensions: dom curl libxml mbstring zip pcntl pdo sqlite pdo_sqlite
-
-#      - name: Prepare PHPStan cache directory
-#        run: mkdir -p phpstan_cache
-#
-#      - name: Restore PHPStan result cache
-#        uses: actions/cache/restore@v4
-#        with:
-#          path: phpstan_cache
-#          key: ${{ runner.OS }}-${{ github.repository }}-phpstan-result-cache-${{ github.sha }}
-#          restore-keys: |
-#            ${{ runner.OS }}-${{ github.repository }}-phpstan-result-cache-
-
-
       - name: Run PHPStan
         uses: php-actions/phpstan@v3
         with:
@@ -77,23 +40,3 @@ jobs:
           path: app/ config/ tests/ database/
           version: 'composer'
           php_version: '8.3'
-#          php_extensions: dom curl libxml mbstring zip pcntl pdo sqlite pdo_sqlite
-#          generate_baseline: phpstan-baseline-from-ci.neon
-
-#      - name: Run PHPStan
-#        run: vendor/bin/phpstan analyse --memory-limit=512M --ansi --error-format=github
-#
-#      - name: Generate Baseline in CI Context
-#        if: always()
-#        run: |
-#          echo "Attempting to generate PHPStan baseline as phpstan-baseline-from-ci.neon..."
-#          vendor/bin/phpstan analyse --memory-limit=512M --generate-baseline=phpstan-baseline-from-ci.neon --allow-empty-baseline -vv || echo "PHPStan baseline generation finished with non-zero exit code (this is okay if errors were found)."
-#          echo "Contents of phpstan-baseline-from-ci.neon:"
-#          cat phpstan-baseline-from-ci.neon || echo "Could not cat phpstan-baseline-from-ci.neon"
-
-#      - name: Save PHPStan result cache
-#        uses: actions/cache/save@v4
-#        if: ${{ !cancelled() }}
-#        with:
-#          path: phpstan_cache
-#          key: phpstan-result-cache-${{ github.sha }}
