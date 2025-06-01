@@ -10,7 +10,6 @@ parameters:
         - config
         - tests
         - database
-    tmpDir: phpstan_cache
     excludePaths:
         - vendor/*
         - app/Containers/Vendor/*

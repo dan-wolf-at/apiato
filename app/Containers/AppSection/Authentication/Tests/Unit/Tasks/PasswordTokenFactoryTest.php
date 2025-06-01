@@ -65,7 +65,7 @@ final class PasswordTokenFactoryTest extends UnitTestCase
 
         $tokens = $user->refresh()->tokens;
         self::assertCount(2, $tokens);
-        self::assertSame(1, $tokens->where('revoked', true)->count());
-        self::assertSame(1, $tokens->where('revoked', false)->count());
+        self::assertCount(1, $tokens->where('revoked', true));
+        self::assertCount(1, $tokens->where('revoked', false));
     }
 }

@@ -9,6 +9,7 @@
         Apiato PHPMD rulesets
     </description>
 
+    <exclude-pattern>_ide_helper.php</exclude-pattern>
     <exclude-pattern>node_modules/*</exclude-pattern>
     <exclude-pattern>phpstan_cache/*</exclude-pattern>
     <exclude-pattern>vendor/*</exclude-pattern>
