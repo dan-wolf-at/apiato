@@ -40,6 +40,15 @@ jobs:
         with:
           composer-options: --prefer-dist
 
+#      - name: Install Composer dependencies
+#        uses: php-actions/composer@v6
+#        env:
+#          COMPOSER_AUTH: '{"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"} }'
+#        with:
+#          php_version: "8.3"
+#          args: "--prefer-dist"
+#          php_extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+
 #      - name: Prepare PHPStan cache directory
 #        run: mkdir -p phpstan_cache
 #
@@ -59,6 +68,8 @@ jobs:
           path: app/ config/ tests/ database/
           version: 'composer'
           php_version: '8.3'
+          php_extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+#          generate_baseline: phpstan-baseline-from-ci.neon
 
 #      - name: Run PHPStan
 #        run: vendor/bin/phpstan analyse --memory-limit=512M --ansi --error-format=github

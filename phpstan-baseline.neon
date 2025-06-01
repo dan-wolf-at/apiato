@@ -7263,40 +7263,40 @@ parameters:
 			message: '#^Parameter \#1 \$user of method App\\Containers\\AppSection\\Authentication\\Data\\Factories\\PasswordTokenFactory\:\:for\(\) expects App\\Containers\\AppSection\\User\\Models\\User, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: ../app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
+			path: app/Containers/AppSection/Authentication/Tests/Functional/API/RevokeTokenTest.php
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Data\\\\DTOs\\\\PasswordToken'' and App\\Containers\\AppSection\\Authentication\\Data\\DTOs\\PasswordToken will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
-			path: ../app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/IssueTokenActionTest.php
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/IssueTokenActionTest.php
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''App\\\\Containers\\\\AppSection\\\\Authentication\\\\Data\\\\DTOs\\\\PasswordToken'' and App\\Containers\\AppSection\\Authentication\\Data\\DTOs\\PasswordToken will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
-			path: ../app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/RefreshTokenActionTest.php
+			path: app/Containers/AppSection/Authentication/Tests/Unit/Actions/Api/WebClient/RefreshTokenActionTest.php
 
 		-
 			message: '#^Dynamic call to static method Laravel\\Passport\\Guards\\TokenGuard\:\:activeGuard\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
-			path: ../app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
+			path: app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
 
 		-
 			message: '#^Parameter \#1 \$guard of method App\\Containers\\AppSection\\Authorization\\Data\\Repositories\\PermissionRepository\<App\\Containers\\AppSection\\Authorization\\Models\\Permission\>\:\:whereGuard\(\) expects string\|null, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1
-			path: ../app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
+			path: app/Containers/AppSection/Authorization/Actions/ListPermissionsAction.php
 
 		-
 			message: '#^Dynamic call to static method Laravel\\Passport\\Guards\\TokenGuard\:\:activeGuard\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 1
-			path: ../app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
+			path: app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
 
 		-
 			message: '#^Parameter \#1 \$guard of method App\\Containers\\AppSection\\Authorization\\Data\\Repositories\\RoleRepository\<App\\Containers\\AppSection\\Authorization\\Models\\Role\>\:\:whereGuard\(\) expects string\|null, int\|string\|null given\.$#'
 			identifier: argument.type
 			count: 1
-			path: ../app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
+			path: app/Containers/AppSection/Authorization/Actions/ListRolesAction.php
